@@ -57,7 +57,7 @@ Cloud-based infrastructure ensures reliability and accessibility from anywhere, 
 
 ## Getting Started
 
-Ready to transform your 3D printing workflow? Start with our [Quick Setup Guide](../getting-started/quick-setup) or explore our [Feature Documentation](../core-features/printer-connectivity) to learn more about specific capabilities.
+Ready to transform your 3D printing workflow? Start with our [Quick Setup Guide](../getting-started/quick-setup).
 
 :::note Documentation Updates
 This documentation is regularly updated. If you find something missing or unclear, please reach out to our support team.
