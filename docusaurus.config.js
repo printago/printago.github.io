@@ -22,7 +22,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           // Remove editUrl if you don't want "edit this page" links
-          editUrl: 'https://github.com/printago/printago.github.io/edit/main/',
+          // editUrl: 'https://github.com/printago/printago.github.io/edit/main/',
         },
         blog: false, // Disable blog if you're not using it
         theme: {
