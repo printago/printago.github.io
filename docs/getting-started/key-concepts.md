@@ -23,7 +23,7 @@ In Printago, we make an important distinction between Parts and SKUs:
 
 For example, a custom chess set SKU might contain 16 individual chess piece parts, each with their own printing requirements.
 
-## Smart Queue
+## Gutenb3d™ Smart Queue
 
 The Smart Queue is Printago's intelligent job distribution system. While you can always manually assign jobs to specific printers, Printago can also automatically match prints to printers based on requirements you define:
 
