@@ -34,6 +34,11 @@ const config = {
 
   themeConfig: ({
     image: 'img/docusaurus-social-card.jpg',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       title: 'Printago Docs',
       logo: {
