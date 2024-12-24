@@ -1,6 +1,11 @@
 name: Sync Project to Roadmap
 on:
   workflow_dispatch:
+
+permissions:
+  contents: write
+  organization-projects: read
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -13,4 +18,11 @@ jobs:
             const query = 'query { organization(login:"printago") { projectV2(number:2) { items(first:100) { nodes { fieldValues(first:100) { nodes { __typename } } } } } } }'
             const result = await github.graphql(query)
             console.log(JSON.stringify(result, null, 2))
-            require('fs').writeFileSync('./docs/debug.json', JSON.stringify(result, null, 2))
+      - name: Push to Review Branch
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git checkout -b roadmap-updates
+          git add docs/roadmap.md
+          git commit -m "Update roadmap from project board" || exit 0
+          git push -f origin roadmap-updates
