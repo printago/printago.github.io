@@ -5,8 +5,8 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
 ### Currently In Development
 
 #### 1. Billing & Referrals
-- Printago Core Subscription via Stripe.
-- Referral Code system for credit for both parties.
+- Printago Core Subscription via Stripe
+- Referral system with rewards for both referrer and referee
 
 #### 2. Advanced Filament Handling
   - Intelligent filament matching by color and type
@@ -14,38 +14,38 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
   - Support for multi-color printing setups
 
 #### 3. Configurable Dashboards
-- Configure "Cards" and "Widgets" to build your own dashboard.
-- Save multiple different views, easily page between them.
-- Event-Driven (show me what needs attention)
+- Configure "Cards" and "Widgets" to build your own dashboard
+- Save multiple different views, easily page between them
+- Event-driven notifications highlighting items requiring attention
 
 #### 4. Continuous Improvement
-- [Cloud Infrastructure Improvement] tied to commercial launch.
+- Cloud infrastructure improvements to support commercial launch
 - Capcha for New Account Signups
 - Display HMS Errors in UI / Event
-- Consolidate Queue Item view where Print Job Qty > 1.
-- 3MF: leverage slicing config embedded in project files.
+- Consolidate Queue Item view where Print Job Qty > 1
+- 3MF: leverage slicing config embedded in project files
 
 ## Short-Term Roadmap (Next 3-6 Months)
 
 #### 5. Retail Integration - V1
-  - Manual order creation (simple group of SKUs w/ qty.)
+  - Manual order creation (simple group of SKUs w/ qty)
   - Etsy Integration - pull orders from Etsy
   - Shopify integration - pull orders from Shopify
   - Match 1:1 on SKU from [Order Provider]
 
 #### 6. Bambu Lab Flagship Launch
-  - Planning time to integrate and test TBA New Bambu Lab hardware
+  - Planning time to integrate and test upcoming Bambu Lab hardware releases
 
-#### 7. Printer Compatability
+#### 7. Printer Compatibility
   - Printago OctoPrint plugin
   - Klipper Support
   - Part-Volume check in Printer matching in Gutenbed
   - Manual CRUD Slicing Profiles
 
 #### 8. FabMatic Enhancements
-  - Configure cool-to temp within Printago UI.
-  - Add "Scripts" section to the UI, allowing users to save GCODE script directly.
-  - Assign clearing scripts to printers, possibly to the part-level.
+  - Configure cool-to temp within Printago UI
+  - Add "Scripts" section to the UI, allowing users to save GCODE script directly
+  - Assign clearing scripts to printers, possibly to the part-level
   - Printago will send the clearing script manually as a separate job, no need for "end gcode"
   - AI "empty bed" detection
 
@@ -71,12 +71,9 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
 
 #### 13. Retail Integration V2 
   - Driven by user feedback
-  - Amazon?
-  - ebay?
-  - Tiktok Store?
-  - Facebook Marketplace?
+  - Potential marketplace integrations including Amazon, eBay, TikTok Store, and Facebook Marketplace
 
-### More Stuff
+### Additional Features
   - Advanced queue prioritization (low priority jobs)
   - Digital delivery system (support digital file delivery system)
   - Comprehensive reporting tools
@@ -97,4 +94,4 @@ Your feedback shapes our roadmap! If you have feature requests or suggestions, p
 
 This roadmap is not exhaustive and may change based on user needs and technical considerations. Dates and features are subject to change as we continuously improve Printago.
 
-::: 
+:::
