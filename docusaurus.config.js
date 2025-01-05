@@ -33,7 +33,7 @@ const config = {
   ],
 
   themeConfig: ({
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo.svg',
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
