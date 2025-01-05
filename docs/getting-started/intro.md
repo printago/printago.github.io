@@ -7,7 +7,7 @@ sidebar_position: 1
 Welcome to Printago (prin-TAH-go, /prɪntˈtɑːgoʊ/) - the modern solution for managing your 3D print farm. Whether you're running a small cottage industry, managing an educational makerspace, or operating a large-scale print farm, this documentation will help you make the most of Printago's features.
 
 :::tip What's New
-Printago continues to evolve! Check our [changelog](../changelog) for the latest updates and features.
+Printago continues to evolve! Check our [roadmap](../roadmap) for the latest updates and features.
 :::
 
 ## What is Printago?

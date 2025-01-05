@@ -114,5 +114,5 @@ Printago's cloud-first approach provides several advantages:
 - Automatic scaling and load balancing
 
 :::note Future Concepts
-As Printago evolves, we'll add new concepts and capabilities. Keep an eye on our [changelog](../changelog) for updates.
+As Printago evolves, we'll add new concepts and capabilities. Keep an eye on our [roadmap](../roadmap) for updates.
 :::
