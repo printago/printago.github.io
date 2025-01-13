@@ -25,13 +25,14 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
 - Consolidate Queue Item view where Print Job Qty > 1
 - 3MF: leverage slicing config embedded in project files
 
-## Short-Term Roadmap (Next 3-6 Months)
-
-#### 5. Retail Integration - V1
+#### 5. Retail Integration - Experimental Public Release
   - Manual order creation (simple group of SKUs w/ qty)
   - Etsy Integration - pull orders from Etsy
   - Shopify integration - pull orders from Shopify
-  - Match 1:1 on SKU from [Order Provider]
+  - Match 1:1 on SKU from
+  - Fuzzy SKU matching with Variant Mapping 
+
+## Short-Term Roadmap (Next 3-6 Months)
 
 #### 6. Bambu Lab Flagship Launch
   - Planning time to integrate and test upcoming Bambu Lab hardware releases
