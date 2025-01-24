@@ -96,3 +96,21 @@ Your feedback shapes our roadmap! If you have feature requests or suggestions, p
 This roadmap is not exhaustive and may change based on user needs and technical considerations. Dates and features are subject to change as we continuously improve Printago.
 
 :::
+
+## Feature Stages
+
+As it's developed, each feature goes through a variety of stages of maturity.  
+
+1. *Experimental* - these features are available on the website to use, but are still in development and may not always work as expected.  We are actively monitoring the feature for bugs and feedback from users, and may change in backward-incompatible ways.  They also may be feature-flagged for individual users and groups, or available publicly.
+2. *Beta* - these features have been fairly well-tested and should be OK for typical usage, but may still have issues with specific corner cases.
+3. *Generally Available (GA)* - these features have been robustly tested and are ready for production use.  Any bug reports will be promptly addressed.
+
+As a feature moves through the different stages, you are welcome to use it.  Any potentially paid features are free until they are GA.
+
+### Current Experimental Features
+
+- (FREE) Fabmatic (continuous printing)
+
+### Current Beta Features
+
+- (PAID) API access
