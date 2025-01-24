@@ -57,7 +57,7 @@ Printago imports all your Bambu Lab printers at once - no need to add them indiv
 All printago parts are sliced on-demand as needed based on your printer and part configurations.
 
 :::tip Bulk Configuration
-Use the `Save to all X printers in this group` option to quickly configure multiple identical printers of the same time at once.
+Use the `Save to all X printers in this group` option to quickly configure multiple identical printers of the same type at once.
 :::
 ## Creating Your First Print
 
@@ -76,7 +76,7 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
 
    Optionally you can set:
       - `Filament Type` to restrict the part to only printing on printers with certain materials (e.g. PLA, ABS)
-      - `Process Profile` to override any printer's process slicer setting, with this
+      - `Process Profile` to override any printer's process slicer setting
 
 8. Click `Create` and our part will be saved and ready for printing!   
    <img src="/img/screenshot_000329.png" width="700" alt="Part Config" />
@@ -104,43 +104,55 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
    <img src="/img/screenshot_000338.png" width="400" alt="Print Button" />
    
 
-1. 
+1. You'll be shown a confirmation screen of the print. Head over to the `Print Queue` to check out the jobs.
+
+   <img src="/img/screenshot_000339.png" width="700" alt="Print Button" />
+
+1. We can see that our items are all queued up successfully, however, there are no jobs `In Progress` yet.  
+
+   Printago ***does not*** take exclusive control of your printers, and you must let us know when the bed is clear and each printer is ready for a print.  Click on `Printers` next.
+
+   <img src="/img/screenshot_000342.png" width="700" alt="" />
+   
+
+1. When first connected, all your printers will be `Awaiting clear & ready state`.  
+   <img src="/img/screenshot_000344.png" width="700" alt="Queue View" />
+1. Click on a printer, and then find and click the `Confirm clear & ready` button in the upper right corner.
+   <img src="/img/screenshot_000345.png" width="700" alt="Printer Screen" />
+   :::warning Clear & Ready State
+   Printers must be marked "Clear & Ready" before they'll accept new jobs. This prevents accidentally starting prints on busy printers.
+   :::
+1. Head back to the printers page, and use the checkboxes to select the rest of your printers.  Click the multi-action dropdown (`n Printers Select`) -> `Availability` -> `Clear & Ready`.
+   <img src="/img/screenshot_000346.png" width="700" alt="Printers Screen" />
+1. When you're sure the selected printers, click the confirmation button, and parts will start assigning to your printers instantly!  Head back to the `Print Queue` next.
+   <img src="/img/screenshot_000347.png" width="700" alt="Mark Ready" />
+
+1. When you're sure the selected printers are clear, click the confirmation button, and parts will start assigning to your printers instantly!  Head back to the `Print Queue` next.
+   <img src="/img/screenshot_000347.png" width="700" alt="Mark Ready" />
+
 ## Queue Management
 
-<!-- ![Print Queue Overview](./img/print-queue.png) -->
+1. Now we can see Printago has sliced the files, sent the files, and the printers have jumped to life.
 
-### Basic Operations
+      <img src="/img/screenshot_000348.png" width="700" alt="Mark Ready" />
 
-- Select jobs using checkboxes
-- Use bulk actions menu for multiple jobs
-- Drag and drop to reorder priority
+  
+   
 
-### Available Actions
+1. From the `In Progress` tab, we can select jobs using the checkboxes.  The multi-action button allows you to `Pause`, `Resume`, and `Cancel` selected jobs.
+   <img src="/img/screenshot_000349.png" width="700" alt="Mark Ready" />
 
-1. **Pause Jobs**
-   - Temporarily halt selected prints
-   - Maintains queue position
+ 
+1. On the `Queued` screen, jobs can be reordered by dragging them to re-order.  Additionally jobs on this screen may be selected and cancelled via the multi-action button.  Jobs in the `Cancelled` or `Errored` tabs may be retried in a similar way, putting those jobs back into to the queue.
+   <img src="/img/queue.gif" width="700" alt="Mark Ready" />
+   :::tip Queue Processing
+      The Printago Queue processes jobs top-to-bottom order.
+   :::
 
-2. **Resume Jobs**
-   - Continue paused prints
-   - Respects queue order
 
-3. **Cancel Jobs**
-   - Remove jobs from queue
-   - Cannot be undone
+**Remember when print finish, to mark the printer as `Clear and Ready`!**
 
-:::warning Clear & Ready State
-Printers must be marked "Clear & Ready" before they'll accept new jobs. This prevents accidentally starting prints on busy printers.
-:::
+# Thank You and Happy Printing!
 
-## Next Steps
 
-Join our Discord community to learn about advanced features:
-- Parts and SKUs management
-- Customization workflows
-- FabMatic continuous printing
-- Multi-printer management
 
-:::tip Getting Help
-Need assistance? Our Discord community is the fastest way to get help and learn from other users.
-:::
