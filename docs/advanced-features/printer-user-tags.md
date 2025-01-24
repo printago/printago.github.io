@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# User Tags
+# Printer Tags
 
-Description of User Tags goes here.
+Description of Printer Tags goes here.
 
 ## Overview
 

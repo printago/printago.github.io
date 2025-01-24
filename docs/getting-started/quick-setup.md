@@ -85,16 +85,26 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
 
 <!-- ![Print Dialog](./img/print-dialog.png) -->
 
-### Printer Selection Options
+9. After saving your part, you'll be brought back to the parts list.  Find your part, and click it.
 
-- **Automatic**: Next available matching printer
-- **Tagged**: Printers with specific tags
-- **Manual**: Select specific printers
+   <img src="/img/screenshot_000330.png" width="700" alt="Find Part" />
+   
+1. From this screen you can edit the part or print it.  Click `Print` button in the upper right.
+   <img src="/img/screenshot_000331.png" width="700" alt="Part" />
+
+1. To get going quickly, we can select `Next Available Printer`.  This will print the part to any printers that match the part's criteria.  You can also select a specific printer.  
+
+   [Printer with Specific Tags](../advanced-features/printer-user-tags) allows you to print to a dynamically defined group of printers.  
+   <img src="/img/screenshot_000332.png" width="450" alt="Part" />
 
    :::info Printer Matching
-   Printago automatically matches parts to compatible printers based on requirements like material type, nozzle size, and user tags.
+   Printago automatically matches parts to compatible printers based on requirements like material type, nozzle size, and user-defined tags.
    :::
+1. Type a quantity any click `Print`!
+   <img src="/img/screenshot_000338.png" width="400" alt="Print Button" />
+   
 
+1. 
 ## Queue Management
 
 <!-- ![Print Queue Overview](./img/print-queue.png) -->
