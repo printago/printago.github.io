@@ -20,7 +20,8 @@ Before starting with Printago, ensure you have:
 
 Printago imports and syncs your slicing profiles from your Bambu Lab Account.  Want to change a slicing setting for all your parts? Or add a new printer model to your fleet and don't feel like slicing all your models for that printer?  Printago allows you to assign slicing profiles to ***parts***, all the slicing happens in the background automatically and on-demand!
 
-![Orca Sync Preferences](../../static/img/orca-sync-preferences.png)
+<img src="/img/orca-sync-preferences.png" width="500" alt="Orca Sync Preferences" />
+
 In Orca Slicer or Bambu Studio:
 1. Open Preferences
 2. Navigate to Presets section
@@ -32,27 +33,27 @@ In Orca Slicer or Bambu Studio:
 :::tip Bulk Import
 Printago imports all your Bambu Lab printers at once - no need to add them individually!
 :::
-![Blank Printers Screen](../../static/img/screenshot_000321.png)
 1. Navigate to `Printers` in the sidebar
 2. Click `Configure Bambu Printers`
-![Enter Bambu Lab Credentials](../../static/img/screenshot_000322.png)
+   <img src="/img/screenshot_000321.png" width="600" alt="Blank Printers Screen" />
 3. Enter your Bambu Cloud credentials and complete Bambu's 2-Factor authentication as prompted
+   <img src="/img/screenshot_000322.png" width="600" alt="Enter Bambu Lab Credentials" />
+4. After authentication, you'll be taken through a short, two-step wizard allowing you to select which 3d printers to pair and profiles to import.
 
-:::tip Free Unlimited Printers
-Printago allows you to connect and use unlimited printers - free!  
-:::
-5. After authentication, you'll be taken through a short, two-step wizard allowing you to select which 3d printers to pair and profiles to import.
-![Bambu Lab Connected Printers](../../static/img/screenshot_000323.png)
-![Slicing Profiles](../../static/img/screenshot_000324.png)
+   :::tip Free Unlimited Printers
+   Printago allows you to connect and use unlimited printers - free!  
+   :::
+   <img src="/img/screenshot_000323.png" width="600" alt="Bambu Lab Connected Printers" />
+   <img src="/img/screenshot_000324.png" width="600" alt="Slicing Profiles" />
 
 ## Configuring Printer Defaults
 
-Next we'll setup our printers configuration for slicing.  Familiar dropdown boxes will allow you to set a profile for `Printer`, `Filament`, and `Process`.
+5. On the final screen of the Bambu Wizard, printers slicing configuration must be set.  Familiar dropdown boxes will allow you to set a profile for `Printer`, `Filament`, and `Process`.
 
-![Slicing Profiles](../../static/img/screenshot_000325.png)
-Printago uses these settings for slicing and material matching. 
-![Slicing Profiles](../../static/img/screenshot_000326.png)
-
+   <img src="/img/screenshot_000325.png" width="600" alt="Printer List" />
+   Printago uses these settings for slicing and material matching. 
+   <img src="/img/screenshot_000326.png" width="600" alt="Printer Config" />
+   
 All printago parts are sliced on-demand as needed based on your printer and part configurations.
 
 :::tip Bulk Configuration
@@ -60,19 +61,25 @@ Use the `Save to all X printers in this group` option to quickly configure multi
 :::
 ## Creating Your First Print
 
-:::info File Support
-Printago accepts 3MF, STL, STEP, OpenSCAD 
-:::
+For your first print, we suggest an STL file to learn how Printago slices and prints files.
 
-<!-- ![Add Part Screen](./img/add-part.png) -->
+   :::info File Support
+   Printago supports STL, STEP, 3MF, and OpenSCAD part types. 
 
-1. Go to Products → Parts
-2. Click "Add Part"
-3. Upload your file
-4. Configure basic settings:
-   - Name
-   - Allowed filaments
-   - Process profile
+   ***`.gcode` and `.gcode.3mf` are not supported.***
+   :::
+
+6. Go to Products → Parts, and click `Add Part`
+
+   <img src="/img/screenshot_000328.png" width="700" alt="Part Screen" />
+7. Upload your file and give it a name and description.  
+
+   Optionally you can set:
+      - `Filament Type` to restrict the part to only printing on printers with certain materials (e.g. PLA, ABS)
+      - `Process Profile` to override any printer's process slicer setting, with this
+
+8. Click `Create` and our part will be saved and ready for printing!   
+   <img src="/img/screenshot_000329.png" width="700" alt="Part Config" />
 
 ## Starting Prints
 
@@ -84,9 +91,9 @@ Printago accepts 3MF, STL, STEP, OpenSCAD
 - **Tagged**: Printers with specific tags
 - **Manual**: Select specific printers
 
-:::info Printer Matching
-Printago automatically matches parts to compatible printers based on requirements like material type, nozzle size, and tags.
-:::
+   :::info Printer Matching
+   Printago automatically matches parts to compatible printers based on requirements like material type, nozzle size, and user tags.
+   :::
 
 ## Queue Management
 
