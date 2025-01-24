@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Octoprint Integration
+# Klipper Integration
 
-Description of Octoprint Integration goes here.
+Description of Klipper Integration goes here.
 
 ## Overview
 
