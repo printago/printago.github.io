@@ -122,7 +122,7 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
    :::warning Clear & Ready State
    Printers must be marked "Clear & Ready" before they'll accept new jobs. This lets Printago know it can send a print.
    :::
-1. Head back to the printers page, and use the checkboxes to select the rest of your printers.  Click the multi-action dropdown (`XX Printers Selected`) -> `Availability` -> `Clear & Ready`.
+1. Head back to the printers page, and using the checkboxes select other printers you'd like to mark as ready.  Click the multi-action dropdown (`XX Printers Selected`) -> `Availability` -> `Clear & Ready`.
    <img src="/img/screenshot_000346.png" width="700" alt="Printers Screen" />
 1. To let Printago know a jobs can be sent, click the confirmation button and parts will start assigning to your printers instantly!  Head back to the `Print Queue` next.
    <img src="/img/screenshot_000347.png" width="700" alt="Mark Ready" />
