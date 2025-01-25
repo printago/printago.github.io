@@ -18,7 +18,7 @@ Before starting with Printago, ensure you have:
 ### Enable Cloud Profile Sync
 
 
-Printago imports and syncs your slicing profiles from your Bambu Lab Account.  Want to change a slicing setting for all your parts? Or add a new printer model to your fleet and don't feel like slicing all your models for that printer?  Printago allows you to assign slicing profiles to ***parts***, all the slicing happens in the background automatically and on-demand!
+Printago automatically syncs slicing profiles from your Bambu Lab Account. When you modify a profile, changes apply to all associated parts. Adding a new printer? No need to re-slice existing models - Printago assigns profiles to parts and handles slicing automatically in the background.
 
 <img src="/img/orca-sync-preferences.png" width="500" alt="Orca Sync Preferences" />
 
@@ -61,7 +61,7 @@ Use the `Save to all X printers in this group` option to quickly configure multi
 :::
 ## Creating Your First Print
 
-For your first print, we suggest an STL file to learn how Printago slices and prints files.
+Start with an STL file to understand Printago's slicing and printing workflow.
 
    :::info File Support
    Printago supports STL, STEP, 3MF, and OpenSCAD part types. 
@@ -92,7 +92,7 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
 1. From this screen you can edit the part or print it.  Click `Print` button in the upper right.
    <img src="/img/screenshot_000331.png" width="700" alt="Part" />
 
-1. To get going quickly, we can select `Next Available Printer`.  This will print the part to any printers that match the part's criteria.  You can also select a specific printer.  
+1. Select Next Available Printer to automatically match your part with compatible printers, or choose a specific printer manually.
 
    [Printer with Specific Tags](../advanced-features/printer-user-tags) allows you to print to a dynamically defined group of printers.  
    <img src="/img/screenshot_000332.png" width="450" alt="Part" />
@@ -108,13 +108,10 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
 
    <img src="/img/screenshot_000351.png" width="700" alt="Print Button" />
 
-1. We can see that our items are all queued up successfully, however, there are no jobs `In Progress` yet.  
+1. We can see that our item is queued up successfully, however, it didn't move to `In Progress`.  Printago ***does not*** take exclusive control of your printers, and you must let us know when the bed is clear and each printer is ready for a print.  Click on `Printers` next.
 
-   Printago ***does not*** take exclusive control of your printers, and you must let us know when the bed is clear and each printer is ready for a print.  Click on `Printers` next.
-
-   <img src="/img/screenshot_000342.png" width="700" alt="" />
+   <img src="/img/screenshot_000352.png" width="700" alt="" />
    
-
 1. When first connected, all your printers will be `Awaiting clear & ready state`.  
    <img src="/img/screenshot_000344.png" width="700" alt="Queue View" />
 1. Click on a printer that you'd like to send your first job to, and then find and click the `Confirm clear & ready` button in the upper right corner.
@@ -126,11 +123,13 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
    <img src="/img/screenshot_000346.png" width="700" alt="Printers Screen" />
 1. To let Printago know a jobs can be sent, click the confirmation button and parts will start assigning to your printers instantly!  Head back to the `Print Queue` next.
    <img src="/img/screenshot_000347.png" width="700" alt="Mark Ready" />
-
+   :::info
+   You can safely use "Select All" when clearing print beds - any printer that's currently printing will ignore the "Clear and Ready" command.
+   :::
 
 ## Queue Management
 
-1. Now we can see Printago has sliced the files, sent the files, and the printers have jumped to life.
+1. Printago automatically slices files and initiates printing on selected printers.
 
       <img src="/img/screenshot_000348.png" width="700" alt="Mark Ready" />
 
@@ -138,7 +137,7 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
    <img src="/img/screenshot_000349.png" width="700" alt="Mark Ready" />
 
  
-1. On the `Queued` screen, jobs can be reordered by dragging them to re-order.  Additionally jobs on this screen may be selected and cancelled via the multi-action button.  Jobs in the `Cancelled` or `Errored` tabs may be retried in a similar way, putting those jobs back into to the queue.
+1. On the Queued screen, drag jobs to adjust their priority order. Select multiple jobs to cancel them using the multi-action button. Jobs marked as Cancelled or Errored can be moved back into the queue using the `Retry` action.
    <img src="/img/queue.gif" width="700" alt="Mark Ready" />
    :::tip Queue Processing
       The Printago Queue processes jobs top-to-bottom order.
