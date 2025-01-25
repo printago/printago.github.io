@@ -100,13 +100,13 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
    :::info Printer Matching
    Printago automatically matches parts to compatible printers based on requirements like material type, nozzle size, and user-defined tags.
    :::
-1. Type a quantity any click `Print`!
-   <img src="/img/screenshot_000338.png" width="400" alt="Print Button" />
+1. Here you can adjust the quantity, but for now just click `Print`!
+   <img src="/img/screenshot_000350.png" width="400" alt="Print Button" />
    
 
 1. You'll be shown a confirmation screen of the print. Head over to the `Print Queue` to check out the jobs.
 
-   <img src="/img/screenshot_000339.png" width="700" alt="Print Button" />
+   <img src="/img/screenshot_000351.png" width="700" alt="Print Button" />
 
 1. We can see that our items are all queued up successfully, however, there are no jobs `In Progress` yet.  
 
@@ -117,7 +117,7 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
 
 1. When first connected, all your printers will be `Awaiting clear & ready state`.  
    <img src="/img/screenshot_000344.png" width="700" alt="Queue View" />
-1. Click on a printer, and then find and click the `Confirm clear & ready` button in the upper right corner.
+1. Click on a printer that you'd like to send your first job to, and then find and click the `Confirm clear & ready` button in the upper right corner.
    <img src="/img/screenshot_000345.png" width="700" alt="Printer Screen" />
    :::warning Clear & Ready State
    Printers must be marked "Clear & Ready" before they'll accept new jobs. This lets Printago know it can send a print.
@@ -134,9 +134,6 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
 
       <img src="/img/screenshot_000348.png" width="700" alt="Mark Ready" />
 
-  
-   
-
 1. From the `In Progress` tab, we can select jobs using the checkboxes.  The multi-action button allows you to `Pause`, `Resume`, and `Cancel` selected jobs.
    <img src="/img/screenshot_000349.png" width="700" alt="Mark Ready" />
 
@@ -148,7 +145,7 @@ For your first print, we suggest an STL file to learn how Printago slices and pr
    :::
 
 
-**Remember when print finish, to mark the printer as `Clear and Ready`!**
+**Remember when print jobs finish, to mark the printer as `Clear and Ready`!**
 
 # Thank You and Happy Printing!
 
