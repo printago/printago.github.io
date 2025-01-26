@@ -7,7 +7,7 @@ sidebar_position: 1
 Printago supports the most common 3D model file formats used in the industry. Upload your files directly to our cloud platform and let us handle the rest! 🚀
 
 :::caution Important
-We do not support direct G-code files (.gcode) or G-code embedded 3MF files (.gcode.3mf). These files contain printer-specific instructions that may not be compatible with your setup. Instead, upload your source model files and let Printago handle the slicing!
+We do not support direct G-code files (.gcode) or G-code embedded 3MF files (.gcode.3mf). These files contain printer-specific instructions that may not be compatible with your setup. Instead, upload your source model files and let Printago handle the slicing automatically!
 :::
 
 ## STL Files
