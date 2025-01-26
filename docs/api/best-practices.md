@@ -1,21 +1,23 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # Best Practices
 
-Description of Best Practices goes here.
+:::info Coming Soon
+We're currently crafting comprehensive best practices documentation for the Printago API. This guide will help you build robust, efficient integrations with our platform.
+:::
 
-## Overview
+## What to Expect
 
-Add content here...
+Our upcoming best practices guide will cover:
+- Rate limiting and optimization
+- Error handling strategies
+- Authentication best practices
+- Webhook implementation
+- Performance recommendations
 
-## Features
+## Stay Updated
 
-- Feature 1
-- Feature 2
-- Feature 3
-
-## Usage
-
-Add usage examples here...
+Want to be notified when our API documentation is ready?
+Join our [Discord community](https://discord.gg/RCFA2u99De)

@@ -2,20 +2,26 @@
 sidebar_position: 1
 ---
 
-# Support
+# Support & Help
 
-Description of Support goes here.
+Need help with Printago?  We've got you covered! Our team is ready to assist you with any questions or challenges you encounter.
 
-## Overview
+## Discord Community 💬
 
-Add content here...
+For the fastest support experience, join our Discord community! Our team and community members are actively helping users 24/7.
 
-## Features
+:::tip Fast Help
+[Join our Discord Server](https://discord.gg/RCFA2u99De) - This is the quickest way to get help!
+:::
 
-- Feature 1
-- Feature 2
-- Feature 3
+## Email Support 📧
 
-## Usage
+Need to send us files or have a more detailed discussion? Reach out via email:
 
-Add usage examples here...
+support@printago.com
+
+## Before Reaching Out
+
+Check these resources first - you might find your answer immediately:
+- [FAQ Section](../faq)
+- Search our documentation using the search bar above

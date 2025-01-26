@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Printer Sharing
+# SKU Management
 
-Description of Printer Sharing goes here.
+Description of SKU Management goes here.
 
 ## Overview
 

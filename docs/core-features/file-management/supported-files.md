@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Supported File Types
 
 Printago supports the most common 3D model file formats used in the industry. Upload your files directly to our cloud platform and let us handle the rest! 🚀

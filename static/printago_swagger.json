@@ -1,0 +1,8002 @@
+{
+  "openapi": "3.1.0",
+  "servers": [
+    {
+      "url": "https://new-api.printago.io",
+      "description": "Dev"
+    },
+    {
+      "url": "https://api.printago.io",
+      "description": "Prod"
+    },
+    {
+      "url": "https://localhost:3001",
+      "description": "Local"
+    }
+  ],
+  "info": {
+    "version": "0.0.1",
+    "title": "api",
+    "description": "",
+    "license": {
+      "name": "UNLICENSED"
+    }
+  },
+  "paths": {
+    "/v1/mqtt/auth": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckAuthRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/mqtt/acl": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckTopicAccessRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/parts": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Part"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Part"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/parts/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Part"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Part"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/set-config": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetProviderConfig"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/confirm-ready": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmReadyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/enabled": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnabledConfig"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/continous-print": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContinuousPrintConfig"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrinterInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PrinterInsert"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateManyRequestPrinterUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Printer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/stats": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PrinterStat"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/stats/{ids}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}(?:,[a-z0-9]{24})*$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PrinterStat"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartialPrinterUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Printer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printers/multi": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PartialPrinterUpdateidstring"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/linked-parts": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkedPartInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedPart"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/linked-parts/{id}": {
+      "patch": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkedPartInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedPart"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/profiles": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Profile"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]{24}$"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/profiles/supported": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupportedPrinter"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/profiles/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/profiles/compatible/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompatibleProfiles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/profiles/compatible/{machineModel}/{nozzleDiameter}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "machineModel",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "nozzleDiameter",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompatibleProfiles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PrintJob"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/pause": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobOperationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/cancel": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobOperationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/resume": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobOperationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/retry": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobOperationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/clear": {
+      "patch": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrintJobOperationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/{id}/reorder": {
+      "patch": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderPrintJobRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/{id}/start": {
+      "patch": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcknowledgePrintJobStartRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/print-jobs/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJob"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartialPrintJobInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintJob"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/stores": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Store"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/skus": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkuLinkedPartsWithPartRelation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SkuInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkuLinkedPartsRelation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/skus/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkuLinkedPartsWithPartRelation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartialSkuInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sku"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/builds": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildConfig"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/part-builds": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PartBuildWithRelation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/part-builds/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartBuildWithRelation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/register": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStoresRelation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Integration"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Integration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sku-builds": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkuBuildWithRelation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sku-builds/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkuBuildWithRelation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/part-build-steps": {
+      "get": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PartBuildStep"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/part-build-steps/{id}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartBuildStep"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/storage/signed-urls": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignedUrlsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignedUrlsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/storage/signed-upload-urls": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignedUploadUrlsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignedUploadUrlsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/fuse/slicer-tokens": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSlicerTokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/fuse/slicer-tokens/{token}": {
+      "get": {
+        "tags": [],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateSlicerTokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/fuse/printers-online": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotifyPrintersOnlineRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/bambu/send-verification-code": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BambuSendVerificationCodeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BambuSendVerificationCodeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/bambu/auth": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BambuAuthRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BambuAuthSuccessResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BambuAuth2FAResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/bambu/tfa": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BambuTfaAuthRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BambuAuthSuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/bambu/profiles": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BambuImportProfilesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/bambu/disconnect": {
+      "delete": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/bambu/connect": {
+      "post": {
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CheckAuthRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "clientid": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password",
+          "clientid"
+        ]
+      },
+      "CheckTopicAccessRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "clientid": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "acc": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "username",
+          "clientid",
+          "topic",
+          "acc"
+        ]
+      },
+      "Part": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": "scad"
+              },
+              {
+                "const": "stl"
+              },
+              {
+                "const": "obj"
+              },
+              {
+                "const": "step"
+              },
+              {
+                "const": "3mf"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "default": ""
+          },
+          "fileUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "fileHashes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "thumbnailUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameter"
+            }
+          },
+          "printTags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "overriddenProcessProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "allowedFilamentTypes": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "const": "PLA"
+                },
+                {
+                  "const": "PET"
+                },
+                {
+                  "const": "ABS"
+                },
+                {
+                  "const": "ASA"
+                },
+                {
+                  "const": "FLEX"
+                },
+                {
+                  "const": "HIPS"
+                },
+                {
+                  "const": "EDGE"
+                },
+                {
+                  "const": "NGEN"
+                },
+                {
+                  "const": "PA"
+                },
+                {
+                  "const": "NYLON"
+                },
+                {
+                  "const": "PVA"
+                },
+                {
+                  "const": "PC"
+                },
+                {
+                  "const": "PP"
+                },
+                {
+                  "const": "PEI"
+                },
+                {
+                  "const": "PEEK"
+                },
+                {
+                  "const": "PEKK"
+                },
+                {
+                  "const": "POM"
+                },
+                {
+                  "const": "PSU"
+                },
+                {
+                  "const": "PVDF"
+                },
+                {
+                  "const": "SCAFF"
+                },
+                {
+                  "const": "PETG"
+                },
+                {
+                  "const": "TPU"
+                },
+                {
+                  "const": "PA-CF"
+                },
+                {
+                  "const": "PA6-CF"
+                },
+                {
+                  "const": "PLA-CF"
+                },
+                {
+                  "const": "PET-CF"
+                },
+                {
+                  "const": "PETG-CF"
+                },
+                {
+                  "const": "PLA-AERO"
+                },
+                {
+                  "const": "PPS"
+                },
+                {
+                  "const": "PPS-CF"
+                },
+                {
+                  "const": "PPA-CF"
+                },
+                {
+                  "const": "PPA-GF"
+                },
+                {
+                  "const": "PCTG"
+                },
+                {
+                  "const": "ABS-GF"
+                },
+                {
+                  "const": "ASA-Aero"
+                },
+                {
+                  "const": "PE"
+                },
+                {
+                  "const": "PE-CF"
+                },
+                {
+                  "const": "PP-GF"
+                },
+                {
+                  "const": "EVA"
+                },
+                {
+                  "const": "PHA"
+                },
+                {
+                  "const": "BVOH"
+                },
+                {
+                  "const": "PP-CF"
+                }
+              ]
+            }
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "description",
+          "fileUris",
+          "fileHashes",
+          "thumbnailUri",
+          "parameters",
+          "printTags",
+          "overriddenProcessProfileId",
+          "allowedFilamentTypes",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "PartParameter": {
+        "type": "object",
+        "properties": {
+          "default": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 255
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DropdownOption"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": "number"
+              },
+              {
+                "const": "string"
+              },
+              {
+                "const": "boolean"
+              }
+            ]
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 255
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      },
+      "DropdownOption": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value"
+        ]
+      },
+      "Tags": {
+        "type": "object",
+        "properties": {
+          "printer.provider": {
+            "type": "string",
+            "minLength": 1
+          },
+          "printer.id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "printer.nozzleDiameter": {
+            "type": "string",
+            "minLength": 1
+          },
+          "filament.type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "user.tags": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "PartInsert": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": "scad"
+              },
+              {
+                "const": "stl"
+              },
+              {
+                "const": "obj"
+              },
+              {
+                "const": "step"
+              },
+              {
+                "const": "3mf"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "default": ""
+          },
+          "fileUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "fileHashes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameter"
+            }
+          },
+          "printTags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "overriddenProcessProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "allowedFilamentTypes": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "const": "PLA"
+                },
+                {
+                  "const": "PET"
+                },
+                {
+                  "const": "ABS"
+                },
+                {
+                  "const": "ASA"
+                },
+                {
+                  "const": "FLEX"
+                },
+                {
+                  "const": "HIPS"
+                },
+                {
+                  "const": "EDGE"
+                },
+                {
+                  "const": "NGEN"
+                },
+                {
+                  "const": "PA"
+                },
+                {
+                  "const": "NYLON"
+                },
+                {
+                  "const": "PVA"
+                },
+                {
+                  "const": "PC"
+                },
+                {
+                  "const": "PP"
+                },
+                {
+                  "const": "PEI"
+                },
+                {
+                  "const": "PEEK"
+                },
+                {
+                  "const": "PEKK"
+                },
+                {
+                  "const": "POM"
+                },
+                {
+                  "const": "PSU"
+                },
+                {
+                  "const": "PVDF"
+                },
+                {
+                  "const": "SCAFF"
+                },
+                {
+                  "const": "PETG"
+                },
+                {
+                  "const": "TPU"
+                },
+                {
+                  "const": "PA-CF"
+                },
+                {
+                  "const": "PA6-CF"
+                },
+                {
+                  "const": "PLA-CF"
+                },
+                {
+                  "const": "PET-CF"
+                },
+                {
+                  "const": "PETG-CF"
+                },
+                {
+                  "const": "PLA-AERO"
+                },
+                {
+                  "const": "PPS"
+                },
+                {
+                  "const": "PPS-CF"
+                },
+                {
+                  "const": "PPA-CF"
+                },
+                {
+                  "const": "PPA-GF"
+                },
+                {
+                  "const": "PCTG"
+                },
+                {
+                  "const": "ABS-GF"
+                },
+                {
+                  "const": "ASA-Aero"
+                },
+                {
+                  "const": "PE"
+                },
+                {
+                  "const": "PE-CF"
+                },
+                {
+                  "const": "PP-GF"
+                },
+                {
+                  "const": "EVA"
+                },
+                {
+                  "const": "PHA"
+                },
+                {
+                  "const": "BVOH"
+                },
+                {
+                  "const": "PP-CF"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "description",
+          "fileUris",
+          "fileHashes",
+          "parameters",
+          "printTags",
+          "overriddenProcessProfileId",
+          "allowedFilamentTypes"
+        ]
+      },
+      "Printer": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "oneOf": [
+              {
+                "const": "OctoPrint"
+              },
+              {
+                "const": "Bambu"
+              }
+            ]
+          },
+          "deviceId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "providerConfig": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/BambuConfig"
+              }
+            ]
+          },
+          "machineUserProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "machineSystemProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "filamentUserProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "filamentSystemProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "processUserProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "processSystemProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "nozzleDiameter": {
+            "type": "string"
+          },
+          "metadata": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Recordstringany"
+              }
+            ]
+          },
+          "proxyClientId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "commMethod": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambu-global-mqtt"
+              },
+              {
+                "const": "octoprint-mqtt"
+              }
+            ]
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confirmedReady": {
+            "type": "boolean"
+          },
+          "isAvailable": {
+            "type": "boolean"
+          },
+          "isOnline": {
+            "type": "boolean"
+          },
+          "printingJobId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "lastPrintedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "integrationId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "integrationType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambulab"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "continuousPrint": {
+            "type": "boolean"
+          },
+          "TEMP_loadedFilament": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "PLA"
+              },
+              {
+                "const": "PET"
+              },
+              {
+                "const": "ABS"
+              },
+              {
+                "const": "ASA"
+              },
+              {
+                "const": "FLEX"
+              },
+              {
+                "const": "HIPS"
+              },
+              {
+                "const": "EDGE"
+              },
+              {
+                "const": "NGEN"
+              },
+              {
+                "const": "PA"
+              },
+              {
+                "const": "NYLON"
+              },
+              {
+                "const": "PVA"
+              },
+              {
+                "const": "PC"
+              },
+              {
+                "const": "PP"
+              },
+              {
+                "const": "PEI"
+              },
+              {
+                "const": "PEEK"
+              },
+              {
+                "const": "PEKK"
+              },
+              {
+                "const": "POM"
+              },
+              {
+                "const": "PSU"
+              },
+              {
+                "const": "PVDF"
+              },
+              {
+                "const": "SCAFF"
+              },
+              {
+                "const": "PETG"
+              },
+              {
+                "const": "TPU"
+              },
+              {
+                "const": "PA-CF"
+              },
+              {
+                "const": "PA6-CF"
+              },
+              {
+                "const": "PLA-CF"
+              },
+              {
+                "const": "PET-CF"
+              },
+              {
+                "const": "PETG-CF"
+              },
+              {
+                "const": "PLA-AERO"
+              },
+              {
+                "const": "PPS"
+              },
+              {
+                "const": "PPS-CF"
+              },
+              {
+                "const": "PPA-CF"
+              },
+              {
+                "const": "PPA-GF"
+              },
+              {
+                "const": "PCTG"
+              },
+              {
+                "const": "ABS-GF"
+              },
+              {
+                "const": "ASA-Aero"
+              },
+              {
+                "const": "PE"
+              },
+              {
+                "const": "PE-CF"
+              },
+              {
+                "const": "PP-GF"
+              },
+              {
+                "const": "EVA"
+              },
+              {
+                "const": "PHA"
+              },
+              {
+                "const": "BVOH"
+              },
+              {
+                "const": "PP-CF"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "provider",
+          "deviceId",
+          "providerConfig",
+          "machineUserProfileId",
+          "machineSystemProfileId",
+          "filamentUserProfileId",
+          "filamentSystemProfileId",
+          "processUserProfileId",
+          "processSystemProfileId",
+          "name",
+          "nozzleDiameter",
+          "metadata",
+          "proxyClientId",
+          "commMethod",
+          "enabled",
+          "confirmedReady",
+          "isAvailable",
+          "isOnline",
+          "printingJobId",
+          "lastPrintedAt",
+          "integrationId",
+          "integrationType",
+          "continuousPrint",
+          "TEMP_loadedFilament",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "BambuConfig": {
+        "type": "object",
+        "properties": {
+          "use_ams": {
+            "type": "boolean"
+          },
+          "do_bed_leveling": {
+            "type": "boolean"
+          },
+          "do_flow_cali": {
+            "type": "boolean"
+          },
+          "bed_type": {
+            "oneOf": [
+              {
+                "const": "Cool Plate"
+              },
+              {
+                "const": "Engineering Plate"
+              },
+              {
+                "const": "High Temp Plate"
+              },
+              {
+                "const": "Textured PEI Plate"
+              }
+            ]
+          }
+        }
+      },
+      "Recordstringany": {
+        "type": "object",
+        "properties": {},
+        "description": "Construct a type with a set of properties K of type T",
+        "additionalProperties": {}
+      },
+      "SetProviderConfig": {
+        "type": "object",
+        "properties": {
+          "printerIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            }
+          },
+          "providerConfig": {
+            "$ref": "#/components/schemas/BambuConfig"
+          },
+          "machineUserProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "machineSystemProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "filamentUserProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "filamentSystemProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "processUserProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "processSystemProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "required": [
+          "printerIds",
+          "providerConfig",
+          "machineUserProfileId",
+          "machineSystemProfileId",
+          "filamentUserProfileId",
+          "filamentSystemProfileId",
+          "processUserProfileId",
+          "processSystemProfileId"
+        ]
+      },
+      "ConfirmReadyRequest": {
+        "type": "object",
+        "properties": {
+          "ready": {
+            "type": "boolean"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            }
+          }
+        },
+        "required": [
+          "ready",
+          "ids"
+        ]
+      },
+      "EnabledConfig": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            }
+          }
+        },
+        "required": [
+          "enabled",
+          "ids"
+        ]
+      },
+      "ContinuousPrintConfig": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            }
+          }
+        },
+        "required": [
+          "enabled",
+          "ids"
+        ]
+      },
+      "PrinterStat": {
+        "type": "object",
+        "properties": {
+          "printerId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "state": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "isOnline": {
+            "type": "boolean"
+          },
+          "receivedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PrinterStatData"
+          },
+          "rawData": {
+            "$ref": "#/components/schemas/Recordstringany"
+          },
+          "isAvailable": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "printerId",
+          "state",
+          "isOnline",
+          "receivedAt",
+          "expiresAt",
+          "data",
+          "rawData",
+          "isAvailable",
+          "storeId",
+          "updatedAt",
+          "createdAt"
+        ]
+      },
+      "PrinterStatData": {
+        "type": "object",
+        "properties": {
+          "temps": {
+            "type": "object",
+            "properties": {
+              "bedTemp": {
+                "type": "number"
+              },
+              "bedTempTarget": {
+                "type": "number"
+              },
+              "nozzleTemp": {
+                "type": "number"
+              },
+              "nozzleTempTarget": {
+                "type": "number"
+              }
+            }
+          },
+          "printer": {
+            "type": "object",
+            "properties": {
+              "nozzleDiameter": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nozzleDiameter"
+            ]
+          },
+          "print": {
+            "type": "object",
+            "properties": {
+              "downloadPercent": {
+                "type": "number"
+              },
+              "percent": {
+                "type": "number"
+              },
+              "timeRemaining": {
+                "type": "number"
+              },
+              "stage": {
+                "type": "string"
+              },
+              "activity": {
+                "type": "string"
+              },
+              "errorCode": {
+                "type": "string"
+              },
+              "currentLayer": {
+                "type": "number"
+              },
+              "totalLayers": {
+                "type": "number"
+              },
+              "taskId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "downloadPercent",
+              "percent",
+              "timeRemaining",
+              "stage",
+              "activity",
+              "errorCode",
+              "currentLayer",
+              "totalLayers",
+              "taskId"
+            ]
+          },
+          "filament": {
+            "$ref": "#/components/schemas/LoadedFilament"
+          },
+          "health": {
+            "$ref": "#/components/schemas/PrinterHealth"
+          }
+        },
+        "required": [
+          "health"
+        ]
+      },
+      "LoadedFilament": {
+        "type": "object",
+        "properties": {
+          "ams": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "$ref": "#/components/schemas/AMSStatus"
+              },
+              "ams": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AMS"
+                }
+              }
+            },
+            "required": [
+              "status",
+              "ams"
+            ]
+          },
+          "spool": {
+            "$ref": "#/components/schemas/FilamentInfo"
+          }
+        }
+      },
+      "AMSStatus": {
+        "type": "object",
+        "properties": {
+          "slotsLoaded": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slotsLoaded"
+        ]
+      },
+      "AMS": {
+        "type": "object",
+        "properties": {
+          "slots": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "$ref": "#/components/schemas/idstringFilamentInfo"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "slots"
+        ]
+      },
+      "idstringFilamentInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^[0-9A-F]^8$"
+          },
+          "info": {
+            "type": "string"
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": ""
+              },
+              {
+                "const": "PLA"
+              },
+              {
+                "const": "PET"
+              },
+              {
+                "const": "ABS"
+              },
+              {
+                "const": "ASA"
+              },
+              {
+                "const": "FLEX"
+              },
+              {
+                "const": "HIPS"
+              },
+              {
+                "const": "EDGE"
+              },
+              {
+                "const": "NGEN"
+              },
+              {
+                "const": "PA"
+              },
+              {
+                "const": "NYLON"
+              },
+              {
+                "const": "PVA"
+              },
+              {
+                "const": "PC"
+              },
+              {
+                "const": "PP"
+              },
+              {
+                "const": "PEI"
+              },
+              {
+                "const": "PEEK"
+              },
+              {
+                "const": "PEKK"
+              },
+              {
+                "const": "POM"
+              },
+              {
+                "const": "PSU"
+              },
+              {
+                "const": "PVDF"
+              },
+              {
+                "const": "SCAFF"
+              },
+              {
+                "const": "PETG"
+              },
+              {
+                "const": "TPU"
+              },
+              {
+                "const": "PA-CF"
+              },
+              {
+                "const": "PA6-CF"
+              },
+              {
+                "const": "PLA-CF"
+              },
+              {
+                "const": "PET-CF"
+              },
+              {
+                "const": "PETG-CF"
+              },
+              {
+                "const": "PLA-AERO"
+              },
+              {
+                "const": "PPS"
+              },
+              {
+                "const": "PPS-CF"
+              },
+              {
+                "const": "PPA-CF"
+              },
+              {
+                "const": "PPA-GF"
+              },
+              {
+                "const": "PCTG"
+              },
+              {
+                "const": "ABS-GF"
+              },
+              {
+                "const": "ASA-Aero"
+              },
+              {
+                "const": "PE"
+              },
+              {
+                "const": "PE-CF"
+              },
+              {
+                "const": "PP-GF"
+              },
+              {
+                "const": "EVA"
+              },
+              {
+                "const": "PHA"
+              },
+              {
+                "const": "BVOH"
+              },
+              {
+                "const": "PP-CF"
+              }
+            ]
+          },
+          "remaining": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "color",
+          "info",
+          "type",
+          "remaining"
+        ]
+      },
+      "FilamentInfo": {
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string",
+            "pattern": "^[0-9A-F]^8$"
+          },
+          "info": {
+            "type": "string"
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": ""
+              },
+              {
+                "const": "PLA"
+              },
+              {
+                "const": "PET"
+              },
+              {
+                "const": "ABS"
+              },
+              {
+                "const": "ASA"
+              },
+              {
+                "const": "FLEX"
+              },
+              {
+                "const": "HIPS"
+              },
+              {
+                "const": "EDGE"
+              },
+              {
+                "const": "NGEN"
+              },
+              {
+                "const": "PA"
+              },
+              {
+                "const": "NYLON"
+              },
+              {
+                "const": "PVA"
+              },
+              {
+                "const": "PC"
+              },
+              {
+                "const": "PP"
+              },
+              {
+                "const": "PEI"
+              },
+              {
+                "const": "PEEK"
+              },
+              {
+                "const": "PEKK"
+              },
+              {
+                "const": "POM"
+              },
+              {
+                "const": "PSU"
+              },
+              {
+                "const": "PVDF"
+              },
+              {
+                "const": "SCAFF"
+              },
+              {
+                "const": "PETG"
+              },
+              {
+                "const": "TPU"
+              },
+              {
+                "const": "PA-CF"
+              },
+              {
+                "const": "PA6-CF"
+              },
+              {
+                "const": "PLA-CF"
+              },
+              {
+                "const": "PET-CF"
+              },
+              {
+                "const": "PETG-CF"
+              },
+              {
+                "const": "PLA-AERO"
+              },
+              {
+                "const": "PPS"
+              },
+              {
+                "const": "PPS-CF"
+              },
+              {
+                "const": "PPA-CF"
+              },
+              {
+                "const": "PPA-GF"
+              },
+              {
+                "const": "PCTG"
+              },
+              {
+                "const": "ABS-GF"
+              },
+              {
+                "const": "ASA-Aero"
+              },
+              {
+                "const": "PE"
+              },
+              {
+                "const": "PE-CF"
+              },
+              {
+                "const": "PP-GF"
+              },
+              {
+                "const": "EVA"
+              },
+              {
+                "const": "PHA"
+              },
+              {
+                "const": "BVOH"
+              },
+              {
+                "const": "PP-CF"
+              }
+            ]
+          },
+          "remaining": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "color",
+          "info",
+          "type",
+          "remaining"
+        ]
+      },
+      "PrinterHealth": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HealthMessage"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HealthMessage"
+            }
+          },
+          "infos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HealthMessage"
+            }
+          }
+        },
+        "required": [
+          "errors",
+          "warnings",
+          "infos"
+        ]
+      },
+      "HealthMessage": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message",
+          "code"
+        ]
+      },
+      "PrinterInsert": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "metadata": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Recordstringany"
+              }
+            ]
+          },
+          "integrationId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "integrationType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambulab"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "provider": {
+            "oneOf": [
+              {
+                "const": "OctoPrint"
+              },
+              {
+                "const": "Bambu"
+              }
+            ]
+          },
+          "deviceId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "nozzleDiameter": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "proxyClientId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "commMethod": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambu-global-mqtt"
+              },
+              {
+                "const": "octoprint-mqtt"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "metadata",
+          "integrationId",
+          "integrationType",
+          "provider",
+          "deviceId",
+          "nozzleDiameter",
+          "enabled",
+          "proxyClientId",
+          "commMethod"
+        ]
+      },
+      "UpdateManyRequestPrinterUpdate": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            }
+          },
+          "update": {
+            "$ref": "#/components/schemas/PartialPrinterUpdate"
+          }
+        },
+        "required": [
+          "ids",
+          "update"
+        ]
+      },
+      "PartialPrinterUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "metadata": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Recordstringany"
+              }
+            ]
+          },
+          "integrationId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "integrationType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambulab"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "deviceId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "nozzleDiameter": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "proxyClientId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "commMethod": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambu-global-mqtt"
+              },
+              {
+                "const": "octoprint-mqtt"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Make all properties in T optional"
+      },
+      "PartialPrinterUpdateidstring": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "metadata": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Recordstringany"
+              }
+            ]
+          },
+          "integrationId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "integrationType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambulab"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "deviceId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "nozzleDiameter": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "proxyClientId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "commMethod": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambu-global-mqtt"
+              },
+              {
+                "const": "octoprint-mqtt"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "LinkedPart": {
+        "type": "object",
+        "properties": {
+          "skuId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "partId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "exposedParameters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "skuId",
+          "partId",
+          "parameters",
+          "quantity",
+          "label",
+          "exposedParameters",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "PartParameterOverride": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": "number"
+              },
+              {
+                "const": "string"
+              },
+              {
+                "const": "boolean"
+              }
+            ]
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 255
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      },
+      "LinkedPartInsert": {
+        "type": "object",
+        "properties": {
+          "skuId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "partId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "exposedParameters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "parameters",
+          "partId",
+          "label",
+          "quantity",
+          "exposedParameters"
+        ]
+      },
+      "Profile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": "process"
+              },
+              {
+                "const": "filament"
+              },
+              {
+                "const": "machine"
+              }
+            ]
+          },
+          "externalId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "source": {
+            "oneOf": [
+              {
+                "const": "manual"
+              },
+              {
+                "const": "bambu-account"
+              }
+            ]
+          },
+          "inherits": {
+            "type": "string"
+          },
+          "compatibilityList": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Recordstringany"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Recordstringany"
+          },
+          "integrationId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "integrationType": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "bambulab"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type",
+          "externalId",
+          "source",
+          "inherits",
+          "compatibilityList",
+          "data",
+          "metadata",
+          "integrationId",
+          "integrationType",
+          "storeId",
+          "updatedAt",
+          "createdAt"
+        ]
+      },
+      "SupportedPrinter": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "nozzleDiameter": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "nozzleDiameter"
+        ]
+      },
+      "CompatibleProfiles": {
+        "type": "object",
+        "properties": {
+          "machine": {
+            "$ref": "#/components/schemas/CompatibleProfileList"
+          },
+          "filament": {
+            "$ref": "#/components/schemas/CompatibleProfileList"
+          },
+          "process": {
+            "$ref": "#/components/schemas/CompatibleProfileList"
+          }
+        },
+        "required": [
+          "machine",
+          "filament",
+          "process"
+        ]
+      },
+      "CompatibleProfileList": {
+        "type": "object",
+        "properties": {
+          "system": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SlicerConfig"
+            }
+          },
+          "user": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Profile"
+            }
+          }
+        },
+        "required": [
+          "system",
+          "user"
+        ]
+      },
+      "SlicerConfig": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "vendorId": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "oneOf": [
+              {
+                "const": "process"
+              },
+              {
+                "const": "filament"
+              },
+              {
+                "const": "machine"
+              }
+            ]
+          },
+          "shown": {
+            "type": "boolean"
+          },
+          "compatibilityList": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Recordstringany"
+          },
+          "machineVariant": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "machineModel": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "vendorId",
+          "name",
+          "type",
+          "shown",
+          "compatibilityList",
+          "data",
+          "machineVariant",
+          "machineModel"
+        ]
+      },
+      "PrintJob": {
+        "type": "object",
+        "properties": {
+          "partBuildId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "quantityIndex": {
+            "type": "number"
+          },
+          "quantityTotal": {
+            "type": "number"
+          },
+          "thumbnailUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "fileToPrint": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slicerInputHash": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "isGcodeCached": {
+            "type": "boolean"
+          },
+          "slicedGcodeUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "partId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "partName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "skuId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuName": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "parameterOverrides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "orderId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "orderItemId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "queueOrder": {
+            "type": "number",
+            "minimum": 0
+          },
+          "requiredPrinterTags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "overriddenProcessProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "taskId": {
+            "type": "number"
+          },
+          "profileUris": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "assignedPrinterId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "assignmentStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "assignmentCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "cancelledAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "assigned"
+              },
+              {
+                "const": "slicing"
+              },
+              {
+                "const": "sliced"
+              },
+              {
+                "const": "finalizing"
+              },
+              {
+                "const": "waiting-for-approval"
+              },
+              {
+                "const": "ready-for-printer"
+              },
+              {
+                "const": "sending-to-printer"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "paused"
+              },
+              {
+                "const": "completed"
+              },
+              {
+                "const": "failed"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "errorMessage": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "logsUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "partBuildId",
+          "quantityIndex",
+          "quantityTotal",
+          "thumbnailUri",
+          "fileToPrint",
+          "slicerInputHash",
+          "isGcodeCached",
+          "slicedGcodeUri",
+          "partId",
+          "partName",
+          "skuId",
+          "skuName",
+          "parameterOverrides",
+          "orderId",
+          "label",
+          "orderItemId",
+          "queueOrder",
+          "requiredPrinterTags",
+          "overriddenProcessProfileId",
+          "taskId",
+          "profileUris",
+          "assignedPrinterId",
+          "assignmentStartedAt",
+          "assignmentCompletedAt",
+          "printingStartedAt",
+          "printingCompletedAt",
+          "cancelledAt",
+          "status",
+          "errorMessage",
+          "hidden",
+          "logsUri",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "PrintJobOperationRequest": {
+        "type": "object",
+        "properties": {
+          "printJobIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "printJobIds"
+        ]
+      },
+      "ReorderPrintJobRequest": {
+        "type": "object",
+        "properties": {
+          "newQueueOrder": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "newQueueOrder"
+        ]
+      },
+      "AcknowledgePrintJobStartRequest": {
+        "type": "object",
+        "properties": {
+          "startedSuccessfully": {
+            "type": "boolean"
+          },
+          "errorDetail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "startedSuccessfully"
+        ]
+      },
+      "PartialPrintJobInsert": {
+        "type": "object",
+        "properties": {
+          "overriddenProcessProfileId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "thumbnailUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "partId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "assigned"
+              },
+              {
+                "const": "slicing"
+              },
+              {
+                "const": "sliced"
+              },
+              {
+                "const": "finalizing"
+              },
+              {
+                "const": "waiting-for-approval"
+              },
+              {
+                "const": "ready-for-printer"
+              },
+              {
+                "const": "sending-to-printer"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "paused"
+              },
+              {
+                "const": "completed"
+              },
+              {
+                "const": "failed"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "skuName": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "requiredPrinterTags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "parameterOverrides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "assignmentStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "partBuildId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "quantityIndex": {
+            "type": "number"
+          },
+          "quantityTotal": {
+            "type": "number"
+          },
+          "fileToPrint": {
+            "type": "string",
+            "minLength": 1
+          },
+          "partName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        },
+        "description": "Make all properties in T optional"
+      },
+      "Store": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "id",
+          "updatedAt",
+          "createdAt"
+        ]
+      },
+      "SkuLinkedPartsWithPartRelation": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "externalId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "externalProvider": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "linkedParts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkedPartPartRelation"
+            }
+          }
+        },
+        "required": [
+          "sku",
+          "title",
+          "description",
+          "externalId",
+          "externalProvider",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt",
+          "linkedParts"
+        ]
+      },
+      "LinkedPartPartRelation": {
+        "type": "object",
+        "properties": {
+          "skuId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "partId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "exposedParameters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "part": {
+            "$ref": "#/components/schemas/Part"
+          }
+        },
+        "required": [
+          "skuId",
+          "partId",
+          "parameters",
+          "quantity",
+          "label",
+          "exposedParameters",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt",
+          "part"
+        ]
+      },
+      "SkuLinkedPartsRelation": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "externalId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "externalProvider": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "linkedParts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkedPart"
+            }
+          }
+        },
+        "required": [
+          "sku",
+          "title",
+          "description",
+          "externalId",
+          "externalProvider",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt",
+          "linkedParts"
+        ]
+      },
+      "SkuInsert": {
+        "type": "object",
+        "properties": {
+          "linkedParts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkedPartInsert"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "externalId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "sku": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "title": {
+            "type": "string"
+          },
+          "externalProvider": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          }
+        },
+        "required": [
+          "linkedParts",
+          "description",
+          "externalId",
+          "sku",
+          "title",
+          "externalProvider"
+        ]
+      },
+      "Sku": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "externalId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "externalProvider": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "sku",
+          "title",
+          "description",
+          "externalId",
+          "externalProvider",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "PartialSkuInsert": {
+        "type": "object",
+        "properties": {
+          "linkedParts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkedPartInsert"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "externalId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "sku": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "title": {
+            "type": "string"
+          },
+          "externalProvider": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          }
+        },
+        "description": "Make all properties in T optional"
+      },
+      "BuildResult": {
+        "type": "object",
+        "properties": {
+          "partBuilds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartBuild"
+            }
+          },
+          "skuBuilds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SkuBuild"
+            }
+          }
+        },
+        "required": [
+          "partBuilds",
+          "skuBuilds"
+        ]
+      },
+      "PartBuild": {
+        "type": "object",
+        "properties": {
+          "partId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuBuildId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuName": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "label": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "partCopy": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "type": {
+                "oneOf": [
+                  {
+                    "const": "scad"
+                  },
+                  {
+                    "const": "stl"
+                  },
+                  {
+                    "const": "obj"
+                  },
+                  {
+                    "const": "step"
+                  },
+                  {
+                    "const": "3mf"
+                  }
+                ]
+              },
+              "description": {
+                "type": "string",
+                "default": ""
+              },
+              "fileUris": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fileHashes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "thumbnailUri": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "parameters": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "default": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 255
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "options": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              }
+                            ]
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "value"
+                        ]
+                      }
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "type": {
+                      "oneOf": [
+                        {
+                          "const": "number"
+                        },
+                        {
+                          "const": "string"
+                        },
+                        {
+                          "const": "boolean"
+                        }
+                      ]
+                    },
+                    "value": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 255
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "type"
+                  ]
+                }
+              },
+              "printTags": {
+                "type": "object",
+                "properties": {
+                  "printer.provider": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "printer.id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "printer.nozzleDiameter": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "filament.type": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "user.tags": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "overriddenProcessProfileId": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                ]
+              },
+              "allowedFilamentTypes": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "const": "PLA"
+                    },
+                    {
+                      "const": "PET"
+                    },
+                    {
+                      "const": "ABS"
+                    },
+                    {
+                      "const": "ASA"
+                    },
+                    {
+                      "const": "FLEX"
+                    },
+                    {
+                      "const": "HIPS"
+                    },
+                    {
+                      "const": "EDGE"
+                    },
+                    {
+                      "const": "NGEN"
+                    },
+                    {
+                      "const": "PA"
+                    },
+                    {
+                      "const": "NYLON"
+                    },
+                    {
+                      "const": "PVA"
+                    },
+                    {
+                      "const": "PC"
+                    },
+                    {
+                      "const": "PP"
+                    },
+                    {
+                      "const": "PEI"
+                    },
+                    {
+                      "const": "PEEK"
+                    },
+                    {
+                      "const": "PEKK"
+                    },
+                    {
+                      "const": "POM"
+                    },
+                    {
+                      "const": "PSU"
+                    },
+                    {
+                      "const": "PVDF"
+                    },
+                    {
+                      "const": "SCAFF"
+                    },
+                    {
+                      "const": "PETG"
+                    },
+                    {
+                      "const": "TPU"
+                    },
+                    {
+                      "const": "PA-CF"
+                    },
+                    {
+                      "const": "PA6-CF"
+                    },
+                    {
+                      "const": "PLA-CF"
+                    },
+                    {
+                      "const": "PET-CF"
+                    },
+                    {
+                      "const": "PETG-CF"
+                    },
+                    {
+                      "const": "PLA-AERO"
+                    },
+                    {
+                      "const": "PPS"
+                    },
+                    {
+                      "const": "PPS-CF"
+                    },
+                    {
+                      "const": "PPA-CF"
+                    },
+                    {
+                      "const": "PPA-GF"
+                    },
+                    {
+                      "const": "PCTG"
+                    },
+                    {
+                      "const": "ABS-GF"
+                    },
+                    {
+                      "const": "ASA-Aero"
+                    },
+                    {
+                      "const": "PE"
+                    },
+                    {
+                      "const": "PE-CF"
+                    },
+                    {
+                      "const": "PP-GF"
+                    },
+                    {
+                      "const": "EVA"
+                    },
+                    {
+                      "const": "PHA"
+                    },
+                    {
+                      "const": "BVOH"
+                    },
+                    {
+                      "const": "PP-CF"
+                    }
+                  ]
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "storeId": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "description",
+              "fileUris",
+              "fileHashes",
+              "thumbnailUri",
+              "parameters",
+              "printTags",
+              "overriddenProcessProfileId",
+              "allowedFilamentTypes",
+              "id",
+              "storeId",
+              "createdAt",
+              "updatedAt"
+            ]
+          },
+          "requiredPrinterTags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "parameterOverrides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "building"
+              },
+              {
+                "const": "queued"
+              },
+              {
+                "const": "fulfilling"
+              },
+              {
+                "const": "preparing"
+              },
+              {
+                "const": "sending-to-printer"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "outputFile": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "thumbnailUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "assignmentStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "assignmentCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printStatus": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "partId",
+          "skuBuildId",
+          "skuId",
+          "skuName",
+          "label",
+          "partCopy",
+          "requiredPrinterTags",
+          "quantity",
+          "parameterOverrides",
+          "status",
+          "outputFile",
+          "thumbnailUri",
+          "assignmentStartedAt",
+          "assignmentCompletedAt",
+          "printingStartedAt",
+          "printingCompletedAt",
+          "printStatus",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "SkuBuild": {
+        "type": "object",
+        "properties": {
+          "skuId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuCopy": {
+            "type": "object",
+            "properties": {
+              "sku": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "externalId": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                ]
+              },
+              "externalProvider": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "const": "etsy"
+                  }
+                ]
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "storeId": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "sku",
+              "title",
+              "description",
+              "externalId",
+              "externalProvider",
+              "id",
+              "storeId",
+              "createdAt",
+              "updatedAt"
+            ]
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "running"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "skuId",
+          "skuCopy",
+          "status",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "BuildConfig": {
+        "type": "object",
+        "properties": {
+          "parts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartBuildConfig"
+            }
+          },
+          "skus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SkuBuildConfig"
+            }
+          }
+        }
+      },
+      "PartBuildConfig": {
+        "type": "object",
+        "properties": {
+          "partId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "skuBuildId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "parameterOverrides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          }
+        },
+        "required": [
+          "partId",
+          "quantity"
+        ]
+      },
+      "SkuBuildConfig": {
+        "type": "object",
+        "properties": {
+          "skuId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "parts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartBuildConfig"
+            }
+          }
+        },
+        "required": [
+          "skuId",
+          "quantity",
+          "parts"
+        ]
+      },
+      "PartBuildWithRelation": {
+        "type": "object",
+        "properties": {
+          "partId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuBuildId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuName": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "label": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "partCopy": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "type": {
+                "oneOf": [
+                  {
+                    "const": "scad"
+                  },
+                  {
+                    "const": "stl"
+                  },
+                  {
+                    "const": "obj"
+                  },
+                  {
+                    "const": "step"
+                  },
+                  {
+                    "const": "3mf"
+                  }
+                ]
+              },
+              "description": {
+                "type": "string",
+                "default": ""
+              },
+              "fileUris": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fileHashes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "thumbnailUri": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "parameters": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "default": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 255
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "options": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              }
+                            ]
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "value"
+                        ]
+                      }
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "type": {
+                      "oneOf": [
+                        {
+                          "const": "number"
+                        },
+                        {
+                          "const": "string"
+                        },
+                        {
+                          "const": "boolean"
+                        }
+                      ]
+                    },
+                    "value": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 255
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "type"
+                  ]
+                }
+              },
+              "printTags": {
+                "type": "object",
+                "properties": {
+                  "printer.provider": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "printer.id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "printer.nozzleDiameter": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "filament.type": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "user.tags": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "overriddenProcessProfileId": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                ]
+              },
+              "allowedFilamentTypes": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "const": "PLA"
+                    },
+                    {
+                      "const": "PET"
+                    },
+                    {
+                      "const": "ABS"
+                    },
+                    {
+                      "const": "ASA"
+                    },
+                    {
+                      "const": "FLEX"
+                    },
+                    {
+                      "const": "HIPS"
+                    },
+                    {
+                      "const": "EDGE"
+                    },
+                    {
+                      "const": "NGEN"
+                    },
+                    {
+                      "const": "PA"
+                    },
+                    {
+                      "const": "NYLON"
+                    },
+                    {
+                      "const": "PVA"
+                    },
+                    {
+                      "const": "PC"
+                    },
+                    {
+                      "const": "PP"
+                    },
+                    {
+                      "const": "PEI"
+                    },
+                    {
+                      "const": "PEEK"
+                    },
+                    {
+                      "const": "PEKK"
+                    },
+                    {
+                      "const": "POM"
+                    },
+                    {
+                      "const": "PSU"
+                    },
+                    {
+                      "const": "PVDF"
+                    },
+                    {
+                      "const": "SCAFF"
+                    },
+                    {
+                      "const": "PETG"
+                    },
+                    {
+                      "const": "TPU"
+                    },
+                    {
+                      "const": "PA-CF"
+                    },
+                    {
+                      "const": "PA6-CF"
+                    },
+                    {
+                      "const": "PLA-CF"
+                    },
+                    {
+                      "const": "PET-CF"
+                    },
+                    {
+                      "const": "PETG-CF"
+                    },
+                    {
+                      "const": "PLA-AERO"
+                    },
+                    {
+                      "const": "PPS"
+                    },
+                    {
+                      "const": "PPS-CF"
+                    },
+                    {
+                      "const": "PPA-CF"
+                    },
+                    {
+                      "const": "PPA-GF"
+                    },
+                    {
+                      "const": "PCTG"
+                    },
+                    {
+                      "const": "ABS-GF"
+                    },
+                    {
+                      "const": "ASA-Aero"
+                    },
+                    {
+                      "const": "PE"
+                    },
+                    {
+                      "const": "PE-CF"
+                    },
+                    {
+                      "const": "PP-GF"
+                    },
+                    {
+                      "const": "EVA"
+                    },
+                    {
+                      "const": "PHA"
+                    },
+                    {
+                      "const": "BVOH"
+                    },
+                    {
+                      "const": "PP-CF"
+                    }
+                  ]
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "storeId": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "description",
+              "fileUris",
+              "fileHashes",
+              "thumbnailUri",
+              "parameters",
+              "printTags",
+              "overriddenProcessProfileId",
+              "allowedFilamentTypes",
+              "id",
+              "storeId",
+              "createdAt",
+              "updatedAt"
+            ]
+          },
+          "requiredPrinterTags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "parameterOverrides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "building"
+              },
+              {
+                "const": "queued"
+              },
+              {
+                "const": "fulfilling"
+              },
+              {
+                "const": "preparing"
+              },
+              {
+                "const": "sending-to-printer"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "outputFile": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "thumbnailUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "assignmentStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "assignmentCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printStatus": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartBuildStep"
+            }
+          },
+          "printJobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrintJob"
+            }
+          }
+        },
+        "required": [
+          "partId",
+          "skuBuildId",
+          "skuId",
+          "skuName",
+          "label",
+          "partCopy",
+          "requiredPrinterTags",
+          "quantity",
+          "parameterOverrides",
+          "status",
+          "outputFile",
+          "thumbnailUri",
+          "assignmentStartedAt",
+          "assignmentCompletedAt",
+          "printingStartedAt",
+          "printingCompletedAt",
+          "printStatus",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt",
+          "steps",
+          "printJobs"
+        ]
+      },
+      "PartBuildStep": {
+        "type": "object",
+        "properties": {
+          "partBuildId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "order": {
+            "type": "number",
+            "minimum": 0
+          },
+          "builder": {
+            "oneOf": [
+              {
+                "const": "slic3r"
+              },
+              {
+                "const": "openscad"
+              }
+            ]
+          },
+          "inputFiles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "inputParameters": {
+            "$ref": "#/components/schemas/OpenSCADInputParameters"
+          },
+          "inputHash": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "cachedBuildStepId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "cachedOutputFile": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "outputFile": {
+            "type": "string"
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "running"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              },
+              {
+                "const": "cached"
+              },
+              {
+                "const": "force_running"
+              }
+            ]
+          },
+          "logs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "requiresAssignedPrinter": {
+            "type": "boolean"
+          },
+          "nextStepId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "startedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "completedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "partBuildId",
+          "order",
+          "builder",
+          "inputFiles",
+          "inputHash",
+          "cachedBuildStepId",
+          "cachedOutputFile",
+          "outputFile",
+          "status",
+          "logs",
+          "requiresAssignedPrinter",
+          "nextStepId",
+          "startedAt",
+          "completedAt",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "OpenSCADInputParameters": {
+        "type": "object",
+        "properties": {
+          "buildVariables": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "UserStoresRelation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "stores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Store"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "stores"
+        ]
+      },
+      "UserInsert": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "termsAccepted": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "email",
+          "password",
+          "termsAccepted"
+        ]
+      },
+      "Integration": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "oneOf": [
+              {
+                "const": "bambulab"
+              },
+              {
+                "const": "etsy"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "SkuBuildWithRelation": {
+        "type": "object",
+        "properties": {
+          "skuId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuCopy": {
+            "type": "object",
+            "properties": {
+              "sku": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "externalId": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                ]
+              },
+              "externalProvider": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "const": "etsy"
+                  }
+                ]
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "storeId": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "sku",
+              "title",
+              "description",
+              "externalId",
+              "externalProvider",
+              "id",
+              "storeId",
+              "createdAt",
+              "updatedAt"
+            ]
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "running"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "partBuilds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartBuildPrintJobsRelationPartBuildStepRelation"
+            }
+          }
+        },
+        "required": [
+          "skuId",
+          "skuCopy",
+          "status",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt",
+          "partBuilds"
+        ]
+      },
+      "PartBuildPrintJobsRelationPartBuildStepRelation": {
+        "type": "object",
+        "properties": {
+          "partId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuBuildId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuId": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              }
+            ]
+          },
+          "skuName": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "label": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            ]
+          },
+          "partCopy": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "type": {
+                "oneOf": [
+                  {
+                    "const": "scad"
+                  },
+                  {
+                    "const": "stl"
+                  },
+                  {
+                    "const": "obj"
+                  },
+                  {
+                    "const": "step"
+                  },
+                  {
+                    "const": "3mf"
+                  }
+                ]
+              },
+              "description": {
+                "type": "string",
+                "default": ""
+              },
+              "fileUris": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fileHashes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "thumbnailUri": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "parameters": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "default": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 255
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "options": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              }
+                            ]
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "value"
+                        ]
+                      }
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "type": {
+                      "oneOf": [
+                        {
+                          "const": "number"
+                        },
+                        {
+                          "const": "string"
+                        },
+                        {
+                          "const": "boolean"
+                        }
+                      ]
+                    },
+                    "value": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 0,
+                          "maxLength": 255
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "type"
+                  ]
+                }
+              },
+              "printTags": {
+                "type": "object",
+                "properties": {
+                  "printer.provider": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "printer.id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "printer.nozzleDiameter": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "filament.type": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "user.tags": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "overriddenProcessProfileId": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]{24}$"
+                  }
+                ]
+              },
+              "allowedFilamentTypes": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "const": "PLA"
+                    },
+                    {
+                      "const": "PET"
+                    },
+                    {
+                      "const": "ABS"
+                    },
+                    {
+                      "const": "ASA"
+                    },
+                    {
+                      "const": "FLEX"
+                    },
+                    {
+                      "const": "HIPS"
+                    },
+                    {
+                      "const": "EDGE"
+                    },
+                    {
+                      "const": "NGEN"
+                    },
+                    {
+                      "const": "PA"
+                    },
+                    {
+                      "const": "NYLON"
+                    },
+                    {
+                      "const": "PVA"
+                    },
+                    {
+                      "const": "PC"
+                    },
+                    {
+                      "const": "PP"
+                    },
+                    {
+                      "const": "PEI"
+                    },
+                    {
+                      "const": "PEEK"
+                    },
+                    {
+                      "const": "PEKK"
+                    },
+                    {
+                      "const": "POM"
+                    },
+                    {
+                      "const": "PSU"
+                    },
+                    {
+                      "const": "PVDF"
+                    },
+                    {
+                      "const": "SCAFF"
+                    },
+                    {
+                      "const": "PETG"
+                    },
+                    {
+                      "const": "TPU"
+                    },
+                    {
+                      "const": "PA-CF"
+                    },
+                    {
+                      "const": "PA6-CF"
+                    },
+                    {
+                      "const": "PLA-CF"
+                    },
+                    {
+                      "const": "PET-CF"
+                    },
+                    {
+                      "const": "PETG-CF"
+                    },
+                    {
+                      "const": "PLA-AERO"
+                    },
+                    {
+                      "const": "PPS"
+                    },
+                    {
+                      "const": "PPS-CF"
+                    },
+                    {
+                      "const": "PPA-CF"
+                    },
+                    {
+                      "const": "PPA-GF"
+                    },
+                    {
+                      "const": "PCTG"
+                    },
+                    {
+                      "const": "ABS-GF"
+                    },
+                    {
+                      "const": "ASA-Aero"
+                    },
+                    {
+                      "const": "PE"
+                    },
+                    {
+                      "const": "PE-CF"
+                    },
+                    {
+                      "const": "PP-GF"
+                    },
+                    {
+                      "const": "EVA"
+                    },
+                    {
+                      "const": "PHA"
+                    },
+                    {
+                      "const": "BVOH"
+                    },
+                    {
+                      "const": "PP-CF"
+                    }
+                  ]
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "storeId": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{24}$"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "description",
+              "fileUris",
+              "fileHashes",
+              "thumbnailUri",
+              "parameters",
+              "printTags",
+              "overriddenProcessProfileId",
+              "allowedFilamentTypes",
+              "id",
+              "storeId",
+              "createdAt",
+              "updatedAt"
+            ]
+          },
+          "requiredPrinterTags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "parameterOverrides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartParameterOverride"
+            }
+          },
+          "status": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "building"
+              },
+              {
+                "const": "queued"
+              },
+              {
+                "const": "fulfilling"
+              },
+              {
+                "const": "preparing"
+              },
+              {
+                "const": "sending-to-printer"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "outputFile": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "thumbnailUri": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "assignmentStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "assignmentCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingStartedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printingCompletedAt": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "printStatus": {
+            "oneOf": [
+              {
+                "const": "pending"
+              },
+              {
+                "const": "printing"
+              },
+              {
+                "const": "success"
+              },
+              {
+                "const": "error"
+              },
+              {
+                "const": "cancelled"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "storeId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]{24}$"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "printJobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrintJob"
+            }
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartBuildStep"
+            }
+          }
+        },
+        "required": [
+          "partId",
+          "skuBuildId",
+          "skuId",
+          "skuName",
+          "label",
+          "partCopy",
+          "requiredPrinterTags",
+          "quantity",
+          "parameterOverrides",
+          "status",
+          "outputFile",
+          "thumbnailUri",
+          "assignmentStartedAt",
+          "assignmentCompletedAt",
+          "printingStartedAt",
+          "printingCompletedAt",
+          "printStatus",
+          "id",
+          "storeId",
+          "createdAt",
+          "updatedAt",
+          "printJobs",
+          "steps"
+        ]
+      },
+      "SignedUrlsResponse": {
+        "type": "object",
+        "properties": {
+          "signedUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "signedUrls"
+        ]
+      },
+      "SignedUrlsRequest": {
+        "type": "object",
+        "properties": {
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "duration": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "paths"
+        ]
+      },
+      "SignedUploadUrlsResponse": {
+        "type": "object",
+        "properties": {
+          "signedUrls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "uploadUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "uploadUrl"
+              ]
+            }
+          }
+        },
+        "required": [
+          "signedUrls"
+        ]
+      },
+      "SignedUploadUrlsRequest": {
+        "type": "object",
+        "properties": {
+          "filenames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            }
+          }
+        },
+        "required": [
+          "filenames"
+        ]
+      },
+      "CreateSlicerTokenResponse": {
+        "type": "object",
+        "properties": {
+          "slicerToken": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slicerToken"
+        ]
+      },
+      "ValidateSlicerTokenResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "success"
+        ]
+      },
+      "NotifyPrintersOnlineRequest": {
+        "type": "object",
+        "properties": {
+          "printerIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]{24}$"
+            }
+          }
+        },
+        "required": [
+          "printerIds"
+        ]
+      },
+      "BambuSendVerificationCodeResponse": {
+        "type": "object",
+        "properties": {
+          "codeSent": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "codeSent"
+        ]
+      },
+      "BambuSendVerificationCodeRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "BambuAuthSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "devices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BambuLabPrinter"
+            }
+          },
+          "profiles": {
+            "$ref": "#/components/schemas/BambuLabProfileList"
+          }
+        },
+        "required": [
+          "devices",
+          "profiles"
+        ]
+      },
+      "BambuLabPrinter": {
+        "type": "object",
+        "properties": {
+          "dev_access_code": {
+            "type": "string"
+          },
+          "dev_id": {
+            "type": "string"
+          },
+          "dev_model_name": {
+            "type": "string"
+          },
+          "dev_product_name": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "nozzle_diameter": {
+            "type": "number"
+          },
+          "online": {
+            "type": "boolean"
+          },
+          "print_status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dev_access_code",
+          "dev_id",
+          "dev_model_name",
+          "dev_product_name",
+          "name",
+          "nozzle_diameter",
+          "online",
+          "print_status"
+        ]
+      },
+      "BambuLabProfileList": {
+        "type": "object",
+        "properties": {
+          "print": {
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BambuLabProfile"
+                }
+              },
+              "user": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BambuLabProfile"
+                }
+              }
+            },
+            "required": [
+              "system",
+              "user"
+            ]
+          },
+          "printer": {
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BambuLabProfile"
+                }
+              },
+              "user": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BambuLabProfile"
+                }
+              }
+            },
+            "required": [
+              "system",
+              "user"
+            ]
+          },
+          "filament": {
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BambuLabProfile"
+                }
+              },
+              "user": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BambuLabProfile"
+                }
+              }
+            },
+            "required": [
+              "system",
+              "user"
+            ]
+          }
+        },
+        "required": [
+          "print",
+          "printer",
+          "filament"
+        ]
+      },
+      "BambuLabProfile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "updatedAt",
+          "version"
+        ]
+      },
+      "BambuAuth2FAResponse": {
+        "type": "object",
+        "properties": {
+          "loginType": {
+            "type": "string"
+          },
+          "tfaKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "loginType"
+        ]
+      },
+      "BambuAuthRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 2
+          },
+          "code": {
+            "type": "string"
+          }
+        }
+      },
+      "BambuTfaAuthRequest": {
+        "type": "object",
+        "properties": {
+          "tfaCode": {
+            "type": "string"
+          },
+          "tfaKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tfaCode",
+          "tfaKey"
+        ]
+      },
+      "BambuImportProfilesResponse": {
+        "type": "object",
+        "properties": {
+          "importedIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "importedIds"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "tags": [],
+  "x-samchon-emended": true
+}

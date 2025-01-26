@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Authentication
 
-Currently API Key provisioning is a manual process.  Please email [noah@printago.io](mailto:noah@printago.io) for access.
+Currently API Key provisioning is a manual process.  Please email support@printago.io or join our [Discord community](https://discord.gg/RCFA2u99De) to connect with our developers.
 
 ## Required HTTPS Headers
 

@@ -2,20 +2,43 @@
 sidebar_position: 1
 ---
 
-# FAQ
+# Frequently Asked Questions
 
-Description of FAQ goes here.
+Get quick answers to the most common questions about Printago! Can't find what you're looking for? Join our [Discord community](https://discord.gg/RCFA2u99De) for fast support!
 
-## Overview
+### What is Printago?
+Printago is cloud-based print farm software built specifically for Bambu Lab owners and the experience they expect. We make it easy to manage your entire print farm from one place!
 
-Add content here...
+### How do I get started?
+You can connect hundreds of Bambu Lab printers and start automating in minutes.  No hardware, software, or credit card required.  
 
-## Features
+Check out our **[Setting Started Guide](../getting-started/quick-setup.mdx)**
 
-- Feature 1
-- Feature 2
-- Feature 3
+### Which printers does Printago support?
+Currently, we support:
+- All Bambu Lab printers
+- More printer support coming soon!
 
-## Usage
+### Do I need any special hardware?
+For Bambu Lab printers - nope! Just your printers and your Bambu Lab account credentials.
 
-Add usage examples here...
+### Can I customize my models?
+Yes! Printago supports OpenSCAD for dynamic model generation and customization. Learn more in our [OpenSCAD guide](../core-features/file-management/openscad).
+
+### What file types can I upload?
+
+- [We support](../core-features/file-management/01-supported-files.md)
+    - STL 
+    - STEP/STP 
+    - 3MF 
+    - OpenSCAD 
+
+ - [We do ***NOT*** support](../core-features/file-management/01-supported-files.md)
+    - GCode 
+    - GCode.3MF
+
+### How much does Printago cost?
+Visit our [pricing page](https://printago.io/pricing) for current plans and pricing information.
+
+### Can I change my plan later?
+Yes! You can upgrade or downgrade your plan at any time.
