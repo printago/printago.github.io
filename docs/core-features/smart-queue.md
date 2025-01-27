@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Gutenb3d Smart Queue
 
-Meet Gutenb3d™, our intelligent print queue system that revolutionizes how you manage your print farm! With smart material matching and intelligent printer assignment, you'll maximize efficiency and minimize printer downtime.
+Meet Gutenb3d, our intelligent print queue system that revolutionizes how you manage your print farm! With smart material matching and intelligent printer assignment, you'll maximize efficiency and minimize printer downtime.
 
 ## Material Matching 🎨
 
