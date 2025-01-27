@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# FabMatic™
+# FabMatic
 
 Description of FabMatic goes here.
 

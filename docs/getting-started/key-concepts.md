@@ -90,7 +90,7 @@ Parts can be queued to any group of tagged printers (e.g., "Production"), and yo
 
 Parts and SKUs can be configured to require specific tags, ensuring they're only printed on appropriate printers.
 
-## FabMatic™ Continuous Printing
+## FabMatic Continuous Printing
 
 FabMatic is Printago's system for automated, continuous production. When properly configured with appropriate end GCODE, your printers can:
 

@@ -27,13 +27,13 @@ Yes! Printago supports OpenSCAD for dynamic model generation and customization. 
 
 ### What file types can I upload?
 
-- [We support](../core-features/file-management/01-supported-files.md)
+- [We support](../core-features/file-management/supported-files.md)
     - STL 
     - STEP/STP 
     - 3MF 
     - OpenSCAD 
 
- - [We do ***NOT*** support](../core-features/file-management/01-supported-files.md)
+ - [We do ***NOT*** support](../core-features/file-management/supported-files.md)
     - GCode 
     - GCode.3MF
 

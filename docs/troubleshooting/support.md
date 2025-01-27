@@ -23,5 +23,5 @@ support@printago.com
 ## Before Reaching Out
 
 Check these resources first - you might find your answer immediately:
-- [FAQ Section](../faq)
+- [FAQ Section](./faq.md)
 - Search our documentation using the search bar above
