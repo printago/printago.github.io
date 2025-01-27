@@ -21,7 +21,7 @@ OpenSCAD is a programming language for creating parametric 3D models. Instead of
 2. Reference external fonts or STL files in your SCAD code
 3. Define parameters for customization
 4. Create SKUs using your OpenSCAD models
-
+<!-- 
 Here's a basic example:
 
 ```openscad
@@ -32,7 +32,7 @@ module custom_text(text="Hello", height=10) {
 }
 
 custom_text("Welcome to Printago");
-```
+``` -->
 
 ## Dynamic Models
 
@@ -56,7 +56,7 @@ You can use several types of parameters in your OpenSCAD models:
 
 Here's how to set up parameters in your models:
 
-```openscad
+<!-- ```openscad
 // Example with multiple parameter types
 module customizable_nameplate(
     name="John Doe",  // Text parameter
@@ -66,22 +66,20 @@ module customizable_nameplate(
 ) {
     // Model logic here
 }
-```
+``` -->
 
 ## Font Management
 
-Printago supports:
-- System fonts
-- Custom TTF/OTF fonts
-- Font collections
+Printago supports **TTF** and **OTF** fonts.  
 
-To use custom fonts:
+
+<!-- To use custom fonts:
 
 1. Upload fonts to your Printago account
 2. Reference them in your OpenSCAD code:
 ```openscad
 text("Custom Text", font="Your-Font-Name");
-```
+``` -->
 
 ## Best Practices
 
@@ -111,6 +109,7 @@ text("Custom Text", font="Your-Font-Name");
 - Serial numbers
 - Date stamps
 - Unique identifiers
+- Bar Codes
 
 ### Design Variants
 - Color options
