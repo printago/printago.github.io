@@ -19,5 +19,13 @@ Professional-grade 3D CAD files that maintain precise geometry and assembly info
 ## 3MF Files
 Modern 3D Manufacturing Format files that can include color, materials, and other printing preferences. Note: we support standard 3MF files but not .gcode.3mf files.
 
+:::info 3MF notes
+
+1. Only the first build plate will be processed from multi-plate files.
+2. Slicing settings must be saved in Bambu Studio or Orca Slicer, not embedded within the 3MF file.
+3. Color-Painted projects are fully supported, however, without any AMS mapping options.
+4. Full-support of "painted" support enforcers/blockers.  As well as "painted" seams.
+:::
+
 ## OpenSCAD Files
 Parametric design files that generate models through code. Perfect for creating customizable products with Printago. [Learn more about our OpenSCAD integration](./openscad).

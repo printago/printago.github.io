@@ -4,6 +4,10 @@ sidebar_position: 3
 
 # Gutenb3d Smart Queue
 
+:::warning
+THIS PAGE IS A DRAFT
+:::
+
 Meet Gutenb3d, our intelligent print queue system that revolutionizes how you manage your print farm! With smart material matching and intelligent printer assignment, you'll maximize efficiency and minimize printer downtime.
 
 ## Material Matching 🎨
@@ -13,7 +17,6 @@ Gutenb3d automatically matches your prints with printers loaded with the right m
 - Color matching across your printer farm
 - Material type requirements (PLA, PETG, etc.)
 - Multi-material print handling
-- AMS slot optimization
 
 :::tip Pro Tip
 Tag your most-used materials as favorites to prioritize those printers in the queue!
