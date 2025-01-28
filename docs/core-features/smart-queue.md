@@ -59,4 +59,4 @@ Monitor your prints with detailed status information:
 - Material usage
 - Error states
 
-Need help optimizing your queue? Join our [Discord community](https://discord.gg/RCFA2u99De) for tips and tricks!
+Need help optimizing your queue? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
