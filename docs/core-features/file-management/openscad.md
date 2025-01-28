@@ -10,29 +10,37 @@ OpenSCAD support in Printago lets you create dynamic, customizable 3D models tha
 OpenSCAD is a programming language for creating parametric 3D models. Instead of manually sculpting models, you write code that generates them. With Printago's native OpenSCAD support, you can:
 
 - Create dynamic, customizable models
-- Automate model generation
-- Add personalization options like text and sizing
-- Reference external fonts and STL files
-- Generate parts on-the-fly
+- Automate model scaling and sizing
+- Add personalization options like text and color
+- Reference external fonts
+- Modify existing STL files
 
-## Getting Started
+## Editing OpenSCAD Files
 
-1. Upload your OpenSCAD files (.scad) directly to Printago
-2. Reference external fonts or STL files in your SCAD code
-3. Define parameters for customization
-4. Create SKUs using your OpenSCAD models
-<!-- 
-Here's a basic example:
+To create and edit OpenSCAD files, [download OpenSCAD](https://openscad.org/downloads.html#snapshots).  Be sure to download one of the **Development Snapsnot** versions for your computer.
+<img src="\img\screenshot_000360.png" width="600" alt="OpenSCAD IDE" />
+If you're new to OpenSCAD, this documentation will not serve as a tutorial.  However, you will find a few example snippets.  
+
+If you're interested in using OpenSCAD in Printago, reach out to support@printago.io or chat with the development team on our [Discord server](https://discord.gg/RCFA2u99De) - we will gladly help you!
+
+## Importing Files
+
+Printago supports the `use` and `import` commands in OpenSCAD.  You may use fonts or other OpenSCAD libraries, or import STLs, SVG, or DXF files.  
 
 ```openscad
-// Basic text extrusion example
-module custom_text(text="Hello", height=10) {
-    linear_extrude(height=height)
-        text(text, size=20, font="Arial");
-}
+use <ArianaVioleta.ttf>     // fonts
+use <text_tools.scad>       // OpenSCAD library
+import("iphone16_case.stl") // STL Geometry
+import("customer_logo.dxf") // Flat-Geometry import (SVG works too)
+``` 
 
-custom_text("Welcome to Printago");
-``` -->
+:::warning
+Do not use variables as `import` or `use` arguments.  The Printago OpenSCAD parser will not find these files.
+```openscad
+filename = "customer_logo.dxf");  
+import(filename); 
+```
+:::
 
 ## Dynamic Models
 
@@ -42,6 +50,7 @@ Dynamic models in Printago use OpenSCAD parameters to create variations of your 
 - Adjustable dimensions
 - Personalized designs
 - Size variations
+- COMING SOON: Define parts colors (automatically painted models)
 
 ### Parameter Types
 
@@ -52,7 +61,7 @@ You can use several types of parameters in your OpenSCAD models:
 - **Boolean**: For optional features
 - **Selection**: For preset choices
 
-## Working with Parameters
+### Working with Parameters
 
 Here's how to set up parameters in your models:
 
@@ -68,18 +77,12 @@ module customizable_nameplate(
 }
 ``` -->
 
-## Font Management
+### Font Management
 
 Printago supports **TTF** and **OTF** fonts.  
 
+## Adding OpenSCAD Parts to Printago
 
-<!-- To use custom fonts:
-
-1. Upload fonts to your Printago account
-2. Reference them in your OpenSCAD code:
-```openscad
-text("Custom Text", font="Your-Font-Name");
-``` -->
 
 ## Best Practices
 
@@ -128,4 +131,4 @@ For performance issues:
 - Optimize operations
 - Check resource usage
 
-Need help? Check our FAQ or contact support at support@printago.com.
+Stay tuned for updates and new features! Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
