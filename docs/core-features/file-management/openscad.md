@@ -1,7 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
-# OpenSCAD in Printago
+# OpenSCAD Parts
 
 OpenSCAD support in Printago lets you create dynamic, customizable 3D models that respond to customer input without touching code. Let's explore how it works!
 

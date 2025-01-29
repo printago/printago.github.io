@@ -23,8 +23,11 @@ Modern 3D Manufacturing Format files that can include color, materials, and othe
 
 1. Only the first build plate will be processed from multi-plate files.
 2. Slicing settings must be saved in Bambu Studio or Orca Slicer, not embedded within the 3MF file.
-3. Color-Painted projects are fully supported, however, without any AMS mapping options.
+3. Color-Painted projects are fully supported, however, without any AMS mapping options
+     (`SLOT1` -> `SLOT1` and  `SLOT2` -> `SLOT2`, as so on)
 4. Full-support of "painted" support enforcers/blockers.  As well as "painted" seams.
+5. Object placement on the build plate is preserved.
+
 :::
 
 ## OpenSCAD Files
