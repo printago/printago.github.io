@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Bambu Sync
+# Adding Parts
 
-Description of Bambu Sync goes here.
+Description of SKU Management goes here.
 
 ## Overview
 
