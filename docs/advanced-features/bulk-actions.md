@@ -10,8 +10,8 @@ Bulk Actions provide powerful controls for managing multiple items simultaneousl
 
 The Bulk Actions control appears in the top-right corner (top on mobile) of screens that support multi-selection:
 
-1. Initially shows as a disabled <img src="/img/screenshot_000372.png" width="75" alt="add part 1" /> button.
-2. When you select items, it updates to show `N Items Selected` (where N is your selection count)
+1. Initially shows as a disabled <img src="/img/screenshot_000372.png" width="75" alt="actions button" /> button.
+2. When you select items, the button enables and updates its text <img src="/img/screenshot_000373.png" width="115" alt="add part 1" />
 3. Clicking reveals a context-aware menu of actions available for your selected items
 
 Different screens offer different bulk operations - for example, selecting multiple printers gives you printer-specific actions, while selecting print jobs provides queue management options.
@@ -104,26 +104,7 @@ Always use filters to narrow down items before applying Bulk Actions:
 3. Use Select All to capture the filtered items
 4. Apply your bulk action
 
-### Safety Measures
 
-Printago includes several safety features for Bulk Actions:
 
-- Confirmation dialogs for destructive actions
-- Clear indication of selection count
-- Preview of affected items for critical changes
-- Ability to cancel ongoing bulk operations
 
-### Performance Tips
 
-When working with large numbers of items:
-
-1. Use filters to work with smaller batches
-2. Allow bulk operations to complete before starting new ones
-3. Verify results after significant changes
-
-## Related Documentation
-
-- [Print Queue Management](/docs/print-queue)
-- [Printer Configuration](/docs/printers)
-- [Parts Library](/docs/parts)
-- [SKU Management](/docs/skus)
