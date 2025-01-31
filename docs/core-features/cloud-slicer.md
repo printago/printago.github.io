@@ -1,7 +1,8 @@
 ---
 sidebar_position: 4
 ---
-
+:::warning DRAFT PAGE
+:::
 # Cloud Slicer
 
 Printago's cloud slicer converts your 3D models into printer-ready instructions automatically. By handling slicing in the cloud, we eliminate the need to maintain local slicer configurations across multiple machines.
