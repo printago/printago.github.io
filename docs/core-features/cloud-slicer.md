@@ -1,10 +1,10 @@
 ---
 sidebar_position: 4
 ---
+
+# Cloud Slicer
 :::warning DRAFT PAGE
 :::
-# Cloud Slicer
-
 Printago's cloud slicer converts your 3D models into printer-ready instructions automatically. By handling slicing in the cloud, we eliminate the need to maintain local slicer configurations across multiple machines.
 
 ## Bambu Sync
@@ -13,12 +13,11 @@ Printago synchronizes with your Bambu Lab Cloud account to:
 
 - Import your custom printer profiles
 - Maintain consistent print settings 
-- Keep material presets in sync
 - Update slicer configurations automatically
 
 This ensures your cloud slicing matches your local Bambu Studio settings exactly.
 
-## Printer and Part Configuration 
+<!-- ## Printer and Part Configuration 
 
 ### Printer Settings
 
@@ -33,7 +32,5 @@ This ensures your cloud slicing matches your local Bambu Studio settings exactly
 - Support preferences
 - Build plate adhesion
 - Material requirements
+ -->
 
-:::tip
-Changes to your Bambu Studio profiles will automatically sync to Printago's cloud slicer on your next print job.
-:::

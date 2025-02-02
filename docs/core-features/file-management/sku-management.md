@@ -19,7 +19,7 @@ SKUs are the bridge between your 3D models and your production workflow. While P
 :::info
 You'll need at least 1 part in your Part catalog
 :::
-
+<!-- 
 ### Basic SKU Setup
 1. Navigate to `Products -> SKUs`.
 2. Click "Create New SKU"
@@ -67,6 +67,6 @@ SKUs automatically integrate with Printago's smart queue system:
 ### Monitoring and Status
 - Track production progress for all SKU components
 - Monitor material usage and requirements
-- View real-time production statistics
+- View real-time production statistics -->
 
 Have questions about creating SKUs? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!

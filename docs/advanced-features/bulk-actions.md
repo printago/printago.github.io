@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Bulk Actions
@@ -23,88 +23,47 @@ Printago supports several ways to select items:
 - **Individual Selection**: Click checkboxes next to items you want to affect
 - **Range Selection**: Select an item, hold `Shift`, then select another item to select everything between
 - **Select All**: Use the checkbox in the table header to select all items matching your current filters
+- **Filter Before Selection**: Use Search and Filters to limit items, then use Select All to capture the filtered items
 - **Mixed Selection**: Combine methods - for example, select all, then uncheck specific items
+
+<img src="/img/multi_select.gif" width="700" alt="multi select" />
+
 
 ## Bulk Actions by Context
 
 ### Print Queue Management
 
-The Print Queue offers bulk operations focused on job control and organization:
+The Print Queue offers bulk operations focused on job control and organization. Available actions depend on the state of selected print jobs:
 
-- **Job Control**
-  - Pause/Resume: Temporarily halt or restart multiple print jobs
-  - Cancel: Stop selected print jobs (requires confirmation)
-  - Move: Reposition jobs in queue to optimize printing order
+- **In Progress Jobs**
+  - _Pause_: Temporarily stop active print jobs
+  - _Resume_: Continue paused print jobs
   
-- **Job Settings**
-  - Apply Tags: Categorize jobs for better organization
-  - Update Print Settings: Modify slicing parameters across jobs
-  - Assign to Printers: Route multiple jobs to specific printers
-
-For example, to pause all jobs using a specific material:
-1. Filter your queue to show jobs using that material
-2. Use Select All to select those jobs
-3. Choose "Pause" from the Bulk Actions menu
-
+- **Queue Management**
+  - _Cancel_: Stop selected print jobs (requires confirmation)
+  - _Clear_: Remove jobs in `Completed`, `Cancelled`, or `Errored` states
+  - _Retry_: Return `Cancelled` or `Errored` jobs to queue for another attempt
+  
 ### Printer Management 
 
-When managing multiple printers, Bulk Actions lets you:
+Control multiple printers simultaneously through the following Bulk Actions:
 
-- **Status Control**
-  - Set Ready/Maintenance States: Update printer availability
-  - Apply Printer Tags: Group printers by capability or location
-  - Update Access Settings: Modify who can use selected printers
+**Availability Control**
+- _Set as Clear & Ready_: Makes selected printers available in the print queue
+- _Set as Hold/Not Ready_: Temporarily removes printers from the available queue
 
-- **Configuration**
-  - Sync Print Profiles: Push profile updates to multiple printers
-  - Update Material Settings: Configure filament parameters
-  - Set Temperature Presets: Configure heating profiles
+**FabMatic Configuration**  
+- _Enable FabMatic_: Activates continuous printing mode for selected printers
+  - For setup details, see [FabMatic Documentation](./fabmatic.md)
+- _Disable FabMatic_: Turns off continuous printing mode
 
-Common use case: When changing filament brands, use Bulk Actions to update material settings across all printers using that filament type:
-1. Filter to show printers using the specific material
-2. Select affected printers
-3. Choose "Update Material Settings" to apply new parameters
+**Organization**
+- _Edit Tags_: Modify printer tags in bulk to manage printer groups and categories
 
-### Parts Library Organization
+### Part & SKU Management 
 
-Bulk Actions in the Parts Library focuses on organization and settings management:
-
-- **Organization**
-  - Move Parts: Relocate multiple parts between folders
-  - Update Tags: Categorize parts for easier finding
-  - Archive/Restore: Manage part visibility
-
-- **Print Settings**
-  - Update Print Parameters: Change settings like layer height or infill
-  - Set Material Requirements: Specify filament types and colors
-  - Configure Support Settings: Adjust support generation parameters
-
-### SKU Management
-
-For SKUs, Bulk Actions streamlines product management:
-
-- **Product Details**
-  - Update Pricing: Modify prices across multiple SKUs
-  - Edit Descriptions: Update product information
-  - Set Visibility: Control which SKUs are available
-  
-- **Print Configuration**
-  - Set Print Requirements: Update printer/material requirements
-  - Configure Auto-Processing: Set up automation rules
-  - Update Print Settings: Modify production parameters
-
-## Best Practices
-
-### Filtering Before Selection
-
-Always use filters to narrow down items before applying Bulk Actions:
-
-1. Set relevant filters (e.g., printer type, material, status)
-2. Verify filtered results match your target group
-3. Use Select All to capture the filtered items
-4. Apply your bulk action
+- _Delete_: Delete Parts or SKUs from Printago.
 
 
 
-
-
+More ideas for these bulk actions? drop us an email: support@printago.io

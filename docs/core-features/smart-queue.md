@@ -9,7 +9,7 @@ THIS PAGE IS A DRAFT
 :::
 
 Meet Gutenb3d, our intelligent print queue system that revolutionizes how you manage your print farm! With smart material matching and intelligent printer assignment, you'll maximize efficiency and minimize printer downtime.
-
+<!-- 
 ## Material Matching 🎨
 
 Gutenb3d automatically matches your prints with printers loaded with the right materials:
@@ -60,6 +60,6 @@ Monitor your prints with detailed status information:
 - Print progress
 - Time remaining
 - Material usage
-- Error states
+- Error states -->
 
-Need help optimizing your queue? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
+Need help printing from your queue? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
