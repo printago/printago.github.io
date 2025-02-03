@@ -47,8 +47,6 @@ Lets Printago automatically match jobs to compatible printers based on:
 - Color matching
 - Current printer status
 
-This is the recommended option for most print jobs.
-
 #### Specific Printer 
 Target an individual printer from your fleet. The job waits in queue until that printer:
 - Has required materials loaded
