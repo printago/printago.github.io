@@ -14,6 +14,62 @@ You can print from either Parts or SKUs:
 - Both support quantity settings and OpenSCAD parameters
 - Both use the same printer assignment options
 
+```mermaid
+sequenceDiagram
+   participant ECommerce as "E-Commerce (Coming Soon)"
+   participant Printago
+   participant OpenSCAD
+   participant CloudSlicer
+   participant Gutenb3d
+   participant Printer
+   participant Cache
+
+   rect rgba(128, 128, 128, 0.1)
+       Note over ECommerce,Printago: Order Processing (Future Integration)
+       ECommerce->>Printago: New order detected
+       Note over ECommerce,Printago: Future automated integration with<br/>e-commerce platforms
+       Printago->>Printago: Break down SKUs into parts
+   end
+
+   rect rgba(128, 128, 128, 0.1)
+       Note over Printago,OpenSCAD: Part Generation
+       alt is SCAD Part
+           Printago->>Printago: Get parameters
+           Note over Printago: Currently manual input<br/>Future: E-commerce driven
+           Printago->>OpenSCAD: Generate with parameters
+           OpenSCAD->>Printago: Return STL
+       else is STL/STEP Part
+           Note over Printago: Use existing geometry
+       end
+   end
+
+   rect rgba(128, 128, 128, 0.1)
+       Note over Printago,Printer: Print Processing
+       Printago->>Gutenb3d: Queue part for printing
+       Gutenb3d->>Gutenb3d: Match with available printer
+       
+       Gutenb3d->>Cache: Check for cached GCODE
+       alt Cache Hit & Valid
+           Cache->>Gutenb3d: Return cached GCODE
+       else Cache Miss or Invalid
+           Gutenb3d->>CloudSlicer: Request slice
+           CloudSlicer->>CloudSlicer: Generate GCODE
+           CloudSlicer->>Cache: Store GCODE
+           CloudSlicer->>Gutenb3d: Return GCODE
+       end
+       
+       Gutenb3d->>Printer: Send GCODE
+       Printer->>Gutenb3d: Print status updates
+       Printer-->>Gutenb3d: Print complete
+       Gutenb3d->>Printago: Update job status
+   end
+
+   rect rgba(128, 128, 128, 0.1)
+       Note over Printago: Job Completion
+       Printago->>Printago: Move to Completed queue
+   end
+```
+
 ## Starting a Print
 
 ### From Parts
