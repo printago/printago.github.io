@@ -18,7 +18,8 @@ You can print from either Parts or SKUs:
 
 ### From Parts
 1. Navigate to `Products -> Parts`
-2. Find your part and click `Print`
+2. Find your part and click the <img src="/img/screenshot_000398.png" width="85" alt="print sku" /> button.
+    
 3. Set quantity and any OpenSCAD parameters
 4. Choose printer assignment method
 

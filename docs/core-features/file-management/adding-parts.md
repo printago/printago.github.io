@@ -49,6 +49,10 @@ When using 3MF files, Printago preserves:
      (`SLOT1` -> `SLOT1` and  `SLOT2` -> `SLOT2`, as so on)
 :::
 
+:::warning Part fitment
+Printago assumes each of your parts will fit on any of your printers.  It is (currently) up to you, the user, to ensure large prints to not get assigned to A1 Mini.  If they do, the job will be in the `Error` tab of the `Print Queue` page, as it will fail in the slicing phase.
+:::
+
 ## Next Steps
 
 After adding parts to your library, you can:

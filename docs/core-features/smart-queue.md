@@ -4,62 +4,61 @@ sidebar_position: 4
 
 # Gutenb3d Smart Queue
 
-:::warning
-THIS PAGE IS A DRAFT
-:::
+Meet Gutenb3d, our intelligent print queue system that revolutionizes how you manage your print farm. With smart material matching and intelligent printer assignment, you'll maximize efficiency and minimize printer downtime.
 
-Meet Gutenb3d, our intelligent print queue system that revolutionizes how you manage your print farm! With smart material matching and intelligent printer assignment, you'll maximize efficiency and minimize printer downtime.
-<!-- 
-## Material Matching 🎨
+## Core Features
 
-Gutenb3d automatically matches your prints with printers loaded with the right materials:
+Gutenb3d acts as your print farm's central nervous system by:
 
-- Color matching across your printer farm
-- Material type requirements (PLA, PETG, etc.)
-- Multi-material print handling
+* Automatically routing all print jobs through an intelligent queueing system
+* Matching jobs with available printers based on material type, printer tags, and color requirements
+* Managing printer availability and status in real-time
+* Optimizing queue processing for maximum efficiency
 
-:::tip Pro Tip
-Tag your most-used materials as favorites to prioritize those printers in the queue!
-:::
+<img src="/img/gutenbed.gif" width="650" alt="add part 2" />
 
-## Printer Assignment 🖨️
+## How It Works
 
-Smart printer selection based on your farm's configuration:
+### Printer Matching
 
-- Automatic printer selection based on availability
-- Material requirements matching
-- Print size compatibility
-- Custom printer tags support
-- Priority queue management
+Gutenb3d looks for `Available` printers matching these criteria:
+
+* Material type requirements (PLA, PET, etc.)
+* User-defined printer tags
+* Material color groups (coming soon)
 
 :::info
-Use printer tags like "Upper Rack" or "Production" to control which printers handle specific jobs.
+A printer is considered `Available` when it is:
+* Online and connected
+* Not processing another job
+* Marked as "clear & ready for next print"
 :::
 
-## Queue Management ⚡
+### Queue Processing
 
-Take control of your print queue with powerful management features:
+Jobs remain in queue when:
 
-- Drag-and-drop job reordering
-- Priority levels for urgent prints
-- Real-time status monitoring
-- Batch operations support
-- Error recovery handling
+* No printers match the required criteria
+* Matching printers are not in `Available` status
+* All printer production slots are busy
 
-### Multi-Actions
+The queue processes top to bottom, with flexible reordering capabilities to adjust priorities.
 
-Select multiple jobs to:
-- Pause/resume jobs
-- Cancel prints
-- Reassign printers
-- Update priorities
+### Job Management
 
-### Job Status Tracking
+* Each part of a SKU appears separately in the queue
+* Jobs can be cancelled through [Bulk Actions](../advanced-features/bulk-actions.md)
+* Queue position can be adjusted through drag-and-drop interface
+* Cancelled or Errored jobs may be retried via Bulk Action, placing the job back in the queue.
 
-Monitor your prints with detailed status information:
-- Print progress
-- Time remaining
-- Material usage
-- Error states -->
+## Best Practices
+
+* Maintain accurate printer status and availability
+* Use printer tagging to create dynamic groupings of printers.
+
+## Related Topics
+
+* [Bulk Actions](../advanced-features/bulk-actions.md)
+* [Cloud Slicer](./cloud-slicer.md)
 
 Need help printing from your queue? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
