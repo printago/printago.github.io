@@ -16,7 +16,7 @@ Cloud Slicer automatically generates printer-specific GCODE when jobs are assign
 ## Core Functionality
 
 ### Integration with Gutenbed
-Cloud Slicer is tightly integrated with [Gutenbed](./gutenbed.md) to provide real-time slicing capabilities as print jobs are assigned to printers within the network.
+Cloud Slicer is tightly integrated with [Gutenbed](../core-features/smart-queue.md) to provide real-time slicing capabilities as print jobs are assigned to printers within the network.
 
 ### Slicing Process
 When a part is assigned to a printer:
