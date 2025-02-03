@@ -89,6 +89,10 @@ To configure a specific printer:
     - Bed Leveling for each print
     - Option to use AMS or External Spool 
 
+:::warning AMS Printing
+Multi-color is Coming Soon! Until then, printers with the `Use AMS` checkbox selected will feed from `Slot 1` (left-most) AMS slot.
+:::
+
 ### Disconnecting Printers
 
 1. Run the Bambu Integration Wizard
