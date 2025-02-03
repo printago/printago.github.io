@@ -19,7 +19,7 @@ Connect your systems directly to Printago and:
 
 Want to start building? Here's how to get access:
 
-1. Email us at support@printago.com or message us on [Discord](https://discord.gg/RCFA2u99De)
+1. Email us at support@printago.io or message us on [Discord](https://discord.gg/RCFA2u99De)
 2. Tell us about what you want to build
 3. We'll provide you with:
    - API credentials

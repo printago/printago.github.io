@@ -6,8 +6,8 @@ sidebar_position: 3
 
 FabMatic enables your 3D printers to run continuous back-to-back jobs with automated bed clearing. By automating the print removal process, FabMatic maximizes printer efficiency and minimizes manual intervention.
 
-:::info Experimental
-FabMatic is currently in `Experimental` phase.  This feature is scheduled to be updated in Febrary 2025.  Users will have a `Scripts` section of Printago, which they can adjust the clearing scipts on-the-fly.  Additionally, Printago will support temperature-based release scripts (no more fuzzy timing and timeouts). 
+:::warning Experimental
+FabMatic is currently in `Experimental` phase.  This feature is scheduled to be updated in **Febrary 2025**. Additionally, Printago will support temperature-based release scripts (no more fuzzy timing and timeouts). 
 :::
 
 ## Preparing Your Clearing Script

@@ -31,4 +31,4 @@ Join our [Discord community](https://discord.gg/RCFA2u99De)
 
 ## Questions?
 
-Have specific requirements for local network printing? We'd love to hear from you! Contact our team at support@printago.com.
+Have specific requirements for local network printing? We'd love to hear from you! Contact our team at support@printago.io.

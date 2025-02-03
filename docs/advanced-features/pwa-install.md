@@ -19,7 +19,7 @@ A Progressive Web App (PWA) allows you to install Printago directly to your devi
 
 ### Using Chrome or Edge
 
-1. Visit [app.printago.com](https://app.printago.com)
+1. Visit [app.printago.io](https://app.printago.io)
 2. Look for the install icon in your browser's address bar (usually a "+" or computer monitor icon)
 3. Click the install icon and select `Install`
 
@@ -30,7 +30,7 @@ A Progressive Web App (PWA) allows you to install Printago directly to your devi
 #### **_OR_**
 
 
-1. Visit [app.printago.com](https://app.printago.com)
+1. Visit [app.printago.io](https://app.printago.io)
 2. Click the three dots menu (⋯) in the address bar
 3. For Chrome, go to `Cast, save, and Share` > `Install Printago`
     <img src="/img/screenshot_000377.png" width="300" alt="" />
@@ -42,7 +42,7 @@ A Progressive Web App (PWA) allows you to install Printago directly to your devi
 
 ### Using Chrome
 
-1. Navigate to [app.printago.com](https://app.printago.com)
+1. Navigate to [app.printago.io](https://app.printago.io)
 2. Click the install icon in the Chrome address bar _**OR**_ 
 
     Navigate via the menu(`⋮`) to `Cast, Save, and Share` > `Install Printago`
@@ -52,7 +52,7 @@ A Progressive Web App (PWA) allows you to install Printago directly to your devi
 
 ### Using Safari
 
-1. Visit [app.printago.com](https://app.printago.com)
+1. Visit [app.printago.io](https://app.printago.io)
 2. Click the Share button in the toolbar
 3. Select `Add to Dock`
 
@@ -67,7 +67,7 @@ Safari on macOS has limited PWA capabilities. For the best desktop experience, e
 
 ## iPhone and iPad Installation
 
-1. Open Safari and go to [app.printago.com](https://app.printago.com)
+1. Open Safari and go to [app.printago.io](https://app.printago.io)
 2. Tap the Share button (rectangle with up arrow)
 3. Scroll down and tap "Add to Home Screen"
 
@@ -87,7 +87,7 @@ Currently, PWA installation on iOS is only supported through Safari. Chrome and 
 
 ### Using Chrome
 
-1. Visit [app.printago.com](https://app.printago.com)
+1. Visit [app.printago.io](https://app.printago.io)
 2. Tap the three dots menu (⋮) in Chrome
 3. Select "Install app" or "Add to Home screen"
 4. Follow the prompts to install
@@ -135,7 +135,7 @@ If you're having trouble installing Printago as a PWA:
 Having trouble installing Printago? We're here to help:
 
 - Join our [Discord community](https://discord.gg/RCFA2u99De)
-- Contact support at support@printago.com
+- Contact support at support@printago.io
 - Check our [FAQ page](../troubleshooting/faq.md) for common issues
 
 :::tip Keep Updated
