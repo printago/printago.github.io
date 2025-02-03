@@ -21,17 +21,18 @@ A Progressive Web App (PWA) allows you to install Printago directly to your devi
 
 1. Visit [app.printago.com](https://app.printago.com)
 2. Look for the install icon in your browser's address bar (usually a "+" or computer monitor icon)
-3. Click the install icon and select "Install"
+3. Click the install icon and select `Install`
+
     <img src="/img/screenshot_000378.png" width="400" alt="pwa install" />
     <img src="/img/screenshot_000379.png" width="200" alt="" />
 4. Printago will install and create a desktop shortcut
 
-#### **_OR_so **
+#### **_OR_**
 
 
 1. Visit [app.printago.com](https://app.printago.com)
 2. Click the three dots menu (⋯) in the address bar
-3. For Chrome, go to "Cast, save, and Share" > "Install Printago"
+3. For Chrome, go to `Cast, save, and Share` > `Install Printago`
     <img src="/img/screenshot_000377.png" width="300" alt="" />
 4. For Edge, go to "Apps" -> "Install Printago"
     <img src="/img/screenshot_000381.png" width="500" alt="" />
@@ -44,8 +45,8 @@ A Progressive Web App (PWA) allows you to install Printago directly to your devi
 1. Navigate to [app.printago.com](https://app.printago.com)
 2. Click the install icon in the Chrome address bar _**OR**_ 
 
-    Navigate via the menu(⋮) to `Cast, Save, and Share` > `Install Printago`
-3. Select "Install"
+    Navigate via the menu(`⋮`) to `Cast, Save, and Share` > `Install Printago`
+3. Select `Install`
 4. The app will appear in your Applications folder
     <img src="/img/screenshot_000382.png" width="500" alt="" />
 
@@ -53,7 +54,7 @@ A Progressive Web App (PWA) allows you to install Printago directly to your devi
 
 1. Visit [app.printago.com](https://app.printago.com)
 2. Click the Share button in the toolbar
-3. Select "Add to Dock"
+3. Select `Add to Dock`
 
     <img src="/img/screenshot_000383.png" width="160" alt="" />
 4. Click `Add`

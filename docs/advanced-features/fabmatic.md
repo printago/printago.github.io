@@ -21,7 +21,7 @@ Your clearing script runs after each print to cool the bed and remove the comple
 :::
 
 ## Detailed Setup Process
-<!-- 
+
 ### Initial Slicer Configuration
 
 1. Open Orca Slicer or Bambu Studio
@@ -97,6 +97,16 @@ The disclaimer must be accepted each time you enable FabMatic
 
 ## Managing FabMatic
 
+### Auto Disable
+FabMatic will disable on any printer(s) that have:
+   1. Had any HMS Error or Warning. This includes filament runout. 
+   2. Printer was used outside of Printago.  This could occur while Printago is awaiting for the bed to cool.
+   3. Printer has lost communications to extended period of time, such that Printago cannot ensure its
+
+:::info Re-Enable FabMatic
+If any of the above have happened you'll need to re-enable Fabmatic from the `Printers` screen.
+:::
+
 ### Manual Disable
 To disable FabMatic on any printer(s):
 1. Use Multi-Select to choose printers
@@ -108,4 +118,4 @@ To make changes to your profile:
 1. Modify the gcode in your slicer
 2. Sync with Printago to update your clearing script profile
 
-Need help with FabMatic? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!  -->
+Need help with FabMatic? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help! 
