@@ -19,6 +19,7 @@ Professional-grade 3D CAD files that maintain precise geometry and assembly info
 ## 3MF Files
 Modern 3D Manufacturing Format files that can include color, materials, and other printing preferences. Note: we support standard 3MF files but not .gcode.3mf files.
 
+
 :::info 3MF notes
 
 1. Only the first build plate will be processed from multi-plate files.
@@ -27,6 +28,10 @@ Modern 3D Manufacturing Format files that can include color, materials, and othe
      (`SLOT1` -> `SLOT1` and  `SLOT2` -> `SLOT2`, as so on)
 4. Full-support of "painted" support enforcers/blockers.  As well as "painted" seams.
 5. Object placement on the build plate is preserved.
+
+:::warning CURRENT 3MF BUG
+A current bug causes the cloud slicer to fail if you've given a name to your plate.  This will cause the slicer to crash without descriptive slicer logs.
+:::
 
 :::
 
