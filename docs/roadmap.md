@@ -20,7 +20,7 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
 
 #### 4. Continuous Improvement
 - [X] Cloud infrastructure improvements to support commercial launch
-- [ ] Capcha for New Account Signups
+- [X] Capcha for New Account Signups
 - [X] Display HMS Errors in UI / Event
 - [ ] Consolidate Queue Item view where Print Job Qty > 1
 - [ ] 3MF: leverage slicing config embedded in project files
@@ -32,9 +32,9 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
 - [ ] Fuzzy SKU matching with Variant Mapping 
 
 #### 6. FabMatic Enhancements 
-- [ ] Configure cool-to temp within Printago UI
-- [ ] Assign clearing scripts to printers 
-- [ ] Printago will send the clearing script manually as a separate job, no need for "end gcode"
+- [X] Configure cool-to temp within Printago UI
+- [X] Assign clearing scripts to printers 
+- [X] Printago will send the clearing script manually as a separate job, no need for "end gcode"
 
 ## Short-Term Roadmap (Next 3-6 Months)
 
