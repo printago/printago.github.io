@@ -22,8 +22,16 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
 - [X] Cloud infrastructure improvements to support commercial launch
 - [X] Capcha for New Account Signups
 - [X] Display HMS Errors in UI / Event
+- [X] 3MF: buxfix for named build plates in Orca/BBS
+- [X] Multi-Action: Print multiple Parts.
+- [X] Multi-Action: Print multiple SKUs.
+- [X] Bambu Integration: Token Expiry Workflow improvements
+- [X] Dark mode: bugfix for visible scrollbars
+- [X] OpenSCAD: bugfix for live thumbnails.
 - [ ] Consolidate Queue Item view where Print Job Qty > 1
 - [ ] 3MF: leverage slicing config embedded in project files
+- [ ] Parts & SKUS: Folders in UI/API for organization.
+- [ ] 3MF: bugfix for missing prime tower on multi-color prints.
 
 #### 5. Retail Integration - Experimental Public Release
 - [ ] Manual order creation (simple group of SKUs w/ qty)

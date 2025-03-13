@@ -29,10 +29,6 @@ Modern 3D Manufacturing Format files that can include color, materials, and othe
 4. Full-support of "painted" support enforcers/blockers.  As well as "painted" seams.
 5. Object placement on the build plate is preserved.
 
-:::warning CURRENT 3MF BUG
-A current bug causes the cloud slicer to fail if you've given a name to your plate.  This will cause the slicer to crash without descriptive slicer logs.
-:::
-
 :::
 
 ## OpenSCAD Files
