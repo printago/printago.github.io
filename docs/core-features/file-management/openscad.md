@@ -169,3 +169,7 @@ If your design is rendering slowly:
 - Consider breaking into smaller modules that can be rendered independently
 
 Need help! Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!
+
+## Additional Resources
+
+Check out our [OpenSCAD Libraries](./openscad_libraries.md) page for a collection of useful libraries that can extend your OpenSCAD capabilities in Printago.

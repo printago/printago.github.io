@@ -39,6 +39,10 @@ const config = {
 
   themeConfig: ({
     image: 'img/logo.svg',
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4, // Include h4 headings in the right sidebar TOC
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,

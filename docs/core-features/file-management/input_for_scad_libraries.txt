@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <script src="assets/js/display-mode.js"></script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>OpenSCAD - Libraries</title>
+
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <link href="assets/fonts/open-sans/all.css" rel="stylesheet">
+	<link href="assets/fontawesome/css/regular.css" rel="stylesheet">
+	<link href="assets/fontawesome/css/solid.min.css" rel="stylesheet">  
+	<link href="assets/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+
+  <script src="assets/js/jquery-1.9.1.min.js"></script>
+
+  <!-- One-Page-Nav  -->
+  <script src="assets/js/jquery.scrollTo.js"></script>
+
+  <!--waypoints-->
+  <script src="assets/js/waypoints.min.js"></script>
+  <script src="assets/js/waypoints-sticky.min.js"></script>
+
+  <script src="assets/js/header.js"></script>
+</head>
+<body>
+
+<div id="page-wrap">
+<header>
+  <div class="clear"></div>
+  <div id="logo" class="left"></div>
+	<div id="donate" class="right">
+    <a href="https://opencollective.com/openscad/donate" target="_blank">
+      <img src="assets/img/donate-opencollective.png" alt="Donate on Opencollective" width="200" height="33">
+    </a>
+	</div>
+	<div id="displayMode" class="right">
+		<div class="currentMode"><i class="fa fa-circle-half-stroke"></i> Theme</div>
+    <ul class="pickMode" style="display: none;">
+      <li class="system"><i class="fa fa-circle-half-stroke"></i> OS Default</li>
+      <li class="light"><i class="fa fa-sun"></i> Light</li>
+      <li class="dark"><i class="fa fa-moon"></i> Dark</li>
+    </ul>
+	</div>
+  <div id="title" style="margin-top:35px; width:620px;">
+    <h1 class="title" style="position:relative;"><span class="green">Open</span>SCAD</h1>
+    <h2 class="subtitle" style="position:relative; left:45px;">The Programmers Solid 3D CAD Modeller</h2>
+  </div>
+
+  <div id="navigation">
+  <div id="navigation-inner">
+    <ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li class="current"><a href="libraries.html">Libraries</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="https://github.com/openscad/openscad/" target="_blank">GitHub</a></li>
+    </ul>
+  </div>
+  </div>
+</header>
+
+<div id="page-content">
+
+  <div id="sidebar" class="sticky">
+    <h1>Libraries</h1>
+    <ul>
+      <li><a href="#general">General</a></li>
+      <ul>
+        <li>&centerdot;&nbsp;<a href="#BOSL">BOSL</a></li>
+        <li>&centerdot;&nbsp;<a href="#BOSL2">BOSL2</a></li>
+        <li>&centerdot;&nbsp;<a href="#dotSCAD">dotSCAD</a></li>
+        <li>&centerdot;&nbsp;<a href="#NopSCADlib">NopSCADlib</a></li>
+        <li>&centerdot;&nbsp;<a href="#UB.scad">UB.scad</a></li>
+        <li>&centerdot;&nbsp;<a href="#FunctionalOpenSCAD">Functional OpenSCAD</a></li>
+        <li>&centerdot;&nbsp;<a href="#constructive">Constructive</a></li>
+        <li>&centerdot;&nbsp;<a href="#StoneAgeLib">StoneAgeLib</a></li>
+        <li>&centerdot;&nbsp;<a href="#BOLTS">BOLTS</a></li>
+        <li>&centerdot;&nbsp;<a href="#Assets">Asset Collection</a></li>
+      </ul>
+      <li><a href="#singletopic">Single Topic</a></li>
+      <ul>
+        <li>&centerdot;&nbsp;<a href="#RoundAnything">Round Anything</a></li>
+        <li>&centerdot;&nbsp;<a href="#MarksEnclosureHelper">Mark's Enclosure Helper</a></li>
+        <li>&centerdot;&nbsp;<a href="#funcutils">funcutils</a></li>
+        <li>&centerdot;&nbsp;<a href="#threads.scad">threads.scad Module</a></li>
+        <li>&centerdot;&nbsp;<a href="#SmoothPrimitives">Smooth Primitives Library</a></li>
+        <li>&centerdot;&nbsp;<a href="#FunctionPlotting">Function Plotting Library</a></li>
+        <li>&centerdot;&nbsp;<a href="#ClosePoints">ClosePoints Library</a></li>
+        <li>&centerdot;&nbsp;<a href="#Tray">Tray Library</a></li>
+        <li>&centerdot;&nbsp;<a href="#YAPP">YAPP Generator</a></li>
+        <li>&centerdot;&nbsp;<a href="#STEMFIE">STEMFIE Parts Library</a></li>
+        <li>&centerdot;&nbsp;<a href="#catchnhole">Catch'n'Hole</a></li>
+        <li>&centerdot;&nbsp;<a href="#pathbuilder">Pathbuilder</a></li>
+        <li>&centerdot;&nbsp;<a href="#a2d">Altair's 2D Library</a></li>
+      </ul>
+    </ul>
+  </div>
+
+  <article>
+    <section id="general">
+      <h1>General</h1>
+      <img class="libimg" src="images/bosl.gif" width="200" align="right">
+      <h2 id="BOSL">BOSL</h2>
+      <p>The Belfry OpenScad Library - A library of tools, shapes, and helpers to make OpenScad easier to use.</p>
+      <ul>
+        <li><a href="https://github.com/revarbat/BOSL">Library</a></li>
+        <li><a href="https://github.com/revarbat/BOSL/wiki">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/BSD-2-Clause.html">BSD-2-Clause</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/bosl2.gif" width="200" align="right">
+      <h2 id="BOSL2">BOSL2 (beta)</h2>
+      <p>Belfry OpenScad Library v2 - A library of tools, shapes, and helpers to make OpenScad easier to use.</p>
+      <ul>
+        <li><a href="https://github.com/BelfrySCAD/BOSL2/">Library</a></li>
+        <li><a href="https://github.com/BelfrySCAD/BOSL2/wiki">Documentation</a></li>
+        <li><a href="https://github.com/BelfrySCAD/BOSL2/wiki/Tutorials">Tutorials</a></li>
+        <li>License: <a href="https://spdx.org/licenses/BSD-2-Clause.html">BSD-2-Clause</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/dotscad.gif" width="200" align="right">
+      <h2 id="dotSCAD">dotSCAD</h2>
+      <p>Reduce the burden of 3D modeling in mathematics.</p>
+      <ul>
+        <li><a href="https://github.com/JustinSDK/dotSCAD">Library</a></li>
+        <li><a href="https://openhome.cc/eGossip/OpenSCAD/">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/LGPL-3.0-only.html">LGPL-3.0-only</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="https://raw.githubusercontent.com/nophead/NopSCADlib/master/libtest.png" width="200" align="right">
+      <h2 id="NopSCADlib">NopSCADlib</h2>
+      <p>An ever expanding library of parts modelled in OpenSCAD useful for 3D printers and enclosures for electronics, etc.</p>
+      <ul>
+        <li><a href="https://github.com/nophead/NopSCADlib">Library</a></li>
+        <li><a href="https://github.com/nophead/NopSCADlib/blob/master/readme.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/GPL-3.0-or-later.html">GPL-3.0-or-later</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/ub.gif" width="200" align="right">
+      <h2 id="UB.scad">UB.scad</h2>
+      <p>This library is a full 3D printing workflow solution for OpenSCAD, bringing tools for modifying and
+         generating 3D objects, view helpers and a selection of mechanical parts.</p>
+      <ul>
+        <li><a href="https://github.com/UBaer21/UB.scad">Library</a></li>
+        <li><a href="https://github.com/UBaer21/UB.scad/blob/main/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/functional_openscad.gif" width="200" align="right">
+      <h2 id="FunctionalOpenSCAD">Functional OpenSCAD</h2>
+      <p>Implementing OpenSCAD in OpenSCAD.</p>
+      <ul>
+        <li><a href="https://github.com/thehans/FunctionalOpenSCAD">Library</a></li>
+        <li><a href="https://github.com/thehans/FunctionalOpenSCAD/blob/master/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/MIT.html">MIT</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="https://raw.githubusercontent.com/solidboredom/constructive/main/img/mount.gif" width="200" align="right">
+      <h2 id="constructive">Constructive Library</h2>
+      <p>
+        Extends OpenScad Language for complex and complementary mechanical parts with less mathematical
+        code. Offers a "Stamping" approach to quickly create mechanical parts fitting and complementing
+        one another. This is used as a replacement for Constraints known form other CAD systems.
+      </p>
+      <ul>
+        <li><a href="https://github.com/solidboredom/constructive">Library</a></li>
+        <li><a href="https://github.com/solidboredom/constructive/blob/main/README.md">Documentation</a></li>
+        <li>Tutorials:
+          <a href="https://github.com/solidboredom/constructive/blob/main/tutorials/basic-tutorial.md">Basics</a>,
+          <a href="https://github.com/solidboredom/constructive/blob/main/tutorials/tutorial-partII.md">Part II</a>,
+          <a href="https://github.com/solidboredom/constructive/blob/main/tutorials/tutorial-partIII.md">Part III</a>
+        </li>
+        <li>License: <a href="https://spdx.org/licenses/GPL-2.0-only.html">GPL-2.0-only</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/stone-age-lib.gif" width="200" align="right">
+      <h2 id="StoneAgeLib">StoneAgeLib</h2>
+      <p>StoneAgeLib - All sorts of scripts for OpenSCAD. The scripts are for 3D models for 3D printing.</p>
+      <p>An important aspect of this library is the CC0 (Public Domain) license.</p>
+      <p>This library is for a OpenSCAD version of at least 2025 with the features turned on and using "Manifold".</p>
+      <ul>
+        <li><a href="https://github.com/Stone-Age-Sculptor/StoneAgeLib">Library</a></li>
+        <li><a href="https://github.com/Stone-Age-Sculptor/StoneAgeLib/tree/main/examples">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/bolts.gif" width="200" align="right">
+      <h2 id="BOLTS">BOLTS</h2>
+      <p>BOLTS is an Open Library of Technical Specifications.</p>
+      <ul>
+        <li><a href="https://github.com/boltsparts/BOLTS">Library</a></li>
+        <li><a href="https://boltsparts.github.io/en/index.html">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/LGPL-2.1-or-later.html">LGPL-2.1-or-later</a> | <a href="https://spdx.org/licenses/GPL-3.0-only.html">GPL-3.0-only</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/angelo-nicoli-assets.gif" width="200" align="right">
+      <h2 id="Assets">Asset Collection</h2>
+      <p>
+        A collection of OpenSCAD Scripts. There are some mechanical parts, as well as furniture and
+        models that can be used as base mesh for 3D animations and game design.
+      </p>
+      <ul>
+        <li><a href="https://github.com/AngeloNicoli/OpenSCAD-Snippet">Library</a></li>
+        <li><a href="https://github.com/AngeloNicoli/OpenSCAD-Snippet/blob/main/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/MIT.html">MIT</a></li>
+      </ul>
+      <p style="clear: both"></p>
+    </section>
+
+    <section id="singletopic">
+      <h1>Single Topic</h1>
+      <img class="libimg" src="images/round-anything.gif" width="200" align="right">
+      <h2 id="RoundAnything">Round Anything</h2>
+      <p>Round-Anything is primarily a set of OpenSCAD utilities that help with rounding
+         parts, but it also embodies a robust approach to developing OpenSCAD parts.</p>
+      <ul>
+        <li><a href="https://github.com/Irev-Dev/Round-Anything">Library</a></li>
+        <li><a href="https://learn.cadhub.xyz/docs/round-anything/overview/">Overview</a><small> - <i>A pragmatic approach to OpenSCAD design</i></small></li>
+        <li><a href="https://learn.cadhub.xyz/docs/round-anything/api-reference/">Documentation</a><small> - <i>API reference and examples</i></small></li>
+        <li>License: <a href="https://spdx.org/licenses/MIT.html">MIT</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/marks-enclosure-helper.gif" width="200" align="right">
+      <h2 id="MarksEnclosureHelper">Mark's Enclosure Helper</h2>
+      <p>A script for generating a two piece hinged box, with rounded corners, lid,
+         interlocking rims, snap fit, magnet, or screw closures, and easy places
+         for adding cutouts or additions to any face..</p>
+      <ul>
+        <li><a href="https://github.com/sbambach/MarksEnclosureHelper">Library</a></li>
+        <li><a href="https://github.com/sbambach/MarksEnclosureHelper/blob/master/REFERENCE.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/GPL-3.0-only.html">GPL-3.0-only</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <h2 id="funcutils">funcutils</h2>
+      <p>This library is a collection of OpenSCAD functions for use with the function-literals feature. It
+         is meant to provide algorithms and tools to help build efficient scripts using functional programming
+         techniques in OpenSCAD.</p>
+      <ul>
+        <li><a href="https://github.com/thehans/funcutils">Library</a></li>
+        <li><a href="https://github.com/thehans/funcutils/blob/master/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/rcolyer_threads.gif" width="200" align="right">
+      <h2 id="threads.scad">OpenSCAD threads.scad Module</h2>
+      <p>This is an efficient OpenSCAD threading library intended primarily to be used
+         as a component in other designs. It supports metric compatible internal and
+         external threads, auger threads, thread tapering, clearance holes, countersunk
+         holes, recessed holes, hex bolts, nuts, washers, Phillips tips, and long rods
+         which are extended with threaded joints. Whenever possible this complies with
+         metric standards for the defaults of parameters, while providing overrides for
+         many values.</p>
+      <ul>
+        <li><a href="https://github.com/rcolyer/threads-scad">Library</a></li>
+        <li><a href="https://github.com/rcolyer/threads-scad/blob/master/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/rcolyer_smooth_prim.gif" width="200" align="right">
+      <h2 id="SmoothPrimitives">OpenSCAD Smooth Primitives Library</h2>
+      <p>This library is a collection of some smooth primitives, i.e. having specified
+        rounded edges, for use in other designs. It's not a comprehensive collection,
+        but a useful set.</p>
+      <ul>
+        <li><a href="https://github.com/rcolyer/smooth-prim">Library</a></li>
+        <li><a href="https://github.com/rcolyer/smooth-prim/blob/master/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/rcolyer_plot_function.gif" width="200" align="right">
+      <h2 id="FunctionPlotting">OpenSCAD Function Plotting Library</h2>
+      <p>This is a general purpose function plotting library for OpenSCAD which will
+         render functions with Cartesian coordinates (x & y input, z output),
+         polar/cylindrical coordinates (r & angle input, z output), or axial coordinates
+         (z & angle input, r output). This library is sufficiently flexible that it can
+         be used for more than just plotting functions. As demonstrated in the included
+         demo files, this can efficiently render ordinary objects with surfaces defined
+         by mathematical functions.</p>
+      <ul>
+        <li><a href="https://github.com/rcolyer/plot-function">Library</a></li>
+        <li><a href="https://github.com/rcolyer/plot-function/blob/master/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/rcolyer_closepoints.gif" width="200" align="right">
+      <h2 id="ClosePoints">OpenSCAD ClosePoints Library</h2>
+      <p>This is a general purpose OpenSCAD library for easily creating diverse shapes by
+        simply creating lists of points which trace out layers in an outline of the desired
+        shape. The library consists of modules for creating polyhedrons from these lists of
+        points, as well as functions to assist in specifying the points using transformations.</p>
+      <ul>
+        <li><a href="https://github.com/rcolyer/closepoints">Library</a></li>
+        <li><a href="https://github.com/rcolyer/closepoints/blob/master/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/sofian_tray.gif" width="200" align="right">
+      <h2 id="Tray">Tray Library</h2>
+      <p>Allows the design of trays with optional subdivisions. Many different configuration
+        options available. Designed to quickly create trays with different configurations, for
+        efficient storing of parts, such as hardware, small tools, board game inserts, etc..</p>
+      <ul>
+        <li><a href="https://github.com/sofian/openscad-tray">Library</a></li>
+        <li><a href="https://github.com/sofian/openscad-tray/blob/main/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/LGPL-3.0-or-later.html">LGPL-3.0-or-later</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/yapp.gif" width="200" align="right">
+      <h2 id="YAPP">Yet Another Parametric Projectbox generator</h2>
+      <p>A generator for electronic project boxes, based on a definition of a PCB and lots of
+        options for defining PCB standoffs and case cutouts.
+      </p>
+      <ul>
+        <li><a href="https://github.com/mrWheel/YAPP_Box">Library</a></li>
+        <li><a href="https://github.com/mrWheel/YAPP_Box/blob/main/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/MIT.html">MIT</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/stemfie.gif" width="200" align="right">
+      <h2 id="STEMFIE">STEMFIE Parts Library</h2>
+      <p>OpenSCAD library to create parts for the <a href="https://www.stemfie.org/">STEMFIE project</a>.</p>
+      <p><a href="https://www.stemfie.org/">STEMFIE</a> is a free educational construction-set
+        toy you can download and make at home using a 3D printer. Each component is a part of
+        a mechanical ecosystem of compatible shapes designed to interlock through various
+        connections and fasteners.
+      </p>
+      <ul>
+        <li><a href="https://www.stemfie.org/">STEMFIE project</a></li>
+        <li><a href="https://github.com/Cantareus/Stemfie_OpenSCAD">Library</a></li>
+        <li><a href="https://github.com/Cantareus/Stemfie_OpenSCAD/blob/main/docs/stemfie.scad.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/GPL-3.0-or-later.html">GPL-3.0-or-later</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/catchnhole.gif" width="200" align="right">
+      <h2 id="catchnhole">Catch'n'Hole</h2>
+      <p>An ergonomic way to create nutcatches, screw holes and countersinks in OpenSCAD.</p>
+      <ul>
+        <li><a href="https://github.com/mmalecki/catchnhole">Library</a></li>
+        <li><a href="https://github.com/mmalecki/catchnhole/blob/latest/README.md">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/MIT.html">MIT</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <img class="libimg" src="images/pathbuilder.gif" width="200" align="right">
+      <h2 id="pathbuilder">Pathbuilder</h2>
+      <p>A fast way to create complex 2D shapes with fillets and chamfers using SVG syntax. Supports the full SVG syntax.</p>
+      <ul>
+        <li><a href="https://github.com/dinther/pathbuilder">Library</a></li>
+        <li><a href="https://github.com/dinther/pathbuilder/blob/main/README.md">Documentation</a></li>
+        <li><a href="https://github.com/dinther/pathbuilder/wiki">Wiki</a></li>
+        <li>License: <a href="https://spdx.org/licenses/MIT.html">MIT</a></li>
+      </ul>
+      <p style="clear: both"></p>
+
+      <!-- <img class="libimg" src="images/a2d.gif" width="200" align="right"> -->
+      <h2 id="a2d">Altair's 2D Library for OpenSCAD</h2>
+      <p>A library of useful functions, modules and constants for 2D drawing in OpenSCAD.</p>
+      <ul>
+        <li><a href="https://github.com/ridercz/A2D">Library</a></li>
+        <li><a href="https://github.com/ridercz/A2D/wiki">Documentation</a></li>
+        <li>License: <a href="https://spdx.org/licenses/MIT.html">MIT</a></li>
+      </ul>
+      <p style="clear: both"></p>
+    </section>
+
+  </article>
+
+<div class="clear"></div>
+
+</div><!--#page-content end-->
+
+<footer>
+
+</footer>
+</div><!--#page-wrap end-->
+
+</body>
+</html>
