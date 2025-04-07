@@ -14,6 +14,7 @@ Connect your systems directly to Printago and:
 - Submit print jobs to your queue
 - Monitor print status and progress
 - Access print history and analytics
+- Realtime access to printer state and entity change events
 
 ## Getting Access
 
