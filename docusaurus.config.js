@@ -43,6 +43,14 @@ const config = {
       minHeadingLevel: 2,
       maxHeadingLevel: 4, // Include h4 headings in the right sidebar TOC
     },
+    // Algolia DocSearch configuration
+    algolia: {
+      // Replace with actual values from your Algolia dashboard after approval
+      appId: 'YOUR_APP_ID',
+      apiKey: 'YOUR_SEARCH_API_KEY', // NOT your Admin API key
+      indexName: 'YOUR_INDEX_NAME',
+      contextualSearch: true,
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
