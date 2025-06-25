@@ -40,9 +40,9 @@ Welcome to the Printago development roadmap! This page outlines our planned feat
 - [ ] Fuzzy SKU matching with Variant Mapping 
 
 #### 6. FabMatic Enhancements 
-- [X] Configure cool-to temp within Printago UI
-- [X] Assign clearing scripts to printers 
-- [X] Printago will send the clearing script manually as a separate job, no need for "end gcode"
+- [ ] Configure cool-to temp within Printago UI
+- [ ] Assign clearing scripts to printers 
+- [ ] Printago will send the clearing script manually as a separate job, no need for "end gcode"
 
 ## Short-Term Roadmap (Next 3-6 Months)
 

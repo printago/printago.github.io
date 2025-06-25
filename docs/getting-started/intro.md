@@ -16,9 +16,10 @@ Printago is a cloud-based print farm management solution designed specifically f
 
 - **Instant Printer Connection** - Connect hundreds of Bambu Lab printers in seconds with no additional hardware required
 - **Smart Queue Management** - Automatically route prints to the right printer based on material, color, and custom requirements
+- **Multi-Material Management** - Map colors in your STL or 3MF files to specific materials, with automatic printer assignment based on material availability
 - **Cloud-Based Slicing** - Prepare models for printing on-demand with intelligent profile management
 - **Automated Customization** - Create personalized products with dynamic text, sizing, and modifications without manual CAD work
-- **Multi-Channel Integration** - Seamlessly process orders from popular platforms like Etsy, eBay, and Shopify (coming soon)
+- **Multi-Channel Integration** - Seamlessly process orders from popular platforms like Shopify, Etsy, Shipstation, Shippo, and more. (coming Summer '25!)
 
 ## Who is it For?
 
@@ -55,9 +56,15 @@ Our smart queue system automatically matches prints with available printers base
 ### Modern Architecture
 Cloud-based infrastructure ensures reliability and accessibility from anywhere, with a mobile-friendly interface included.
 
+### Powerful API 
+Our commercial users enjoy access to our various APIs - the same ones the Printago team uses to create app.printago.io!
+
+### Flexible Pricing
+Free for hobbyists with paid plans based on concurrent job processing, scaling with your farm's needs.  All users can connect, monitor, AND print to an unlimited number of 3d printers!
+
 ## Getting Started
 
-Ready to transform your 3D printing workflow? Start with our [Quick Setup Guide](../getting-started/quick-setup).
+Ready to transform your 3D printing workflow? Get started with our [Quick Start Guide](./quick-start-guide.mdx).
 
 :::note Documentation Updates
 This documentation is regularly updated. If you find something missing or unclear, please reach out to our support team.

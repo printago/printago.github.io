@@ -1,0 +1,8 @@
+{
+  "label": "OpenSCAD",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "OpenSCAD parametric design tools and features in Printago."
+  }
+}

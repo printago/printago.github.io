@@ -1,3 +1,6 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 import {themes as prismThemes} from 'prism-react-renderer';
 
 const config = {
@@ -43,14 +46,15 @@ const config = {
       minHeadingLevel: 2,
       maxHeadingLevel: 4, // Include h4 headings in the right sidebar TOC
     },
-    // Algolia DocSearch configuration
-    algolia: {
-      // Replace with actual values from your Algolia dashboard after approval
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY', // NOT your Admin API key
-      indexName: 'YOUR_INDEX_NAME',
-      contextualSearch: true,
-    },
+    // Algolia DocSearch configuration (only enabled if all required env vars are set)
+    ...(process.env.ALGOLIA_APP_ID && process.env.ALGOLIA_API_KEY && process.env.ALGOLIA_INDEX_NAME ? {
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        contextualSearch: true,
+      }
+    } : {}),
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
@@ -91,7 +95,7 @@ const config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Printago`,
+      copyright: `Copyright ${new Date().getFullYear()} Printago`,
     },
     prism: {
       theme: prismThemes.github,

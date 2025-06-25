@@ -12,7 +12,7 @@ Printago is cloud-based print farm software built specifically for Bambu Lab own
 ### How do I get started?
 You can connect hundreds of Bambu Lab printers and start automating in minutes.  No hardware, software, or credit card required.  
 
-Check out our **[Setting Started Guide](../getting-started/quick-setup.mdx)**
+For detailed setup instructions, see our [Quick Start Guide](../getting-started/quick-start-guide.mdx).
 
 ### Which printers does Printago support?
 Currently, we support:
@@ -23,17 +23,17 @@ Currently, we support:
 For Bambu Lab printers - nope! Just your printers and your Bambu Lab account credentials.
 
 ### Can I customize my models?
-Yes! Printago supports OpenSCAD for dynamic model generation and customization. Learn more in our [OpenSCAD guide](../core-features/file-management/openscad).
+Yes! Printago supports OpenSCAD for dynamic model generation and customization. Learn more in our [OpenSCAD Parts](../products/openscad/openscad-parts.md) guide.
 
 ### What file types can I upload?
 
-- [We support](../core-features/file-management/supported-files.md)
+- [We support](../products/parts-management)
     - STL 
     - STEP/STP 
     - 3MF 
     - OpenSCAD 
 
- - [We do ***NOT*** support](../core-features/file-management/supported-files.md)
+ - [We do ***NOT*** support](../products/parts-management)
     - GCode 
     - GCode.3MF
 
