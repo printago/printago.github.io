@@ -8,7 +8,7 @@ const config = {
   tagline: 'Printago. Make More.',
   favicon: 'img/favicon.ico',
 
-  url: 'https://printago.github.io',
+  url: 'https://docs.printago.io',
   baseUrl: '/',
   organizationName: 'printago', 
   projectName: 'printago.github.io',
