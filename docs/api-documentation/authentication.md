@@ -13,6 +13,11 @@ You must include 2 headers in your requests for them to be authenticated properl
 `authorization: ApiKey YOUR_API_KEY`  
 `x-printago-storeid: YOUR_STORE_ID`
 
-:::warning
-API access may be revoked if abusive behavior is detected.
-:::
+## Rate Limits
+
+API access is rate-limited to 600 requests over a 10 minute window, which works out to an average of 1 request per second.  If you exceed this, your requests will fail until the time window expires.  
+
+Each API response includes 2 headers:
+
+`x-ratelimit-remaining` - the remaining number of API calls left in your 10 minute window before they reset  
+`x-ratelimit-reset` - how many seconds remain before your rate limit window resets

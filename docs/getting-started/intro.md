@@ -60,7 +60,7 @@ Cloud-based infrastructure ensures reliability and accessibility from anywhere, 
 Our commercial users enjoy access to our various APIs - the same ones the Printago team uses to create app.printago.io!
 
 ### Flexible Pricing
-Free for hobbyists with paid plans based on concurrent job processing, scaling with your farm's needs.  All users can connect, monitor, AND print to an unlimited number of 3d printers!
+Free for hobbyists, and paid plans are based on concurrent job processing, scaling with your farm's needs.  All users can connect, monitor, AND print to an unlimited number of 3d printers!
 
 ## Getting Started
 
