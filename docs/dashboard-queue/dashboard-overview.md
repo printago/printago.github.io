@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# Dashboard Overview
+# Dashboard
 
 The Printago Dashboard is your central hub for monitoring and managing all connected 3D printers. It provides real-time status updates, job progress tracking, and quick access to printer controls.
 
-## Printer Cards
+### Printer Cards
 
 Each connected printer is displayed as an individual card on the dashboard, providing a comprehensive view of its current status and active jobs.
 
