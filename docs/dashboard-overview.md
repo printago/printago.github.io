@@ -43,7 +43,7 @@ The dashboard shows jobs started from any source, including:
 - SD card prints
 
 :::tip
-This differs from the **In-Progress** tab in the [Print Queue](/docs/dashboard-queue/print-queue-management.md), which only shows jobs initiated through Printago.
+This differs from the **In-Progress** tab in the [Print Queue](/docs/print-queue-management.md), which only shows jobs initiated through Printago.
 :::
 
 ### Dashboard Actions
@@ -54,4 +54,3 @@ The dashboard provides quick access to several important features:
 - **Printer Control Panel** - Access the [Printer Control Panel](/docs/tips-shortcuts/printer-control-panel) via the game controller icon
 - **Printer Slicer Settings** - Access printer-specific settings via the gear icon
 - **Part Navigation** - View part details by clicking on the part name or thumbnail (Printago jobs only)
- 

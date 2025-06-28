@@ -32,8 +32,8 @@ Printago supports `.gcode.3MF` files, however, this is not recommended as it pre
 Printago automatically processes uploaded files to:
 - Validate mesh integrity
 - Generate thumbnails and previews
-- Calculate print time estimates
-- Detect potential print issues
+- Calculate print time estimates (coming soon)
+- Calculate material usage estimates (coming soon)
 
 Need help with file formats? Contact our support team or check our troubleshooting guides.
 
