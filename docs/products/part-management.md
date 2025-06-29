@@ -36,7 +36,7 @@ When parts are used in print jobs, they're sliced on-demand for the specific con
 
 ---
 
-## Uploading Parts
+## Adding Parts to Printago
 
 1. Navigate to `Products -> Parts` and click the `+ Add Part` button in the top right.
 2. Browse to or drop a compatible file type into Printago.  In the example below, we've uploaded a multi-plate, multi-color 3MF file. 
@@ -48,10 +48,8 @@ When parts are used in print jobs, they're sliced on-demand for the specific con
 6. Select a `Process Profile` to assign to the part.
 7. Click "Save" to add the part to your library
 
-:::info Part Process Profiles
-Printago slices your parts on-demand when they're assigned to a printer. If you haven't set a specific `Process Profile` for a part, we'll use the printer's default settings.
-
-**Maintainability** - When Bambu Lab releases new slicer features, just sync your profiles and we'll automatically re-slice your parts with the latest improvements.
+:::info Maintainability
+When Bambu Lab releases new slicer features, just sync your profiles and we'll automatically re-slice your parts with the latest improvements.
 :::
 
 ## File-Specific Settings
