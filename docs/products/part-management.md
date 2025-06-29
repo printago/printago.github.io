@@ -38,8 +38,11 @@ When parts are used in print jobs, they're sliced on-demand for the specific con
 
 ## Adding Parts to Printago
 
+<img src="/img/parts/add_parts_1.gif" className="margin-left--lg" width="500" alt="Orca Sync Preferences" />
+
 1. Navigate to `Products -> Parts` and click the `+ Add Part` button in the top right.
-2. Browse to or drop a compatible file type into Printago.  In the example below, we've uploaded a multi-plate, multi-color 3MF file. 
+2.  Browse to or drop a compatible file type into Printago.  
+
 
 
 4. Give your part a name and description
