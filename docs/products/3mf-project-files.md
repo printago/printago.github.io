@@ -30,7 +30,8 @@ sidebar_position: 3
 5. Printago will auto-select the right slicer version (look for the "Auto-Selected" badge)
 6. Pick your process profile:
    - `Embedded 3MF Profile`: Uses the settings saved in the file
-   - `Custom Profile`: Use a different process profile
+   - `Custom Profile`: Use one of your snyced User Settings for this part.
+   - `Printer Default`: will use the default profile assigned to any printer the part matches with
 7. Check the build plates and materials found in your file
 8. Match materials to your [Material library](/docs/printing/materials.md)
 9. Click `Create` to finish
