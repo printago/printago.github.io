@@ -1,12 +1,13 @@
 ---
 sidebar_position: 3
+title: "ColorSCAD [ADD-ON]"
 ---
 
-# ColorSCAD ![](/img/badges/add-on-badge.svg)
+# ColorSCAD
+<div className="text--left">
+  <img src="/img/badges/add-on-badge.svg" alt="Add-on Badge" width="12%" />
+</div>
 
-:::tip Add-on Feature
-ColorSCAD is available with Printago Commercial plans. Contact sales@printago.io for more information.
-:::
 ColorSCAD extends OpenSCAD with parametric color control, allowing you to define colors directly within your OpenSCAD files. This enables dynamic color customization for multi-material and painted models.
 
 ## Getting Started with ColorSCAD
