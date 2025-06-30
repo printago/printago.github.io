@@ -9,9 +9,9 @@ This guide explains how to upload and use OpenSCAD parts in the Printago system.
 ## Adding OpenSCAD Parts to Printago
 
 1. Go to `Products -> Parts` and click `+ Add Part`
-2. Drag in main .scad file or browse to upload
+2. Drag in main `.scad` file or browse to upload
    <img src="/img/parts/add_parts_1.gif" className="margin-left--md" width="600" alt="Uploading a 3MF file" />
-3. Name your part and add a description if needed
+3. Name your part and add a description as desired.
 4. Choose where to save it (defaults to your current folder)
 5. Select your preferred slicer.  You can change your default in your [Account Settings](/docs/settings-integrations/account-settings.md#slicing-preferences)
 6. Pick your process profile:
@@ -32,52 +32,53 @@ When adding an OpenSCAD file, Printago will automatically:
 - Set default values based on your code
 - Generate a thumbnail based on default parameter values
 
-### Supported Parameter Types
+### Parameter Types and Display Rules
 
-Printago supports all standard OpenSCAD parameter types:
+Printago automatically detects and displays these OpenSCAD parameter types with the following syntax:
 
-- **Text fields**: For strings and variable text
-- **Numeric inputs**: For dimensions and measurements
-- **Checkboxes**: For boolean (true/false) options
-- **Dropdown menus**: For selection among preset options
+**Text Fields**  
+For custom text input like names or messages:
+<div className="margin-left--md">
 
-### Parameter Display Rules
+```openscad
+// Basic text field
+greeting = "Hello";
 
-Printago supports the OpenSCAD Customizer syntax for defining parameter inputs. Here's how to use it effectively:
+// With description
+custom_text = "Engrave me"; // Text to display on the part
+```
+</div>
+**Number Fields**  
+For numeric inputs:
+<div className="margin-left--md">
+```openscad
+// Basic number
+item_count = 5;
+```
+</div>
+**Boolean Toggles**  
+For true/false options displayed as checkboxes:
+<div className="margin-left--md">
+```openscad
+// Basic toggle
+include_handle = true;
 
-#### Supported Parameter Types
+// With description
+rounded_corners = true; // Check to round all corners
+```
+</div>
+**Dropdown Menus**  
+For selecting from predefined options:
+<div className="margin-left--md">
+```openscad
+// Text options
+material = "PLA"; // [PLA, PETG, ABS, TPU]
 
-1. **Numbers with Range**  
-   Define min/max values and optional step size:
-   ```openscad
-   width = 100;  // [50:150] Width in mm (min:max)
-   height = 1.5; // [0.1:0.1:5] Height in mm (min:step:max)
-   ```
-
-2. **Dropdown Selections**  
-   Enclose options in square brackets:
-   ```openscad
-   // Text options
-   lid_style = "hinged"; // [hinged, snap-fit, magnetic, none]
-   
-   // Number options (with display text)
-   quality = 3; // [1:Low, 2:Medium, 3:High, 4:Ultra]
-   ```
-
-3. **Boolean Toggles**  
-   Use `true`/`false` for checkboxes:
-   ```openscad
-   include_handle = true;  // Include handle
-   rounded_corners = false; // Round corners
-   ```
-
-4. **Text Input**  
-   Simple string variables become text fields:
-   ```openscad
-   custom_text = "Hello"; // Engraving text
-   ```
-
-#### Best Practices
+// Number options with custom labels
+quality = 2; // [1:Fast, 2:Standard, 3:High, 4:Ultra]
+```
+</div>
+### Best Practices
 
 - Place all parameters at the top of your file, before any module or function definitions
 - Use descriptive variable names and comments
