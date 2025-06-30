@@ -38,54 +38,25 @@ When parts are used in print jobs, they're sliced on-demand for the specific con
 
 ## Adding Parts to Printago
 
-<img src="/img/parts/add_parts_1.gif" className="margin-left--lg" width="500" alt="Orca Sync Preferences" />
-
-1. Navigate to `Products -> Parts` and click the `+ Add Part` button in the top right.
-2.  Browse to or drop a compatible file type into Printago.  
-
-
-
-4. Give your part a name and description
-5. Select the `Allowed Filaments` for the part, as required.  This restricts parts to match with printers loaded with this material type.
-
-6. Select a `Process Profile` to assign to the part.
-7. Click "Save" to add the part to your library
-
-:::info Maintainability
-When Bambu Lab releases new slicer features, just sync your profiles and we'll automatically re-slice your parts with the latest improvements.
-:::
+1. Navigate to `Products -> Parts` and click `+ Add Part` in the top right.
+2. Browse or drag a compatible file into Printago.
+<img src="/img/parts/add_parts_1.gif" className="margin-left--lg" width="600" alt="click the new part button" />
+3. Enter a name and description for your part.
+4. Parts are created in your current [folder location](/docs/tips-shortcuts/folders.md) (click to change if needed).
+5. Select your slicer (3MF files auto-select the matching version with an "Auto-Selected" badge).
+6. Choose a [process profile override](/docs/printing/cloud-slicer.md), or leave as "Printer Default" to use each printer's default settings.
+7. Review the build plates and materials detected in your file.
+8. Map each material to items in your [Material library](/docs/printing/materials.md).
+9. Click `Create` to upload your part.
+<img src="/img/parts/part_screen.png" className="margin-left--lg" width="600" alt="click the new part button" />
 
 ## File-Specific Settings
 
-### OpenSCAD Parameters
-If you're using OpenSCAD files, you'll also:
-- Be prompted to upload any files leveraged via `import` or `use` statements.
-- See parsed parameters, their types, and default values.
+Different file types have unique capabilities and configuration options:
 
-See our [OpenSCAD Part Guide](./openscad/openscad-parts.md) guide for more details.
+- **[STL and STEP Parts](./stl-step-parts.md)** - Static single-material parts with process profile overrides
+- **[3MF Project Files](./3mf-project-files.md)** - Complete projects with modifiers, supports, and multi-material painting  
+- **[GCODE 3MF Files](./gcode-3mf-files.md)** - Pre-sliced files with printer-specific limitations
+- **[Dynamic OpenSCAD Parts](./openscad/openscad-parts.md)** - Parametric parts with customizable parameters
 
-### 3MF-Specific Settings
-When using 3MF files, Printago preserves:
-- Object placement on the build plate
-- Support structure settings
-- Seam placement settings
-
-:::important 3MF notes
-1. Only the first build plate will be processed from multi-plate files.
-2. Slicing settings must be saved in Bambu Studio or Orca Slicer, not embedded within the 3MF file.
-3. Color-Painted projects are fully supported, however, without any AMS mapping options
-     (`SLOT1` -> `SLOT1` and  `SLOT2` -> `SLOT2`, as so on)
-:::
-
-:::warning Part fitment
-Printago assumes each of your parts will fit on any of your printers.  It is (currently) up to you, the user, to ensure large prints to not get assigned to A1 Mini.  If they do, the job will be in the `Error` tab of the `Print Queue` page, as it will fail in the slicing phase.
-:::
-
-## Next Steps
-
-After adding parts to your library, you can:
-- [Create SKUs using these parts](./sku-management.md)
-- [Set up automated customization](./openscad/openscad-intro.md)
-- Begin production!
-
-Need help with file formats? Contact our support team or check our troubleshooting guides, or join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
+Need help with your parts? Contact our support team or check our troubleshooting guides, or join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!

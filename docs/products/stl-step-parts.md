@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# `STL` and `STEP` Parts
+# STL and STEP Parts
 
 STL and STEP files are static 3D models that work identically in Printago's system. Both file types represent single-material parts that can have custom slicer process profiles applied.
 

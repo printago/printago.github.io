@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Materials & Profiles
+# Materials 
 
 Manage your printing materials and profiles.
 
