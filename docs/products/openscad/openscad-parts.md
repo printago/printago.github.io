@@ -8,18 +8,19 @@ This guide explains how to upload and use OpenSCAD parts in the Printago system.
 
 ## Adding OpenSCAD Parts to Printago
 
-1. Click `Products` -> `Parts`
-2. Click the `+ New Part` button in the upper right.
-3. Browse to select your main `.scad` file.
-4. Follow the prompts to upload any `use` or `import` files, and review the parsed `Parameters`
-    <img src="/img/screenshot_000362.png" width="600" alt="create openSCAD part" />
-5. Save the Part.  
+1. Go to `Products -> Parts` and click `+ Add Part`
+2. Drag in your .3mf file or browse to upload
+   <img src="/img/parts/add_parts_1.gif" className="margin-left--md" width="600" alt="Uploading a 3MF file" />
+3. Name your part and add a description if needed
+4. Choose where to save it (defaults to your current folder)
+5. Printago will auto-select the right slicer version (look for the "Auto-Selected" badge)
+6. Pick your process profile:
+   - `Embedded 3MF Profile`: Uses the settings saved in the file
+   - `Custom Profile`: Use a different process profile
+7. Check the build plates and materials found in your file
+8. Match materials to your [Material library](/docs/printing/materials.md)
+9. Click `Create` to finish
 
-## Printing the Part
-
-1. Find your saved part in the parts list and open it, clicking the `Print` button.
-2. Set any parameters, quantity, and `Print` the part.
-    <img src="/img/screenshot_000364.png" width="600" alt="print OpenSCAD Part" />
 
 ## Parameter Management
 
@@ -28,7 +29,7 @@ When adding an OpenSCAD file, Printago will automatically:
 - Detect and parse parameters in your file
 - Present editable parameter fields with appropriate input types
 - Set default values based on your code
-- Generate a 3D preview based on parameter values
+- Generate a 3D preview (thumbnail) based on parameter values
 
 ### Supported Parameter Types
 
@@ -73,17 +74,7 @@ You can update parameters for your parts:
 3. Modify default parameters as needed
 4. Save changes to update the part template
 
-## Version Management
-
-Printago supports version control for OpenSCAD parts:
-
-1. Edit your original `.scad` file locally
-2. Click "Upload New Version" in the parts management page
-3. Select your updated `.scad` file
-4. Review parameter changes
-5. Save the new version
-
-## Advanced Usage
+## Advanced OpenSCAD Examples
 
 ### Parameter Dependencies
 
