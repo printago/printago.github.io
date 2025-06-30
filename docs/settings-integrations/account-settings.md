@@ -12,4 +12,7 @@ Manage your account settings and preferences.
 
 ## Preferences
 
+## Slicing Preferences
+linked to.
+
 *Content to be added*
