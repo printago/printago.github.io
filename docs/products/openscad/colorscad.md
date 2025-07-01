@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: "ColorSCAD 💎"
 ---
 
@@ -21,7 +21,7 @@ ColorSCAD is a premium add-on for Printago that enables multi-colored 3D models 
 ## Example: Two-Color Model
 
 ```openscad
-// Define a blue cube with a spherical cutout
+
 module make_cube() {
     difference() {
         cube(20, center=true);
@@ -29,15 +29,24 @@ module make_cube() {
     }
 }
 
-// Define a sphere
+
 module make_sphere(diam = 12) {
     sphere(diam);
 }
 
-// Apply colors to each component
-color("cornflowerblue") make_cube();
-color("#AC6456") make_sphere();
+
+color("cornflowerblue") 
+    make_cube();
+color("#AC6456") 
+    make_sphere();
 ```
+<div style={{ display: 'flex', alignItems: 'center', gap: '1rem', margin: '1rem 0' }}>
+    <img src="/img/scad/color_scad_2.png" width="25%" alt="ColorSCAD Output 1" />
+    <div style={{ fontSize: '2rem', color: '#666', margin: '0 -0.5rem' }}>+</div>
+    <img src="/img/scad/color_scad_1.png" width="25%" alt="ColorSCAD Output 2" />
+    <div style={{ fontSize: '2rem', color: '#666', margin: '0 -0.5rem' }}>=</div>
+    <img src="/img/scad/color_scad_3.png" width="25%" alt="ColorSCAD Output 3" />
+</div>
 
 ## Key Points
 
@@ -50,6 +59,9 @@ color("#AC6456") make_sphere();
 - Named colors: `"red"`, `"blue"`, `"green"`
 - Hex codes: `"#FF5733"`
 - RGB values: `[0.2, 0.8, 0.4]` (values 0-1)
+
+Read more about the OpenSCAD `color()` command here: 
+https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#color
 
 ## Getting Started
 
