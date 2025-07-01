@@ -25,7 +25,7 @@ Tags are user-defined labels that can be assigned to any printer in your farm. K
    - Type a new tag and press `Enter` to add
    - Click the `X` on any existing tag to remove it, or backspace.
    - Be sure to click `Save`
-    <img src="/img/printer_tag.gif" width="650" alt="single printer tag management" />
+
 
 ### Multi-Printer Tag Management
 
@@ -36,7 +36,6 @@ Tags are user-defined labels that can be assigned to any printer in your farm. K
    - Add new tags to all selected printers
    - Remove existing tags from all selected printers
    - Remember to press `Enter` after entering each tag, and to click the `Save` button when done.
-    <img src="/img/bulk_printer_tags.gif" width="650" alt="multi printer tag management" />
 
 :::warning Multi-Select Tag Behavior
 If your selected printers have differing tags, adding and saving new tags will replace all existing tags on all selected printers.
@@ -53,7 +52,6 @@ When starting a print job:
 1. Select your part or SKU to print
 2. In the print dialog, expand the "Printer Tags" section
 3. Select the required tags, a quantity and press print.
-    <img src="/img/print_with_tags_1.gif" width="650" alt="printing to tagged printers" />
 4. The job will only route to printers with ALL selected tags
 5. When a printer with matching tags and required materials becomes ready, Printago slices the model for that specific printer and sends the job from the queue
 
@@ -65,7 +63,6 @@ Tags are evaluated in real-time:
 - Removing a tag from a printer doesn't affect currently printing jobs
 - You can modify tags while jobs are in queue without disrupting workflow
 
-<img src="/img/print_with_tags_2.gif" width="650" alt="printing to tagged printers" />
 
 ## Common Tag Use Cases
 
@@ -73,7 +70,6 @@ Tags are evaluated in real-time:
 - **Printer Capabilities**: "PEI_BED", "CRYOGRIP", "NO_AMS"
 - **Project Assignment**: "CLIENT_A", "PRODUCTION", "TESTING"
 - **Team Access**: "TEAM1", "ENGINEERING", "STUDENT"
-- **Material Color**: "BLUE", "RED" (COMING SOON: Color tags will be automatic, using them now it a great workaround while we implement this feature.)
 
 ## Tips and Best Practices
 
@@ -89,6 +85,6 @@ Tags are evaluated in real-time:
 3. **Efficient Usage**
    - Start with broad categories
    - Add specific tags as needed
-   - Use multiple tags for precise control
+   - Use multiple tags for further filtering
 
 Have questions about printer tags? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
