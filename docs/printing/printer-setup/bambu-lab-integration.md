@@ -21,6 +21,45 @@ The following firmware versions are the latest that support sending "Unauthorize
 Our upcoming Fuse client will support newer firmware versions and models using Developer LAN mode, providing enhanced functionality and security.
 :::
 
+## First-Time Setup
+
+For detailed instructions on connecting your Bambu Lab printers to Printago for the first time, please refer to our [Quick Start Guide](../../getting-started/quick-start-guide.mdx). The guide covers:
+
+- Prerequisites for printer connectivity
+- Step-by-step connection process
+- Initial printer configuration
+
+:::tip Security
+Your Bambu Lab account stays safe - we only store encrypted printer access tokens, never passwords. Want to learn more about our security? Chat with our development team on Discord or email support@printago.io.
+:::
+
+## Managing Connected Printers
+
+The Bambu Integration Flow can be run at any time and may be accessed through either:
+- **Settings** → **Integrations** → Click `Configure` on the Bambu Lab settings card
+- **Printing** → **Printers** → Click the `Configure Bambu Printers` button in the upper right
+
+The flow guides you through connecting your Bambu Lab account, syncing cloud profiles, and configuring printer settings.  
+<div className="margin-left--lg padding-bottom--md">
+    <img src="/img/bambu_integration/configure.png" width="600" alt="Print dialog with the parameter hidden, using default value" />
+</div>
+
+:::info
+The Bambu Integration flow is currently the only mechanism to refresh your cloud-synced slicing profiles
+:::
+
+### Disabling Printers
+
+1. Run the Bambu Integration Flow
+2. Uncheck the boxes next to printers you want to disconnect
+3. Complete the flow - Printago will stop all communication with unchecked printers.
+4. To reconnect a printer later, run the flow again and check its box
+
+
+:::caution
+Disconnecting a printer will stop any active monitoring and prevent new print jobs from being sent to the printer. Current print jobs will continue until completion.
+:::
+
 ## How Printago Connects to Your Printers
 
 Printago integrates with Bambu Lab's cloud infrastructure to manage your printers securely:
@@ -59,41 +98,7 @@ sequenceDiagram
         Printago Storage->>Printago Storage: Expire download token
     end
 ```
-## First-Time Setup
 
-For detailed instructions on connecting your Bambu Lab printers to Printago for the first time, please refer to our [Quick Start Guide](../../getting-started/quick-start-guide.mdx). The guide covers:
-
-- Prerequisites for printer connectivity
-- Step-by-step connection process
-- Initial printer configuration
-
-:::tip Security
-Your Bambu Lab account stays safe - we only store encrypted printer access tokens, never passwords. Want to learn more about our security? Chat with our development team on Discord or email support@printago.io.
-:::
-
-## Managing Connected Printers
-
-The Bambu Integration Flow can be run at any time and may be accessed through either:
-- **Settings** → **Integrations** → Click `Configure` on the Bambu Lab card
-- **Printing** → **Printers** → Click the `Configure Bambu Printers` button in the upper right
-
-The flow guides you through connecting your Bambu Lab account, syncing cloud profiles, and configuring printer settings.  
-
-:::info
-The Bambu Integration flow is currently the only mechanism to refresh your cloud-synced slicing profiles
-:::
-
-### Disabling Printers
-
-1. Run the Bambu Integration Flow
-2. Uncheck the boxes next to printers you want to disconnect
-3. Complete the flow - Printago will stop all communication with unchecked printers.
-4. To reconnect a printer later, run the flow again and check its box
-
-
-:::caution
-Disconnecting a printer will stop any active monitoring and prevent new print jobs from being sent to the printer. Current print jobs will continue until completion.
-:::
 
 ## Troubleshooting
 
