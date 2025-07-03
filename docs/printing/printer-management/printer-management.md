@@ -22,7 +22,7 @@ For jobs to match with printers from the queue, each printer must be properly co
 
     For Bambu Lab printers:
         - **Bed Type**: Smooth PEI, Textured, etc.
-        - **Use AMS**: Controls whether the printer uses the AMS system.  The printers list only shows the active material source (AMS slots or external spool)
+        - **Use AMS**: Controls whether the printer uses the AMS system.  The Printers list only shows the active material source (AMS slots or external spool)
         - **Bed Leveling & Flow Calibration**: Standard Bambu "start print" options
 </div>
 ### Slicer Configuration Dialog
@@ -111,35 +111,61 @@ Click any AMS slot or external spool to open the Material Assignment window.
 
 <img src="/img/printers/printer_material_selection_1.png" width="600" alt="Material assignment window" />
 
-Click any AMS slot or external spool to open the Material Assignment window.
+### Bambu Lab RFID-Tagged Filament
 
-### RFID Material Detection
+When RFID-tagged spools are detected, Printago automatically reads the material information:
 
-For Bambu Lab RFID-tagged filament:
-- **Auto-detection**: Automatically reads loaded spools
-- **Missing materials**: Warning if material not in your library
-- **Manual override**: Option to assign different material than RFID tag
+#### Missing Material Workflow
+If the detected material isn't in your library, you'll see quick-add buttons:
+1. **"Add missing material for '[FILAMENT]'"** - Click to add the base material (e.g., "TPU for AMS")
+2. **"Add missing variant '[COLOR_NAME]'"** - Click to add the specific color variant
+
+<img src="/img/printers/printer_material_selection_2.png" width="400" alt="Add missing material button" />
+<img src="/img/printers/printer_material_selection_4.png" width="400" alt="Add missing variant button" />
+
+#### Manual Override
+To assign a different material than the RFID tag:
+1. Click **"Assign a material manually"** to enable normal selection
+2. Choose from your Material library
 
 :::note Bambu Lab Material Handling
-- External spool material can be assigned in Printago without physical material loaded
-- AMS slots require physical material to be loaded before assignment in Printago
+- External spool material can be assigned without physical material loaded
+- AMS slots require physical material to be loaded before assignment
+- All Bambu Lab materials and variants are built into Printago for easy addition
 :::
 
-### Manual Material Assignment
+### Non-Bambu Materials
 
-1. **Select slot**: Click empty or occupied slot
-2. **Choose material**: Select from your Material library
-3. **Assignment options**:
-   - Generic material (e.g., "Bambu Basic PLA")
-   - Specific variant (e.g., "Bambu Basic PLA - Black")
+For third-party filaments:
+1. **Select from library**: Choose existing materials from your Printago library
+2. **Add new materials**: If not available, go to the [Materials page](/docs/printing/materials.md) to add manually, then return to assign
+
+### Generic vs. Specific Material Assignment
+
+**Generic Material Types** (e.g., "PLA"):
+- Bypasses Printago's material system
+- Prompts for inline slicing profile selection
+- Useful for single-color printing workflows
+
+**Specific Materials** (e.g., "Bambu Basic PLA - Black"):
+- Uses configured material profiles
+- Recommended for multi-material setups
 
 ### Configuration Warnings
 
-- **Missing profiles**: Alert when materials lack slicing profiles for current nozzle size
-- **Incompatible setup**: Notification when switching nozzle sizes without matching material profiles
+#### Profile Missing Warning
+When a material lacks slicing profiles for your printer model:
+- **Warning**: "Profile Missing: won't match"
+- **Resolution**: Go to Materials page → Open material → Configure slicing profiles for each printer model + nozzle diameter combination
+
+<img src="/img/printers/profile_missing_warning.png" width="400" alt="Profile missing warning" />
+
+#### Common Scenarios
+- **Nozzle size changes**: Switching from 0.4mm to 0.2mm nozzle without matching profiles
+- **New printer models**: Materials configured for one printer model but not others in your farm
 
 :::info Material Library
-For detailed material management, see the [Materials documentation](/docs/printing/materials.md).
+For detailed material management and profile configuration, see the [Materials documentation](/docs/printing/materials.md).
 :::
 
 ---
