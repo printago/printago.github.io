@@ -1,12 +1,7 @@
 [ ] Intro / Key Features -> Add "multi-material" support 
 [ ] Quick Start Guide -> Redo Video 
-[ ] Quick Start Guide -> Configuring Printer Defaults - content/images
-[ ] Quick Start Guide -> Add Material config section
-[ ] Quick Start Guide -> "Creating First Print" & "Starting Prints" - content/images
-[ ] Key Concepts -> Add short blurb about materials & material matching.
+[ ] Quick Start Guide -> Redo
 
-[ ] Core Features / Bambu Lab Integration - update the important firmware notice, include safe firmware versions all printers.
-[ ] Bambu Lab Integration - "individual printer management" - remove "material profiles" & AMS 'soon' callout.
 
 [ ] Printago Fuse - update this to reflect updates firmware lockdown support in BBL Developer Mode.
 
@@ -15,7 +10,6 @@
 [ ] Cloud Slicer Page - update this extensively for multi-selection, slicer preferences, etc.  3MF embedded profiles -> link out to 3MF page.
 
 [ ] Bulk Actions -> Add all the missing stuff.  
-[ ] Bulk Actions -> Special pages for multi-printer material assignment	and multi-printer control?
 
 [ ] Fabmatic - this could use some TLC
 
@@ -25,20 +19,22 @@
 
 [ ] Hot Drop Page - create under core features.
 [ ] Core Features - Folders.
-[ ] 
+ 
 [ ] API/Specification - content/images - add for new API screen.
 [ ] Update roadmap
 
 [ ] Queue page - add Retry completed jobs.
 
 [ ] Gutenb3d Page - Printer debug info (matching information on jobs)
-[ ] Add Printer Controls page
 
 [ ] SKU Management Page - update for Material Management 1.1
 [ ] Add First Time Setup stuff (copy it from the Quick Start Guide?)
 
-
-
+[X] Key Concepts -> Add short blurb about materials & material matching.
+[X] Core Features / Bambu Lab Integration - update the important firmware notice, include safe firmware versions all printers.
+[X] Bambu Lab Integration - "individual printer management" - remove "material profiles" & AMS 'soon' callout.
+[X] Bulk Actions -> Special pages for multi-printer material assignment	and multi-printer control?
+[X] Add Printer Controls page
 [X] Gutenb3d Smart Queue - update whole page for materials 
 [X] Add Dashboard Page
 [X] File Management / Supported File Tyyes - Remove import GCODE/GCODE 3MF note.
