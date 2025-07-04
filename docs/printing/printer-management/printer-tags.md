@@ -52,8 +52,7 @@ When starting a print job:
 1. Select your part or SKU to print
 2. In the print dialog, expand the "Printer Tags" section
 3. Select the required tags, a quantity and press print.
-4. The job will only route to printers with ALL selected tags
-5. When a printer with matching tags and required materials becomes ready, Printago slices the model for that specific printer and sends the job from the queue
+4. The job will only match to printers with ALL selected tags (along with material and other requirements)
 
 ### Dynamic Tag Updates
 

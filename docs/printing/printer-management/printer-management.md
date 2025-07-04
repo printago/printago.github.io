@@ -111,25 +111,15 @@ Click any AMS slot or external spool to open the Material Assignment window.
 
 <img src="/img/printers/printer_material_selection_1.png" width="600" alt="Material assignment window" />
 
-### Bambu Lab RFID-Tagged Filament
+### How Material Assignment Works
 
-When RFID-tagged spools are detected, Printago automatically reads the material information:
+The standard material assignment process:
 
-#### Missing Material Workflow
-
-When you insert RFID-tagged filament that isn't in your Printago library, you'll see quick-add buttons:
-
-**Step 1: Add Base Material**
-The first prompt appears when the material type isn't recognized (see first image below). Click `Add missing material for [Bambu] { MATERIAL-TYPE }` button to add the base material (e.g., "TPU for AMS").
-
-**Step 2: Add Color Variant** 
-After adding the base material, you'll be prompted to add the specific color variant (see second image below). Click `Add missing variant "{ COLOR }"` to complete the setup.
-
-**Step 3: Add Slicing Profiles** 
-Save your printer configuration, and head to the [Materials](/docs/printing/materials.md) page to configure the material's slicing profiles.
-
-<img src="/img/printers/printer_material_selection_2.png" width="400" alt="Add missing material button" />
-<img src="/img/printers/printer_material_selection_4.png" width="400" alt="Add missing variant button" />
+1. **Click any slot**: Select an AMS slot or external spool
+2. **Choose material**: Select from your Material library
+3. **Assignment options**:
+   - **Specific material** (e.g., "Bambu Basic PLA - Black") - uses configured profiles (recommended)
+   - **Generic type** (e.g., "Any PLA") - prompts for inline slicing profile selection
 
 :::warning Generic Material Assignment
 While you *can* set a generic filament profile directly on the printer (bypassing Printago's material system), this isn't recommended. Here's why:
@@ -139,47 +129,52 @@ While you *can* set a generic filament profile directly on the printer (bypassin
 - **Reduced flexibility**: You lose the benefits of Printago's material management system
 :::
 
+### Bambu Lab RFID Enhancement
+
+When using Bambu Lab RFID-tagged filament, the process is enhanced with automatic detection:
+
+#### Automatic Material Detection
+- **Auto-reads**: Printago automatically detects the material and color from the RFID tag
+- **Instant assignment**: Material is assigned without manual selection
+- **Missing material workflow**: Quick-add buttons appear for materials not in your library
+
+#### Missing Material Quick-Add
+
+When RFID-tagged filament isn't in your library:
+<div className="margin-left--lg">
+**Step 1: Add Base Material**
+Click `Add missing material for [Bambu] { MATERIAL-TYPE }` to add the base material (e.g., "TPU for AMS").
+
+**Step 2: Add Color Variant** 
+Click `Add missing variant "{ COLOR }"` to add the specific color variant.
+
+**Step 3: Configure Profiles** 
+Save the Printer, and go to the [Materials](/docs/printing/materials.md) page to set up slicing profiles for the Material.
+
+<img src="/img/printers/printer_material_selection_2.png" width="400" alt="Add missing material button" />
+<img src="/img/printers/printer_material_selection_4.png" width="400" alt="Add missing variant button" />
+</div>
 #### RFID Override
 To assign a different material than the RFID tag, click **"Assign a material manually"** to enable normal selection from your Material library.
 
 <div className="margin-left--lg">
 <img src="/img/printers/printer_material_selection_5.png" width="400" alt="Manual material assignment override" />
 </div>
+
 :::note Bambu Lab Material Handling
 - External spool material can be assigned without physical material loaded
 - AMS slots require physical material to be loaded before assignment
 - All Bambu Lab materials and variants are built into Printago for easy addition
 :::
 
-### Non-Bambu Materials
+### Material Slicer Configuration Warning
+When selecting materials for a printer, it's possible to assign a material which doesn't have a slicing profile assigned to it for the model of printer in question.  
+<div className="margin-left--md">
+<img src="/img/printers/printer_material_selection_7.png" width="400" alt="Profile missing warning" />
+</div>
+Materials tagged with `Missing Profile (won't match)` is letting you know that jobs will not be able to be assigned to this material in the printer until it's resolved. This commonly happens when switching nozzle sizes (e.g., from 0.4mm to 0.2mm) or adding new printer models without matching material profiles.
 
-For third-party filaments:
-1. **Select from library**: Choose existing materials from your Printago library
-2. **Add new materials**: If not available, go to the [Materials page](/docs/printing/materials.md) to add manually, then return to assign
-
-### Generic vs. Specific Material Assignment
-
-**Generic Material Types** (e.g., "PLA"):
-- Bypasses Printago's material system
-- Prompts for inline slicing profile selection
-- Useful for single-color printing workflows
-
-**Specific Materials** (e.g., "Bambu Basic PLA - Black"):
-- Uses configured material profiles
-- Recommended for multi-material setups
-
-### Configuration Warnings
-
-#### Profile Missing Warning
-When a material lacks slicing profiles for your printer model:
-- **Warning**: "Profile Missing: won't match"
-- **Resolution**: Go to Materials page → Open material → Configure slicing profiles for each printer model + nozzle diameter combination
-
-<img src="/img/printers/profile_missing_warning.png" width="400" alt="Profile missing warning" />
-
-#### Common Scenarios
-- **Nozzle size changes**: Switching from 0.4mm to 0.2mm nozzle without matching profiles
-- **New printer models**: Materials configured for one printer model but not others in your farm
+**Resolution**: Go to Materials page → Open material → Configure slicing profiles for each printer model + nozzle diameter combination
 
 :::info Material Library
 For detailed material management and profile configuration, see the [Materials documentation](/docs/printing/materials.md).
@@ -189,8 +184,8 @@ For detailed material management and profile configuration, see the [Materials d
 
 ## AMS Configuration
 
-The "Use AMS" checkbox in slicer configuration controls:
-
+The `Use AMS` checkbox in slicer configuration controls:
+<div className="margin-left--md">
 **When Enabled:**
 - AMS slots visible in UI
 - AMS information shown on printer lists
@@ -200,6 +195,10 @@ The "Use AMS" checkbox in slicer configuration controls:
 - Only external spool holder available
 - AMS hidden from interface
 - Single material assignment
+</div>
+<div className="margin-left--sm">
+<img src="/img/printers/printers4.png" width="600" alt="Profile missing warning" />
+</div>
 
 ---
 
@@ -209,6 +208,6 @@ The "Use AMS" checkbox in slicer configuration controls:
 - **[Printer Control Panel](/docs/printing/printer-management/printer-control-panel.md)**: Manual printer operation and calibration
 - **[Materials](/docs/printing/materials.md)**: Material library management and profiles
 - **[Cloud Slicer](/docs/printing/cloud-slicer.md)**: Understanding slicer profiles and settings
-- **[FabMatic](/docs/printing/fabmatic.md)**: Continuous printing automation
+- **[FabMatic](/docs/features/fabmatic-continuous-printing.md)**: Continuous printing automation
 
 Need help with printer setup? Join our [Discord community](https://discord.gg/RCFA2u99De) for support and latest updates!

@@ -1,5 +1,7 @@
 ---
 sidebar_position: 5
+title: "Printing SKUs 💎"
+
 ---
 
 # Printing SKUs
