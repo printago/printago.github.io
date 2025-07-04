@@ -1,15 +1,22 @@
 
 [ ] Quick Start Guide -> Redo Video 
 [ ] Quick Start Guide -> Redo
+[ ] Materials Page
 [ ] Printing Parts Page
+[ ] Slicer Profiles Page
 [ ] Printing SKUs Page
-[ ] Cloud Slicer Page - update this extensively for multi-selection, slicer preferences, etc.  3MF embedded profiles -> link out to 3MF page.
+[ ] Cloud Slicer Page - needs total overhaul
+[ ] Account Settings Page
+[ ] Subscription Management Page
+[ ] Core Features - Folders.
+[ ] Hot Drop Page - create under core features.
 [ ] Bulk Actions -> Add all the missing stuff.  
 [ ] Fabmatic - this could use some TLC
+[ ] Global Search
 [ ] Keyboard shortcuts - add new printers page shortcuts.
-[ ] Discord Notifications -> Add Webhooks.
-[ ] Hot Drop Page - create under core features.
-[ ] Core Features - Folders.
+[ ] Notifications Page -> Discord & Add Webhooks.
+
+
 [ ] API/Specification - content/images - add for new API screen.
 [ ] Update roadmap
 
