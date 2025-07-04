@@ -14,11 +14,12 @@
 [ ] Notifications Page -> update Discord & Add Webhooks.
 [ ] API/Specification - content/images - add for new API screen.
 
-
 [ ] SKU Management Page - update for Material Management 1.1
+[ ] Bambu Integration - add detail about needing to renew credentials every 90 days , and the warning about it.
 
+[X] Orders page
 [X] Integrations Page
-[X] Update roadmap (move to draft, remove from docs)
+[X] Update roadmap (deleted it)
 [X] Keyboard shortcuts - add new printers page shortcuts.
 [X] Global Search
 [X] Bulk Actions -> Add all the missing stuff.  

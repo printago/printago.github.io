@@ -1,6 +1,5 @@
 ---
-sidebar_position: 5
-title: "SKU Management 💎"
+sidebar_position: 1
 ---
 
 # SKU Management
