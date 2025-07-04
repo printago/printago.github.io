@@ -14,15 +14,11 @@
 [ ] Fabmatic - this could use some TLC
 [ ] Global Search
 [ ] Keyboard shortcuts - add new printers page shortcuts.
-[ ] Notifications Page -> Discord & Add Webhooks.
-
-
+[ ] Notifications Page -> update Discord & Add Webhooks.
 [ ] API/Specification - content/images - add for new API screen.
 [ ] Update roadmap
 
-
 [ ] SKU Management Page - update for Material Management 1.1
-[ ] Add First Time Setup stuff (copy it from the Quick Start Guide?)
 
 [X] Gutenb3d Page - Printer debug info (matching information on jobs)
 [X] Queue page - add Retry completed jobs.
