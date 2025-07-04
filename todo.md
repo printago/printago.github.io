@@ -1,16 +1,16 @@
-
-[ ] Quick Start Guide -> Redo Video 
-[ ] Quick Start Guide -> Redo
-[ ] Materials Page
-[ ] Printing Parts Page
-[ ] Slicer Profiles Page
-[ ] Printing SKUs Page
-[ ] Cloud Slicer Page - needs total overhaul
-[ ] Subscription Management Page
-[ ] Fabmatic - this could use some TLC
-
 [ ] SKU Management Page - update for Material Management 1.1
 [ ] Bambu Integration - add detail about needing to renew credentials every 90 days , and the warning about it.
+[ ] Subscription Management Page
+[ ] Printing Parts Page
+[ ] Printing SKUs Page
+[ ] Slicer Profiles Page
+[ ] Materials Page
+
+[ ] Cloud Slicer Page - needs total overhaul
+[ ] Fabmatic - this could use some TLC
+
+[ ] Quick Start Guide
+[ ] Quick Start Guide -> Redo Video 
 
 [X] Account Settings Page
 [X] API/Specification - content/images - add for new API screen.
