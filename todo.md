@@ -7,8 +7,7 @@
 
 [ ] Core Features / Bambu Lab Integration - update the important firmware notice, include safe firmware versions all printers.
 [ ] Bambu Lab Integration - "individual printer management" - remove "material profiles" & AMS 'soon' callout.
-[ ] Bambu Lab Integration -  Future updates - kill this section. 
-[ ] Bambu Lab Integration - add firmware and downgrade instructions
+
 [ ] Printago Fuse - update this to reflect updates firmware lockdown support in BBL Developer Mode.
 
 [ ] Printing Files page - update whole page for multi-material.
@@ -52,3 +51,5 @@
 
 [X] SKU Management - pull this page out to retail-features section.  Page mostly fine , will need revisit.
 [X] Mark ColorSCAD, SKUS, Orders as Commercial-only features.
+[X] Bambu Lab Integration -  Future updates - kill this section.
+[X] Bambu Lab Integration - add firmware and downgrade instructions
