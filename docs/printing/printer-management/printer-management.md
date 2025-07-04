@@ -116,18 +116,35 @@ Click any AMS slot or external spool to open the Material Assignment window.
 When RFID-tagged spools are detected, Printago automatically reads the material information:
 
 #### Missing Material Workflow
-If the detected material isn't in your library, you'll see quick-add buttons:
-1. **"Add missing material for '[FILAMENT]'"** - Click to add the base material (e.g., "TPU for AMS")
-2. **"Add missing variant '[COLOR_NAME]'"** - Click to add the specific color variant
+
+When you insert RFID-tagged filament that isn't in your Printago library, you'll see quick-add buttons:
+
+**Step 1: Add Base Material**
+The first prompt appears when the material type isn't recognized (see first image below). Click `Add missing material for [Bambu] { MATERIAL-TYPE }` button to add the base material (e.g., "TPU for AMS").
+
+**Step 2: Add Color Variant** 
+After adding the base material, you'll be prompted to add the specific color variant (see second image below). Click `Add missing variant "{ COLOR }"` to complete the setup.
+
+**Step 3: Add Slicing Profiles** 
+Save your printer configuration, and head to the [Materials](/docs/printing/materials.md) page to configure the material's slicing profiles.
 
 <img src="/img/printers/printer_material_selection_2.png" width="400" alt="Add missing material button" />
 <img src="/img/printers/printer_material_selection_4.png" width="400" alt="Add missing variant button" />
 
-#### Manual Override
-To assign a different material than the RFID tag:
-1. Click **"Assign a material manually"** to enable normal selection
-2. Choose from your Material library
+:::warning Generic Material Assignment
+While you *can* set a generic filament profile directly on the printer (bypassing Printago's material system), this isn't recommended. Here's why:
 
+- **Limited matching**: Only parts set to `Any {Material-Type}` will match (e.g. "Any PLA")
+- **More specific Part settings won't match**: If a part requires "Bambu TPU for AMS" specifically, it won't match a generic "Any TPU-AMS" assigned printer.
+- **Reduced flexibility**: You lose the benefits of Printago's material management system
+:::
+
+#### RFID Override
+To assign a different material than the RFID tag, click **"Assign a material manually"** to enable normal selection from your Material library.
+
+<div className="margin-left--lg">
+<img src="/img/printers/printer_material_selection_5.png" width="400" alt="Manual material assignment override" />
+</div>
 :::note Bambu Lab Material Handling
 - External spool material can be assigned without physical material loaded
 - AMS slots require physical material to be loaded before assignment
