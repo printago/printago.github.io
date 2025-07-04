@@ -4,44 +4,31 @@ sidebar_position: 4
 
 # Keyboard Shortcuts
 
-Printago provides keyboard shortcuts to help you work more efficiently. This guide covers all available shortcuts and the global search functionality.
+Printago includes keyboard shortcuts throughout the application to help you work more efficiently. Rather than listing every shortcut here, we've documented them in context where they're most useful.
 
-## Global Search
+## Where to Find Keyboard Shortcuts
 
-The primary keyboard shortcut in Printago is the global search function:
+### Global Navigation
+- **[Global Search](/docs/features/global-search.md)** - Press `/` to search across your entire workspace
 
-- Press `/` (forward slash) to open the site-wide contextual search overlay
-- Press `Esc` to close the search overlay
+### Bulk Actions & Selection
+- **[Bulk Actions](/docs/features/bulk-actions.md)** - Selection shortcuts (`A`, `Shift + Click`) and printer-specific action shortcuts
 
-### Using Global Search
+### Printer Management
+The Printers page includes several shortcuts for efficient fleet management:
+- `G` - Select all matching printers (same model/nozzle)
+- `R` - Mark selected printers as ready
+- `U` - Mark selected printers as not ready
+- `P` - Open Control Panel for selected printers
+- `C` - Configure selected printers
+- `M` - Manage materials for selected printers
+- `T` - Edit tags for selected printers
 
-The contextual search provides quick access to:
-- Print Queue
-- Parts Library
-- SKUs
-- Printers
+## Quick Reference
 
-<img src="/img/context_search.gif" width="675" alt="add part 1" />
+The most commonly used shortcuts:
+- **`/`** - Open global search from anywhere
+- **`A`** - Toggle select all items in list views
+- **`Shift + Click`** - Range selection in lists
 
-### Quick Navigation Tips
-
-1. **Fastest Print Queue Access**
-   - Press `/` to open search
-   - Press `Enter` immediately (Print Queue is the top result)
-
-2. **Finding Specific Items**
-   - Press `/` to open search
-   - Begin typing the name of what you're looking for
-   - Use arrow keys to highlight the desired result and press `Enter` to navigate directly to that item **-OR-**
-   - Click on an item in the list.
-
-Search results update in real-time as you type, helping you quickly find exactly what you need.
-
-## Upcoming Features
-
-We're actively working on expanding keyboard shortcuts to include:
-
-- Quick actions for the Print Queue
-- Printer control shortcuts
-
-Have suggestions for keyboard shortcuts? Join our [Discord community](https://discord.gg/RCFA2u99De) to share your ideas!
+For complete details on any shortcuts, visit the relevant feature documentation linked above.
