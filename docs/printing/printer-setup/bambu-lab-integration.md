@@ -11,12 +11,7 @@ Printago offers seamless integration with Bambu Lab printers through Bambu's clo
 Currently, Printago supports Bambu Lab printers operating in **Cloud Mode** only. Support for LAN Mode is under development and will be available in a future release.
 
 :::caution Important Notice
-The following firmware versions are the latest that support sending "Unauthorized Cloud Commands" required by Printago's current integration:
-
-- A1 Mini: 1.04
-- A1: 1.04
-- P1S: 1.08.01
-- X1C: 1.08.02
+Printago requires specific firmware versions that do not have the Bambu authorization lockout. See [Firmware Requirements](#firmware-requirements) for version details and downgrade instructions.
 
 Our upcoming Fuse client will support newer firmware versions and models using Developer LAN mode, providing enhanced functionality and security.
 :::
@@ -98,7 +93,35 @@ sequenceDiagram
         Printago Storage->>Printago Storage: Expire download token
     end
 ```
+## Firmware Requirements
 
+Printago requires specific firmware versions that do not have the Bambu authorization lockout:
+
+- **A1 Mini**: 1.04
+- **A1**: 1.04  
+- **P1S**: 1.08.01
+- **X1C**: 1.08.02
+
+### Downgrading Firmware
+
+If your printer has newer firmware, you can downgrade using either:
+
+**Option 1: Bambu Handy Mobile App (Recommended)**
+
+The easiest method is using Bambu Lab's mobile app "Handy" to upgrade or downgrade to a specific firmware version:
+
+<div className="margin-left--lg padding-bottom--md">
+    <img src="/img/bambu_integration/firmware_downgrade.gif" width="300" alt="Using Bambu Handy mobile app to downgrade firmware" />
+</div>
+
+**Option 2: SD Card Method**
+
+For manual firmware installation via SD card, follow the official Bambu Lab guides:
+
+- [X1 Series](https://wiki.bambulab.com/en/x1/manual/X1-firmware-update-from-SD-card)
+- [P1 Series](https://wiki.bambulab.com/en/p1/manual/P1-firmware-update-from-SD-card)
+- [A1](https://wiki.bambulab.com/en/a1/manual/a1-firmware-update-from-SD-card)
+- [A1 Mini](https://wiki.bambulab.com/en/a1-mini/manual/a1-mini-firmware-update-from-SD-card)
 
 ## Troubleshooting
 
