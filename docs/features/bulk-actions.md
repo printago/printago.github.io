@@ -8,10 +8,10 @@ Bulk Actions provide powerful controls for managing multiple items simultaneousl
 
 ## Understanding the Interface
 
-The Bulk Actions control appears in the top-right corner (top on mobile) of screens that support multi-selection:
+The Bulk Actions control appears in the top-left corner (top on mobile) of screens that support multi-selection:
 
-1. Initially shows as a disabled <img src="/img/screenshot_000372.png" width="75" alt="actions button" /> button.
-2. When you select items, the button enables and updates its text <img src="/img/screenshot_000373.png" width="115" alt="add part 1" />
+1. Initially shows as a disabled `Actions` dropdown button.
+2. When you select items, the button enables and updates its text.
 3. Clicking reveals a context-aware menu of actions available for your selected items
 
 Different screens offer different bulk operations - for example, selecting multiple printers gives you printer-specific actions, while selecting print jobs provides queue management options.
@@ -22,12 +22,11 @@ Printago supports several ways to select items:
 
 - **Individual Selection**: Click checkboxes next to items you want to affect
 - **Range Selection**: Select an item, hold `Shift`, then select another item to select everything between
-- **Select All**: Use the checkbox in the table header to select all items matching your current filters
-- **Filter Before Selection**: Use Search and Filters to limit items, then use Select All to capture the filtered items
-- **Mixed Selection**: Combine methods - for example, select all, then uncheck specific items
+- **Select All**: Use the checkbox in the table header to select all items matching your current filters, or press `A` to toggle select all
 
-<img src="/img/multi_select.gif" width="700" alt="multi select" />
-
+:::tip Quick Selection
+Use `Shift + Click` for range selection across most list views in Printago.
+:::
 
 ## Bulk Actions by Context
 
@@ -66,4 +65,48 @@ Control multiple printers simultaneously through the following Bulk Actions:
 
 
 
-More ideas for these bulk actions? drop us an email: support@printago.io
+## Complete Bulk Actions Reference
+
+### Print Queue
+
+| Action | Description | Requirements/Notes |
+|--------|-------------|--------------------|
+| **Cancel** | Stop selected print jobs | Requires confirmation |
+| **Move to Top** | Prioritize selected jobs in queue | Alternative to drag/drop (Queued jobs only) |
+| **Pause** | Temporarily stop active print jobs | In-Progress jobs only |
+| **Resume** | Continue paused print jobs | Paused jobs only |
+| **Clear** | Remove jobs from queue | Completed/Cancelled/Errored jobs only |
+| **Retry** | Return jobs to queue for another attempt | Cancelled/Errored jobs only |
+
+### Printers
+The Printers list page has one additional keyboard shortcut: `G` to select all matching Printers (same model/nozzle)
+
+| Action | Description | Requirements/Notes | Shortcut |
+|--------|-------------|--------------------|---------|
+| **Set as Clear & Ready** | Makes selected printers available in print queue | Skips currently printing printers | `R` |
+| **Set as Hold/Not Ready** | Removes printers from available queue | Temporarily disables job assignment | `U` |
+| **Enable FabMatic** | Activates continuous printing mode | See [FabMatic documentation](./fabmatic-continuous-printing.md) | - |
+| **Disable FabMatic** | Turns off continuous printing mode | - | - |
+| **Edit Tags** | Modify printer tags in bulk | For printer grouping and organization | `T` |
+| **Control Panel** | Multi-printer control interface | Manual printer operation and calibration | `P` |
+| **Configure** | Bulk slicer configuration | Set machine/process profiles for multiple printers | `C` |
+| **Materials** | Bulk material assignment | Assign materials to multiple printers | `M` |
+| **Temperature** | Quick bed/nozzle temperature presets | Set temperatures across multiple printers | - |
+
+
+
+
+### Parts & SKUs
+
+| Action | Description | Requirements/Notes |
+|--------|-------------|--------------------|
+| **Delete** | Remove parts or SKUs from Printago | Permanent deletion |
+| **Move to Folder** | Organize items into folders | Bulk organization tool |
+
+### Materials & Slicer Profiles
+
+Both Materials and Slicer Profiles pages currently support only **Delete** bulk actions for removing items from your library.
+
+
+
+Find out more about Printago [Keyboard Shortcuts](/docs/features/keyboard-shortcuts.md)

@@ -8,8 +8,7 @@
 [ ] Cloud Slicer Page - needs total overhaul
 [ ] Account Settings Page
 [ ] Subscription Management Page
-[ ] Core Features - Folders.
-[ ] Hot Drop Page - create under core features.
+
 [ ] Bulk Actions -> Add all the missing stuff.  
 [ ] Fabmatic - this could use some TLC
 [ ] Global Search
@@ -20,6 +19,9 @@
 
 [ ] SKU Management Page - update for Material Management 1.1
 
+
+[X] Hot Drop Page - create under core features.
+[X] Core Features - Folders.
 [X] Gutenb3d Page - Printer debug info (matching information on jobs)
 [X] Queue page - add Retry completed jobs.
 [X] Bulk Action on queue - "move to top"
