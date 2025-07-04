@@ -74,8 +74,8 @@ Your clearing script runs after each print to cool the bed and remove the comple
 ### Enabling FabMatic
 
 1. Return to `Printing > Printers`
-   * You can now configure individual printers by selecting them and clicking `Configure`
-   * This allows changing slicing profiles per printer
+   * You can now configure individual printers by selecting them and clicking `Slicing Configure`
+   * Select your bed-clearing profile here and Save.
 2. From the main Printers page:
    * Use Multi-Select to choose FabMatic printers
    * Check boxes for desired printers
