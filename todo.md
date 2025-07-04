@@ -7,19 +7,21 @@
 [ ] Printing SKUs Page
 [ ] Cloud Slicer Page - needs total overhaul
 [ ] Account Settings Page
-[ ] Subscription Management Page
 
-[ ] Bulk Actions -> Add all the missing stuff.  
+[ ] Subscription Management Page
 [ ] Fabmatic - this could use some TLC
-[ ] Global Search
-[ ] Keyboard shortcuts - add new printers page shortcuts.
+
 [ ] Notifications Page -> update Discord & Add Webhooks.
 [ ] API/Specification - content/images - add for new API screen.
-[ ] Update roadmap
+
 
 [ ] SKU Management Page - update for Material Management 1.1
 
-
+[X] Integrations Page
+[X] Update roadmap (move to draft, remove from docs)
+[X] Keyboard shortcuts - add new printers page shortcuts.
+[X] Global Search
+[X] Bulk Actions -> Add all the missing stuff.  
 [X] Hot Drop Page - create under core features.
 [X] Core Features - Folders.
 [X] Gutenb3d Page - Printer debug info (matching information on jobs)

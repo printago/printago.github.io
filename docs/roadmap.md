@@ -1,3 +1,6 @@
+---
+draft: true
+---
 # Printago Development Roadmap
 
 Welcome to the Printago development roadmap! This page outlines our planned features and improvements. We've organized them by development phase to give you a clear picture of what's coming. Our roadmap is dynamic and influenced by user feedback - we'd love to hear your thoughts!
