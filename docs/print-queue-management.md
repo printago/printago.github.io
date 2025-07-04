@@ -10,12 +10,12 @@ The Print Queue is where Printago's intelligent job management system, Gutenb3d,
 
 The Print Queue is organized into five tabs that represent different stages of your print jobs:
 
-| Tab | Description | Available Actions |
-|-----|-------------|-------------------|
-| **Queued** | Jobs waiting for printer assignment | Cancel, Drag/Drop reorder, View matching details |
-| **In-Progress** | Jobs actively printing on assigned printers | Pause, Resume, Cancel |
-| **Completed** | Successfully completed prints | Retry, Clear |
-| **Cancelled** | User-cancelled jobs | Retry, Clear |
+| Tab   | Description | Available Actions |
+|-------|-------------|-------------------|
+| **Queued** | Waiting for printer assignment | Cancel, Move to Top, Drag/Drop reorder |
+| **In‑Progress** | Actively printing on assigned printers | Pause, Resume, Cancel |
+| **Completed**   | Successfully completed prints | Retry, Clear |
+| **Cancelled**   | User-cancelled jobs | Retry, Clear |
 | **Errored** | Jobs that failed during slicing or printing | Retry, Clear |
 
 ### **Job Interaction**
@@ -97,10 +97,12 @@ Clearing completed jobs removes them from the interface but preserves all data f
 :::
 
 ### **Troubleshooting Assignment Issues**
-Every job includes a "Printer Matching" dialog that shows:
+Every job includes a `Printer Matching` dialog that shows:
 - Which printers Gutenb3d attempted to match
 - Specific reasons why each printer wasn't selected
-- What you can do to resolve matching issues
+ <div className="margin-left--lg">
+        <img src="/img/queue/queue1.png" width="500" alt="" />
+    </div>
 
 ## Production Slot Management
 

@@ -19,9 +19,3 @@ For the fastest support experience, join our Discord community! Our team and com
 Need to send us files or have a more detailed discussion? Reach out via email:
 
 support@printago.io
-
-## Before Reaching Out
-
-Check these resources first - you might find your answer immediately:
-- [FAQ Section](./faq.md)
-- Search our documentation using the search bar above

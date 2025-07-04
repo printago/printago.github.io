@@ -1,35 +1,27 @@
-[ ] Intro / Key Features -> Add "multi-material" support 
+
 [ ] Quick Start Guide -> Redo Video 
 [ ] Quick Start Guide -> Redo
-
-
-[ ] Printago Fuse - update this to reflect updates firmware lockdown support in BBL Developer Mode.
-
-[ ] Printing Files page - update whole page for multi-material.
-
+[ ] Printing Parts Page
+[ ] Printing SKUs Page
 [ ] Cloud Slicer Page - update this extensively for multi-selection, slicer preferences, etc.  3MF embedded profiles -> link out to 3MF page.
-
 [ ] Bulk Actions -> Add all the missing stuff.  
-
 [ ] Fabmatic - this could use some TLC
-
 [ ] Keyboard shortcuts - add new printers page shortcuts.
-
 [ ] Discord Notifications -> Add Webhooks.
-
 [ ] Hot Drop Page - create under core features.
 [ ] Core Features - Folders.
- 
 [ ] API/Specification - content/images - add for new API screen.
 [ ] Update roadmap
 
-[ ] Queue page - add Retry completed jobs.
-
-[ ] Gutenb3d Page - Printer debug info (matching information on jobs)
 
 [ ] SKU Management Page - update for Material Management 1.1
 [ ] Add First Time Setup stuff (copy it from the Quick Start Guide?)
 
+[X] Gutenb3d Page - Printer debug info (matching information on jobs)
+[X] Queue page - add Retry completed jobs.
+[X] Bulk Action on queue - "move to top"
+[X] Intro / Key Features -> Add "multi-material" support 
+[X] Printago Fuse - update this to reflect updates firmware lockdown support in BBL Developer Mode.
 [X] Key Concepts -> Add short blurb about materials & material matching.
 [X] Core Features / Bambu Lab Integration - update the important firmware notice, include safe firmware versions all printers.
 [X] Bambu Lab Integration - "individual printer management" - remove "material profiles" & AMS 'soon' callout.

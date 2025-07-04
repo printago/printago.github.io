@@ -53,8 +53,8 @@ Built-in support for OpenSCAD enables automated customization without manual CAD
 ### Intelligent Queue Management
 Our smart queue system automatically matches prints with available printers based on material, color, nozzle, bed size, and custom requirements.
 
-### Modern Architecture
-Cloud-based infrastructure ensures reliability and accessibility from anywhere, with a mobile-friendly interface included.
+### Direct E-Commerce Integration (Coming Summer 2025!)
+Direct integration with Shopify, Etsy, Shipstation, Shippo, ebay, & more.  Printago pulls in orders and turns line-items models via SKUs.
 
 ### Powerful API 
 Our commercial users enjoy access to our various APIs - the same ones the Printago team uses to create app.printago.io!

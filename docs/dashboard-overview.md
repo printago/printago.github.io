@@ -51,6 +51,7 @@ This differs from the **In-Progress** tab in the [Print Queue](/docs/print-queue
 The dashboard provides quick access to several important features:
 
 - **Set Clear & Ready** - After a job completes, the status indicator will switch to a button labeled `Set Ready`
+- **Quick-Set Printer Temps** - Click the temps to set them without needing to open the control panel.
 - **Printer Control Panel** - Access the [Printer Control Panel](/docs/tips-shortcuts/printer-control-panel) via the game controller icon
 - **Printer Slicer Settings** - Access printer-specific settings via the gear icon
 - **Part Navigation** - View part details by clicking on the part name or thumbnail (Printago jobs only)
