@@ -1,222 +1,180 @@
 ---
-sidebar_position: 2
+title: "Quick Start Guide"
+sidebar_position: 1
 ---
-
 
 # Quick Start Guide
 
 Get up and running with Printago in minutes. This guide walks you through connecting printers, setting up materials, and your first automated print job.
 
-<div style={{
-  position: 'relative',
-  paddingBottom: '56.25%', /* 16:9 */
-  height: 0,
-  overflow: 'hidden',
-  maxWidth: '100%',
-}}>
-  <iframe
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-    }}
-    src="https://www.youtube-nocookie.com/embed/fqAZmI49wpY"
-    title="Printago Quick Start Guide"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  />
-</div>
-
-
 ## Before You Begin
 
+Ensure your Bambu Lab printers are ready for cloud integration:
+
 :::important Prerequisites
-Before starting with Printago, ensure you have:
-1. Completed initial setup of your Bambu Lab printer(s)
-2. Paired your printer(s) with your Bambu Cloud account
-3. Enabled cloud profile syncing in your slicer
-4. Loaded filaments into your printers (AMS or external spools)
+1. Complete initial setup of your Bambu Lab printer(s)
+2. Pair your printer(s) with your Bambu Cloud account
+3. Enable cloud profile syncing in your slicer (Bambu Studio/Orca)
 :::
 
-### Enable Cloud Profile Sync
-
-Printago's [Cloud Slicer](../printing/cloud-slicer.md) automatically syncs slicing profiles from your Bambu Lab account. When you modify a profile, changes apply to all associated parts. Adding a new printer? No need to re-slice existing models - Printago handles slicing automatically based on your printer and material configurations.
-
-In Orca Slicer or Bambu Studio:
-1. Ensure you're logged into the slicer with your Bambu Lab account
-2. Open Preferences
-3. Navigate to Presets section
-4. Enable "Auto sync user presets"
-
-<img src="/img/orca-sync-preferences.png" width="500" alt="Orca Sync Preferences" />
-
-## Step 1: Connect Your Printers
-
-:::tip Bulk Import
-Printago imports all your Bambu Lab printers at once - no need to add them individually!
+:::tip Profile Syncing
+In **Bambu Studio/Orca Slicer**: Go to Preferences > Network > Enable cloud syncing and sync your profiles. Printago will import these profiles when you run the Bambu Integration flow.
 :::
-1. Navigate to `Printing → Printers` in the sidebar
-2. Click `Configure Bambu Printers`
-   <img src="/img/screenshot_000321.png" width="600" alt="Blank Printers Screen" />
-3. Enter your Bambu Cloud credentials and complete Bambu's 2-Factor authentication as prompted
-   <img src="/img/screenshot_000322.png" width="600" alt="Enter Bambu Lab Credentials" />
-4. After authentication, you'll be taken through a short, two-step wizard allowing you to select which 3d printers to pair and profiles to import
+
+<div className="margin-left--sm">
+  <img src="/img/orca-sync-preferences.png" width="500" alt="Orca Sync Preferences" />
+</div>
+
+## Step 1: Create Your Account
+
+1. Go to [printago.io](https://app.printago.io) and create your free account
+2. Verify your email address and log in
+
+## Step 2: Connect Your Printers
+
+3. From the Dashboard, click `Add Printers` or navigate to `Printing → Printers`
+
+<div className="margin-left--sm">
+  <img src="/img/screenshot_000321.png" width="600" alt="Blank Printers Screen" />
+</div>
+
+4. Enter your Bambu Cloud credentials and complete Bambu's 2-Factor authentication as prompted
+
+<div className="margin-left--sm">
+  <img src="/img/screenshot_000322.png" width="600" alt="Enter Bambu Lab Credentials" />
+</div>
+
+5. The Bambu Integration flow will guide you through selecting printers to connect and importing your cloud-synced slicing profiles
 
    :::tip Free Unlimited Printers
-   Printago allows you to connect and use unlimited printers - free!  
+   Printago supports unlimited printers regardless of account type. See [Subscription Management](/docs/settings/subscription-management.md) for commercial features.
    :::
-   <img src="/img/screenshot_000323.png" width="600" alt="Bambu Lab Connected Printers" />
-   <img src="/img/screenshot_000324.png" width="600" alt="Slicing Profiles" />
 
-## Step 2: Configure Printer Defaults
+<div className="margin-left--md">
+  <img src="/img/screenshot_000323.png" alt="Bambu Lab Connected Printers" />
+  <img src="/img/screenshot_000324.png" alt="Slicing Profiles" />
+</div>
 
-5. On the final screen of the Bambu Wizard, configure each printer's default slicing profiles using the familiar dropdown boxes for `Printer`, `Filament`, and `Process`
+6. Configure each printer's default machine and process profiles and click finish 
+(materials are configured separately in Step 3)
 
-   <img src="/img/screenshot_000325.png" width="600" alt="Printer List" />
-   These settings serve as defaults for the [Cloud Slicer](../printing/cloud-slicer.md) and enable intelligent job matching
-   <img src="/img/screenshot_000326.png" width="600" alt="Printer Config" />
-   
-:::info On-Demand Slicing
-Printago slices parts automatically when jobs are assigned to printers, using the printer's configuration and the part's material requirements.
-:::
+<div className="margin-left--md">
+  <img src="/img/screenshot_000325.png" width="600" alt="Printer List" />
+</div>
 
 :::tip Bulk Configuration
-Use the `Save to all X printers in this group` option to quickly configure multiple identical printers of the same type at once.
+Use `Save to all X printers in this group` to quickly configure multiple identical printers at once.
 :::
+
 ## Step 3: Set Up Materials
 
 Before creating parts, configure your printer materials for intelligent job matching.
 
 ### Import Materials from AMS
 
-6. Navigate to `Printing → Materials`
-7. Click `Import from AMS` to automatically detect and add all materials currently loaded in your printers
+7. Navigate to `Printing → Materials`
+8. Click `Import from AMS` to automatically detect and add materials currently loaded in your printers
 
-![Import from AMS](/img/materials/materials_import_from_ams.png)
+<div className="margin-left--sm">
+  <img src="/img/materials/materials_import_from_ams.png" width="600" alt="Import from AMS" />
+</div>
 
-:::tip RFID Auto-Detection
-Bambu Lab RFID-tagged filaments are automatically detected with correct material and color information!
+### Configure Material Slicing Profiles
+
+9. For each imported material, configure slicing profiles for your printer models and nozzle sizes:
+   - Click on any material in your library
+   - Set up profiles for each **Printer Model + Nozzle Size** combination
+   - Use the auto-complete search (type "PLA" to find PLA profiles quickly)
+
+<div className="margin-left--sm">
+  <img src="/img/materials/material_detail.png" width="600" alt="Material Profile Configuration" />
+</div>
+
+:::important Profile Requirement
+Materials must have slicing profiles configured for each printer model and nozzle size they'll be used with. Missing profiles prevent job matching.
 :::
 
-### Assign Materials to Printers
-
-8. Go back to `Printing → Printers` and click on each printer
-9. For each AMS slot or external spool, click to assign materials:
-   - **Specific Material + Color**: Exact match (e.g., "Bambu PLA Basic Red")
-   - **Generic Type**: Any material of that type (e.g., "Any PLA")
-   - **RFID Auto-Detection**: Automatic for RFID-tagged filaments
-
-:::info Material Matching
-Printago uses material assignments to automatically route jobs to compatible printers. More specific assignments provide better print consistency.
+:::tip Other Material Sources
+See [Materials Documentation](../printing/materials.md) for adding materials manually, from databases, or via bulk import.
 :::
 
-## Step 4: Create Your First Part
+## Step 4: Add Your First Part
 
-Now create a part that leverages Printago's intelligent material matching.
+10. Go to `Products → Parts` and click `Add Part`
+
+<div className="margin-left--sm">
+  <img src="/img/parts/add_parts_1.gif" width="600" alt="Add Part" />
+</div>
+
+11. Upload your **STL or 3MF file** and give it a name and description
+12. Configure material requirements and process settings
+13. Click `Create` to save your part
 
    :::info File Support
-   Printago supports STL, STEP, 3MF, and OpenSCAD part types. 
-
-   ***`.gcode` and `.gcode.3mf` are not supported.***
+   Printago supports STL, STEP, 3MF, OpenSCAD, and GCODE 3MF files. Regular `.gcode` files are not supported.
    :::
-
-10. Go to `Products → Parts`, and click `Add Part`
-
-    <img src="/img/screenshot_000328.png" width="700" alt="Part Screen" />
-11. Upload your file and give it a name and description
-12. **Configure Material Requirements**:
-    - **Material**: Choose specific material, material type, or "Any [Type]" for flexibility
-    - **Process Profile**: Override printer's default process settings (optional)
-
-    :::tip Material Strategy
-    - Use **specific materials** for consistent results
-    - Use **"Any PLA"** for prototyping flexibility
-    - Leave unspecified to use any compatible material
-    :::
-
-13. Click `Create` and your part will be saved and ready for printing!
-    <img src="/img/screenshot_000329.png" width="700" alt="Part Config" />
 
 ## Step 5: Start Your First Print
 
-<!-- ![Print Dialog](./img/print-dialog.png) -->
-
-14. After saving your part, you'll be brought back to the parts list. Find your part and click it
-
-    <img src="/img/screenshot_000330.png" width="700" alt="Find Part" />
-   
-15. From the part detail screen, click the `Print` button in the upper right
-    <img src="/img/screenshot_000331.png" width="700" alt="Part" />
-
-16. **Choose Printer Assignment**:
-    - **Next Available Printer**: Automatic matching based on material compatibility
-    - **Specific Printer**: Manual printer selection
-    - **Printer with Specific Tags**: Target a group of printers ([learn more](../printing/advanced-printing/printer-tags))
-   
-    <img src="/img/screenshot_000332.png" width="450" alt="Part" />
+14. Find the saved part in the parts library and click the `Print` button
+   :::tip Quick Link
+   After saving the part, a toast notification will give you a quick link to open it up, or you can print the file using [Bulk Actions](/docs/features/bulk-actions.md)
+   :::
+15. Configure your print:
+    - Set quantity
+    - Choose printer assignment method:
+      - **Next Available**: Automatic matching based on material compatibility
+      - **Specific Printer**: Target an individual printer
+      - **Tagged Printers**: Target a group of printers
+    - Override material selection if desired
+16. Click `Print` to add the job to the queue
 
     :::info Smart Matching
-    Printago automatically matches parts to compatible printers based on material requirements, nozzle size, and printer availability.
+    Printago automatically matches jobs to compatible printers based on material requirements, nozzle size, and availability.
     :::
 
-17. **Override Materials** (optional): Change the material selection if needed, then set quantity and click `Print`
-    <img src="/img/screenshot_000350.png" width="400" alt="Print Button" />
-   
-18. Review the print confirmation and head to the `Print Queue` to monitor your job
-    <img src="/img/screenshot_000351.png" width="700" alt="Print Button" />
+17. Head to the `Print Queue` to view your job.  
 
 ## Step 6: Mark Printers Ready
+Finally, for printers to match with jobs Printago must be made aware that the printer bed is clear and that a job may be sent.
+18. Navigate to `Printing → Printers` and mark printers as `Clear & Ready`:
+    - **Individual**: Click status dropdown → `Clear & Ready`
+    - **Bulk**: Select multiple printers → Bulk Actions → `Availability` → `Clear & Ready`
 
-19. Your job is now queued, but hasn't started printing yet. Printago ***does not*** take exclusive control of your printers - you must indicate when printers are ready for new jobs. Click on `Printers`
+:::tip Safe Bulk Operations
+You can safely use "Select All" - actively printing printers will ignore the "Clear and Ready" command.
+:::
 
-    <img src="/img/screenshot_000352.png" width="700" alt="" />
-   
-20. When first connected, all printers show `Awaiting clear & ready state`
-    <img src="/img/screenshot_000344.png" width="700" alt="Queue View" />
+## Step 7: Watch the Magic Happen
 
-21. Click on a printer you want to use, then click the `Confirm clear & ready` button in the upper right
-    <img src="/img/screenshot_000345.png" width="700" alt="Printer Screen" />
-    
-    :::warning Clear & Ready State
-    Printers must be marked "Clear & Ready" before accepting new jobs. This safety feature prevents Printago from interfering with ongoing prints or dirty print beds.
-    :::
+19. **Automatic Processing**: Printago automatically:
+    - Matches your job to a compatible printer
+    - Slices the part using the [Cloud Slicer](../printing/cloud-slicer.md)
+    - Sends the job to the printer and starts printing
 
-22. **Bulk Mark Ready**: Select multiple printers using checkboxes, then use Bulk Action dropdown (`XX Printers Selected`) → `Availability` → `Clear & Ready`
-    <img src="/img/screenshot_000346.png" width="700" alt="Printers Screen" />
+20. **Monitor Progress**: Use the `Print Queue` to:
+    - Track job progress in the `In Progress` tab
+    - Reorder queued jobs by dragging
+    - Pause, resume, or cancel jobs using bulk actions
 
-23. Confirm the action and jobs will start assigning to compatible printers instantly! Head back to the `Print Queue`
-    <img src="/img/screenshot_000347.png" width="700" alt="Mark Ready" />
-    
-    :::info Safe Bulk Operations
-    You can safely use "Select All" when marking printers ready - any printer currently printing will ignore the "Clear and Ready" command.
-    :::
-
-## Step 7: Monitor and Manage Jobs
-
-24. **Automatic Processing**: Printago automatically slices your part using the [Cloud Slicer](../printing/cloud-slicer.md) and initiates printing on the matched printer
-
-     <img src="/img/screenshot_000348.png" width="700" alt="Mark Ready" />
-
-25. **In Progress Management**: From the `In Progress` tab, select jobs using checkboxes. Use Bulk Actions to `Pause`, `Resume`, or `Cancel` selected jobs
-    <img src="/img/screenshot_000349.png" width="700" alt="Mark Ready" />
-
-26. **Queue Management**: On the Queued screen, drag jobs to adjust priority order. Use Bulk Actions to cancel jobs or retry failed ones
-    <img src="/img/queue.gif" width="700" alt="Mark Ready" />
-    
-    :::tip Queue Processing
-    The Printago Queue processes jobs in top-to-bottom order, automatically matching them to compatible printers based on material requirements.
-    :::
+:::tip Queue Processing
+Jobs process in top-to-bottom order, automatically matching to compatible printers based on material requirements.
+:::
 
 ## Step 8: Complete the Workflow
 
-**Important**: When print jobs finish, remember to mark the printer as `Clear & Ready` to enable the next job!
+**Important**: When jobs finish, mark printers as `Clear & Ready` to enable the next job!
 
 :::info Continuous Printing
-For automated bed clearing and continuous printing, check out [FabMatic](../features/fabmatic-continuous-printing.md) - Printago's experimental continuous printing feature.
+Check out [FabMatic](../features/fabmatic-continuous-printing.md) for automated bed clearing and continuous printing.
 :::
 
-# Thank You and Happy Printing!
-Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
+---
+
+## Next Steps
+
+- **Scale Up**: Add more printers, materials, and parts
+- **Learn More**: Explore [Materials Management](../printing/materials.md), [Printer Management](../printing/printer-management/printer-management.md), and [Print Queue Management](../print-queue-management.md)
+- **Get Help**: Join our [Discord community](https://discord.gg/RCFA2u99De)
+
+Happy printing! 🎉

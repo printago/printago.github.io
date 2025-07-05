@@ -105,7 +105,6 @@ Materials must have configured slicing profiles for each printer model + nozzle 
 
 Materials must be assigned to printers to enable the job matching described above. See [Printer Management: Material Assignment](../printer-management/printer-management.md#material-assignment) for detailed assignment instructions including RFID auto-detection and manual assignment workflows.
 
-
 ## Material Override When Queuing Jobs
 
 When adding parts to the print queue, you can override the default material selection:
@@ -150,7 +149,6 @@ Parts can specify materials at different levels of specificity:
 - Part requires: "Bambu PLA Basic" (specific brand/material)
 - Printer assigned: "Any PLA" (generic type)
 - Result: ❌ No match - part requirement is more specific than printer capability
-
 
 ## Material Tips
 
