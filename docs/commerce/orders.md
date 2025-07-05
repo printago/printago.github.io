@@ -22,8 +22,7 @@ The Orders system provides:
 1. **Order Import** - Orders automatically imported from connected platforms
 2. **Processing** - Orders converted to print jobs in your queue
 3. **Production** - Items printed and quality checked
-4. **Fulfillment** - Shipping labels generated and packages dispatched
-5. **Completion** - Customers notified with tracking information
+4. **Completion** - Customers notified with tracking information
 
 ## Coming Soon
 

@@ -24,7 +24,9 @@ sidebar_position: 3
 
 1. Go to `Products -> Parts` and click `+ Add Part`
 2. Drag in your .3mf file or browse to upload
-   <img src="/img/parts/add_parts_1.gif" className="margin-left--md" width="600" alt="Uploading a 3MF file" />
+ <div className="margin-left--lg">
+<img src="/img/parts/add_parts_1.gif" className="margin-left--md" width="600" alt="Uploading a 3MF file" />
+</div>
 3. Name your part and add a description if needed
 4. Choose where to save it (defaults to your current folder)
 5. Printago will auto-select the right slicer version (look for the "Auto-Selected" badge)

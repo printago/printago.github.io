@@ -19,7 +19,7 @@ gcode.3mf files contain:
 - **No re-slicing** - Cannot use Printago's slice-on-demand features
 
 <div className="margin-left--lg">
-:::info "We don't do that here"
+:::tip 
 Printago supports gcode.3mf files, but we recommend using other formats to take full advantage of our automatic slicing capabilities.
 :::
 </div>
@@ -50,14 +50,6 @@ gcode.3mf files support basic material remapping:
 - Reassign color variants within the same material type
 - Printago can auto-map similar materials
 - Temperature settings remain fixed in the G-code
-
-<div className="margin-left--lg">
-:::warning Important Note
-gcode.3mf files bypass Printago's material management. The system won't enforce correct material profiles or temperatures, so ensure your material choices match the G-code requirements.
-
-<img src="/img/parts/gcode_material.png" className="margin-left--lg" width="600" alt="gcode.3mf material mapping" />
-:::
-</div>
 
 ## Migration to Better Formats
 

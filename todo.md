@@ -1,4 +1,4 @@
-[ ] Printing Parts Page
+
 [ ] Printing SKUs Page
 [ ] Slicer Profiles Page
 [ ] Materials Page
@@ -9,6 +9,7 @@
 [ ] Quick Start Guide
 [ ] Quick Start Guide -> Redo Video 
 
+[X] Printing Parts Page
 [X] Subscription Management Page
 [X] Bambu Integration - add detail about needing to renew credentials every 90 days , and the warning about it.
 [X] SKU Management Page - update for Material Management 1.1
