@@ -1,5 +1,5 @@
 
-[ ] Printing SKUs Page
+
 [ ] Slicer Profiles Page
 [ ] Materials Page
 
@@ -9,6 +9,7 @@
 [ ] Quick Start Guide
 [ ] Quick Start Guide -> Redo Video 
 
+[X] Printing SKUs Page
 [X] Printing Parts Page
 [X] Subscription Management Page
 [X] Bambu Integration - add detail about needing to renew credentials every 90 days , and the warning about it.
