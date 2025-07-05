@@ -1,8 +1,7 @@
-[ ] Materials Page
-
 [ ] Quick Start Guide
-[ ] Quick Start Guide -> Redo Video 
+[ ] Quick Start Guide -> Remove Video (redo it and update after release)
 
+[X] Materials Page
 [X] Fabmatic - this could use some TLC
 [X] Cloud Slicer Page - needs total overhaul
 [X] Slicer Profiles Page
