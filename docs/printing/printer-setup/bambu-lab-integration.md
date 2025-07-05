@@ -11,7 +11,62 @@ Printago offers seamless integration with Bambu Lab printers through Bambu's clo
 Currently, Printago supports Bambu Lab printers operating in **Cloud Mode** only. Support for LAN Mode is under development and will be available in a future release.
 
 :::caution Important Notice
-Bambu Lab introduced major security changes in January 2025. We are actively working with them as they develop their Software Integrator partner program. For now, ***do not update to the Beta firmware if you have an X1 series printer***. Printago's connection methods may evolve as these changes roll out, but we are committed to maintaining seamless integration with your printers.
+Printago requires specific firmware versions that do not have the Bambu authorization lockout. See [Firmware Requirements](#firmware-requirements) for version details and downgrade instructions.
+
+Our upcoming Fuse client will support newer firmware versions and models using Developer LAN mode, providing enhanced functionality and security.
+:::
+
+## First-Time Setup
+
+For detailed instructions on connecting your Bambu Lab printers to Printago for the first time, please refer to our [Quick Start Guide](../../getting-started/quick-start-guide.mdx). The guide covers:
+
+- Prerequisites for printer connectivity
+- Step-by-step connection process
+- Initial printer configuration
+
+:::tip Security
+Your Bambu Lab account stays safe - we only store encrypted printer access tokens, never passwords. Want to learn more about our security? Chat with our development team on Discord or email support@printago.io.
+:::
+
+## Authentication Expiry
+
+For security reasons, Printago does not store your Bambu Lab credentials. Instead, we only store encrypted printer access tokens that expire every 90 days.
+
+**Re-authentication Required**: You'll need to re-authenticate your Bambu Lab account every 90 days to maintain printer connectivity.
+
+14 days before your credentials expire, you'll see a red banner in the app reminding you to re-authenticate:
+
+<div className="margin-left--lg padding-bottom--md">
+    <img src="/img/bambu_integration/auth_timeout.png" width="600" alt="Red banner warning about Bambu Lab authentication expiring soon" />
+</div>
+
+To re-authenticate, simply run the Bambu Integration Flow again through **Settings** → **Integrations** → **Bambu Lab** → `Configure`, and finally click the `Reauthenticate` button.  Or follow the link in the warning banner.
+
+## Managing Connected Printers
+
+The Bambu Integration Flow can be run at any time and may be accessed through either:
+- **Settings** → **Integrations** → Click `Configure` on the Bambu Lab settings card
+- **Printing** → **Printers** → Click the `Configure Bambu Printers` button in the upper right
+
+The flow guides you through connecting your Bambu Lab account, syncing cloud profiles, and configuring printer settings.  
+<div className="margin-left--lg padding-bottom--md">
+    <img src="/img/bambu_integration/configure.png" width="600" alt="Print dialog with the parameter hidden, using default value" />
+</div>
+
+:::info
+The Bambu Integration flow is currently the only mechanism to refresh your cloud-synced slicing profiles
+:::
+
+### Disabling Printers
+
+1. Run the Bambu Integration Flow
+2. Uncheck the boxes next to printers you want to disconnect
+3. Complete the flow - Printago will stop all communication with unchecked printers.
+4. To reconnect a printer later, run the flow again and check its box
+
+
+:::caution
+Disconnecting a printer will stop any active monitoring and prevent new print jobs from being sent to the printer. Current print jobs will continue until completion.
 :::
 
 ## How Printago Connects to Your Printers
@@ -52,60 +107,35 @@ sequenceDiagram
         Printago Storage->>Printago Storage: Expire download token
     end
 ```
-## First-Time Setup
+## Firmware Requirements
 
-For detailed instructions on connecting your Bambu Lab printers to Printago for the first time, please refer to our [Quick Start Guide](../../getting-started/quick-start-guide.mdx). The guide covers:
+Printago requires specific firmware versions that do not have the Bambu authorization lockout:
 
-- Prerequisites for printer connectivity
-- Step-by-step connection process
-- Initial printer configuration
+- **A1 Mini**: 1.04
+- **A1**: 1.04  
+- **P1S**: 1.08.01
+- **X1C**: 1.08.02
 
-:::tip Security
-Your Bambu Lab account stays safe - we only store encrypted printer access tokens, never passwords. Want to learn more about our security? Chat with our development team on Discord or email support@printago.io.
-:::
+### Downgrading Firmware
 
-## Managing Connected Printers
+If your printer has newer firmware, you can downgrade using either:
 
-The Bambu Integration Wizard can be run at any time and may be accessed through either:
-- **Settings** → **Integrations** → Click `Configure` on the Bambu Lab card
-- **Printing** → **Printers** → Click the `Configure Bambu Printers` button in the upper right
+**Option 1: Bambu Handy Mobile App (Recommended)**
 
-The wizard guides you through connecting your Bambu Lab account, syncing cloud profiles, and configuring printer settings.  
+The easiest method is using Bambu Lab's mobile app "Handy" to upgrade or downgrade to a specific firmware version:
 
-:::info
-The wizard is currently the only mechanism to refresh your cloud-synced slicing profiles
-:::
+<div className="margin-left--lg padding-bottom--md">
+    <img src="/img/bambu_integration/firmware_downgrade.gif" width="300" alt="Using Bambu Handy mobile app to downgrade firmware" />
+</div>
 
-### Individual Printer Management
+**Option 2: SD Card Method**
 
-To configure a specific printer:
-1. Navigate to **Printing** → **Printers**
-2. Select your target printer
-3. Click `Configure Profiles & Settings`
-4. Adjust printer-specific settings:
-    - Default print settings
-    - Material profiles
-    - Build Plate type
-    - Bed Leveling for each print
-    - Option to use AMS or External Spool 
+For manual firmware installation via SD card, follow the official Bambu Lab guides:
 
-:::warning AMS Printing
-Multi-color is Coming Soon! Until then, printers with the `Use AMS` checkbox selected will feed from `Slot 1` (left-most) AMS slot.
-:::
-
-### Disconnecting Printers
-
-1. Run the Bambu Integration Wizard
-    - Via **Settings** → **Integrations** → `Configure`
-    - Or **Printing** → **Printers** → Configuration button
-2. Uncheck the boxes next to printers you want to disconnect
-3. Complete the wizard - Printago will stop all communication with unchecked printers
-4. To reconnect a printer later, run the wizard again and check its box
-
-
-:::caution
-Disconnecting a printer will stop any active monitoring and prevent new print jobs from being sent to the printer. Current print jobs will continue until completion.
-:::
+- [X1 Series](https://wiki.bambulab.com/en/x1/manual/X1-firmware-update-from-SD-card)
+- [P1 Series](https://wiki.bambulab.com/en/p1/manual/P1-firmware-update-from-SD-card)
+- [A1](https://wiki.bambulab.com/en/a1/manual/a1-firmware-update-from-SD-card)
+- [A1 Mini](https://wiki.bambulab.com/en/a1-mini/manual/a1-mini-firmware-update-from-SD-card)
 
 ## Troubleshooting
 
@@ -116,13 +146,3 @@ If you encounter connection issues:
 3. Try disconnecting and reconnecting the printer in Printago
 
 If problems persist, contact Printago on [Discord](https://discord.gg/RCFA2u99De) or support@printago.io
-
-## Future Updates
-
-We're actively working on additional features including:
-
-- LAN Mode support for local network operation
-- Enhanced printer management capabilities
-- Advanced material handling features
-
-Stay tuned for updates and new features! Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!

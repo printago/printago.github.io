@@ -8,18 +8,20 @@ This guide explains how to upload and use OpenSCAD parts in the Printago system.
 
 ## Adding OpenSCAD Parts to Printago
 
-1. Click `Products` -> `Parts`
-2. Click the `+ New Part` button in the upper right.
-3. Browse to select your main `.scad` file.
-4. Follow the prompts to upload any `use` or `import` files, and review the parsed `Parameters`
-    <img src="/img/screenshot_000362.png" width="600" alt="create openSCAD part" />
-5. Save the Part.  
-
-## Printing the Part
-
-1. Find your saved part in the parts list and open it, clicking the `Print` button.
-2. Set any parameters, quantity, and `Print` the part.
-    <img src="/img/screenshot_000364.png" width="600" alt="print OpenSCAD Part" />
+1. Go to `Products -> Parts` and click `+ Add Part`
+2. Drag in main `.scad` file or browse to upload
+   <img src="/img/parts/add_parts_1.gif" className="margin-left--md" width="600" alt="Uploading a 3MF file" />
+3. Name your part and add a description as desired.
+4. Choose where to save it (defaults to your current folder)
+5. Select your preferred slicer.  You can change your default in your [Account Settings](/docs/settings/account-settings.md#slicer-settings)
+6. Pick your process profile:
+   - `Printer Default`: will use the default profile assigned to any printer the part matches with
+   - `Custom Profile`: Use one of your snyced User Settings for this part.
+7. Match materials to your [Material library](/docs/printing/materials.md)
+8. Follow the prompts to upload any `use` or `import` files, and 
+9. Review the parsed `Parameters` and their values.
+10. Click `Create` to finish
+<img src="/img/scad/new_scad_part.png" className="margin-left--md" width="600" alt="Uploading a 3MF file" />
 
 ## Parameter Management
 
@@ -28,85 +30,62 @@ When adding an OpenSCAD file, Printago will automatically:
 - Detect and parse parameters in your file
 - Present editable parameter fields with appropriate input types
 - Set default values based on your code
-- Generate a 3D preview based on parameter values
+- Generate a thumbnail based on default parameter values
 
-### Supported Parameter Types
+### Parameter Types and Display Rules
 
-Printago supports all standard OpenSCAD parameter types:
+Printago automatically detects and displays these OpenSCAD parameter types with the following syntax:
 
-- **Text fields**: For strings and variable text
-- **Numeric inputs**: For dimensions and measurements
-- **Checkboxes**: For boolean (true/false) options
-- **Dropdown menus**: For selection among preset options
+**Text Fields**  
+For custom text input like names or messages:
+<div className="margin-left--md">
 
-### Parameter Display Rules
+```openscad
+// Basic text field
+greeting = "Hello";
 
-For optimal parameter presentation:
+// With description
+custom_text = "Engrave me"; // Text to display on the part
+```
+</div>
+**Number Fields**  
+For numeric inputs:
+<div className="margin-left--md">
+```openscad
+// Basic number
+item_count = 5;
+```
+</div>
+**Boolean Toggles**  
+For true/false options displayed as checkboxes:
+<div className="margin-left--md">
+```openscad
+// Basic toggle
+include_handle = true;
 
-- Add helpful comments to your parameter definitions
-- Use descriptive parameter names
+// With description
+rounded_corners = true; // Check to round all corners
+```
+</div>
+**Dropdown Menus**  
+For selecting from predefined options:
+<div className="margin-left--md">
+```openscad
+// Text options
+material = "PLA"; // [PLA, PETG, ABS, TPU]
+
+// Number options with custom labels
+quality = 2; // [1:Fast, 2:Standard, 3:High, 4:Ultra]
+```
+</div>
+### Best Practices
+
+- Place all parameters at the top of your file, before any module or function definitions
+- Use descriptive variable names and comments
 - Provide reasonable default values
-- Define selection options in comments
-
-Example of well-defined parameters:
-
-```openscad
-// Basic dimensional parameters
-width = 100;  // [50:150] Width in mm
-height = 75;  // [25:100] Height in mm
-depth = 30;   // Depth in mm
-
-// Feature toggles with clear names
-include_handle = true;  // Include a handle on top
-rounded_corners = true; // Round the corners of the box
-
-// Selection menu with defined options
-lid_type = "hinged"; // [hinged, friction-fit, magnetic] Type of lid
-```
-
-## Parameter Updates
-
-You can update parameters for your parts:
-
-1. Navigate to the part in your Parts management
-2. Click "Edit"
-3. Modify default parameters as needed
-4. Save changes to update the part template
-
-## Version Management
-
-Printago supports version control for OpenSCAD parts:
-
-1. Edit your original `.scad` file locally
-2. Click "Upload New Version" in the parts management page
-3. Select your updated `.scad` file
-4. Review parameter changes
-5. Save the new version
-
-## Advanced Usage
-
-### Parameter Dependencies
-
-You can create parameters that influence each other:
-
-```openscad
-handle_type = "curved"; // [curved, straight, none]
-handle_size = (handle_type == "none") ? 0 : 25; // Handle size in mm
-```
-
-### Conditional Features
-
-Create features that appear based on parameter selection:
-
-```openscad
-if (include_dividers) {
-    // Code to create dividers
-    for (i = [0:num_dividers-1]) {
-        translate([i * width/num_dividers, 0, 0])
-            cube([2, depth, height]);
-    }
-}
-```
+- For dropdowns, list the most common option first
+- Keep parameter names under 30 characters for better UI display
+- Group related parameters with section comments
 
 ### File Management
 

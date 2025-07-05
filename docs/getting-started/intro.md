@@ -6,10 +6,6 @@ sidebar_position: 1
 
 Welcome to Printago (prin-TAH-go, /prɪntˈtɑːgoʊ/) - the modern solution for managing your 3D print farm. Whether you're running a small cottage industry, managing an educational makerspace, or operating a large-scale print farm, this documentation will help you make the most of Printago's features.
 
-:::tip What's New
-Printago continues to evolve! Check our [roadmap](../roadmap) for the latest updates and features.
-:::
-
 ## What is Printago?
 
 Printago is a cloud-based print farm management solution designed specifically for Bambu Lab printer owners and the broader 3D printing community. It revolutionizes how you manage your 3D print farm by offering:
@@ -53,14 +49,14 @@ Built-in support for OpenSCAD enables automated customization without manual CAD
 ### Intelligent Queue Management
 Our smart queue system automatically matches prints with available printers based on material, color, nozzle, bed size, and custom requirements.
 
-### Modern Architecture
-Cloud-based infrastructure ensures reliability and accessibility from anywhere, with a mobile-friendly interface included.
+### Direct E-Commerce Integration (Coming Summer 2025!)
+Direct integration with Shopify, Etsy, Shipstation, Shippo, ebay, & more.  Printago pulls in orders and turns line-items models via SKUs.
 
 ### Powerful API 
 Our commercial users enjoy access to our various APIs - the same ones the Printago team uses to create app.printago.io!
 
 ### Flexible Pricing
-Free for hobbyists with paid plans based on concurrent job processing, scaling with your farm's needs.  All users can connect, monitor, AND print to an unlimited number of 3d printers!
+Free for hobbyists, and paid plans are based on concurrent job processing, scaling with your farm's needs.  All users can connect, monitor, AND print to an unlimited number of 3d printers!
 
 ## Getting Started
 

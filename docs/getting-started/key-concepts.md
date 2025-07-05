@@ -115,7 +115,7 @@ FabMatic is Printago's system for automated, continuous production. When properl
 4. Handle basic error recovery and retries
 
 :::warning
-FabMatic requires specific printer configuration, including custom end GCODE for bed clearing. See our [FabMatic Setup Guide](../printing/advanced-printing/fabmatic-continuous-printing) for detailed configuration instructions.
+FabMatic requires specific printer configuration, including custom end GCODE for bed clearing. See our [FabMatic Setup Guide](/docs/features/fabmatic-continuous-printing.md) for detailed configuration instructions.
 :::
 
 ## Cloud Architecture
@@ -127,7 +127,3 @@ Printago's cloud-first approach provides several advantages:
 - Access your print farm from anywhere
 - Real-time monitoring and alerts
 - Automatic scaling and load balancing
-
-:::note Future Concepts
-As Printago evolves, we'll add new concepts and capabilities. Keep an eye on our [roadmap](../roadmap) for updates.
-:::
