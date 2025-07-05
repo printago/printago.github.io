@@ -4,118 +4,109 @@ sidebar_position: 3
 
 # FabMatic Continuous Printing
 
-FabMatic enables your 3D printers to run continuous back-to-back jobs with automated bed clearing. By automating the print removal process, FabMatic maximizes printer efficiency and minimizes manual intervention.
+FabMatic enables automated continuous printing by running back-to-back jobs with automatic bed clearing between prints. This maximizes printer efficiency and reduces manual intervention for production workflows.
 
-:::warning Experimental
-FabMatic is currently in `Experimental` phase.  This feature is scheduled to be updated in **Febrary 2025**. Additionally, Printago will support temperature-based release scripts (no more fuzzy timing and timeouts). 
+:::warning Experimental Feature
+FabMatic is currently experimental and scheduled for major updates in **February 2025**, including temperature-based release scripts to replace timing-based clearing.
 :::
 
-## Preparing Your Clearing Script
+## How FabMatic Works
 
-FabMatic requires a clearing script in your printer's end G-code to remove completed prints. You can either:
-* Use our template clearing scripts (recommended)
-* Create your own custom clearing G-code
+1. **Print Completion**: Your printer finishes a job normally
+2. **Bed Clearing**: Custom end G-code cools the bed and removes the completed part
+3. **Next Job**: Printago automatically starts the next queued job
+4. **Continuous Operation**: Process repeats until the queue is empty
 
-:::info
-Your clearing script runs after each print to cool the bed and remove the completed part. You may need to adjust these scripts based on your specific parts and printer setup.
+## Setup Overview
+
+FabMatic setup involves three main steps:
+1. **Create clearing profiles** in your slicer with bed-clearing G-code
+2. **Sync profiles** to Printago via Bambu Integration
+3. **Enable FabMatic** on desired printers
+
+## Step 1: Create Clearing Profiles
+
+### Modify Your Slicer Profile
+
+1. **Open your slicer** (Orca Slicer or Bambu Studio)
+2. **Select your printer** and edit the printer settings
+3. **Navigate to Machine G-code tab**
+4. **Locate "Machine end G-code"** section
+5. **Find this line** near the end of the existing script:
+   ```
+   M400 ; wait all motion done
+   ```
+6. **Insert your clearing script** after that line
+7. **Save with a new name** (e.g., "X1C - FabMatic Clearing")
+8. **Repeat for each printer model** you want to use with FabMatic
+
+:::tip Profile Naming
+Use clear names like "A1 Mini - FabMatic" to easily identify clearing profiles during setup.
 :::
 
-## Detailed Setup Process
+## Step 2: Sync Profiles to Printago
 
-### Initial Slicer Configuration
+1. **Enable profile sync** in your slicer:
+   - Open Preferences → Presets
+   - Enable "Auto sync user presets"
 
-1. Open Orca Slicer or Bambu Studio
-   * We recommend Orca 2.2 at this time
-   * This version matches what our cloud slicer uses
-2. Log into the slicer with your Bambu Lab credentials
-3. Configure sync settings:
-   * Open Preferences
-   * Navigate to Presets section
-   * Enable "Auto sync user presets"
-   * Disable "Stealth Mode"
+2. **Run Bambu Integration** in Printago:
+   - Go to **Printing → Printers** → `Configure Bambu Printers`
+   - Or **Settings → Integrations** → Bambu Lab
 
-### Profile Modification
+3. **Select your clearing profiles**:
+   - Your new profiles will appear marked "Create"
+   - Choose the appropriate clearing profile for each printer
+   - Use "Save to all in group" for identical printer models
 
-1. From the `Prepare` screen:
-   * Select your printer
-   * Click the edit button to the right of the printer dropdown
-2. In the `Printer Settings` dialog:
-   * Click on the Machine G-code tab
-   * Locate "Machine end G-code" section
-   * For Orca Slicer: Use the edit button for an expanded editor
-   * For Bambu Studio: Use the provided text box
-3. Find this specific line towards the end of the stock scripts:
-    ```gcode
-    M400 ; wait all motion done
-    ```
-4. Insert your clearing script immediately after this line
-5. If using Orca's GCode Editor Dialog:
-   * Click the OK button to return to main settings
-6. In the `Printer Settings` dialog:
-   * Click Save
-   * Provide a new name for your profile
-7. Repeat this entire process for other printer models you wish to enable FabMatic on
+4. **Complete the integration flow** to sync profiles
 
-### Printago Integration
+## Step 3: Enable FabMatic
 
-1. Navigate to one of:
-   * Printing -> Printers, select `Configure Bambu Printers` in top right
-   * Settings > Integrations, click the Bambu integration button
-2. In the Bambu Integration Wizard:
-   * Look for your new Printer slicer profiles 
-   * They should be marked with "Create"
-   * Click next, making any needed changes
-3. On the final configuration screen:
-   * Select printers to enable FabMatic
-   * For each printer, select the slicing profile containing your clearing script
-   * Optional: Use "save to all in group" to apply settings to all printers of same model type
-4. Complete the wizard
+1. **Configure printer profiles**:
+   - Go to **Printing → Printers**
+   - Select a printer → `Slicing Configuration`
+   - Choose your FabMatic clearing Machine profile
+   - Save settings
 
-### Enabling FabMatic
+2. **Enable FabMatic**:
+   - Select printers using checkboxes
+   - Click **Actions** → **FabMatic** → **Enable**
+   - Read and accept the disclaimer
+   - Verify FabMatic indicators appear on enabled printers
 
-1. Return to `Printing > Printers`
-   * You can now configure individual printers by selecting them and clicking `Slicing Configure`
-   * Select your bed-clearing profile here and Save.
-2. From the main Printers page:
-   * Use Multi-Select to choose FabMatic printers
-   * Check boxes for desired printers
-3. Enable FabMatic:
-   * Click the Actions dropdown button (top right)
-   * Select `FabMatic` -> `Enable`
-4. Review and accept terms:
-   * Read the disclaimer
-   * Check the acceptance box
-   * Click `Accept Terms to Enable`
-
-:::note
-The disclaimer must be accepted each time you enable FabMatic
+:::caution Safety Disclaimer
+You must accept the safety disclaimer each time you enable FabMatic. Continuous printing requires proper supervision and safety precautions.
 :::
-
-5. Verify setup:
-   * Return to printers screen
-   * FabMatic-enabled printers will be clearly indicated
 
 ## Managing FabMatic
 
-### Auto Disable
-FabMatic will disable on any printer(s) that have:
-   1. Had any HMS Error or Warning. This includes filament runout. 
-   2. Printer was used outside of Printago.  This could occur while Printago is awaiting for the bed to cool.
-   3. Printer has lost communications to extended period of time, such that Printago cannot ensure its
+### Automatic Disable
+FabMatic automatically disables when:
+- **HMS errors or warnings** occur (including filament runout)
+- **External printer use** is detected (via slicer, Handy app, etc.)
+- **Communication loss** prevents Printago from monitoring printer state
 
-:::info Re-Enable FabMatic
-If any of the above have happened you'll need to re-enable Fabmatic from the `Printers` screen.
-:::
+### Manual Control
+**To disable FabMatic**:
+1. Select printers with checkboxes
+2. **Actions** → **FabMatic** → **Disable**
 
-### Manual Disable
-To disable FabMatic on any printer(s):
-1. Use Multi-Select to choose printers
-2. Open bulk action menu
-3. Select Fabmatic -> Disable
+**To re-enable after auto-disable**:
+1. Resolve the underlying issue
+2. Follow the enable process again
 
 ### Updating Clearing Scripts
-To make changes to your profile:
-1. Modify the gcode in your slicer
-2. Sync with Printago to update your clearing script profile
+1. **Modify G-code** in your slicer
+2. **Sync profiles** via Bambu Integration
+3. **Update printer configuration** if needed
 
-Need help with FabMatic? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help! 
+## Troubleshooting
+
+### Common Issues
+- **Parts not releasing**: Adjust bed cooling temperature/time in your script
+- **FabMatic keeps disabling**: Check for HMS warnings or external printer usage
+- **Profile not syncing**: Ensure "Auto sync user presets" is enabled in slicer
+
+### Getting Help
+Join our [Discord community](https://discord.gg/RCFA2u99De) for FabMatic support and to share clearing scripts with other users! 

@@ -1,9 +1,10 @@
 [ ] Materials Page
-[ ] Cloud Slicer Page - needs total overhaul
-[ ] Fabmatic - this could use some TLC
+
 [ ] Quick Start Guide
 [ ] Quick Start Guide -> Redo Video 
 
+[X] Fabmatic - this could use some TLC
+[X] Cloud Slicer Page - needs total overhaul
 [X] Slicer Profiles Page
 [X] Printing SKUs Page
 [X] Printing Parts Page
