@@ -68,11 +68,7 @@ x-printago-storeid: YOUR_STORE_ID
 
 ### Rate Limits
 
-API access is rate-limited to 600 requests over a 10 minute window, which works out to an average of 1 request per second. If you exceed this, your requests will fail until the time window expires.
-
-Each API response includes 2 headers:
-- `x-ratelimit-remaining` - the remaining number of API calls left in your 10 minute window before they reset
-- `x-ratelimit-reset` - how many seconds remain before your rate limit window resets
+API access is rate-limited in 2 buckets: up to 60 requests per minute and 600 requests per hour.  If you exceed this, your requests will fail with an HTTP 429 status until the time window expires.  If for some reason the rate limits are too restrictive for you, please contact us to further discuss your use case.
 
 ## Examples
 

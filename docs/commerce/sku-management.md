@@ -32,10 +32,15 @@ You'll need at least one part uploaded to Printago to start.  If you haven't add
 5. Add one or more parts to your SKU by using the `Linked Parts` selector screen.
 <img src="/img/sku/sku_add_1.png" className="margin-left--lg" width="600" alt="Link Part to SKU" />
 6. Set quantity requirements for each part
-7. Click `Create`
+7. Optionally configure material overrides for each part (see Material Overrides section below)
+8. Click `Create`
 <img src="/img/sku/sku_add_2.png" className="margin-left--lg" width="600" alt="Link Part to SKU" />
 
+### Material Overrides
 
+By default, parts in SKUs use their original material settings. You can override materials at the SKU level to create variants (like the same part in different colors) without changing the original part.
+
+When materials are overridden, those settings become fixed for that SKU - changing the original part's materials won't affect the overriden parts in the SKU.  
 
 ### Mixing Part Types in SKUs
 

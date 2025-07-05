@@ -28,6 +28,20 @@ For detailed instructions on connecting your Bambu Lab printers to Printago for 
 Your Bambu Lab account stays safe - we only store encrypted printer access tokens, never passwords. Want to learn more about our security? Chat with our development team on Discord or email support@printago.io.
 :::
 
+## Authentication Expiry
+
+For security reasons, Printago does not store your Bambu Lab credentials. Instead, we only store encrypted printer access tokens that expire every 90 days.
+
+**Re-authentication Required**: You'll need to re-authenticate your Bambu Lab account every 90 days to maintain printer connectivity.
+
+14 days before your credentials expire, you'll see a red banner in the app reminding you to re-authenticate:
+
+<div className="margin-left--lg padding-bottom--md">
+    <img src="/img/bambu_integration/auth_timeout.png" width="600" alt="Red banner warning about Bambu Lab authentication expiring soon" />
+</div>
+
+To re-authenticate, simply run the Bambu Integration Flow again through **Settings** → **Integrations** → **Bambu Lab** → `Configure`, and finally click the `Reauthenticate` button.  Or follow the link in the warning banner.
+
 ## Managing Connected Printers
 
 The Bambu Integration Flow can be run at any time and may be accessed through either:

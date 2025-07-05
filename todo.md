@@ -1,6 +1,3 @@
-[ ] SKU Management Page - update for Material Management 1.1
-[ ] Bambu Integration - add detail about needing to renew credentials every 90 days , and the warning about it.
-[ ] Subscription Management Page
 [ ] Printing Parts Page
 [ ] Printing SKUs Page
 [ ] Slicer Profiles Page
@@ -12,6 +9,9 @@
 [ ] Quick Start Guide
 [ ] Quick Start Guide -> Redo Video 
 
+[X] Subscription Management Page
+[X] Bambu Integration - add detail about needing to renew credentials every 90 days , and the warning about it.
+[X] SKU Management Page - update for Material Management 1.1
 [X] Account Settings Page
 [X] API/Specification - content/images - add for new API screen.
 [X] Notifications Page -> update Discord & Add Webhooks.
