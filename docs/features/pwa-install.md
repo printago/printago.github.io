@@ -151,7 +151,6 @@ Having trouble installing Printago? We're here to help:
 
 - Join our [Discord community](https://discord.gg/RCFA2u99De)
 - Contact support at support@printago.io
-- Check our [FAQ page](../troubleshooting/faq.md) for common issues
 
 :::tip Keep Updated
 After installing as a PWA, Printago will automatically update when new versions are available. No manual updates required!

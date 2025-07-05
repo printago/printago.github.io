@@ -33,7 +33,7 @@ Materials are assigned to printers and their AMS units to enable job matching an
 
 Materials are typically added through:
 
-1. **[RFID Detection](../printer-management/printer-management.md#automatic-material-detection)**: Automatic addition when RFID filament is detected
+1. **[RFID Detection](/docs/printing/printer-management/printer-management.md#automatic-material-detection)**: Automatic addition when RFID filament is detected
 2. **Manual Addition**: Add materials during part creation or printer assignment
 3. **Bulk Import**: Import all missing materials currently loaded and read by your AMS units.
 
@@ -103,7 +103,7 @@ Materials must have configured slicing profiles for each printer model + nozzle 
 
 ## Assigning Materials to Printers
 
-Materials must be assigned to printers to enable the job matching described above. See [Printer Management: Material Assignment](../printer-management/printer-management.md#material-assignment) for detailed assignment instructions including RFID auto-detection and manual assignment workflows.
+Materials must be assigned to printers to enable the job matching described above. See [Printer Management: Material Assignment](/docs/printing/printer-management/printer-management.md#material-assignment) for detailed assignment instructions including RFID auto-detection and manual assignment workflows.
 
 ## Material Override When Queuing Jobs
 

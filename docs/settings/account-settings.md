@@ -57,7 +57,7 @@ Choose your default slicer to be used throughout Printago:
 - **PrusaSlicer** (Official Prusa) - *Coming Soon* - Official slicing software developed by Prusa Research
 - **SuperSlicer** (Community-driven) - *Coming Soon* - Feature-rich fork of PrusaSlicer with additional advanced settings
 
-**[Learn more about Printago's Cloud Slicer](/docs/features/cloud-slicer)**
+**[Learn more about Printago's Cloud Slicer](/docs/printing/cloud-slicer.md)**
 
 ## Affiliate Program
 

@@ -42,7 +42,7 @@ Once Gutenb3d assigns a job to a printer, it moves to In-Progress and follows th
 After printing begins, in-progress job show their time remaining, percent complete and other statistics.
 
 :::info Production Slots
-Print jobs started outside Printago (via slicer, Handy app, etc.) don't use production slots and won't appear here. You can monitor all printer activity on the [Dashboard](/docs/dashboard-queue/dashboard-overview.md) instead.
+Print jobs started outside Printago (via slicer, Handy app, etc.) don't use production slots and won't appear here. You can monitor all printer activity on the [Dashboard](/docs/dashboard-overview.md) instead.
 :::
 
 ### **Job Outcomes**
@@ -90,7 +90,7 @@ Gutenb3d processes printers on a "last-used" basis to distribute wear evenly acr
 - Each individual printed part appears as a separate queue item (even within multi-part SKUs)
 - Use drag-and-drop to reorder job priorities
 - Jobs process from top to bottom, with flexible reordering anytime
-- Streamline management with [Bulk Actions](../printing/advanced-printing/bulk-actions.md)
+- Streamline management with [Bulk Actions](/docs/features/bulk-actions.md)
 
 :::tip Managing Job History
 Clearing completed jobs removes them from the interface but preserves all data for future reporting features. This soft-delete keeps the interface responsive while ensuring your print history remains available for upcoming analytics.
@@ -115,7 +115,7 @@ This system ensures optimal resource allocation while maintaining full visibilit
 
 ## Related Topics
 
-- [Bulk Actions](../printing/advanced-printing/bulk-actions.md) - Efficient job management tools
-- [Cloud Slicer](../printing/cloud-slicer.md) - Automatic slicing for assigned printers
+- [Bulk Actions](/docs/features/bulk-actions.md) - Efficient job management tools
+- [Cloud Slicer](/docs/printing/cloud-slicer.md) - Automatic slicing for assigned printers
 
 Need help with your print queue? Join our [Discord community](https://discord.gg/RCFA2u99De) for the latest tips and support!

@@ -81,7 +81,7 @@ Target an individual printer from your fleet. The job waits in queue until that 
 Filter available printers using tags to dynamically group printers. For example:
 - Target any printers with tag "Production"
 - Only use printers tagged both "Upper Floor" and "TexturedPEI"
-- [Learn more about Printer Tags](../advanced-features/printer-user-tags.md)
+- [Learn more about Printer Tags](/docs/printing/printer-management/printer-tags.md)
 
 ### State Diagram
 The following diagram shows the part printing flow.

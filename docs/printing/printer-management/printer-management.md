@@ -67,7 +67,7 @@ Select multiple printers using checkboxes to access bulk operations via the Acti
 
 **Available Actions:**
 - **Availability**: Mark ready (`R`) or not-ready (`U`)
-- **FabMatic**: Enable/disable [continuous printing](/docs/printing/fabmatic.md)
+- **FabMatic**: Enable/disable [continuous printing](/docs/features/fabmatic-continuous-printing.md)
 - **Control Panel**: Multi-printer control (`P`)
 - **Configure**: Bulk slicer configuration (`C`)
 - **Materials**: Bulk material assignment (`M`)
@@ -101,7 +101,7 @@ The `Confirm clear & ready for next print` button is critical for queue processi
 
 **Alternatives:**
 - Multi-action from Printers page
-- [FabMatic mode](/docs/printing/fabmatic.md) for continuous operation
+- [FabMatic mode](/docs/features/fabmatic-continuous-printing.md) for continuous operation
 
 ---
 

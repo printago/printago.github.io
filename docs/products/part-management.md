@@ -42,7 +42,7 @@ When parts are used in print jobs, they're sliced on-demand for the specific con
 2. Browse or drag a compatible file into Printago.
 <img src="/img/parts/add_parts_1.gif" className="margin-left--lg" width="600" alt="click the new part button" />
 3. Enter a name and description for your part.
-4. Parts are created in your current [folder location](/docs/tips-shortcuts/folders.md) (click to change if needed).
+4. Parts are created in your current [folder location](/docs/features/folders.md) (click to change if needed).
 5. Select your slicer (3MF files auto-select the matching version with an "Auto-Selected" badge).
 6. Choose a [process profile override](/docs/printing/cloud-slicer.md), or leave as "Printer Default" to use each printer's default settings.
 7. Review the build plates and materials detected in your file.

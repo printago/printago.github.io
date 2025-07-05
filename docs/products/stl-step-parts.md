@@ -18,8 +18,8 @@ Both STL and STEP parts are treated the same way by Printago:
 1. Navigate to `Products -> Parts` and click `+ Add Part` in the top right.
 2. Browse or drag a compatible file into Printago.
 3. Enter a name and description for your part.
-4. Parts are created in your current [folder location](/docs/tips-shortcuts/folders.md) (click to change if needed).
-5. Select your preferred slicer.  You can change your default in your [Account Settings](/docs/settings-integrations/account-settings.md#slicing-preferences)
+4. Parts are created in your current [folder location](/docs/features/folders.md) (click to change if needed).
+5. Select your preferred slicer.  You can change your default in your [Account Settings](/docs/settings/account-settings.md#slicer-settings)
 6. Choose a [process profile override](/docs/printing/cloud-slicer.md), or leave as "Printer Default" to any printer's default setting.
 7. Select 1+ materials for the part.  This is used to match the part with the correct printers.[Material library](/docs/printing/materials.md).  
 9. Click `Create` to upload your part.

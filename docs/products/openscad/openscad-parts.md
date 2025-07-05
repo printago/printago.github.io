@@ -13,7 +13,7 @@ This guide explains how to upload and use OpenSCAD parts in the Printago system.
    <img src="/img/parts/add_parts_1.gif" className="margin-left--md" width="600" alt="Uploading a 3MF file" />
 3. Name your part and add a description as desired.
 4. Choose where to save it (defaults to your current folder)
-5. Select your preferred slicer.  You can change your default in your [Account Settings](/docs/settings-integrations/account-settings.md#slicing-preferences)
+5. Select your preferred slicer.  You can change your default in your [Account Settings](/docs/settings/account-settings.md#slicer-settings)
 6. Pick your process profile:
    - `Printer Default`: will use the default profile assigned to any printer the part matches with
    - `Custom Profile`: Use one of your snyced User Settings for this part.
