@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Quick Start Guide
 
-Get up and running with Printago in minutes. This guide walks you through the essential setup and your first print job.
+Get up and running with Printago in minutes. This guide walks you through connecting printers, setting up materials, and your first automated print job.
 
 <div style={{
   position: 'relative',
@@ -37,33 +37,33 @@ Get up and running with Printago in minutes. This guide walks you through the es
 Before starting with Printago, ensure you have:
 1. Completed initial setup of your Bambu Lab printer(s)
 2. Paired your printer(s) with your Bambu Cloud account
-3. Enabled cloud profile syncing in your slicer  
+3. Enabled cloud profile syncing in your slicer
+4. Loaded filaments into your printers (AMS or external spools)
 :::
 
 ### Enable Cloud Profile Sync
 
-
-Printago automatically syncs slicing profiles from your Bambu Lab Account. When you modify a profile, changes apply to all associated parts. Adding a new printer? No need to re-slice existing models - Printago assigns profiles to parts and handles slicing automatically in the background.
+Printago's [Cloud Slicer](../printing/cloud-slicer.md) automatically syncs slicing profiles from your Bambu Lab account. When you modify a profile, changes apply to all associated parts. Adding a new printer? No need to re-slice existing models - Printago handles slicing automatically based on your printer and material configurations.
 
 In Orca Slicer or Bambu Studio:
-1. Ensure you're logged into the slicer with your Bambu Lab account.
+1. Ensure you're logged into the slicer with your Bambu Lab account
 2. Open Preferences
 3. Navigate to Presets section
 4. Enable "Auto sync user presets"
 
 <img src="/img/orca-sync-preferences.png" width="500" alt="Orca Sync Preferences" />
 
-## Adding Your Printers & Profiles
+## Step 1: Connect Your Printers
 
 :::tip Bulk Import
 Printago imports all your Bambu Lab printers at once - no need to add them individually!
 :::
-1. Navigate to `Printers` in the sidebar
+1. Navigate to `Printing → Printers` in the sidebar
 2. Click `Configure Bambu Printers`
    <img src="/img/screenshot_000321.png" width="600" alt="Blank Printers Screen" />
 3. Enter your Bambu Cloud credentials and complete Bambu's 2-Factor authentication as prompted
    <img src="/img/screenshot_000322.png" width="600" alt="Enter Bambu Lab Credentials" />
-4. After authentication, you'll be taken through a short, two-step wizard allowing you to select which 3d printers to pair and profiles to import.
+4. After authentication, you'll be taken through a short, two-step wizard allowing you to select which 3d printers to pair and profiles to import
 
    :::tip Free Unlimited Printers
    Printago allows you to connect and use unlimited printers - free!  
@@ -71,22 +71,51 @@ Printago imports all your Bambu Lab printers at once - no need to add them indiv
    <img src="/img/screenshot_000323.png" width="600" alt="Bambu Lab Connected Printers" />
    <img src="/img/screenshot_000324.png" width="600" alt="Slicing Profiles" />
 
-## Configuring Printer Defaults
+## Step 2: Configure Printer Defaults
 
-5. On the final screen of the Bambu Wizard, printers slicing configuration must be set.  Familiar dropdown boxes will allow you to set a profile for `Printer`, `Filament`, and `Process`.
+5. On the final screen of the Bambu Wizard, configure each printer's default slicing profiles using the familiar dropdown boxes for `Printer`, `Filament`, and `Process`
 
    <img src="/img/screenshot_000325.png" width="600" alt="Printer List" />
-   Printago uses these settings for slicing and material matching. 
+   These settings serve as defaults for the [Cloud Slicer](../printing/cloud-slicer.md) and enable intelligent job matching
    <img src="/img/screenshot_000326.png" width="600" alt="Printer Config" />
    
-All printago parts are sliced on-demand as needed based on your printer and part configurations.
+:::info On-Demand Slicing
+Printago slices parts automatically when jobs are assigned to printers, using the printer's configuration and the part's material requirements.
+:::
 
 :::tip Bulk Configuration
 Use the `Save to all X printers in this group` option to quickly configure multiple identical printers of the same type at once.
 :::
-## Creating Your First Print
+## Step 3: Set Up Materials
 
-Start with an STL file to understand Printago's slicing and printing workflow.
+Before creating parts, configure your printer materials for intelligent job matching.
+
+### Import Materials from AMS
+
+6. Navigate to `Printing → Materials`
+7. Click `Import from AMS` to automatically detect and add all materials currently loaded in your printers
+
+![Import from AMS](/img/materials/materials_import_from_ams.png)
+
+:::tip RFID Auto-Detection
+Bambu Lab RFID-tagged filaments are automatically detected with correct material and color information!
+:::
+
+### Assign Materials to Printers
+
+8. Go back to `Printing → Printers` and click on each printer
+9. For each AMS slot or external spool, click to assign materials:
+   - **Specific Material + Color**: Exact match (e.g., "Bambu PLA Basic Red")
+   - **Generic Type**: Any material of that type (e.g., "Any PLA")
+   - **RFID Auto-Detection**: Automatic for RFID-tagged filaments
+
+:::info Material Matching
+Printago uses material assignments to automatically route jobs to compatible printers. More specific assignments provide better print consistency.
+:::
+
+## Step 4: Create Your First Part
+
+Now create a part that leverages Printago's intelligent material matching.
 
    :::info File Support
    Printago supports STL, STEP, 3MF, and OpenSCAD part types. 
@@ -94,82 +123,100 @@ Start with an STL file to understand Printago's slicing and printing workflow.
    ***`.gcode` and `.gcode.3mf` are not supported.***
    :::
 
-6. Go to Products → Parts, and click `Add Part`
+10. Go to `Products → Parts`, and click `Add Part`
 
-   <img src="/img/screenshot_000328.png" width="700" alt="Part Screen" />
-7. Upload your file and give it a name and description.  
+    <img src="/img/screenshot_000328.png" width="700" alt="Part Screen" />
+11. Upload your file and give it a name and description
+12. **Configure Material Requirements**:
+    - **Material**: Choose specific material, material type, or "Any [Type]" for flexibility
+    - **Process Profile**: Override printer's default process settings (optional)
 
-   Optionally you can set:
-      - `Filament Type` to restrict the part to only printing on printers with certain materials (e.g. PLA, ABS)
-      - `Process Profile` to override any printer's process slicer setting
+    :::tip Material Strategy
+    - Use **specific materials** for consistent results
+    - Use **"Any PLA"** for prototyping flexibility
+    - Leave unspecified to use any compatible material
+    :::
 
-8. Click `Create` and our part will be saved and ready for printing!   
-   <img src="/img/screenshot_000329.png" width="700" alt="Part Config" />
+13. Click `Create` and your part will be saved and ready for printing!
+    <img src="/img/screenshot_000329.png" width="700" alt="Part Config" />
 
-## Starting Prints
+## Step 5: Start Your First Print
 
 <!-- ![Print Dialog](./img/print-dialog.png) -->
 
-9. After saving your part, you'll be brought back to the parts list.  Find your part, and click it.
+14. After saving your part, you'll be brought back to the parts list. Find your part and click it
 
-   <img src="/img/screenshot_000330.png" width="700" alt="Find Part" />
+    <img src="/img/screenshot_000330.png" width="700" alt="Find Part" />
    
-1. From this screen you can edit the part or print it.  Click `Print` button in the upper right.
-   <img src="/img/screenshot_000331.png" width="700" alt="Part" />
+15. From the part detail screen, click the `Print` button in the upper right
+    <img src="/img/screenshot_000331.png" width="700" alt="Part" />
 
-1. Select Next Available Printer to automatically match your part with compatible printers, or choose a specific printer manually.
-
-   [Printer with Specific Tags](../printing/advanced-printing/printer-tags) allows you to print to a dynamically defined group of printers.  
-   <img src="/img/screenshot_000332.png" width="450" alt="Part" />
-
-   :::info Printer Matching
-   Printago automatically matches parts to compatible printers based on requirements like material type, nozzle size, and user-defined tags.
-   :::
-1. Here you can adjust the quantity, but for now just click `Print`!
-   <img src="/img/screenshot_000350.png" width="400" alt="Print Button" />
+16. **Choose Printer Assignment**:
+    - **Next Available Printer**: Automatic matching based on material compatibility
+    - **Specific Printer**: Manual printer selection
+    - **Printer with Specific Tags**: Target a group of printers ([learn more](../printing/advanced-printing/printer-tags))
    
+    <img src="/img/screenshot_000332.png" width="450" alt="Part" />
 
-1. You'll be shown a confirmation screen of the print. Head over to the `Print Queue` to check out the jobs.
+    :::info Smart Matching
+    Printago automatically matches parts to compatible printers based on material requirements, nozzle size, and printer availability.
+    :::
 
-   <img src="/img/screenshot_000351.png" width="700" alt="Print Button" />
-
-1. We can see that our item is queued up successfully, however, it didn't move to `In Progress`.  Printago ***does not*** take exclusive control of your printers, and you must let us know when the bed is clear and each printer is ready for a print.  Click on `Printers` next.
-
-   <img src="/img/screenshot_000352.png" width="700" alt="" />
+17. **Override Materials** (optional): Change the material selection if needed, then set quantity and click `Print`
+    <img src="/img/screenshot_000350.png" width="400" alt="Print Button" />
    
-1. When first connected, all your printers will be `Awaiting clear & ready state`.  
-   <img src="/img/screenshot_000344.png" width="700" alt="Queue View" />
-1. Click on a printer that you'd like to send your first job to, and then find and click the `Confirm clear & ready` button in the upper right corner.
-   <img src="/img/screenshot_000345.png" width="700" alt="Printer Screen" />
-   :::warning Clear & Ready State
-   Printers must be marked "Clear & Ready" before they'll accept new jobs. This lets Printago know it can send a print.
-   :::
-1. Head back to the printers page, and using the checkboxes select other printers you'd like to mark as ready.  Click the Bulk Action dropdown (`XX Printers Selected`) -> `Availability` -> `Clear & Ready`.
-   <img src="/img/screenshot_000346.png" width="700" alt="Printers Screen" />
-1. To let Printago know a jobs can be sent, click the confirmation button and parts will start assigning to your printers instantly!  Head back to the `Print Queue` next.
-   <img src="/img/screenshot_000347.png" width="700" alt="Mark Ready" />
-   :::info
-   You can safely use "Select All" when clearing print beds - any printer that's currently printing will ignore the "Clear and Ready" command.
-   :::
+18. Review the print confirmation and head to the `Print Queue` to monitor your job
+    <img src="/img/screenshot_000351.png" width="700" alt="Print Button" />
 
-## Queue Management
+## Step 6: Mark Printers Ready
 
-1. Printago automatically slices files and initiates printing on selected printers.
+19. Your job is now queued, but hasn't started printing yet. Printago ***does not*** take exclusive control of your printers - you must indicate when printers are ready for new jobs. Click on `Printers`
 
-      <img src="/img/screenshot_000348.png" width="700" alt="Mark Ready" />
+    <img src="/img/screenshot_000352.png" width="700" alt="" />
+   
+20. When first connected, all printers show `Awaiting clear & ready state`
+    <img src="/img/screenshot_000344.png" width="700" alt="Queue View" />
 
-1. From the `In Progress` tab, we can select jobs using the checkboxes.  The Bulk Action button allows you to `Pause`, `Resume`, and `Cancel` selected jobs.
-   <img src="/img/screenshot_000349.png" width="700" alt="Mark Ready" />
+21. Click on a printer you want to use, then click the `Confirm clear & ready` button in the upper right
+    <img src="/img/screenshot_000345.png" width="700" alt="Printer Screen" />
+    
+    :::warning Clear & Ready State
+    Printers must be marked "Clear & Ready" before accepting new jobs. This safety feature prevents Printago from interfering with ongoing prints or dirty print beds.
+    :::
 
- 
-1. On the Queued screen, drag jobs to adjust their priority order. Select multiple jobs to cancel them using the Bulk Action button. Jobs marked as Cancelled or Errored can be moved back into the queue using the `Retry` action.
-   <img src="/img/queue.gif" width="700" alt="Mark Ready" />
-   :::tip Queue Processing
-      The Printago Queue processes jobs top-to-bottom order.
-   :::
+22. **Bulk Mark Ready**: Select multiple printers using checkboxes, then use Bulk Action dropdown (`XX Printers Selected`) → `Availability` → `Clear & Ready`
+    <img src="/img/screenshot_000346.png" width="700" alt="Printers Screen" />
 
+23. Confirm the action and jobs will start assigning to compatible printers instantly! Head back to the `Print Queue`
+    <img src="/img/screenshot_000347.png" width="700" alt="Mark Ready" />
+    
+    :::info Safe Bulk Operations
+    You can safely use "Select All" when marking printers ready - any printer currently printing will ignore the "Clear and Ready" command.
+    :::
 
-**Remember when print jobs finish, to mark the printer as `Clear and Ready`!**
+## Step 7: Monitor and Manage Jobs
+
+24. **Automatic Processing**: Printago automatically slices your part using the [Cloud Slicer](../printing/cloud-slicer.md) and initiates printing on the matched printer
+
+     <img src="/img/screenshot_000348.png" width="700" alt="Mark Ready" />
+
+25. **In Progress Management**: From the `In Progress` tab, select jobs using checkboxes. Use Bulk Actions to `Pause`, `Resume`, or `Cancel` selected jobs
+    <img src="/img/screenshot_000349.png" width="700" alt="Mark Ready" />
+
+26. **Queue Management**: On the Queued screen, drag jobs to adjust priority order. Use Bulk Actions to cancel jobs or retry failed ones
+    <img src="/img/queue.gif" width="700" alt="Mark Ready" />
+    
+    :::tip Queue Processing
+    The Printago Queue processes jobs in top-to-bottom order, automatically matching them to compatible printers based on material requirements.
+    :::
+
+## Step 8: Complete the Workflow
+
+**Important**: When print jobs finish, remember to mark the printer as `Clear & Ready` to enable the next job!
+
+:::info Continuous Printing
+For automated bed clearing and continuous printing, check out [FabMatic](../features/fabmatic-continuous-printing.md) - Printago's experimental continuous printing feature.
+:::
 
 # Thank You and Happy Printing!
 Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
