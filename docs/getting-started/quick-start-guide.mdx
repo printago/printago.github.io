@@ -67,8 +67,12 @@ Use `Save to all X printers in this group` to quickly configure multiple identic
 :::
 
 ## Step 3: Set Up Materials
-
 Before creating parts, configure your printer materials for intelligent job matching.
+
+:::info Third-Party Materials
+This Quick Start covers importing materials from your AMS. For adding third-party materials, manual entry, or bulk import methods, see [Materials Documentation](../printing/materials.md).
+:::
+
 
 ### Import Materials from AMS
 
@@ -94,10 +98,6 @@ Before creating parts, configure your printer materials for intelligent job matc
 Materials must have slicing profiles configured for each printer model and nozzle size they'll be used with. Missing profiles prevent job matching.
 :::
 
-:::tip Other Material Sources
-See [Materials Documentation](../printing/materials.md) for adding materials manually, from databases, or via bulk import.
-:::
-
 ## Step 4: Add Your First Part
 
 10. Go to `Products → Parts` and click `Add Part`
@@ -106,38 +106,46 @@ See [Materials Documentation](../printing/materials.md) for adding materials man
   <img src="/img/parts/add_parts_1.gif" width="600" alt="Add Part" />
 </div>
 
-11. Upload your **STL or 3MF file** and give it a name and description
-12. Configure material requirements and process settings
-13. Click `Create` to save your part
+11. **Upload Your File**: Browse or drag your **STL or 3MF file** into Printago
+12. **Configure Part Details**:
+    - Enter a name and description for your part
+    - Select your slicer (3MF files auto-select the matching version)
+    - Choose a process profile override, or leave as "Printer Default"
+13. **Material Mapping**: Map each material detected in your file to items in your Material library
+14. Click `Create` to upload your part
+
+<div className="margin-left--sm">
+  <img src="/img/parts/part_screen.png" width="600" alt="Part Creation Screen" />
+</div>
 
    :::info File Support
-   Printago supports STL, STEP, 3MF, OpenSCAD, and GCODE 3MF files. Regular `.gcode` files are not supported.
+   Printago supports STL, STEP, 3MF Projects, OpenSCAD, and GCODE.3MF files. Regular `.gcode` files are not supported.
    :::
 
 ## Step 5: Start Your First Print
 
-14. Find the saved part in the parts library and click the `Print` button
+15. Find the saved part in the parts library and click the `Print` button
    :::tip Quick Link
    After saving the part, a toast notification will give you a quick link to open it up, or you can print the file using [Bulk Actions](/docs/features/bulk-actions.md)
    :::
-15. Configure your print:
+16. Configure your print:
     - Set quantity
     - Choose printer assignment method:
       - **Next Available**: Automatic matching based on material compatibility
       - **Specific Printer**: Target an individual printer
       - **Tagged Printers**: Target a group of printers
     - Override material selection if desired
-16. Click `Print` to add the job to the queue
+17. Click `Print` to add the job to the queue
 
     :::info Smart Matching
     Printago automatically matches jobs to compatible printers based on material requirements, nozzle size, and availability.
     :::
 
-17. Head to the `Print Queue` to view your job.  
+18. Head to the `Print Queue` to view your job.  
 
 ## Step 6: Mark Printers Ready
 Finally, for printers to match with jobs Printago must be made aware that the printer bed is clear and that a job may be sent.
-18. Navigate to `Printing → Printers` and mark printers as `Clear & Ready`:
+19. Navigate to `Printing → Printers` and mark printers as `Clear & Ready`:
     - **Individual**: Click status dropdown → `Clear & Ready`
     - **Bulk**: Select multiple printers → Bulk Actions → `Availability` → `Clear & Ready`
 
@@ -147,12 +155,12 @@ You can safely use "Select All" - actively printing printers will ignore the "Cl
 
 ## Step 7: Watch the Magic Happen
 
-19. **Automatic Processing**: Printago automatically:
+20. **Automatic Processing**: Printago automatically:
     - Matches your job to a compatible printer
     - Slices the part using the [Cloud Slicer](../printing/cloud-slicer.md)
     - Sends the job to the printer and starts printing
 
-20. **Monitor Progress**: Use the `Print Queue` to:
+21. **Monitor Progress**: Use the `Print Queue` to:
     - Track job progress in the `In Progress` tab
     - Reorder queued jobs by dragging
     - Pause, resume, or cancel jobs using bulk actions
