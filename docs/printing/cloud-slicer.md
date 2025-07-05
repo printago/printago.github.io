@@ -4,65 +4,105 @@ sidebar_position: 5
 
 # Cloud Slicer
 
-Printago's cloud slicer converts your 3D models into printer-ready instructions automatically. By handling slicing in the cloud, we eliminate the need to maintain local slicer configurations across multiple machines.
+Printago's Cloud Slicer enables on-demand GCODE generation, automatically converting your 3D models into printer-specific instructions when jobs are assigned to printers. This eliminates the need to pre-slice files for every printer/material combination and enables universal slicing profiles across your entire printer fleet.
 
-## Overview
+## How It Works
 
-Cloud Slicer automatically generates printer-specific GCODE when jobs are assigned through Gutenbed, eliminating manual slicing and ensuring consistent print settings across the printer fleet.  Use the [Bambu Integration Wizard](./printer-setup/bambu-lab-integration.md) to keep your slicing profiles in sync from Orca Slicer or Bambu Studio.
+The Cloud Slicer is triggered automatically by [Gutenb3d](../print-queue-management.md) when a queued job is matched and assigned to a specific printer. This just-in-time approach ensures optimal slicing settings for each printer while maintaining efficient queue processing.
 
-- Powered by Orca Slicer 2.2
-- Future migration path to Bambu Studio under evaluation
+### Slicing Workflow
 
-## Core Functionality
+```mermaid
+sequenceDiagram
+    participant Queue as Print Queue
+    participant Gutenb3d
+    participant CloudSlicer as Cloud Slicer
+    participant Cache
+    participant Printer
 
-### Integration with Gutenbed
-Cloud Slicer is tightly integrated with [Gutenbed](../dashboard-queue/print-queue-management.md) to provide real-time slicing capabilities as print jobs are assigned to printers within the network.
+    Queue->>Gutenb3d: Job ready for assignment
+    Gutenb3d->>Gutenb3d: Match job to available printer
+    Gutenb3d->>Cache: Check for cached GCODE
+    
+    alt Cache Hit
+        Cache->>Gutenb3d: Return cached GCODE
+    else Cache Miss
+        Gutenb3d->>CloudSlicer: Request slice
+        CloudSlicer->>CloudSlicer: Resolve profiles
+        CloudSlicer->>CloudSlicer: Generate GCODE
+        CloudSlicer->>Cache: Store GCODE
+        CloudSlicer->>Gutenb3d: Return GCODE
+    end
+    
+    Gutenb3d->>Printer: Send GCODE (packaged as 3MF)
+```
 
-### Slicing Process
-When a part is assigned to a printer:
+## Profile Resolution
 
-1. **Profile Resolution**
-    - Uses configured Printer, Filament, and Process slicing profiles
-  
-2. **Override Processing** 
-    - Checks for Part Override Process file
-    - Applies overrides if present
-    - Part overrides take precedence over defaults
+When slicing a job, the Cloud Slicer combines multiple profile sources to generate optimal printer-specific GCODE:
 
-3. **GCode Generation**
-    - Executes slicing operation
-    - Stores result in cache
-    - Gcode is packages in 3MF with thumbnails for printing.
+### 1. Machine Profile
+Defines printer-specific settings synchronized from your [Bambu Lab Integration](./printer-setup/bambu-lab-integration.md):
+- Printer model and capabilities
+- Bed size and type (Smooth PEI, Textured, etc.)
+- Nozzle diameter and configuration
+- AMS settings and filament handling
 
-## Caching System
+### 2. Process Profile
+Determines print quality and behavior settings, resolved in this priority order:
+1. **Part-specific override** (if configured on the part)
+2. **Printer default process profile** (configured in [Printer Management](./printer-management/printer-management.md))
 
-### Strategy
-Implements intelligent caching to optimize performance and caches GCode for each unique combination of:
-    - Part geometry
-    - Printer profile
-    - Material profile 
-    - Process settings
-    - Override configuration
+### 3. Material Profile
+Provides material-specific slicing parameters resolved in this priority order:
+1. **Material Variant's profile override** (if configured on the color variant)
+2. **Material's filament profile** (configured in [Materials](/docs/printing/materials.md))
+## Intelligent Caching
 
-### Invalidation 
-Cache entries automatically refresh when:
-- Slicer configurations change
-- Printer profiles update
-- Part geometries modify
+The Cloud Slicer implements smart caching to optimize performance and reduce slicing time. If anything on the part, printer, build plate, or related settings changes, it triggers a reslice of the file.
+
+:::tip Cache Benefits
+Intelligent caching means identical parts with the same settings slice instantly on subsequent prints, dramatically reducing queue processing time for repeat jobs.
+:::
+
+## Slicer Selection
+
+Printago supports multiple slicer engines to accommodate different workflows and preferences:
+
+### Available Slicers
+- **OrcaSlicer** (Community-driven) - Open-source with advanced optimization features
+- **Bambu Studio** (Official Bambu) - Optimized specifically for Bambu Lab printers
+- **PrusaSlicer** (Coming Soon) - Official Prusa Research slicer
+- **SuperSlicer** (Coming Soon) - Feature-rich PrusaSlicer fork
+
+### Slicer Configuration
+- **Default Slicer**: Set your preferred slicer in [Account Settings](../settings/account-settings.md)
+- **Per-Part Override**: Choose specific slicers when adding parts to your library
+- **Profile Synchronization**: Managed through the [Bambu Lab Integration](./printer-setup/bambu-lab-integration.md) flow
+  - Syncs machine, process, and material profiles from your Bambu account
+  - Requires "Cloud Sync" enabled in Bambu Studio or Orca Slicer
+  - Profiles refresh when running the integration flow
 
 ## GCODE Access
 
-GCODE files can be downloaded from any active job:
+After slicing completes, printer-specific GCODE becomes available:
 
-1. Click job thumbnail in interface
-2. Use `Download GCode` button
-3. Receive printer-specific GCODE file
+### Download Method
+1. **Print Queue Interface**: Click any job thumbnail → `Download GCODE` button
 
-## Technical Benefits
+### File Format
+GCODE is packaged as a 3MF file containing:
+- Printer-specific GCODE instructions
+- Print thumbnails for printer display
+- Metadata about slicing settings used
 
-- Decouples process settings from printer models
-- Enables version control of parts instead of GCODE
-- Maintains consistent print settings
-- Supports flexible printer assignment
+### Slicing Failures
+If a job fails during slicing, it moves to the "Errored" tab in the Print Queue. Common causes:
+- Part too large for printer bed
+- Incompatible material/printer combination
+- Missing or corrupted slicer profiles
 
-Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!
+### Profile Issues
+Ensure your slicer profiles are current by running the [Bambu Lab Integration](./printer-setup/bambu-lab-integration.md) flow to refresh synchronized profiles.
+
+Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!
