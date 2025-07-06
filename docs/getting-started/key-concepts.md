@@ -31,7 +31,7 @@ The Smart Queue is Printago's intelligent job distribution system. While you can
 - Material Color requirements
 - Printer capability requirements (e.g. nozzle type/size)
 - Custom tags and groupings, such as "Rack A"
-- Bed Size ([coming soon](#printer-bed-size-requirements)) 
+- Bed Size (coming soon) 
 
 :::info Example
 If you have a part that requires Bambu Red PETG-HF, Printago will automatically match the job to printers that:

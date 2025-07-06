@@ -35,13 +35,6 @@ To use the Printago API, you must be on a commercial account (even a free one).
 
 The API Key Portal provides everything you need to get started:
 
-**Required Headers**
-You must include these headers in your requests for proper authentication:
-```
-authorization: ApiKey YOUR_API_KEY
-x-printago-storeid: YOUR_STORE_ID
-```
-
 **Code Examples**
 The portal includes code examples in multiple languages (cURL, JavaScript, Python) to help you get started quickly.
 
