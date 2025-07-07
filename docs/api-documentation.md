@@ -64,17 +64,12 @@ x-printago-storeid: YOUR_STORE_ID
 API access is rate-limited in 2 buckets: up to 60 requests per minute and 600 requests per hour.  If you exceed this, your requests will fail with an HTTP 429 status until the time window expires.  If for some reason the rate limits are too restrictive for you, please contact us to further discuss your use case.
 
 ## Examples
-
-Below are some API examples to help get you started.  [View additional examples on GitHub Gist](https://gist.github.com/nsantorello/9a54fe603fc07e54d72ff668a089296f)
-
 ### Python - One-off printing of an STL via API
 
-The JSON files represent 3 requests:
-- Just prints the part
-- Prints to a specific printer
-- Prints to printers with certain label(s)
+[Github Gist -https://gist.github.com/nsantorello/9a54fe603fc07e54d72ff668a089296f](https://gist.github.com/nsantorello/9a54fe603fc07e54d72ff668a089296f)
 
-To get these variables:
+In the gist, there are a few additional variables that need to be set:
+
 - `YOUR_PART_ID` - click on your part in the Parts page and look at the url, it should end in `/parts/YOUR_PART_ID`
   - Example: for URL `https://app.printago.io/parts/c8x2dorgp40blck610w4bgg4` the Part ID is `c8x2dorgp40blck610w4bgg4`
 - `YOUR_PRINTER_ID` - click on your printer in the Printers page and look at the url, it should end in `/printers/YOUR_PRINTER_ID`
