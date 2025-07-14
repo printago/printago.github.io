@@ -8,7 +8,7 @@ Your slicer profiles page displays a comprehensive list of all your user profile
 
 ## Profile Synchronization
 
-Currently, the only mechanism to get or refresh your slicer profiles is to run the [**Bambu Lab Integration Flow**](/docs/printing/printer-setup/bambu-lab-integration.md). This ensures your Printago account stays synchronized with your Bambu Lab setup.
+Currently, the only mechanism to get or refresh your slicer profiles is to run the [**Bambu Lab Integration Flow**](../printer-setup/bambu-lab-integration.md). This ensures your Printago account stays synchronized with your Bambu Lab setup.
 
 ### Cloud Sync Requirement
 

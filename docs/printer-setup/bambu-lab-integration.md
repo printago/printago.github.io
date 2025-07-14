@@ -18,7 +18,7 @@ Our upcoming Fuse client will support newer firmware versions and models using D
 
 ## First-Time Setup
 
-For detailed instructions on connecting your Bambu Lab printers to Printago for the first time, please refer to our [Quick Start Guide](../../getting-started/quick-start-guide.mdx). The guide covers:
+For detailed instructions on connecting your Bambu Lab printers to Printago for the first time, please refer to our [Quick Start Guide](../getting-started/quick-start-guide.mdx). The guide covers:
 
 - Prerequisites for printer connectivity
 - Step-by-step connection process
@@ -107,6 +107,28 @@ sequenceDiagram
         Printago Storage->>Printago Storage: Expire download token
     end
 ```
+
+## Compatible Printers 
+
+Printago is compatible with the following Bambu Lab 3D Printers & Configurations
+
+- **A1 Mini**
+- **A1 Mini w/ AMS Lite** 
+- **A1**  
+- **A1 w/ AMS Lite**:  
+- **P1S**
+- **P1S w/ AMS**
+- **P1S w/ AMS Pro**
+- **P1S w/ AMS HT**
+- **X1C**
+- **X1C w/ AMS**
+
+**Coming Soon:** 
+- H2D
+- A1 & A1-Mini: Support for AMS 2 Pro
+- A1 & A1-Mini: Support for AMS HT 
+- X1C: Support for AMS 2 Pro/HT
+
 ## Firmware Requirements
 
 Printago requires specific firmware versions that do not have the Bambu authorization lockout:

@@ -42,7 +42,7 @@ sequenceDiagram
 When slicing a job, the Cloud Slicer combines multiple profile sources to generate optimal printer-specific GCODE:
 
 ### 1. Machine Profile
-Defines printer-specific settings synchronized from your [Bambu Lab Integration](./printer-setup/bambu-lab-integration.md):
+Defines printer-specific settings synchronized from your [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md):
 - Printer model and capabilities
 - Bed size and type (Smooth PEI, Textured, etc.)
 - Nozzle diameter and configuration
@@ -78,7 +78,7 @@ Printago supports multiple slicer engines to accommodate different workflows and
 ### Slicer Configuration
 - **Default Slicer**: Set your preferred slicer in [Account Settings](../settings/account-settings.md)
 - **Per-Part Override**: Choose specific slicers when adding parts to your library
-- **Profile Synchronization**: Managed through the [Bambu Lab Integration](./printer-setup/bambu-lab-integration.md) flow
+- **Profile Synchronization**: Managed through the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow
   - Syncs machine, process, and material profiles from your Bambu account
   - Requires "Cloud Sync" enabled in Bambu Studio or Orca Slicer
   - Profiles refresh when running the integration flow
@@ -103,6 +103,6 @@ If a job fails during slicing, it moves to the "Errored" tab in the Print Queue.
 - Missing or corrupted slicer profiles
 
 ### Profile Issues
-Ensure your slicer profiles are current by running the [Bambu Lab Integration](./printer-setup/bambu-lab-integration.md) flow to refresh synchronized profiles.
+Ensure your slicer profiles are current by running the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow to refresh synchronized profiles.
 
 Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!
