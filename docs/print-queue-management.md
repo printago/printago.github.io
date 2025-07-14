@@ -88,9 +88,21 @@ Gutenb3d processes printers on a "last-used" basis to distribute wear evenly acr
 
 ### **Job Organization**
 - Each individual printed part appears as a separate queue item (even within multi-part SKUs)
-- Use drag-and-drop to reorder job priorities
+- Use drag-and-drop to reorder job priorities within the same priority level
 - Jobs process from top to bottom, with flexible reordering anytime
 - Streamline management with [Bulk Actions](/docs/features/bulk-actions.md)
+
+### **Queue Priority**
+Printago supports two job priority levels:
+
+- **Normal Priority**: Standard jobs that process first
+- **Low Priority**: Jobs that only process when no normal priority jobs are available
+
+**Important Notes:**
+- Jobs cannot be dragged between priority groups (normal ↔ low)
+- Use the multi-action dropdown to change priority for selected jobs
+- Low priority jobs function identically to normal jobs, but only begin processing when the normal priority queue is empty
+- Job priority can be adjusted at any time from the queue interface
 
 :::tip Managing Job History
 Clearing completed jobs removes them from the interface but preserves all data for future reporting features. This soft-delete keeps the interface responsive while ensuring your print history remains available for upcoming analytics.

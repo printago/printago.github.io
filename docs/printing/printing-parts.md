@@ -10,12 +10,19 @@ This page covers how to print parts from your library.  To learn more about how 
 
 ### Single Part Printing
 1. Navigate to `Products -> Parts`
-2. Find your part and click the `Print` button
+2. Find your part and click the `Send to Queue` button
 3. Configure your print settings:
    - Set quantity
    - Configure OpenSCAD parameters (if applicable)
    - Select material (the part's default material may be overridden)
+   - **Priority**: Use the toggle button to the left of "Send to Queue" to mark jobs as low priority (optional)
 4. Choose printer [Assignment Method](#assignment-methods)
+
+### **Queue Priority Options**
+- **Normal Priority** (default): Jobs process immediately when printers are available
+- **Low Priority**: Jobs only process when no normal priority jobs are waiting
+
+After queuing, job priority can be adjusted from the [Print Queue Management](/docs/print-queue-management.md) interface.
 
 
 ### STL Parts
