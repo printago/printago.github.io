@@ -7,6 +7,8 @@ title: "SKU Variants 💎"
 
 SKU Variants are one of Printago's most powerful features, enabling complex product variations and customization without SKU proliferation in your e-commerce stores. With Variants, a single product listing can handle dozens of color combinations, sizes, and personalizations automatically.
 
+![SKU Variant Configuration and Result](./images/sku-variant-overview.jpg)
+
 ## Overview
 
 SKU Variants solve a critical problem for 3D printing businesses: managing product variations. Instead of creating separate SKUs for every color/size/material combination in your store, Variants let you:
@@ -20,8 +22,6 @@ SKU Variants solve a critical problem for 3D printing businesses: managing produ
 :::tip Real-World Impact
 A phone case with 5 colors and 3 sizes would normally require 15 separate SKUs in your store. With Printago Variants, you need just one SKU listing that automatically handles all 15 combinations.
 :::
-
-![SKU Variant Configuration and Result](./images/sku-variant-overview.jpg)
 
 ## Core Concepts
 
