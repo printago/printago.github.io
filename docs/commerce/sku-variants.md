@@ -82,24 +82,27 @@ A single Variant can have multiple Properties. For example, your "Color" variant
 ### Step 1: Create a Variant
 
 1. Navigate to `Products → SKU Variant Setup`
-2. Click `New Variant`
+2. Click `New Variant` (for standard options like colors, sizes, etc.) or `New Personalization` (for customer text input)
 3. Enter the variant name exactly as it appears in your e-commerce platform
-4. Choose variant type:
-   - **Standard Variant** - For predefined options (colors, sizes, etc.)
-   - **Personalization Variant** - For customer text input
+4. Click `Create Variant` or `Create Personalization`
 
+**Standard Variant Dialog:**
 ![Create New Variant dialog](./images/create-new-variant-dialog.png)
+
+**Personalization Variant Dialog:**
+![Create New Personalization dialog](./images/create-new-personalization-dialog.png)
 
 ### Step 2: Add Properties
 
 Properties define what each variant value will map to in production.
 
-1. Click `Add Property` on your variant
-2. Select property type:
+1. Click on a variant in the table to edit it
+2. Click `Add Property` button
+3. Enter a property name (e.g., "PLA Colors", "Primary Color", "size_cm")
+4. Select property type:
    - **Material/Color** - For mapping to materials in your library
    - **Text** - For passing values to OpenSCAD parameters
-3. Name the property (e.g., "PLA Colors", "Primary Color", "size_cm")
-4. Save the property
+5. Click `Add Property` to save
 
 ![Add Property dialog](./images/add-property-dialog.png)
 
@@ -138,24 +141,27 @@ Enable this when your e-commerce platform requires unique SKU codes per variant.
 
 ### Step 4: Assign Variants to SKUs
 
-1. Open your SKU for editing (Products → SKUs, then click on a SKU)
-2. In the Linked Parts section, click `Add Variants`
-3. Select which Variants apply to this SKU from the dialog
-4. For each part in your SKU, click `Edit` and map Properties to specific elements
+1. Open your SKU for editing (`Products → SKUs`, then click on a SKU)
+2. Scroll down to the **SKU Variant Setup** section and click `Add Variants`
+3. In the "Select SKU Variants" dialog, check the variants you want to apply to this SKU
+4. Click `Add Selected Options`
 
 ![Select SKU Variants dialog](./images/add-variants-to-sku-dialog.png)
 
-Once you've added variants to your SKU, they'll appear in the Linked Parts section:
+Once you've added variants to your SKU, they'll appear in the **SKU Variant Setup** section:
 
 ![SKU with variants assigned](./images/sku-with-variants-assigned.png)
+
+Now you need to map the variant properties to your parts:
 
 #### Mapping Properties to STL Parts
 
 For single-material STL parts:
-1. Click `Configure` on the part
-2. In the Materials section, click `Configure` next to the material
-3. Select which Material Property this part should use
-4. The property value will be resolved based on customer's variant selection
+1. In the **Linked Parts** section, click `Edit` on the part
+2. In the **Materials** section, click `Configure` next to the material
+3. In the **Material Mappings** section (at the bottom), click the button for the property you want to use (e.g., "Base Color → material")
+4. Click `Save` to apply the mapping
+5. The material will now be resolved based on the customer's variant selection
 
 #### Mapping Properties to OpenSCAD Parameters
 
@@ -175,14 +181,15 @@ Text Properties can pass both text strings and numeric values to OpenSCAD. Make 
 #### Mapping Properties to 3MF Multi-Color Models
 
 For multi-color 3MF projects:
-1. Click `Edit` on the 3MF part
-2. In the Materials section, you'll see each color slot from your 3MF
+1. In the **Linked Parts** section, click `Edit` on the 3MF part
+2. In the **Materials** section, you'll see each color slot from your 3MF
 3. For each color slot, click `Configure`
-4. Select a Material Property from the "Material Mappings" section (e.g., "Primary color → material")
+4. In the **Material Mappings** section (at the bottom), click the button for the property you want to use (e.g., "Primary color → material")
+5. Click `Save` to apply the mapping
 
 ![Material selection dialog showing variant property](./images/3mf-color-slot-with-variant-property.png)
 
-5. Once saved, colors mapped to properties will show "Overridden" status with the property name
+6. Once saved, colors mapped to properties will show "Overridden" status with the property name
 
 ![3MF color slot configured with variant property override](./images/3mf-color-slot-configured-with-override.png)
 
