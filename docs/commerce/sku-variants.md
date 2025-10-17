@@ -21,6 +21,8 @@ SKU Variants solve a critical problem for 3D printing businesses: managing produ
 A phone case with 5 colors and 3 sizes would normally require 15 separate SKUs in your store. With Printago Variants, you need just one SKU listing that automatically handles all 15 combinations.
 :::
 
+![SKU Variant Configuration and Result](./images/sku-variant-overview.jpg)
+
 ## Core Concepts
 
 ### Variants
