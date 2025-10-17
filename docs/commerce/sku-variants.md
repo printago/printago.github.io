@@ -77,8 +77,6 @@ A single Variant can have multiple Properties. For example, your "Color" variant
 
 ## How It Works: The Complete Flow
 
-![SKU Variant Setup main page](./images/sku-variant-setup-main.png)
-
 ### Step 1: Create a Variant
 
 1. Navigate to `Products → SKU Variant Setup`
@@ -86,11 +84,7 @@ A single Variant can have multiple Properties. For example, your "Color" variant
 3. Enter the variant name exactly as it appears in your e-commerce platform
 4. Click `Create Variant` or `Create Personalization`
 
-**Standard Variant Dialog:**
 ![Create New Variant dialog](./images/create-new-variant-dialog.png)
-
-**Personalization Variant Dialog:**
-![Create New Personalization dialog](./images/create-new-personalization-dialog.png)
 
 ### Step 2: Add Properties
 
@@ -154,14 +148,24 @@ Once you've added variants to your SKU, they'll appear in the **SKU Variant Setu
 
 Now you need to map the variant properties to your parts:
 
-#### Mapping Properties to STL Parts
+#### Mapping Properties to Material Slots
 
-For single-material STL parts:
+For parts with materials (STL, 3MF, etc.):
 1. In the **Linked Parts** section, click `Edit` on the part
-2. In the **Materials** section, click `Configure` next to the material
-3. In the **Material Mappings** section (at the bottom), click the button for the property you want to use (e.g., "Base Color → material")
-4. Click `Save` to apply the mapping
-5. The material will now be resolved based on the customer's variant selection
+2. In the **Materials** section, you'll see each material slot from your part
+3. For each material slot, click `Configure`
+4. In the **Material Mappings** section (at the bottom), click the button for the property you want to use (e.g., "Primary color → material")
+5. Click `Save` to apply the mapping
+
+![Material selection dialog showing variant property](./images/3mf-color-slot-with-variant-property.png)
+
+6. Once saved, materials mapped to properties will show "Overridden" status with the property name
+
+![3MF color slot configured with variant property override](./images/3mf-color-slot-configured-with-override.png)
+
+:::tip Dynamic Material Mapping
+When a material slot is mapped to a variant property, it will use the material specified in the selected variant value. This allows one part file to handle multiple material/color combinations automatically.
+:::
 
 #### Mapping Properties to OpenSCAD Parameters
 
@@ -176,25 +180,6 @@ For OpenSCAD parts with parameters:
 
 :::tip Parameter Linking
 Text Properties can pass both text strings and numeric values to OpenSCAD. Make sure the property value type matches what your OpenSCAD code expects.
-:::
-
-#### Mapping Properties to 3MF Multi-Color Models
-
-For multi-color 3MF projects:
-1. In the **Linked Parts** section, click `Edit` on the 3MF part
-2. In the **Materials** section, you'll see each color slot from your 3MF
-3. For each color slot, click `Configure`
-4. In the **Material Mappings** section (at the bottom), click the button for the property you want to use (e.g., "Primary color → material")
-5. Click `Save` to apply the mapping
-
-![Material selection dialog showing variant property](./images/3mf-color-slot-with-variant-property.png)
-
-6. Once saved, colors mapped to properties will show "Overridden" status with the property name
-
-![3MF color slot configured with variant property override](./images/3mf-color-slot-configured-with-override.png)
-
-:::tip Dynamic Color Mapping
-When a color slot is mapped to a variant property, it will use the material specified in the selected variant value. This allows one 3MF file to handle multiple color combinations automatically.
 :::
 
 ## Real-World Examples
