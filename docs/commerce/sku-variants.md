@@ -75,18 +75,18 @@ A single Variant can have multiple Properties. For example, your "Color" variant
 
 ## How It Works: The Complete Flow
 
-**Screenshot: SKU Variant Setup main page showing list of variants with their values, properties, and personalization options**
+![SKU Variant Setup main page](./images/sku-variant-setup-main.png)
 
 ### Step 1: Create a Variant
 
-1. Navigate to `Commerce → SKU Variant Setup`
-2. Click `+ New Variant`
+1. Navigate to `Products → SKU Variant Setup`
+2. Click `New Variant`
 3. Enter the variant name exactly as it appears in your e-commerce platform
 4. Choose variant type:
    - **Standard Variant** - For predefined options (colors, sizes, etc.)
    - **Personalization Variant** - For customer text input
 
-**Screenshot: "Create New Variant" dialog showing name field with placeholder "e.g., Color, Size, Style"**
+![Create New Variant dialog](./images/create-new-variant-dialog.png)
 
 ### Step 2: Add Properties
 
@@ -99,7 +99,7 @@ Properties define what each variant value will map to in production.
 3. Name the property (e.g., "PLA Colors", "Primary Color", "size_cm")
 4. Save the property
 
-**Screenshot: "Add Property" dialog showing Material/Color and Text radio button options**
+![Add Property dialog](./images/add-property-dialog.png)
 
 :::tip Property Naming Strategy
 Use descriptive property names that indicate their purpose. "PLA Colors" is clearer than "Color1" when you're managing multiple material types.
@@ -107,13 +107,13 @@ Use descriptive property names that indicate their purpose. "PLA Colors" is clea
 
 ### Step 3: Add Variant Values and Map Properties
 
-1. Click `Add Value` on your variant
-2. Enter the value name exactly as it appears in e-commerce
+1. In the variant editing page, enter a variant value name in the text field at the bottom of the table
+2. Click `Add` to create the variant value
 3. For each Property, map the appropriate value:
    - **Material Properties**: Select from your Material library
    - **Text Properties**: Enter the text/number value to pass to OpenSCAD
 
-**Screenshot: Edit SKU Variant page showing "Hero" and "Sidekick" variant values with "Grip Color" and "SL+SR Button Color" properties mapped to different materials (Red/Cobalt Blue for Hero, Bambu Green/Jade White for Sidekick)**
+![Edit SKU Variant page showing variant values and properties](./images/edit-sku-variant-with-properties.png)
 
 #### Advanced: Enable SKU Suffixes
 
@@ -136,12 +136,16 @@ Enable this when your e-commerce platform requires unique SKU codes per variant.
 
 ### Step 4: Assign Variants to SKUs
 
-1. Open your SKU for editing
-2. Navigate to the SKU Variant Setup section
-3. Click `+ Add Variant` and select which Variants apply to this SKU
-4. For each part in your SKU, map Properties to specific elements
+1. Open your SKU for editing (Products → SKUs, then click on a SKU)
+2. In the Linked Parts section, click `Add Variants`
+3. Select which Variants apply to this SKU from the dialog
+4. For each part in your SKU, click `Edit` and map Properties to specific elements
 
-**Screenshot: Edit SKU page showing "Size" variant with "5 option values" and "scad_size" property, plus "Personalization" variant with "Personalized Text" and "Value" property**
+![Select SKU Variants dialog](./images/add-variants-to-sku-dialog.png)
+
+Once you've added variants to your SKU, they'll appear in the Linked Parts section:
+
+![SKU with variants assigned](./images/sku-with-variants-assigned.png)
 
 #### Mapping Properties to STL Parts
 
@@ -151,30 +155,37 @@ For single-material STL parts:
 3. Select which Material Property this part should use
 4. The property value will be resolved based on customer's variant selection
 
-**Screenshot: Configure PERO01 dialog showing OpenSCAD parameters section with "size_in_inches" mapped to "Size → scad_size" and "name_text" mapped to "Personalization → Value", with link/unlink icons visible**
-
-#### Mapping Properties to 3MF Multi-Color Models
-
-For multi-color 3MF projects:
-1. Click `Configure` on the 3MF part
-2. In the Materials section, you'll see each color slot from your 3MF
-3. For each color slot, click `Configure`
-4. Map the color to a Material Property (e.g., "Primary Color", "Secondary Color")
-5. Colors mapped to properties will show "Overridden" status
-
-**Screenshot: Configure KnockBox dialog showing Materials section with color slot 1 (#F7F3F0) mapped to "Primary color → material" and color slot 3 (#000000) mapped to "Bambu Lab PLA Basic" with color picker, both showing "Overridden" badges**
-
 #### Mapping Properties to OpenSCAD Parameters
 
 For OpenSCAD parts with parameters:
-1. Click `Configure` on the OpenSCAD part
+1. Click `Edit` on the OpenSCAD part
 2. In the Parameters section, you'll see all parsed parameters
 3. Click the link icon next to a parameter to connect it to a Text Property
 4. Select which Variant and which Text Property to use
 5. Linked parameters show the mapping (e.g., "Size → scad_size")
 
+![OpenSCAD parameters linked to variant properties](./images/openscad-parameters-linked.png)
+
 :::tip Parameter Linking
 Text Properties can pass both text strings and numeric values to OpenSCAD. Make sure the property value type matches what your OpenSCAD code expects.
+:::
+
+#### Mapping Properties to 3MF Multi-Color Models
+
+For multi-color 3MF projects:
+1. Click `Edit` on the 3MF part
+2. In the Materials section, you'll see each color slot from your 3MF
+3. For each color slot, click `Configure`
+4. Select a Material Property from the "Material Mappings" section (e.g., "Primary color → material")
+
+![Material selection dialog showing variant property](./images/3mf-color-slot-with-variant-property.png)
+
+5. Once saved, colors mapped to properties will show "Overridden" status with the property name
+
+![3MF color slot configured with variant property override](./images/3mf-color-slot-configured-with-override.png)
+
+:::tip Dynamic Color Mapping
+When a color slot is mapped to a variant property, it will use the material specified in the selected variant value. This allows one 3MF file to handle multiple color combinations automatically.
 :::
 
 ## Real-World Examples
