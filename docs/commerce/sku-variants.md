@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: "SKU Variants 💎"
+title: "SKU Variants"
 ---
 
 # SKU Variants 💎
