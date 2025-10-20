@@ -47,7 +47,7 @@ Variant names in Printago must **exactly match** the option names in your e-comm
 Like Variant names, these values must exactly match how they appear in your e-commerce listings.
 
 ### Properties
-**Properties** are where the magic happens - they're the internal mappings that tell Printago what each Variant Value actually means for production. There are two types:
+**Properties** are where the magic happens - they're the internal mappings that tell Printago what each Variant Value actually means for production. There are three types:
 
 #### Material Properties
 Map variant values to specific materials and colors in your Printago library. Examples:
@@ -64,16 +64,21 @@ Pass values to OpenSCAD parameters for dynamic sizing and modifications. Example
 - "handle_length"
 - "font_scale"
 
+#### Plate Quantities Properties
+Control how many of each plate to print based on the variant selection. Useful for multi-pack products or selectively printing specific plates from a multi-plate 3MF. Examples:
+- "plate_quantities" - For pack size variants (1-pack, 5-pack, 10-pack)
+- Allows printing a 10-pack as optimized plate arrangements (e.g., 2 plates of 4 + 2 plates of 2 instead of 10 plates of 1)
+
 :::tip Property Flexibility
 A single Variant can have multiple Properties. For example, your "Color" variant might have both "PLA Colors" and "PETG Colors" properties, allowing the same variant to work across different material-based SKUs.
 :::
 
 ### Personalization Variants
 **Personalization Variants** are a special type used for customer freeform text input (like custom engravings). Unlike regular Variants:
-- They have no Variant Values
-- They have no Properties
-- They capture raw customer text input
-- Currently used exclusively for Etsy's Personalization field
+- They have no Variant Values (customers enter free text instead)
+- They automatically have a "Value" property that captures the customer's text input
+- They can be mapped to OpenSCAD parameters to use the custom text in your designs
+- Currently used for Etsy's Personalization field and custom text inputs
 
 ## How It Works: The Complete Flow
 
@@ -92,13 +97,14 @@ Properties define what each variant value will map to in production.
 
 1. Click on a variant in the table to edit it
 2. Click `Add Property` button
-3. Enter a property name (e.g., "PLA Colors", "Primary Color", "size_cm")
+3. Enter a property name (e.g., "PLA Colors", "Primary Color", "size_cm", "plate_quantities")
 4. Select property type:
    - **Material/Color** - For mapping to materials in your library
    - **Text** - For passing values to OpenSCAD parameters
+   - **Plate Quantities** - For driving different plate quantities per variant (e.g., multi-packs)
 5. Click `Add Property` to save
 
-![Add Property dialog](./images/add-property-dialog.png)
+![Add Property dialog](./images/add-property-dialog-with-plate-quantities.png)
 
 :::tip Property Naming Strategy
 Use descriptive property names that indicate their purpose. "PLA Colors" is clearer than "Color1" when you're managing multiple material types.
@@ -182,6 +188,43 @@ For OpenSCAD parts with parameters:
 Text Properties can pass both text strings and numeric values to OpenSCAD. Make sure the property value type matches what your OpenSCAD code expects.
 :::
 
+#### Mapping Plate Quantities to Parts
+
+For multi-plate 3MF parts where you want to control quantities per variant:
+
+1. In the **Linked Parts** section, click `Edit` on the part
+2. In the **Plates** section, click the link icon (next to "Editing each")
+3. Select the Plate Quantities property you want to use (e.g., "Pack Size → plate_quantities")
+4. Click `Save Linked Part`
+
+![Part with plate quantities mapped to variant](./images/plate-quantities-linked-to-part.png)
+
+Once linked, the plate quantities will automatically adjust based on the selected variant value.
+
+**Configuring Plate Quantities for Each Variant Value**:
+
+1. Navigate to `Products → SKU Variant Setup`
+2. Click on your variant to edit it
+3. For each variant value, click `Edit Plate Quantities`
+4. In the configuration dialog, set the quantity for each plate:
+   - Enter the plate name (must match the plate name in your 3MF file)
+   - Set the quantity (how many times to print this plate)
+5. Click `Save`
+
+![Plate quantities configuration for 2-Pack](./images/plate-quantities-2pack-configured.png)
+
+![Plate quantities configuration for 10-Pack](./images/plate-quantities-10pack-configured.png)
+
+:::note Unused Plate Warning
+If a plate never appears in any variant value configuration (quantity is always 0), Printago will show a warning badge on that plate. This helps you identify plates that may have been accidentally excluded from all variant values.
+
+![Warning for plate that will always be 0](./images/plate-quantities-warning-unused-plate.png)
+:::
+
+:::tip Optimized Multi-Pack Production
+Plate Quantities let you optimize production for multi-pack products. Instead of printing 10 individual plates for a 10-pack, you can print 1 plate with 8 items and 2 plates with 1 item each, dramatically reducing print time and material waste.
+:::
+
 ## Real-World Examples
 
 ### Example 1: Simple Color Variation
@@ -247,6 +290,7 @@ Text Properties can pass both text strings and numeric values to OpenSCAD. Make 
    - "Carbon" → "Bambu Matte PLA Black"
    - "Snow White" → "Bambu Basic PLA White"
    - "Pearl White" → "Bambu Matte PLA White"
+4. Assign to SKU and map "Actual Colors" property to your part's material slot
 
 **Result**: Customers see fancy names, but Printago automatically uses the correct materials.
 
@@ -256,7 +300,7 @@ Text Properties can pass both text strings and numeric values to OpenSCAD. Make 
 
 **Setup**:
 1. Create Variant: "Size"
-2. Add Text Properties: "width_cm", "depth_cm", "height_cm"
+2. Add three Text Properties to the variant (one at a time): "width_cm", "depth_cm", "height_cm"
 3. Add Variant Values:
    - "Small" → width_cm: "10", depth_cm: "8", height_cm: "6"
    - "Medium" → width_cm: "15", depth_cm: "12", height_cm: "9"
@@ -276,20 +320,7 @@ cube([width, depth, height]);
 
 **Result**: One OpenSCAD part automatically generates three different sizes.
 
-### Example 6: Combined Variations
-
-**Scenario**: Phone case with Color (5 options), Material (PLA/TPU), and Size (3 phone models)
-
-**Setup**:
-1. Create three Variants: "Color", "Material Type", "Phone Model"
-2. "Color" variant: 5 values with PLA and TPU properties
-3. "Material Type" variant: 2 values (PLA, TPU)
-4. "Phone Model" variant: 3 values with OpenSCAD dimension parameters
-5. Create one master SKU that uses all three variants
-
-**Result**: Single e-commerce listing handles 5 × 2 × 3 = 30 combinations automatically.
-
-### Example 7: Personalized Text with Sizing
+### Example 6: Personalized Text with Sizing
 
 **Scenario**: Custom number cutter cookie cutters where customers choose a size and enter a number
 
@@ -311,6 +342,30 @@ custom_number = Value;       // Gets customer's text input
    - Link `custom_number` parameter to "Personalization" → "Value"
 
 **Result**: Customers select size and enter their number, Printago generates the perfect cookie cutter automatically.
+
+### Example 7: Multi-Pack with Optimized Plate Quantities
+
+**Scenario**: Selling "Love You" signs in 2-Pack and 10-Pack sizes, with pre-scaled plates for efficient production
+
+**Setup**:
+1. Create Variant: "Pack Size"
+2. Add Property: "plate_quantities" (Plate Quantities type)
+3. Create a 3MF with multiple plates:
+   - "Qty1" plate: Contains 1 sign
+   - "Qty8" plate: Contains 8 signs arranged efficiently
+4. Add Variant Values and configure plate quantities:
+   - "2-Pack" → Qty1: 2 plates, Qty8: 0 plates
+   - "10-Pack" → Qty1: 2 plates, Qty8: 1 plate
+5. Assign to SKU and map "plate_quantities" property to the part's plates
+
+**Result**:
+- 2-Pack orders print 2 individual plates (2 signs total)
+- 10-Pack orders print 1 plate of 8 + 2 individual plates (10 signs total)
+- Optimized production reduces print time by 60% for 10-packs compared to printing 10 individual plates
+
+:::tip Advanced Use Cases
+Plate Quantities can also handle auxiliary parts with different properties, or selectively print specific plates based on customer selections for size-variant products.
+:::
 
 ## E-Commerce Integration
 
