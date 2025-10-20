@@ -1,4 +1,4 @@
-# Claude Testing Guide for Printago Documentation
+# Claude Guide for Printago Documentation
 
 ## Quick Reference for Documentation Updates
 
@@ -39,72 +39,50 @@ await mcp__playwright__browser_wait_for({ time: 2 })
 
 3. **Screenshot file locations:**
    - Screenshots save to `.playwright-mcp/` directory
-   - Copy to `docs/commerce/images/` for documentation
+   - Copy to appropriate `docs/*/images/` directory for documentation
    - Reference in markdown as `![Description](./images/filename.png)`
 
-### Key Navigation Paths
+### Navigating the Application
 
-**Main Menu Structure:**
-- Products → SKU Variant Setup
-- Products → SKUs
-- Products → Parts
-
-**Finding Test Data:**
-Search in the SKUs page:
-- `PER001` - OpenSCAD example with personalization and text parameters
-- `CORE1` - 3MF multi-color example (Planet Earth Model)
+Use the main menu to navigate to the feature you're documenting. Use the search function when looking for specific items (faster than drilling through menus).
 
 ### Typical Documentation Update Workflow
 
 1. **Navigate and screenshot main pages:**
-   - SKU Variant Setup main page
+   - Main feature page (list/overview)
    - Create/Edit dialogs
+   - Settings or configuration screens
 
 2. **Show the complete flow:**
-   - Creating a variant
-   - Adding properties
-   - Adding variant values
-   - Assigning variants to SKUs
-   - Configuring parts (OpenSCAD parameters, 3MF color slots)
+   - Creating new items
+   - Editing existing items
+   - Configuring options
+   - Any multi-step workflows
 
 3. **Capture before AND after states:**
    - Dialog with options available (before selection)
    - Dialog with options selected (after selection)
-   - Final configuration showing "Overridden" badges
+   - Final result showing applied changes
 
 ### Common Clickpaths to Verify
 
-Check these against actual UI:
-- Button labels: `New Variant` not `+ New Variant`
-- Menu paths: `Products → SKU Variant Setup` not `Commerce → ...`
-- Dialog titles match exactly
+Always verify these match the actual UI:
+- Button labels (exact text, capitalization)
+- Menu paths (exact navigation sequence)
+- Dialog titles
 - Field placeholders and labels
-
-### Test Data Examples
-
-**PER001 (OpenSCAD):**
-- Has "Size" variant with text property `scad_size`
-- Has "Personalization" variant with property `Value`
-- Parameters: `size_in_inches`, `name_text`
-- Located in: `October_25_testing` folder
-
-**CORE1 (3MF Multi-color):**
-- Planet Earth Model
-- Has multiple color slots (2-6)
-- Good for testing variant property mappings
-- Located in: `multiplate testing` folder
-
-**Multiplayer Joy-Con Grip #2 (Variant Values):**
-- Has "Grip Color" and "SL+SR Button Color" properties
-- Variant values: "Hero" (Red/Cobalt Blue), "Sidekick" (Bambu Green/Jade White)
-- Located in: SKU Variant Setup page
+- Terminology consistency
 
 ### Documentation Structure
 
 ```
 docs/
   commerce/
-    sku-variants.md          # Main doc file
+    images/                  # Commerce-related screenshots
+  design/
+    images/                  # Design-related screenshots
+  [feature-area]/
+    feature-name.md          # Main doc file
     images/                  # Screenshots go here
       *.png
 ```
@@ -118,15 +96,15 @@ The interface was recently updated with cleaner styling. Always:
 
 ### Time-Saving Tips
 
-1. **Use search instead of navigation** - Searching for SKU codes is faster than drilling into folders
+1. **Use search instead of navigation** - Searching for specific items is faster than drilling through menus
 2. **Screenshot in context** - Show enough of the UI to orient users but crop to relevant content
 3. **Batch similar screenshots** - Do all dialog screenshots, then all configuration screenshots
 4. **Use TodoWrite tool** - Track progress for complex multi-step tasks
-5. **Wait for realtime sync** - UI may not show variants immediately after adding them; refresh if needed
+5. **Wait for realtime sync** - UI may not show changes immediately; refresh if needed
 
 ### Common Issues
 
-1. **Variants not appearing after adding** - Refresh the page to reconnect realtime service
+1. **Changes not appearing immediately** - Refresh the page to reconnect realtime service
 2. **Screenshots too large** - Use viewport screenshots for dialogs, not fullPage
 3. **Wrong terminology** - Always verify button/menu labels match the actual UI
-4. **Missing link icons** - For OpenSCAD parameters, look for link/unlink buttons next to each parameter row
+4. **Missing UI elements** - Wait for page to fully load before taking screenshots
