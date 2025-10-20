@@ -225,6 +225,44 @@ If a plate never appears in any variant value configuration (quantity is always 
 Plate Quantities let you optimize production for multi-pack products. Instead of printing 10 individual plates for a 10-pack, you can print 1 plate with 8 items and 2 plates with 1 item each, dramatically reducing print time and material waste.
 :::
 
+## Printing SKUs with Variants
+
+When you click the **Print** button on a SKU, Printago automatically determines which view to show based on whether variants are configured:
+
+### Options View (Default for SKUs with Variants)
+
+If your SKU has variants configured, Printago shows the **Options View** - a simplified interface that lets you select from your pre-configured variant options:
+
+![Print dialog showing Options View](./images/print-options-view.png)
+
+In Options View, you:
+- Select variant values from dropdowns (e.g., "Color Theme", "Font")
+- Enter personalization text if configured
+- Choose printer and priority settings
+- Set quantity
+
+Printago automatically maps your selections to the correct materials, parameters, and plate quantities based on your variant configuration.
+
+### Full View (Manual Control)
+
+Click **Full View →** to switch to complete manual control over all aspects of the print:
+
+![Print dialog showing Full View](./images/print-full-view.png)
+
+In Full View, you can:
+- Manually edit all OpenSCAD parameters
+- Override material selections for each material slot
+- Adjust plate quantities individually
+- Make one-off customizations without changing variant configuration
+
+:::tip Toggling Between Views
+You can freely switch between Options View and Full View during print setup. Options View is faster for standard orders, while Full View gives you complete control when you need it.
+:::
+
+:::note No Variants = Full View Only
+If a SKU has no variants configured, clicking Print goes directly to Full View, since there are no pre-configured options to select from.
+:::
+
 ## Real-World Examples
 
 ### Example 1: Simple Color Variation
@@ -546,44 +584,6 @@ Need hands-on help? We offer **free 1:1 video calls** with Printago founders to 
 
 :::tip Success Stories
 Many of our most successful users started with a 1:1 setup call. Don't hesitate to reach out - we love helping businesses automate their workflows!
-:::
-
-## Printing SKUs with Variants
-
-When you click the **Print** button on a SKU, Printago automatically determines which view to show based on whether variants are configured:
-
-### Options View (Default for SKUs with Variants)
-
-If your SKU has variants configured, Printago shows the **Options View** - a simplified interface that lets you select from your pre-configured variant options:
-
-![Print dialog showing Options View](./images/print-options-view.png)
-
-In Options View, you:
-- Select variant values from dropdowns (e.g., "Color Theme", "Font")
-- Enter personalization text if configured
-- Choose printer and priority settings
-- Set quantity
-
-Printago automatically maps your selections to the correct materials, parameters, and plate quantities based on your variant configuration.
-
-### Full View (Manual Control)
-
-Click **Full View →** to switch to complete manual control over all aspects of the print:
-
-![Print dialog showing Full View](./images/print-full-view.png)
-
-In Full View, you can:
-- Manually edit all OpenSCAD parameters
-- Override material selections for each material slot
-- Adjust plate quantities individually
-- Make one-off customizations without changing variant configuration
-
-:::tip Toggling Between Views
-You can freely switch between Options View and Full View during print setup. Options View is faster for standard orders, while Full View gives you complete control when you need it.
-:::
-
-:::note No Variants = Full View Only
-If a SKU has no variants configured, clicking Print goes directly to Full View, since there are no pre-configured options to select from.
 :::
 
 ## Related Topics
