@@ -3,7 +3,7 @@ sidebar_position: 2
 title: "SKU Variants"
 ---
 
-# SKU Variants 💎
+# SKU Variants
 
 SKU Variants are one of Printago's most powerful features, enabling complex product variations and customization without SKU proliferation in your e-commerce stores. With Variants, a single product listing can handle dozens of color combinations, sizes, and personalizations automatically.
 
