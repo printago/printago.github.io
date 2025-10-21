@@ -120,24 +120,6 @@ Use descriptive property names that indicate their purpose. "PLA Colors" is clea
 
 ![Edit SKU Variant page showing variant values and properties](./images/edit-sku-variant-with-properties.png)
 
-#### Advanced: Enable SKU Suffixes
-
-When enabled, SKU Suffixes allow Printago to generate unique SKU identifiers for each variant combination, which some e-commerce platforms require for inventory tracking.
-
-**Example**:
-- Base SKU: `PHONE-CASE-001`
-- With suffixes enabled:
-  - Red variant becomes: `PHONE-CASE-001-RED`
-  - Blue variant becomes: `PHONE-CASE-001-BLUE`
-
-To enable SKU Suffixes:
-1. Edit your Variant
-2. Check "Enable SKU Suffixes"
-3. Printago will automatically append variant values to your base SKU
-
-:::info When to Use SKU Suffixes
-Enable this when your e-commerce platform requires unique SKU codes per variant. Shopify and some others work fine without suffixes, while platforms like Amazon may require them for inventory tracking.
-:::
 
 ### Step 4: Assign Variants to SKUs
 
@@ -456,6 +438,105 @@ When you add a new color or size to your e-commerce listing:
 :::tip Proactive Management
 When adding new options to your store, add them to Printago first to avoid order processing delays.
 :::
+
+## SKU Suffixes
+
+SKU Suffixes enable automatic parsing and resolution of variant SKUs based on suffix patterns. This allows a SKU like `TSHIRT-RD-M` to automatically match the base SKU `TSHIRT` with Color=Red and Size=Medium variants.
+
+### When to Use
+
+Enable SKU Suffixes when your e-commerce platform or workflow requires unique SKU codes for each variant combination:
+
+- **Amazon** - Requires unique SKUs per variant for inventory tracking
+- **Multi-channel selling** - Some platforms need distinct SKU codes for each variation
+- **Inventory systems** - External systems that track variants by full SKU strings
+
+:::info Shopify and Etsy
+Most Shopify and Etsy sellers don't need SKU Suffixes - these platforms handle variant matching through their option systems.
+:::
+
+### How It Works
+
+#### Basic Concept
+
+When you enable SKU Suffixes on a variant:
+
+1. **Base SKU**: Your product's base SKU string (e.g., `TSHIRT`)
+2. **Suffix Values**: Each variant value gets one or more suffix strings (e.g., `-RD`, `-RED`)
+3. **Variant Order**: Variants are parsed in the order they're bound to the SKU
+4. **Full SKU**: Combines base + suffixes (e.g., `TSHIRT-RD-M` = Red, Medium)
+
+![SKU Variant with suffixes configured](./images/sku-variant-with-suffixes-configured.png)
+
+#### Parsing Rules
+
+**Order Enforcement**: Variants must appear in the exact order they're bound to the SKU:
+- ✅ `TSHIRT-RD-M` (Color first, then Size) - Valid
+- ❌ `TSHIRT-M-RD` (Size first, then Color) - Invalid
+
+**Greedy Matching**: For each variant position, Printago tries to match the longest possible suffix first.
+
+**Personalization Exclusion**: Personalization variants are excluded from suffix matching - their values come from customer input fields.
+
+#### Example Configuration
+
+```
+Base SKU: TSHIRT
+
+Variant 1 (first position): Color
+  - Red: "-RD", "-RED"
+  - Blue: "-BL", "-BLUE"
+  - Black: "-BK", "-BLACK"
+
+Variant 2 (second position): Size
+  - Small: "-S", "-SMALL"
+  - Medium: "-M", "-MEDIUM"
+  - Large: "-L", "-LARGE"
+
+Valid SKUs:
+  - TSHIRT-RD-M → Red, Medium
+  - TSHIRT-RED-SMALL → Red, Small
+  - TSHIRT-BL-L → Blue, Large
+```
+
+### Configuring SKU Suffixes
+
+1. Navigate to `Products → SKU Variant Setup`
+2. Click on your variant to edit it
+3. Check **Enable SKU Suffixes**
+4. For each variant value, enter one or more suffix strings in the SKU Suffix column
+5. Suffixes can be entered as tags - press Enter or comma to add multiple options
+
+**Multiple Suffixes**: You can provide multiple suffix options for each value (like `-RD` and `-RED`). Printago will match whichever suffix appears in the incoming SKU.
+
+### Testing Your Configuration
+
+Use the **Check SKU Suffix** button on the SKU edit page to test suffix matching:
+
+1. Open your SKU for editing
+2. Click **Check SKU Suffix**
+3. Enter a suffix combination (e.g., `-RW-BARB`)
+4. Click **Check**
+
+**Success** - Shows the parsed base SKU and matched variant values:
+
+![SKU suffix check success](./images/sku-suffix-check-success.png)
+
+**Error** - Shows which SKU string failed to match:
+
+![SKU suffix check error](./images/sku-suffix-check-error.png)
+
+### Validation
+
+Printago rejects SKU suffix matches when:
+
+- Base SKU doesn't match any configured SKU
+- Not all required variants are matched
+- Extra unparseable characters remain after parsing
+- Suffixes appear in wrong order
+- An invalid/unknown suffix is provided
+
+When a match fails, orders are flagged for manual review with details about what couldn't be matched.
 
 ## ColorSCAD Integration
 
