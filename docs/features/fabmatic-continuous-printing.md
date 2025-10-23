@@ -252,4 +252,3 @@ Join our [Discord community](https://discord.gg/RCFA2u99De) for FabMatic support
 - Share and get clearing scripts
 - Troubleshoot specific issues
 - Learn from other print farmers
-- Stay updated on February 2025 temperature-based release feature 
