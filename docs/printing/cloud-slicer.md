@@ -102,6 +102,21 @@ If a job fails during slicing, it moves to the "Errored" tab in the Print Queue.
 - Incompatible material/printer combination
 - Missing or corrupted slicer profiles
 
+#### Accessing Slicer Logs
+
+To troubleshoot slicing failures, you can view detailed slicer logs:
+
+1. Navigate to the job in the Print Queue (usually in the "Errored" tab)
+2. Click on the job to open the job details
+3. Click the **"View Slicer Logs"** button (shown as a log icon or button)
+4. Review the logs for specific error messages
+
+The slicer logs contain detailed information about what went wrong during the slicing process, including error messages from the slicer engine itself.
+
+:::tip Getting Help
+If you can't resolve a slicing issue from the logs, share the logs in our [Discord community](https://discord.gg/RCFA2u99De) for assistance from the team and community members.
+:::
+
 ### Profile Issues
 Ensure your slicer profiles are current by running the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow to refresh synchronized profiles.
 

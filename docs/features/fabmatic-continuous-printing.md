@@ -79,11 +79,86 @@ Use clear names like "A1 Mini - FabMatic" to easily identify clearing profiles d
 You must accept the safety disclaimer each time you enable FabMatic. Continuous printing requires proper supervision and safety precautions.
 :::
 
+## G-code Examples & Strategies
+
+### Basic End G-code Templates for Bambu
+
+Example G-code templates are available in the Printago Discord pinned under #community-support.
+
+### Time-Based Cooling
+
+Adds commands to pause the printer while the bed cools.
+
+**In END G-code**:
+- Uses `M190` commands to wait for specific bed temperatures
+- May wait longer than necessary on cool days
+- May not wait long enough on hot days or with high ambient temps
+
+### Semi-Automatic: PAUSE Command Method
+
+For operations where full automation isn't ready or suitable:
+
+**Add to START G-code**:
+```gcode
+M400 ; wait for motion to complete
+M1 ; pause and wait for user
+```
+
+**Workflow**:
+1. First print: Printer pauses before/after heating bed
+2. Manual: Press resume button on printer to start
+3. After print: Manually clear bed
+4. Press resume: Next job automatically starts
+5. Repeat from step 3
+
+**Benefits**:
+- No complex clearing G-code needed
+- Good for PETG or difficult-to-eject parts
+- "Auto-ejection via person" approach
+- Still reduces manual job assignment
+
+## Material Considerations
+
+### PLA (Recommended for Auto-Ejection)
+- **Best material for FabMatic** with auto-ejection
+- Releases well from bed when cooled to 28-30°C
+- Works with most geometries
+- Fast cooling times
+
+### PETG (Challenging)
+- **Not recommended for auto-ejection**
+- Very high bed adhesion - doesn't release easily
+- May damage parts or printer when attempting ejection
+- Better suited for:
+  - Plate changer systems (Jobox)
+  - Manual clearing with PAUSE method
+  - Tall/skinny parts with good leverage (test carefully)
+
+### Part Geometry Impact
+
+**Good for Auto-Ejection**:
+- Tall, skinny parts (good leverage)
+- Parts with smooth bottoms
+- Parts that naturally want to release from bed
+
+**Difficult for Auto-Ejection**:
+- Short, wide parts (little leverage)
+- Parts with high surface area on bed
+- Parts with textured bottom surfaces
+- Parts with brims or skirts still attached
+
+### Humidity & Environmental Factors
+
+- High humidity (>60%) can affect print quality and cooling
+- Room dehumidifiers recommended for print farms
+- Target 40-50% humidity for best results
+- Humid environments may require longer cooling times
+
 ## Managing FabMatic
 
 ### Automatic Disable
 FabMatic automatically disables when:
-- **HMS errors or warnings** occur (including filament runout)
+- **HMS errors or warnings** occur (including filament runout, dirty camera, etc.)
 - **External printer use** is detected (via slicer, Handy app, etc.)
 - **Communication loss** prevents Printago from monitoring printer state
 
@@ -95,18 +170,86 @@ FabMatic automatically disables when:
 **To re-enable after auto-disable**:
 1. Resolve the underlying issue
 2. Follow the enable process again
+3. Accept the safety disclaimer
+
+:::caution Safety Circuit Breaker
+FabMatic acts like a circuit breaker - any interruption (printer panel use, Handy app, HMS error, communication loss) will trip it off. This is a safety feature to prevent unattended operation during problems.
+:::
 
 ### Updating Clearing Scripts
 1. **Modify G-code** in your slicer
-2. **Sync profiles** via Bambu Integration
-3. **Update printer configuration** if needed
+2. **Close Bambu Studio/Orca Slicer completely** (important for reliable sync)
+3. **Sync profiles** via Bambu Integration
+4. **Update printer configuration** if needed
 
+:::tip Profile Sync Quirks
+Bambu Studio has quirks with updating profiles. Always close the slicer after making changes before syncing to Printago for most reliable results.
+:::
 ## Troubleshooting
 
-### Common Issues
-- **Parts not releasing**: Adjust bed cooling temperature/time in your script
-- **FabMatic keeps disabling**: Check for HMS warnings or external printer usage
-- **Profile not syncing**: Ensure "Auto sync user presets" is enabled in slicer
+### FabMatic Keeps Disabling
+**Symptoms**: FabMatic automatically turns off after running for a while
+
+**Common Causes**:
+- **HMS errors**: Check printer display for any warnings (even minor ones like dirty camera)
+- **Network issues**: Unstable Wi-Fi causing communication loss with Printago
+
+**Solutions**:
+- Clear all HMS errors before re-enabling
+- Improve network stability (wired connection if possible)
+- Keep adequate filament loaded
+
+### Profile Not Syncing
+**Symptoms**: New profiles don't appear in Printago, changes not reflected
+
+**Solutions**:
+1. **Enable auto-sync**: Preferences → Presets → "Auto sync user presets"
+2. **Close slicer completely**: Bambu Studio has quirks - always close after editing
+3. **Wait a moment**: Give Bambu's cloud sync 30 seconds to complete
+4. **Re-run integration**: Settings → Integrations → Bambu Lab → Configure
+5. **Check profile name**: Ensure you saved with a new name (not overwritten system profile)
+
+## Community Resources
+
+### 3D Printable Mods
+**Button Mounts for External Fans**:
+- [Factorian Designs - A1 Mini button holder (STEP files)](https://than.gs/m/1292928)
+- Includes fan holder and button mount
+- STEP files easy to modify for A1 full-size
+
+**Farmloop Tilt Blocks**:
+- Mechanical solution for assisted part ejection
+- Can be combined with custom G-code
+- Works with A1 Mini and other printer models
+
+### Video Tutorials
+**Factorian Designs**:
+- "Automate your Bambu Lab A1 & A1 Mini! Free & Easy" (sponsored by Printago!)
+- "Automate your Bambu Lab P1 & X1! Free & Easy"
+- Shows complete setup process (ignore gcode stitching parts - Printago handles this)
+
+### Semi-Automatic "Person Ejection" Mode
+Use the PAUSE command method (see G-code Examples) for:
+- Learning FabMatic before fully automating
+- Materials that don't auto-eject well
+- Parts with unpredictable adhesion
+- Situations requiring quality inspection between prints
+
+Still much faster than manually assigning jobs!
+### When to Use What System
+
+| Scenario | Best Solution | Why |
+|----------|---------------|-----|
+| PLA, standard parts | Auto-ejection G-code | Fast, reliable, low cost |
+| PETG, any parts | Jobox plate changer | PETG adhesion too strong |
+| Short, wide parts | Plate changer or manual | Poor leverage for ejection |
+| Tall, skinny parts | Auto-ejection | Easy to knock off |
+| High-mix production | Manual with PAUSE | Quality inspection needed |
+| High-volume single item | Full auto-ejection | Maximum efficiency |
 
 ### Getting Help
-Join our [Discord community](https://discord.gg/RCFA2u99De) for FabMatic support and to share clearing scripts with other users! 
+Join our [Discord community](https://discord.gg/RCFA2u99De) for FabMatic support:
+- Share and get clearing scripts
+- Troubleshoot specific issues
+- Learn from other print farmers
+- Stay updated on February 2025 temperature-based release feature 

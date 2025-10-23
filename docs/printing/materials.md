@@ -25,6 +25,28 @@ Materials in Printago consist of two levels:
 Think of it as: **Bambu PLA Basic** (base material) → **Bambu PLA Basic Red** (variant)
 :::
 
+#### Dual-Color Filaments
+
+Some filaments have two distinct colors (like Bambu Lab's Dual Silk series). These are identified by two hex color codes separated by a semicolon:
+
+```
+#FF9425FF;#C16784FF
+```
+
+**Auto-Detection**: When Printago reads RFID tags from your AMS, it uses these hex codes to match against your material library. If the hex codes don't match exactly (or there it san error in our filament database) it may create a new variant instead of matching an existing one.
+
+**Fixing Mismatched Colors**:
+1. If a new unexpected variant is created (e.g., "Dark Orange"), note its hex code
+2. Find your intended variant in the materials list
+3. Modify the name from the actual Bambu filament name to enable editing the hex code
+4. Update the hex code to match what's in your AMS
+5. Delete the incorrectly created variant
+6. Remove and re-add the filament to your AMS to test auto-detection
+
+:::tip Auto-Complete Search
+Gradient filaments support any number of colors.  Separate the hex codes by a semicolon to input gradient colors, e.g. `000000FF;FFFFFFFF;FF0000FF` (black to white to red).
+:::
+
 ## Material Assignment
 
 Materials are assigned to printers and their AMS units to enable job matching and automatic printer selection.
@@ -149,6 +171,27 @@ Parts can specify materials at different levels of specificity:
 - Part requires: "Bambu PLA Basic" (specific brand/material)
 - Printer assigned: "Any PLA" (generic type)
 - Result: ❌ No match - part requirement is more specific than printer capability
+
+### Multi-Color 3MF Matching
+
+When working with multi-color 3MF files, understanding how material matching works across multiple slots is crucial:
+
+**Important Behavior**: When you assign "Any Color [Material]" to multiple slots in a 3MF file, Printago will use the first matching material it finds for ALL those slots. This may result in multiple slots pulling from the same physical spool.
+
+**Example: Sparkle Dragon (2 colors)**
+- 3MF Slot 1 configured as: "Any Color PLA Sparkle"
+- 3MF Slot 3 configured as: "Any Color PLA Sparkle"
+- AMS has: Red Sparkle in slot 1, Gold Sparkle in slot 3
+- Result: Both 3MF slots will use Red Sparkle (the first match found) ❌
+
+**Solution**: Assign specific color variants for multi-color prints:
+- 3MF Slot 1: "PLA Sparkle Red" (specific variant)
+- 3MF Slot 3: "PLA Sparkle Gold" (specific variant)
+- Result: Each slot uses its intended color ✅
+
+:::tip Multi-Color Workflow
+For parts with multiple colors, always assign specific material variants rather than using "Any Color" matching. This ensures each color in your 3MF file uses the intended filament.
+:::
 
 ## Material Tips
 
