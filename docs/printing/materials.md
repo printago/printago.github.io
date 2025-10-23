@@ -43,7 +43,7 @@ Some filaments have two distinct colors (like Bambu Lab's Dual Silk series). The
 5. Delete the incorrectly created variant
 6. Remove and re-add the filament to your AMS to test auto-detection
 
-:::tip Auto-Complete Search
+:::tip Gradient Hex Codes
 Gradient filaments support any number of colors.  Separate the hex codes by a semicolon to input gradient colors, e.g. `000000FF;FFFFFFFF;FF0000FF` (black to white to red).
 :::
 
