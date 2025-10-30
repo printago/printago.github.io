@@ -6,7 +6,7 @@ sidebar_position: 1
 
 The Hot Drop Zone provides a fast and convenient way to upload multiple 3D printing files at once. Simply drag and drop any number of parts, and they'll be automatically uploaded and organized for you.
 
-![Hot Drop Zone](/static/hot-drop.png)
+![Hot Drop Zone](/images/hot-drop.png)
 
 ## How Hot Drop Works
 

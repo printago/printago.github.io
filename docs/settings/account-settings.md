@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Manage your account settings and preferences from the Settings page in Printago.
 
-![Account Settings](/static/account-settings.png)
+![Account Settings](/images/account-settings.png)
 
 ## Multi-factor Authentication (MFA)
 

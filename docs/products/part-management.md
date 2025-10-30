@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Parts are the foundation of your 3D printing workflow in Printago. A part represents any 3D model that you want to print, and can be used across multiple SKUs.
 
-![Parts List](/static/parts-list.png)
+![Parts List](/images/parts-list.png)
 
 ## Supported Part Types
 

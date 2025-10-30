@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Your slicer profiles page displays a comprehensive list of all your user profiles synced from your Bambu Lab account.
 
-![Slicer Profiles](/static/slicer-profiles.png)
+![Slicer Profiles](/images/slicer-profiles.png)
 
 ## Profile Synchronization
 

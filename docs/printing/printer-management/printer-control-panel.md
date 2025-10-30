@@ -22,7 +22,7 @@ The printer control panel provides direct access to your printer's hardware cont
 - **Light Control** - Toggle printer LED lighting
 - **Fan Control** - Adjust part cooling, auxiliary, and chamber fans
 
-![Printer Control Panel](/static/printer-control-panel.png)
+![Printer Control Panel](/images/printer-control-panel.png)
 
 
 ### Calibration Tools

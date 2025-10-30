@@ -48,7 +48,7 @@ For real-time printer updates, you can use MQTT over WebSockets:
 **Swagger Documentation**
 The most current API specification is always available via the "Download Swagger JSON" button in the portal, or you can download it directly here:
 
-- **[Download OpenAPI/Swagger Specification](/static/printago-api-swagger.json)** - Full API specification in OpenAPI 3.1 format
+- **[Download OpenAPI/Swagger Specification](/printago-api-swagger.json)** - Full API specification in OpenAPI 3.1 format
 
 You can import this specification into tools like:
 - [Swagger Editor](https://editor.swagger.io/) - Paste the contents to view interactive documentation

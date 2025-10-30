@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Manage your Printago subscription and billing.
 
-![Subscription Management](/static/subscription-management.png)
+![Subscription Management](/images/subscription-management.png)
 
 ## Account Types
 

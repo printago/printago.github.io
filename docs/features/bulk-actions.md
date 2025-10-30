@@ -10,7 +10,7 @@ Bulk Actions provide powerful controls for managing multiple items simultaneousl
 
 The Bulk Actions control appears in the top-left corner (top on mobile) of screens that support multi-selection:
 
-![Bulk Actions Menu](/static/bulk-actions-printers.png)
+![Bulk Actions Menu](/images/bulk-actions-printers.png)
 
 1. Initially shows as a disabled `Actions` dropdown button.
 2. When you select items, the button enables and updates its text.

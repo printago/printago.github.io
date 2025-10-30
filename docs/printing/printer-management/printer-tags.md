@@ -6,6 +6,8 @@ sidebar_position: 2
 
 Printer tags are a powerful way to create dynamic groups of printers in your farm. They enable flexible printer management and smart job routing without complex configuration.
 
+![Printer Tags Interface](/images/printer-tags.png)
+
 ## Understanding Printer Tags
 
 Tags are user-defined labels that can be assigned to any printer in your farm. Key features include:
