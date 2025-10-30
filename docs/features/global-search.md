@@ -8,7 +8,7 @@ Instantly find and navigate to any content in your Printago workspace with keybo
 
 <!-- Screenshot: Global search modal open with no search query, showing all categories (Pages, Parts, SKUs, Printers, Materials) with the first item (Print Queue) selected with blue accent border -->
 <div className="margin-left--lg">
-    <img src="/img/features/global_search_overview.png" width="700" alt="Global search interface showing all categories" />
+    <img src="./images/global_search_overview.png" width="700" alt="Global search interface showing all categories" />
 </div>
 
 ## Opening Global Search
@@ -38,7 +38,7 @@ Results appear instantly as you type, grouped by category.
 
 <!-- Screenshot: Search modal with query typed (e.g., "bench"), showing filtered results in the Parts category with thumbnails visible -->
 <div className="margin-left--lg">
-    <img src="/img/features/global_search_filtering.png" width="700" alt="Global search filtering parts by search term" />
+    <img src="./images/global_search_filtering.png" width="700" alt="Global search filtering parts by search term" />
 </div>
 
 ### Search Tips
