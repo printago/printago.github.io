@@ -6,6 +6,8 @@ sidebar_position: 3
 
 Printago's material system enables intelligent job matching and automated printer selection across your entire printer fleet. Materials are central to how Printago routes jobs to the right printers with the right settings.
 
+![Materials Library](/static/materials.png)
+
 ## How Materials Work
 
 Materials in Printago consist of two levels:

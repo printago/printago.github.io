@@ -6,6 +6,8 @@ sidebar_position: 3
 
 Manage your Printago subscription and billing.
 
+![Subscription Management](/static/subscription-management.png)
+
 ## Account Types
 
 Printago has two types of accounts:

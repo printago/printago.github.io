@@ -10,6 +10,8 @@ The Print Queue is where Printago's intelligent job management system, Gutenb3d,
 
 The Print Queue is organized into five tabs that represent different stages of your print jobs:
 
+![Print Queue Interface](/static/print-queue-in-progress.png)
+
 | Tab   | Description | Available Actions |
 |-------|-------------|-------------------|
 | **Queued** | Waiting for printer assignment | Cancel, Move to Top, Drag/Drop reorder |

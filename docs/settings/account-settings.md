@@ -6,6 +6,8 @@ sidebar_position: 1
 
 Manage your account settings and preferences from the Settings page in Printago.
 
+![Account Settings](/static/account-settings.png)
+
 ## Multi-factor Authentication (MFA)
 
 **Highly recommended!** Protect your account with a time-based one time password (TOTP) using an authenticator app.

@@ -4,11 +4,13 @@ sidebar_position: 2
 
 # Bulk Actions
 
-Bulk Actions provide powerful controls for managing multiple items simultaneously across Printago. Manage multiple printers, print jobs, parts, or SKUs simultaneously. 
+Bulk Actions provide powerful controls for managing multiple items simultaneously across Printago. Manage multiple printers, print jobs, parts, or SKUs simultaneously.
 
 ## Understanding the Interface
 
 The Bulk Actions control appears in the top-left corner (top on mobile) of screens that support multi-selection:
+
+![Bulk Actions Menu](/static/bulk-actions-printers.png)
 
 1. Initially shows as a disabled `Actions` dropdown button.
 2. When you select items, the button enables and updates its text.
