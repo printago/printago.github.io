@@ -6,10 +6,7 @@ sidebar_position: 3
 
 Instantly find and navigate to any content in your Printago workspace with keyboard-driven global search. Access parts, SKUs, printers, materials, and pages in seconds—without leaving your keyboard.
 
-<!-- Screenshot: Global search modal open with no search query, showing all categories (Pages, Parts, SKUs, Printers, Materials) with the first item (Print Queue) selected with blue accent border -->
-<div className="margin-left--lg">
-    <img src="./images/global_search_overview.png" width="700" alt="Global search interface showing all categories" />
-</div>
+![Global search interface showing all categories](./images/global_search_overview.png)
 
 ## Opening Global Search
 
@@ -36,10 +33,7 @@ Start typing to filter results across all your content:
 
 Results appear instantly as you type, grouped by category.
 
-<!-- Screenshot: Search modal with query typed (e.g., "bench"), showing filtered results in the Parts category with thumbnails visible -->
-<div className="margin-left--lg">
-    <img src="./images/global_search_filtering.png" width="700" alt="Global search filtering parts by search term" />
-</div>
+![Global search filtering parts by search term](./images/global_search_filtering.png)
 
 ### Search Tips
 
