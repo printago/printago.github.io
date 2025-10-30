@@ -46,7 +46,15 @@ For real-time printer updates, you can use MQTT over WebSockets:
 - **Client ID**: Must start with `apiclient_` (e.g., `apiclient_YOUR_STORE_ID_UNIQUE_SUFFIX`)
 
 **Swagger Documentation**
-The most current API specification is always available via the "Download Swagger JSON" button in the portal.
+The most current API specification is always available via the "Download Swagger JSON" button in the portal, or you can download it directly here:
+
+- **[Download OpenAPI/Swagger Specification](/static/printago-api-swagger.json)** - Full API specification in OpenAPI 3.1 format
+
+You can import this specification into tools like:
+- [Swagger Editor](https://editor.swagger.io/) - Paste the contents to view interactive documentation
+- [Postman](https://www.postman.com/) - Import the JSON file to create a collection
+- [Insomnia](https://insomnia.rest/) - Import for API testing
+- Any OpenAPI-compatible tool
 
 ## Authentication
 
