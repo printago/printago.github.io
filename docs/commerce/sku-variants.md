@@ -73,26 +73,21 @@ Control how many of each plate to print based on the variant selection. Useful f
 A single Variant can have multiple Properties. For example, your "Color" variant might have both "PLA Colors" and "PETG Colors" properties, allowing the same variant to work across different material-based SKUs.
 :::
 
-### Personalization
-**Personalization** is a special variant type used for customer freeform text input (like custom engravings). The Personalization variant:
-- Is created by clicking "Enable Personalization" on the SKU Variants page
-- Has no Variant Values (customers enter free text instead)
-- Automatically includes a "Value" property that captures the customer's text input
-- Can be mapped to OpenSCAD parameters to use the custom text in your designs
-- Is used for Etsy's Personalization field and custom text inputs
-
-You can only have one Personalization variant per store. Once enabled, the "Enable Personalization" button will no longer appear.
+### Personalization Variants
+**Personalization Variants** are a special type used for customer freeform text input (like custom engravings). Unlike regular Variants:
+- They have no Variant Values (customers enter free text instead)
+- They automatically have a "Value" property that captures the customer's text input
+- They can be mapped to OpenSCAD parameters to use the custom text in your designs
+- Currently used for Etsy's Personalization field and custom text inputs
 
 ## How It Works: The Complete Flow
 
 ### Step 1: Create a Variant
 
 1. Navigate to `Products → SKU Variant Setup`
-2. Click `New Variant` for standard options like colors, sizes, etc.
+2. Click `New Variant` (for standard options like colors, sizes, etc.) or `New Personalization` (for customer text input)
 3. Enter the variant name exactly as it appears in your e-commerce platform
-4. Click `Create Variant`
-
-**For Personalization**: Click `Enable Personalization` to automatically create a "Personalization" variant with a "Value" property for customer text input. This button will only appear if personalization hasn't been enabled yet.
+4. Click `Create Variant` or `Create Personalization`
 
 ![Create New Variant dialog](./images/create-new-variant-dialog.png)
 
@@ -354,7 +349,7 @@ cube([width, depth, height]);
    - "Small" → scad_size: "2"
    - "Medium" → scad_size: "3"
    - "Large" → scad_size: "4"
-2. Enable Personalization by clicking "Enable Personalization" (creates a "Personalization" variant automatically)
+2. Create Personalization Variant: "Personalization"
 3. In OpenSCAD part:
 ```openscad
 size_multiplier = scad_size; // Gets "2", "3", or "4"
@@ -404,7 +399,7 @@ For automatic order processing, variant and value names must exactly match your 
 
 **Etsy Example**:
 - Etsy's dropdown values must match your Printago Variant Values
-- Etsy's Personalization field maps to the "Personalization" variant automatically (you must enable Personalization first)
+- Etsy's Personalization field maps to Personalization Variants automatically
 
 ### Order Processing Flow
 ```mermaid
@@ -481,7 +476,7 @@ When you enable SKU Suffixes on a variant:
 
 **Greedy Matching**: For each variant position, Printago tries to match the longest possible suffix first.
 
-**Personalization Exclusion**: The Personalization variant is excluded from suffix matching - customer text input comes from personalization fields, not SKU suffixes.
+**Personalization Exclusion**: Personalization variants are excluded from suffix matching - their values come from customer input fields.
 
 #### Example Configuration
 

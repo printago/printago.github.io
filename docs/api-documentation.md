@@ -45,8 +45,6 @@ For real-time printer updates, you can use MQTT over WebSockets:
 - **Password**: Your API key
 - **Client ID**: Must start with `apiclient_` (e.g., `apiclient_YOUR_STORE_ID_UNIQUE_SUFFIX`)
 
-**[View Python MQTT Example →](./examples/mqtt_realtime.py)** - Complete working example showing how to connect and monitor realtime entity changes
-
 **Swagger Documentation**
 The most current API specification is always available via the "Download Swagger JSON" button in the portal, or you can download it directly here:
 
