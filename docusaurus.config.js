@@ -23,6 +23,20 @@ const config = {
   },
   themes: ['@docusaurus/theme-mermaid'],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/fuse',
+            to: '/docs/printer-setup/printago-fuse',
+          },
+        ],
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
