@@ -115,14 +115,6 @@ For printers that aren't discovered automatically, or when you prefer manual con
 
 ![Manual Printer Configuration](../images/fuse-add-printer-manual.png)
 
-**Example printer configurations:**
-
-| Printer Name | IP Address | Model | Access Code | Serial Number |
-|--------------|------------|--------|-------------|---------------|
-| Anthracite | 192.168.0.30 | X1 Carbon | 12345678 | 00M00A262800043 |
-| Bituminous | 192.168.0.115 | P1S | 87654321 | 01P09C490600431 |
-| Slate | 192.168.0.11 | P1S | 11223344 | 01P09C481301413 |
-
 ## Managing Printers
 
 ### Configured Printers List
