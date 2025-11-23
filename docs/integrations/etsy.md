@@ -7,7 +7,7 @@ title: Etsy
 
 Connect your Etsy shop to Printago for automated order processing, SKU management, and seamless print-on-demand fulfillment.
 
-![Etsy Addon Info](/images/etsy-addon-info-page.png)
+![Etsy Addon Info](./images/etsy-addon-info-page.png)
 
 ## Overview
 
@@ -27,7 +27,7 @@ Navigate to **Addons** → **Etsy** and click "Activate Free During Beta" (or "G
 
 Click the connect button to authenticate with Etsy using secure OAuth 2.0. You'll be redirected to Etsy to authorize Printago to access your shop.
 
-![Etsy Sync Dashboard](/images/etsy-addon-sync-tab.png)
+![Etsy Sync Dashboard](./images/etsy-addon-sync-tab.png)
 
 ### 3. Verify Connection
 
@@ -44,7 +44,7 @@ Orders from your Etsy shop automatically sync to Printago every 5 minutes.
 
 **Synced orders appear in your Orders page** with the Etsy logo in the Source column:
 
-![Orders Page with Etsy Source](/images/orders-page-with-etsy-source.png)
+![Orders Page with Etsy Source](./images/orders-page-with-etsy-source.png)
 
 #### Manual Sync
 
@@ -61,7 +61,7 @@ Click **"Fetch Orders Now"** to manually trigger an order sync at any time. This
 
 The **Etsy → Printago** tab shows all your Etsy listings and helps you map Etsy product variations to Printago SKUs.
 
-![Etsy to Printago Tab](/images/etsy-addon-etsy-to-printago-tab.png)
+![Etsy to Printago Tab](./images/etsy-addon-etsy-to-printago-tab.png)
 
 **Key Information:**
 - Total unique SKUs across all listings
@@ -81,7 +81,7 @@ The **Etsy → Printago** tab shows all your Etsy listings and helps you map Ets
 
 The **Printago → Etsy** tab shows Printago SKUs that don't exist in your Etsy shop yet.
 
-![Printago to Etsy Tab](/images/etsy-addon-printago-to-etsy-tab.png)
+![Printago to Etsy Tab](./images/etsy-addon-printago-to-etsy-tab.png)
 
 **Features:**
 - View all SKUs that exist in Printago but not in Etsy
@@ -93,7 +93,7 @@ The **Printago → Etsy** tab shows Printago SKUs that don't exist in your Etsy 
 
 The **Etsy → Shopify CSV** tab helps you migrate your Etsy products to Shopify.
 
-![Etsy to Shopify CSV Tab](/images/etsy-addon-shopify-csv-tab.png)
+![Etsy to Shopify CSV Tab](./images/etsy-addon-shopify-csv-tab.png)
 
 **How it works:**
 1. Select an Etsy section (or "All Sections")
