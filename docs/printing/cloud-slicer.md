@@ -118,6 +118,6 @@ If you can't resolve a slicing issue from the logs, share the logs in our [Disco
 :::
 
 ### Profile Issues
-Ensure your slicer profiles are current by running the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow to refresh synchronized profiles.
+Ensure your slicer profiles are current by either running the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow to refresh cloud-synced profiles, or [importing profiles manually](./import-profiles.md) from Bambu Studio or OrcaSlicer.
 
 Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!

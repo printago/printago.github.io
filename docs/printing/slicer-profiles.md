@@ -4,21 +4,21 @@ sidebar_position: 4
 
 # Slicer Profiles
 
-Your slicer profiles page displays a comprehensive list of all your user profiles synced from your Bambu Lab account.
+Your slicer profiles page displays a comprehensive list of all your profiles, including those synced from your Bambu Lab account and any you've imported manually.
 
 ![Slicer Profiles](/images/slicer-profiles.png)
 
-## Profile Synchronization
+## Getting Profiles into Printago
 
-Currently, the only mechanism to get or refresh your slicer profiles is to run the [**Bambu Lab Integration Flow**](../printer-setup/bambu-lab-integration.md). This ensures your Printago account stays synchronized with your Bambu Lab setup.
+There are two ways to add slicer profiles to Printago:
 
-### Cloud Sync Requirement
+### Option 1: Bambu Lab Cloud Sync
 
-Profiles are synced from your Bambu Lab account, so be sure to **"Turn on Cloud Sync"** in either:
-- Bambu Studio
-- Orca Slicer
+Run the [**Bambu Lab Integration Flow**](../printer-setup/bambu-lab-integration.md) to sync profiles from your Bambu Lab account. This requires **Cloud Sync** to be enabled in Bambu Studio or OrcaSlicer.
 
-Without cloud sync enabled, your profiles won't be available for synchronization.
+### Option 2: Manual Import
+
+[**Import profiles manually**](./import-profiles.md) by exporting preset bundles from Bambu Studio or OrcaSlicer and uploading them directly to Printago. This works without cloud sync and gives you control over exactly which profiles to import.
 
 ## Managing Your Profiles
 
@@ -30,6 +30,29 @@ Profiles can be deleted directly from the Printago interface. However, note that
 - Deleting profiles from your Bambu account alone **won't** delete them from Printago
 - You must delete them from within Printago to remove them from your list
 
-## Future Enhancements
+## Editing Profiles
 
-Additional functionality for slicer profile management will be added in future updates.
+Click on any profile to open the edit view, where you can:
+
+- **Rename** the profile
+- **View all settings** including both your custom overrides ("Own") and inherited values from the base profile ("Inherited")
+- **Copy** settings to clipboard
+- **Lock** the profile to prevent accidental changes
+
+### Profile Inheritance and Slicer Versions
+
+Most profiles inherit from a base profile (e.g., `0.20mm Strength @BBL X1C`). Printago maintains multiple versions of these base profiles from different slicer releases.
+
+![Profile Version Dropdown](/images/profiles/profile-version-dropdown.png)
+
+Use the **slicer version dropdown** to:
+
+- **Compare inherited values** across different Bambu Studio and OrcaSlicer versions
+- **Select which slicer version** the inherited values should come from when cloud slicing
+
+This is useful when:
+- A newer slicer version changed default settings you relied on
+- You want to use OrcaSlicer's interpretation of a profile instead of Bambu Studio's
+- You need to troubleshoot differences in slicing behavior between versions
+
+The selected slicer version determines which base profile values are used when the [Cloud Slicer](./cloud-slicer.md) generates GCODE for your prints
