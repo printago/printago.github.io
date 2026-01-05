@@ -160,9 +160,9 @@ Not every SKU needs access to all variant values. For example, a "Premium Mug" m
 The status indicator shows how many values are currently filtered (e.g., "Including 3 values" or "Excluding 2 values").
 
 :::tip When to Use Each Mode
-- Use **Include only** when a SKU supports a small subset of values (e.g., 3 of 10 colors)
-- Use **Exclude** when a SKU supports most values except a few (e.g., all colors except 2)
-- Leave **Off** when all values should be available
+- Use **Include only** when you want to lock down the available values - new values added to the variant later will NOT automatically appear for this SKU
+- Use **Exclude** when you want new values to be automatically available - only the explicitly excluded values will be hidden
+- Leave **Off** when all values (current and future) should always be available
 :::
 
 ### Step 6: Add SKU-Specific Properties (Optional)
@@ -170,9 +170,7 @@ The status indicator shows how many values are currently filtered (e.g., "Includ
 Properties can be either **global** (defined at the variant level, shared across all SKUs) or **SKU-specific** (defined for a single SKU only).
 
 **When to use SKU-specific properties:**
-- A property value differs for this SKU only
 - The property is unique to this product and won't be reused
-- You're testing a new property before making it global
 
 **To create a SKU-specific property:**
 
@@ -189,7 +187,7 @@ SKU-specific properties appear alongside global properties in the variant sectio
 
 **Compound properties** let you define property values based on combinations of multiple variant values. This is useful when a property varies based on two or three variant dimensions together.
 
-**Example use case:** Material thickness varies by both Size AND Color - a Small Red item might use 1mm material while a Large Blue item uses 1.5mm.
+**Example use case:** You have a 3MF with multiple pre-arranged plates for different Size and Style combinations. A "Small + Minimal" order prints Plate 1, while a "Large + Deluxe" order prints Plate 3. A compound Plate Quantities property lets you select the right plate based on both variant selections.
 
 **To create a compound property:**
 
@@ -207,13 +205,6 @@ SKU-specific properties appear alongside global properties in the variant sectio
 ![Compound property matrix editor showing Size × Style combinations](./images/compound-property-matrix-editor.png)
 
 Compound properties are indicated by a number in parentheses showing how many variants they combine (e.g., "material_weight (2)").
-
-:::tip How Compound Properties Work During Printing
-When resolving property values during a print job, Printago uses **specificity matching**:
-- A compound property value matching 2 variant values takes priority over a single-variant match
-- A 3-variant match takes priority over a 2-variant match
-- This ensures the most specific configuration is always used
-:::
 
 ### Step 8: Map Properties to Parts
 
