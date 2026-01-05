@@ -47,7 +47,14 @@ Variant names in Printago must **exactly match** the option names in your e-comm
 Like Variant names, these values must exactly match how they appear in your e-commerce listings.
 
 ### Properties
-**Properties** are where the magic happens - they're the internal mappings that tell Printago what each Variant Value actually means for production. There are three types:
+**Properties** are where the magic happens - they're the internal mappings that tell Printago what each Variant Value actually means for production.
+
+Properties can be:
+- **Global**: Defined at the variant level and shared across all SKUs using that variant
+- **SKU-Specific**: Defined for a single SKU only (see [Step 6](#step-6-add-sku-specific-properties-optional))
+- **Compound**: Based on combinations of 2-3 variant values (see [Step 7](#step-7-create-compound-properties-optional))
+
+There are three property types:
 
 #### Material Properties
 Map variant values to specific materials and colors in your Printago library. Examples:
@@ -133,6 +140,82 @@ Use descriptive property names that indicate their purpose. "PLA Colors" is clea
 Once you've added variants to your SKU, they'll appear in the **SKU Variant Setup** section:
 
 ![SKU with variants assigned](./images/sku-with-variants-assigned.png)
+
+### Step 5: Filter Variant Options for This SKU (Optional)
+
+Not every SKU needs access to all variant values. For example, a "Premium Mug" might only be available in 3 of your 10 color options. Variant filtering lets you control which values are available when printing a specific SKU.
+
+1. In the SKU Variant Setup section, locate the variant you want to filter
+2. Click the **filter icon** (funnel) next to the variant
+3. Select a **filter mode**:
+   - **Off**: All variant values are available (default)
+   - **Include only**: Only checked values will be available
+   - **Exclude**: All values except checked ones will be available
+
+![Variant filter with Include mode active](./images/variant-filter-include-mode.png)
+
+4. Check or uncheck the variant values you want to include or exclude
+5. Click **Save Filter** to apply
+
+The status indicator shows how many values are currently filtered (e.g., "Including 3 values" or "Excluding 2 values").
+
+:::tip When to Use Each Mode
+- Use **Include only** when a SKU supports a small subset of values (e.g., 3 of 10 colors)
+- Use **Exclude** when a SKU supports most values except a few (e.g., all colors except 2)
+- Leave **Off** when all values should be available
+:::
+
+### Step 6: Add SKU-Specific Properties (Optional)
+
+Properties can be either **global** (defined at the variant level, shared across all SKUs) or **SKU-specific** (defined for a single SKU only).
+
+**When to use SKU-specific properties:**
+- A property value differs for this SKU only
+- The property is unique to this product and won't be reused
+- You're testing a new property before making it global
+
+**To create a SKU-specific property:**
+
+1. In the SKU edit page, find the variant binding in the SKU Variant Setup section
+2. Click the **Add** button next to the variant
+3. Enter a property name and select the property type
+4. The property is automatically scoped to this SKU only
+
+![Add SKU-Specific Property dialog](./images/add-sku-specific-property-dialog.png)
+
+SKU-specific properties appear alongside global properties in the variant section, but they're only visible and usable for this specific SKU.
+
+### Step 7: Create Compound Properties (Optional)
+
+**Compound properties** let you define property values based on combinations of multiple variant values. This is useful when a property varies based on two or three variant dimensions together.
+
+**Example use case:** Material thickness varies by both Size AND Color - a Small Red item might use 1mm material while a Large Blue item uses 1.5mm.
+
+**To create a compound property:**
+
+1. Click **Add** next to any variant in the SKU Variant Setup section
+2. In the dialog, check multiple variants in the **Source Variants** section (up to 3)
+3. Enter a property name and select the type
+4. Click **Create Property**
+
+![Creating a compound property with two source variants](./images/compound-property-create-dialog.png)
+
+5. Click on the property button (showing the property name with a number like "(2)") to open the matrix editor
+6. The matrix shows all combinations of the selected variants
+7. Click any cell to enter a value for that specific combination
+
+![Compound property matrix editor showing Size × Style combinations](./images/compound-property-matrix-editor.png)
+
+Compound properties are indicated by a number in parentheses showing how many variants they combine (e.g., "material_weight (2)").
+
+:::tip How Compound Properties Work During Printing
+When resolving property values during a print job, Printago uses **specificity matching**:
+- A compound property value matching 2 variant values takes priority over a single-variant match
+- A 3-variant match takes priority over a 2-variant match
+- This ensures the most specific configuration is always used
+:::
+
+### Step 8: Map Properties to Parts
 
 Now you need to map the variant properties to your parts:
 
@@ -387,6 +470,64 @@ custom_number = Value;       // Gets customer's text input
 Plate Quantities can also handle auxiliary parts with different properties, or selectively print specific plates based on customer selections for size-variant products.
 :::
 
+### Example 8: Variant Filtering for Product Line Subset
+
+**Scenario**: Your "Premium Mug" SKU is only available in 3 premium colors (Gold, Silver, Rose Gold) from your 10-color palette
+
+**Setup**:
+1. Use your existing "Color" Variant with all 10 color values
+2. Assign the "Color" variant to your Premium Mug SKU
+3. Click the filter icon next to the Color variant
+4. Select **Include only** mode
+5. Check only: Gold, Silver, Rose Gold
+6. Click **Save Filter**
+
+**Result**:
+- When printing the Premium Mug SKU, only the 3 premium colors appear as options
+- Your other mugs still have access to all 10 colors
+- No need to create separate variants for premium vs standard product lines
+
+### Example 9: SKU-Specific Dimensions Property
+
+**Scenario**: Your "Custom Trophy" SKU has unique base dimensions that differ from other products using the same "Size" variant
+
+**Setup**:
+1. Assign the "Size" variant to your Custom Trophy SKU
+2. In the SKU edit page, click **Add** next to the Size variant
+3. Create a SKU-specific property: "base_width_mm" (Text type)
+4. Configure values for each size:
+   - Small → 50
+   - Medium → 75
+   - Large → 100
+5. Link the OpenSCAD `base_width` parameter to this property
+
+**Result**:
+- The Custom Trophy uses its own base dimensions
+- Other SKUs using the same Size variant aren't affected
+- No need to pollute the global variant with product-specific properties
+
+### Example 10: Compound Material Properties
+
+**Scenario**: Your multi-color figurine's material weight varies by both Size AND Color Theme - larger sizes with metallic themes need denser infill
+
+**Setup**:
+1. Your SKU has two variants: "Size" (Small, Medium, Large) and "Theme" (Standard, Metallic)
+2. Click **Add** next to either variant
+3. Check both "Size" and "Theme" in Source Variants
+4. Create property: "infill_percentage" (Text type)
+5. In the matrix editor, set values for each combination:
+   - Small + Standard → 15
+   - Small + Metallic → 20
+   - Medium + Standard → 15
+   - Medium + Metallic → 25
+   - Large + Standard → 20
+   - Large + Metallic → 30
+
+**Result**:
+- Each Size × Theme combination has its own infill setting
+- Large Metallic prints use 30% infill while Small Standard uses only 15%
+- The property automatically resolves based on the customer's selections
+
 ## E-Commerce Integration
 
 ### Name Matching
@@ -639,6 +780,35 @@ Before launching with e-commerce automation:
 2. Check that all desired colors are actually used in the 3MF file
 3. Re-export the 3MF from your slicer if colors are missing
 4. Static colors don't need Property mapping - only dynamic ones
+
+### Variant Values Not Appearing When Printing
+
+**Problem**: Some variant values are missing from the print dialog
+
+**Solutions**:
+1. Check if variant filtering is enabled - click the filter icon to review filter settings
+2. If using **Include only** mode, ensure the values you need are checked
+3. If using **Exclude** mode, ensure the values you need are NOT checked
+4. Click **Off** to disable filtering and show all values
+
+### Compound Property Values Not Applying
+
+**Problem**: Compound property values aren't being used during printing
+
+**Solutions**:
+1. Verify values are set for all required combinations in the matrix editor
+2. Check that the property is linked to the correct part parameter or material slot
+3. Ensure both/all source variants have values selected during printing
+4. For specificity issues, remember that more specific matches (2-3 variant) override less specific ones
+
+### SKU-Specific Property Not Visible
+
+**Problem**: A SKU-specific property created for one SKU isn't appearing
+
+**Solutions**:
+1. SKU-specific properties only appear on the SKU where they were created
+2. To use the property on other SKUs, create it as a global property at the variant level instead
+3. Check if you're editing the correct SKU - navigate to Products → SKUs and open the right one
 
 ## Getting Help
 
