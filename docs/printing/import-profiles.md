@@ -40,7 +40,7 @@ The instructions for Bambu Studio and OrcaSlicer are essentially the same.
 
 Navigate to **Printing** > **Profiles** and click **Import Profiles** (or go directly to `/profiles/new`).
 
-![Profile Import - Upload Step](/images/profiles/import-upload-bambu.png)
+![Profile Import - Upload Step](../images/profiles/import-upload-bambu.png)
 
 You can upload files in two ways:
 - **Drag and drop** files directly onto the upload zone
@@ -52,7 +52,7 @@ You can upload multiple files at once, including ZIP archives containing multipl
 
 After uploading, Printago parses the files and displays all discovered profiles organized by type:
 
-![Profile Selection Step](/images/profiles/import-select.png)
+![Profile Selection Step](../images/profiles/import-select.png)
 
 ### Profile Categories
 
@@ -98,7 +98,7 @@ At the bottom of the page, you'll find two toggles:
 
 Click the **Import** button to import your selected profiles. You'll see a summary showing:
 
-![Import Complete](/images/profiles/import-complete.png)
+![Import Complete](../images/profiles/import-complete.png)
 
 - Number of profiles created
 - Number of profiles updated (if any)
