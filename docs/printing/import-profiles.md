@@ -33,7 +33,7 @@ The instructions for Bambu Studio and OrcaSlicer are essentially the same.
 3. Choose which profiles to export (machine, filament, and/or process profiles)
 4. Save the exported file(s) to your computer
 
-![Bambu Studio - Export Step](/images/profiles/bambu-studio-export.png)
+![Bambu Studio - Export Step](../images/profiles/bambu-studio-export.png)
 
 
 ## Step 2: Upload to Printago

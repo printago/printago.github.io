@@ -43,7 +43,7 @@ Click on any profile to open the edit view, where you can:
 
 Most profiles inherit from a base profile (e.g., `0.20mm Strength @BBL X1C`). Printago maintains multiple versions of these base profiles from different slicer releases.
 
-![Profile Version Dropdown](/images/profiles/profile-version-dropdown.png)
+![Profile Version Dropdown](../images/profiles/profile-version-dropdown.png)
 
 Use the **slicer version dropdown** to:
 
