@@ -324,6 +324,18 @@ If a configured printer shows as disconnected:
 6. View the MQTT Communications to diagnose connection issues
 7. Try removing and re-adding the printer
 
+### File Upload Issues
+
+If print jobs are stuck being sent to the printer or fail to upload:
+
+**P2S Printers**: P2S printers require USB storage (SD card or USB drive) to be connected for file uploads to succeed. If your P2S doesn't have USB storage connected, file transfers will fail.
+
+**General troubleshooting**:
+1. Check the Fuse logs in Settings for detailed error messages
+2. Ensure the printer has adequate storage space
+3. Verify network connectivity between Fuse and the printer
+4. Try restarting the Fuse client if uploads consistently fail
+
 ### Camera Not Loading
 
 If the camera feed doesn't appear:
