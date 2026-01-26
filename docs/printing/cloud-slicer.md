@@ -83,12 +83,18 @@ Printago supports multiple slicer engines to accommodate different workflows and
   - Requires "Cloud Sync" enabled in Bambu Studio or Orca Slicer
   - Profiles refresh when running the integration flow
 
-## GCODE Access
+## File Access
 
-After slicing completes, printer-specific GCODE becomes available:
+After slicing completes, various files become available for download:
 
-### Download Method
+### GCODE Download
 1. **Print Queue Interface**: Click any job thumbnail → `Download GCODE` button
+
+### SCAD-Generated STL Download
+For OpenSCAD parts that have been rendered:
+1. The part must be sent to the print queue for the STL to be generated
+2. Click the job thumbnail in the print queue while it's in progress or after completion
+3. Use the same dialog that normally provides GCODE downloads to access the generated STL file
 
 ### File Format
 GCODE is packaged as a 3MF file containing:
@@ -101,6 +107,7 @@ If a job fails during slicing, it moves to the "Errored" tab in the Print Queue.
 - Part too large for printer bed
 - Incompatible material/printer combination
 - Missing or corrupted slicer profiles
+- Process profile incompatibility (e.g., using a layer height profile not available for the target printer)
 
 #### Accessing Slicer Logs
 
@@ -119,5 +126,20 @@ If you can't resolve a slicing issue from the logs, share the logs in our [Disco
 
 ### Profile Issues
 Ensure your slicer profiles are current by either running the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow to refresh cloud-synced profiles, or [importing profiles manually](./import-profiles.md) from Bambu Studio or OrcaSlicer.
+
+### Process Profile Compatibility
+
+If slicing fails with process profile-related errors:
+
+**Layer Height Incompatibility:**
+- Some process profiles (e.g., 0.28mm layer height) may not be compatible with all printer models
+- Create a new part with the target printer selected as the machine type in the 3MF file
+- Apply the same process profile to the new part and test slicing
+- If needed, use a different layer height profile that's compatible with your printer model
+
+**Virtual Printer Testing:**
+- Create a virtual printer matching your physical printer model to test process profile compatibility
+- Virtual printers allow you to inspect generated GCODE without affecting physical equipment
+- Use this method to verify profile combinations work before sending jobs to physical printers
 
 Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!
