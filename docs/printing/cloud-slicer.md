@@ -101,16 +101,6 @@ If a job fails during slicing, it moves to the "Errored" tab in the Print Queue.
 - Part too large for printer bed
 - Incompatible material/printer combination
 - Missing or corrupted slicer profiles
-- 3MF file contains conflicting base printer settings
-
-#### Cross-Printer Compatibility
-
-Process profiles should function across different printer models, independent of the specific printer (assuming the settings are viable for the target nozzle size). However, 3MF files that contain base printer information from a different printer model may cause slicing errors.
-
-**Workaround for 3MF compatibility issues:**
-1. Create a new part using the target printer model in your 3MF slicer
-2. Apply the same process profile settings to the new part
-3. Upload the new 3MF file to test if the slicing error is resolved
 
 #### Accessing Slicer Logs
 
