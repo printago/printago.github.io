@@ -19,6 +19,7 @@ Virtual printers are software-simulated printers that behave like real Bambu Lab
 - **Learning Printago** - Explore features without risking real prints
 - **Testing workflows** - Verify your queue and automation settings work correctly
 - **Development** - Test integrations and customizations
+- **Testing gcode output** - Inspect generated gcode without needing to spin up real printers
 
 :::tip No Hardware Required
 Virtual printers run entirely in software. You don't need any physical printers connected to use them.
