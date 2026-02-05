@@ -27,13 +27,11 @@ Connect your Shopify store to Printago so orders flow directly into your product
 
 ## Connect Shopify to Printago
 
-### 1) Open Shopify integration in Printago
+### 1. Install the Printago app in Shopify
 
-In Printago, go to **Addons** and open **Shopify**.
+In your Shopify Admin, install the **Printago** app from the Shopify App Store.
 
-![Printago Addons page with Shopify card](../commerce/integrations/images/shopify-printago-addons-page.png)
-
-### 2) Connect from Shopify app
+### 2. Connect from Shopify app
 
 In your Shopify Admin, open the **Printago** app and click **Connect to Printago**.
 
@@ -43,7 +41,7 @@ Then confirm the account binding in Printago:
 
 ![Shopify connect flow confirmation in Printago](../commerce/integrations/images/shopify-printago-connect-flow.png)
 
-### 3) Verify connected status
+### 3. Verify connected status
 
 After connecting, you should see a connected state in both places:
 
