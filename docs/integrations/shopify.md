@@ -77,7 +77,7 @@ In Printago, open **Shopify > Settings**:
 ![Shopify integration settings in Printago](../commerce/integrations/images/shopify-printago-settings-tab.png)
 
 - **Automatically print orders**: Adds valid new order items to the print queue automatically.
-- **Write progress tags**: Writes progress tags back to Shopify (`printago:no-jobs`, `printago:queued`, `printago:in-progress` and `printago:printed`).
+- **Write progress tags**: Writes progress tags back to Shopify (`printago:queued`, `printago:in-progress` and `printago:printed`).
 - **Auto-close orders synced from Shopify**:
   - When fully fulfilled
   - When any fulfillment occurs
