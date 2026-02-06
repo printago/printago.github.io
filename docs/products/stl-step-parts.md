@@ -6,6 +6,15 @@ sidebar_position: 2
 
 STL and STEP files are static 3D models that work identically in Printago's system. Both file types represent single-material parts that can have custom slicer process profiles applied.
 
+## Key Concepts
+
+- **Single-material parts**: STL and STEP files each represent one material; multi-material printing requires 3MF or ColorSCAD
+- **Process profile overrides**: You can assign a custom slicer process profile to any STL/STEP part, overriding the printer's default settings
+- **Material selection flexibility**: Parts can be assigned multiple compatible materials at different specificity levels (type only, brand + type, or exact variant)
+- **Cross-printer compatibility**: STL and STEP parts work on any printer in your farm -- Printago slices them on-demand for the matched printer
+- **Cloud-synced profiles**: Process profiles are pulled from your Bambu Lab account's User Profiles and stay in sync automatically
+- **Format equivalence**: Printago treats STL and STEP files identically; choose based on your source geometry needs
+
 ## Overview
 
 Both STL and STEP parts are treated the same way by Printago:
@@ -59,3 +68,52 @@ Learn more about [managing slicer profiles](/docs/printing/slicer-profiles.md) a
 - **Use STL files** for simpler parts or when file size matters
 - **Set material restrictions** to ensure parts only print with compatible filaments
 - **Create reusable process profiles** for similar part types
+
+---
+
+## Troubleshooting
+
+### Part Uploads Successfully but Slicing Fails
+
+- Verify the model is watertight (no holes or non-manifold edges) by checking it in your slicer before uploading
+- Ensure the geometry fits within the build volume of the target printer
+- Try re-exporting the file from your CAD software with default export settings
+
+### Process Profile Override Not Taking Effect
+
+- Confirm the profile has been synced from your Bambu Lab account; check [Account Settings](/docs/settings/account-settings.md#slicer-settings)
+- Refresh the page to ensure the latest profile data has loaded
+- If set to "Printer Default," the override is intentionally not applied -- select a specific profile instead
+
+### Material Not Matching Any Printers
+
+- Check that the assigned material exists in your [Material Library](/docs/printing/materials.md) and is loaded on at least one active printer
+- Try broadening the material specificity (e.g., use "Any PLA" instead of a specific brand/color variant)
+
+### Thumbnail Not Displaying
+
+- The processing pipeline may still be running; wait a moment and refresh the page
+- If the file geometry is unusual or very small, the thumbnail generator may not capture it well -- this does not affect printing
+
+:::tip
+When you update a process profile in Bambu Studio and sync with Printago, all STL/STEP parts using that profile automatically pick up the changes on the next print.
+:::
+
+---
+
+## FAQ
+
+**Q: What is the difference between STL and STEP files in Printago?**
+A: Functionally, they are identical in Printago. Both are single-material static models. STEP files retain more geometric precision (true curves), while STL files use triangulated meshes. Choose based on your source design needs.
+
+**Q: Can I assign more than one material to an STL/STEP part?**
+A: Yes. You can assign multiple compatible materials in priority order. When the part is matched to a printer, Printago uses the first available material match.
+
+**Q: How do I apply different print settings to the same part for different use cases?**
+A: Create multiple process profiles in Bambu Studio (e.g., "Fast Draft" and "High Quality"), sync them to Printago, and assign the appropriate one when adding or editing the part.
+
+**Q: Can I change the material assignment after a part has been created?**
+A: Yes. Material mapping can be edited each time the part is added to the queue for printing, or by editing the part directly.
+
+**Q: Should I migrate my gcode.3mf files to STL/STEP?**
+A: If the original model files are available, yes. STL/STEP parts benefit from cross-printer compatibility and on-demand slicing, which gcode.3mf files lack.

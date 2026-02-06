@@ -1,10 +1,19 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Print Queue
 
 The Print Queue is where Printago's intelligent job management system, Gutenb3d, automatically matches your print jobs with the best available printers. Think of it as your print farm's mission control—routing jobs efficiently while you focus on what matters most.
+
+## Key Concepts
+
+- **Smart Matching (Gutenb3d)**: Printago's intelligent engine that automatically matches queued jobs to compatible printers based on material, color, tags, and availability
+- **Production Slots**: The number of jobs Printago can actively manage at once; completed, cancelled, or errored jobs free slots immediately
+- **Job States**: Every job moves through Queued, In-Progress, and then to Completed, Cancelled, or Errored
+- **Queue Priority**: Normal priority jobs always process before Low priority jobs; drag-and-drop reordering is supported within a priority level
+- **Printer Availability**: A printer is available when it is online, not processing another job, and marked "Clear & Ready"
+- **Last-Used Distribution**: Gutenb3d prefers the least recently used printer to distribute wear evenly across your fleet
 
 ## Understanding the Queue Interface
 
@@ -44,7 +53,7 @@ Once Gutenb3d assigns a job to a printer, it moves to In-Progress and follows th
 After printing begins, in-progress job show their time remaining, percent complete and other statistics.
 
 :::info Production Slots
-Print jobs started outside Printago (via slicer, Handy app, etc.) don't use production slots and won't appear here. You can monitor all printer activity on the [Dashboard](/docs/dashboard-overview.md) instead.
+Print jobs started outside Printago (via slicer, Handy app, etc.) don't use production slots and won't appear here. You can monitor all printer activity on the [Dashboard](/docs/features/dashboard-overview) instead.
 :::
 
 ### **Job Outcomes**
@@ -110,14 +119,6 @@ Printago supports two job priority levels:
 Clearing completed jobs removes them from the interface but preserves all data for future reporting features. This soft-delete keeps the interface responsive while ensuring your print history remains available for upcoming analytics.
 :::
 
-### **Troubleshooting Assignment Issues**
-Every job includes a `Printer Matching` dialog that shows:
-- Which printers Gutenb3d attempted to match
-- Specific reasons why each printer wasn't selected
- <div className="margin-left--lg">
-        <img src="/img/queue/queue1.png" width="500" alt="" />
-    </div>
-
 ## Production Slot Management
 
 Your production slots determine how many jobs Printago can actively manage at once. When slots are full:
@@ -126,6 +127,48 @@ Your production slots determine how many jobs Printago can actively manage at on
 - External prints (from slicers, apps, etc.) don't consume slots
 
 This system ensures optimal resource allocation while maintaining full visibility of your entire print farm's activity.
+
+## Troubleshooting
+
+### Job Not Matching Any Printer
+
+Every job includes a **Printer Matching** dialog that shows which printers Gutenb3d attempted to match and the specific reason each printer was not selected.
+
+ <div className="margin-left--lg">
+        <img src="/img/queue/queue1.png" width="500" alt="" />
+    </div>
+
+**Common reasons a job stays in the Queued tab:**
+- No printer has the required material loaded and assigned
+- All matching printers are busy or not marked "Clear & Ready"
+- Required printer tags do not match any available printer
+- All production slots are currently occupied
+
+**Job moved to Errored tab:**
+- Slicing failed -- check the slicer logs via the job detail view (see [Cloud Slicer](./cloud-slicer.md))
+- Printer reported an HMS error during printing (Bambu Lab printers)
+- Network or communication loss interrupted the print
+
+:::tip Fast Diagnosis
+Open the Printer Matching dialog on any queued job to see a per-printer breakdown of why the job has not been assigned. This is the quickest way to identify material, tag, or availability mismatches.
+:::
+
+## FAQ
+
+**Q: Can I reorder jobs across Normal and Low priority groups?**
+A: No. Drag-and-drop reordering works within the same priority level only. To change a job's priority, select it and use the multi-action dropdown.
+
+**Q: Do prints started outside Printago (e.g., from Bambu Studio or the Handy app) consume production slots?**
+A: No. Only jobs managed by Printago's queue use production slots. External prints can be monitored on the [Dashboard](/docs/features/dashboard-overview) but do not count against your slot limit.
+
+**Q: What happens when I clear completed jobs -- is the data lost?**
+A: No. Clearing completed jobs removes them from the interface but performs a soft-delete. All print data is preserved for future reporting and analytics features.
+
+**Q: Can I retry a failed or cancelled job?**
+A: Yes. Jobs in the Completed, Cancelled, or Errored tabs have a **Retry** action that re-queues them with the same settings.
+
+**Q: How does Gutenb3d decide which printer gets the next job?**
+A: Gutenb3d uses a "last-used" strategy to distribute wear evenly. Among all printers that match a job's requirements and are available, the one that has been idle the longest is selected first.
 
 ## Related Topics
 

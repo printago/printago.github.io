@@ -10,6 +10,14 @@ In addition to syncing profiles via the [Bambu Lab Integration](../printer-setup
 - Keep specific profiles without enabling cloud sync
 - Import profiles from OrcaSlicer directly, since there can be minor differences
 
+## Key Concepts
+
+- **Supported Formats** -- Printago accepts `.bbscfg`, `.bbsflmt`, `.orca_printer`, `.orca_filament`, and `.zip` archives containing any of these.
+- **Profile Categories** -- Imported profiles are organized into three types: Machine Profiles (printer settings), Filament Profiles (material settings), and Process Profiles (print quality settings).
+- **Import Process** -- Upload files, review discovered profiles with status badges (New, Update, No Change), select which profiles to import, and confirm.
+- **Duplicate Handling** -- If the same profile appears in multiple uploaded files, only the first occurrence is used. Existing profiles can be updated or skipped.
+- **Material Creation** -- Filament profile imports can optionally create corresponding materials in your inventory, linked to the profiles for AMS compatibility.
+
 ## Supported File Formats
 
 Printago supports importing the following file types:
@@ -114,3 +122,38 @@ From here you can:
 - **Duplicate Handling**: If the same profile appears in multiple files, only the first occurrence is used.
 - **Profile Inheritance**: Profiles that inherit from built-in Bambu/Orca profiles will show the parent profile name for reference.
 - **Filament Profile Linking**: When you import filament profiles with "Create materials" enabled, the profiles are automatically linked to the corresponding material.
+
+## Troubleshooting
+
+### Import Fails or No Profiles Found
+
+1. Verify the file format is supported (`.bbscfg`, `.bbsflmt`, `.orca_printer`, `.orca_filament`, or `.zip`)
+2. If uploading a ZIP, ensure it contains supported profile files -- nested folders within the ZIP are scanned automatically
+3. Try exporting the profiles again from your slicer, as the file may be corrupted
+
+### All Profiles Show "No Change"
+
+This means every profile in the uploaded file already exists in Printago with identical settings. If you expected updates, verify you exported the correct (modified) profiles from your slicer.
+
+### Imported Profiles Not Appearing in Printer Configuration
+
+1. Check that you imported the correct profile type (Machine, Filament, or Process) for what you need
+2. Verify the profile is compatible with the printer model you are configuring
+3. Navigate to **Printing** > **Profiles** to confirm the profiles were imported successfully
+
+## FAQ
+
+**Q: Can I import OrcaSlicer profiles into Printago?**
+A: Yes. Printago supports `.orca_printer` and `.orca_filament` formats, as well as OrcaSlicer configuration bundles in ZIP archives.
+
+**Q: What happens if I import a profile with the same name as an existing one?**
+A: If "Update existing profiles" is enabled, the existing profile will be replaced with the imported version. If disabled, the import will skip that profile.
+
+**Q: Can I import multiple files at once?**
+A: Yes. You can drag and drop multiple files (or entire folders) onto the upload zone, and Printago will parse all supported files and extract profiles from each.
+
+**Q: Do I need to import profiles, or can I use cloud sync instead?**
+A: You can do either. The [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow syncs cloud profiles automatically. Manual import is for custom profiles or OrcaSlicer-specific profiles that are not available through cloud sync.
+
+**Q: Will importing filament profiles automatically set up my materials?**
+A: Only if you enable the "Create materials" toggle during import. When enabled, Printago will create corresponding materials in your inventory and link them to the imported filament profiles.

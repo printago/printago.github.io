@@ -1,10 +1,18 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Bulk Actions
 
 Bulk Actions provide powerful controls for managing multiple items simultaneously across Printago. Manage multiple printers, print jobs, parts, or SKUs simultaneously.
+
+## Key Concepts
+
+- **Selection Patterns** -- Select items individually via checkboxes, in ranges with `Shift + Click`, or all at once with the header checkbox or the `A` key.
+- **Context-Specific Actions** -- The available bulk actions change depending on which page you are on (Print Queue, Printers, Parts, SKUs, etc.) and the state of selected items.
+- **State-Dependent Options** -- Within a given context, the actions offered depend on the current state of the selected items (e.g., Pause is only available for in-progress jobs).
+- **Keyboard Shortcuts** -- Many bulk actions have single-key shortcuts (e.g., `R` for Set Ready, `T` for Edit Tags, `C` for Configure) for faster operation.
+- **Confirmation on Destructive Actions** -- Actions like Cancel and Delete require explicit confirmation before executing.
 
 ## Understanding the Interface
 
@@ -55,7 +63,7 @@ Control multiple printers simultaneously through the following Bulk Actions:
 
 **FabMatic Configuration**  
 - _Enable FabMatic_: Activates continuous printing mode for selected printers
-  - For setup details, see [FabMatic Continuous Printing](./fabmatic-continuous-printing.md)
+  - For setup details, see [FabMatic Continuous Printing](/docs/printing/fabmatic-continuous-printing)
 - _Disable FabMatic_: Turns off continuous printing mode
 
 **Organization**
@@ -87,7 +95,7 @@ The Printers list page has one additional keyboard shortcut: `G` to select all m
 |--------|-------------|--------------------|---------|
 | **Set as Clear & Ready** | Makes selected printers available in print queue | Skips currently printing printers | `R` |
 | **Set as Hold/Not Ready** | Removes printers from available queue | Temporarily disables job assignment | `U` |
-| **Enable FabMatic** | Activates continuous printing mode | See [FabMatic documentation](./fabmatic-continuous-printing.md) | - |
+| **Enable FabMatic** | Activates continuous printing mode | See [FabMatic documentation](/docs/printing/fabmatic-continuous-printing) | - |
 | **Disable FabMatic** | Turns off continuous printing mode | - | - |
 | **Edit Tags** | Modify printer tags in bulk | For printer grouping and organization | `T` |
 | **Control Panel** | Multi-printer control interface | Manual printer operation and calibration | `P` |
@@ -112,3 +120,35 @@ Both Materials and Slicer Profiles pages currently support only **Delete** bulk 
 
 
 Find out more about Printago [Keyboard Shortcuts](/docs/features/keyboard-shortcuts.md)
+
+## Troubleshooting
+
+### Actions Button Stays Disabled
+
+1. Make sure you have at least one item selected -- the button enables only when items are checked
+2. Verify you are on a page that supports bulk actions (Print Queue, Printers, Parts, SKUs, Profiles, or Materials)
+
+### Expected Action Not Appearing in the Menu
+
+1. Bulk action menus are context-aware and state-dependent. For example, "Pause" only appears when in-progress jobs are selected, and "Retry" only appears for cancelled or errored jobs
+2. Ensure your selected items are all in a state that supports the action you need
+3. If selecting items in mixed states, only actions valid for the entire selection will appear
+
+### Shift-Click Range Selection Not Working
+
+1. First click a single item normally, then hold `Shift` and click a second item to select the range
+2. Range selection works across most list views but may not work in card-based layouts
+
+## FAQ
+
+**Q: Can I select items across multiple pages of results?**
+A: The "Select All" checkbox selects all items matching your current filters, not just what is visible on the current page.
+
+**Q: Is there a limit to how many items I can act on at once?**
+A: There is no hard limit. However, very large bulk operations (hundreds of items) may take a moment to process.
+
+**Q: What does the `G` shortcut do on the Printers page?**
+A: Pressing `G` selects all printers that match the same model and nozzle configuration as the currently selected printer. This is useful for applying settings to all printers of the same type.
+
+**Q: Can I undo a bulk action?**
+A: Destructive actions like Delete cannot be undone. Other actions like Cancel, Pause, and Set Hold can be reversed with the corresponding opposite action (Retry, Resume, Set Ready).

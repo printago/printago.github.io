@@ -11,6 +11,15 @@ Integrations require a Commercial subscription. [Learn more](/docs/settings/subs
 
 Connect your Shopify store to Printago so orders flow directly into your production workflow.
 
+## Key Concepts
+
+- **Shopify App Installation** -- Printago connects to Shopify through an official Shopify app installed from the Shopify App Store.
+- **Order Sync** -- Orders sync in real time via webhooks, with an option for manual backfill sync of historical orders.
+- **SKU Mapping** -- Shopify product SKUs must exactly match SKUs configured in Printago for order items to be recognized and queued.
+- **Progress Tags** -- Printago can optionally write tags back to Shopify orders (`printago:queued`, `printago:in-progress`, `printago:printed`) to track production status.
+- **Auto-Queue** -- New order items with valid SKU mappings can be automatically added to your print queue.
+- **SKU Variant Support** -- Shopify variants are matched using SKU suffix mapping between Printago variant suffixes and Shopify variant SKU values.
+
 ## What You Get
 
 - Real-time order sync from Shopify to Printago
@@ -132,6 +141,23 @@ Disconnecting stops future syncs but does not remove historical orders already i
 
 - SKU mismatch between Shopify and Printago
 - Create or correct SKU mappings in Printago, then re-sync or refresh orders
+
+## FAQ
+
+**Q: Do I need a Commercial subscription to use the Shopify integration?**
+A: Yes. Integrations require a Commercial subscription. The first production slot is free on Commercial plans.
+
+**Q: What happens to existing orders if I disconnect Shopify?**
+A: Disconnecting stops future syncs, but all previously imported orders remain in Printago and can still be processed.
+
+**Q: How does SKU matching work with Shopify variants?**
+A: Printago uses SKU suffix mapping. Each variant option/value combination in Printago must have a SKU suffix defined, and each Shopify variant must have a corresponding SKU value. Both sides must be configured for mapping to succeed.
+
+**Q: Can I re-sync orders that were already imported?**
+A: Yes. Running a manual sync will re-check orders in the specified date range and update any changes. Already-imported orders will be refreshed.
+
+**Q: Why are some order items showing as red / not printable?**
+A: This indicates a SKU mismatch between Shopify and Printago. Create or correct the SKU mappings in Printago, then re-sync or refresh the orders.
 
 ## Need Help?
 

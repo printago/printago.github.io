@@ -9,6 +9,15 @@ SKU Variants are one of Printago's most powerful features, enabling complex prod
 
 ![SKU Variant Configuration and Result](./images/sku-variant-overview.jpg)
 
+## Key Concepts
+
+- **Variants** are customer-facing options (e.g., "Color", "Size") that map to printing parameters via Properties
+- **Properties** define what changes when a variant value is selected -- material, text, or plate quantities
+- **Compound Properties** combine multiple properties into a single matrix for multi-dimension mapping (e.g., Color + Size)
+- **Personalization Variants** collect free-form customer input (e.g., custom text) and map it to OpenSCAD parameters
+- **SKU Suffixes** enable automatic variant matching from e-commerce platforms by parsing SKU codes
+- **Variant Filtering** lets you include or exclude specific variant values per SKU for product line subsets
+
 ## Overview
 
 SKU Variants solve a critical problem for 3D printing businesses: managing product variations. Instead of creating separate SKUs for every color/size/material combination in your store, Variants let you:
@@ -827,6 +836,23 @@ Need hands-on help? We offer **free 1:1 video calls** with Printago founders to 
 :::tip Success Stories
 Many of our most successful users started with a 1:1 setup call. Don't hesitate to reach out - we love helping businesses automate their workflows!
 :::
+
+## FAQ
+
+**Q: Do I need to create a separate Variant for every product, or can Variants be reused?**
+A: Variants are designed to be reused. A single "Color" Variant with all your color options can be assigned to many different SKUs. Each SKU only uses the Properties relevant to it, and you can use variant filtering to limit which values are available per SKU.
+
+**Q: What happens if a customer selects a variant value that is not mapped in Printago?**
+A: The order is flagged for manual review. Printago will indicate which Variant Value is missing a mapping so you can add the appropriate Property values before reprocessing the order.
+
+**Q: Can I change Variant Values or Property mappings after orders have already been processed?**
+A: Yes. Changes to Variants and Properties apply going forward. Previously processed orders and their print jobs are not retroactively affected.
+
+**Q: How do Personalization Variants differ from regular Variants?**
+A: Regular Variants have a fixed set of Values that customers select from (like a dropdown). Personalization Variants accept freeform text input from the customer (like a custom engraving). They automatically include a "Value" Property that captures whatever the customer types.
+
+**Q: Can I combine Variants from different sources -- for example, a color Variant from Shopify and a personalization from Etsy?**
+A: Each Variant is platform-agnostic. As long as the Variant names and Value names exactly match what the e-commerce platform sends, the same Variant definitions work across Shopify, Etsy, and other integrations. You can assign any combination of Variants to a SKU regardless of where orders originate.
 
 ## Related Topics
 

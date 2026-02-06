@@ -6,9 +6,17 @@ sidebar_position: 5
 
 Printago's Cloud Slicer enables on-demand GCODE generation, automatically converting your 3D models into printer-specific instructions when jobs are assigned to printers. This eliminates the need to pre-slice files for every printer/material combination and enables universal slicing profiles across your entire printer fleet.
 
+## Key Concepts
+
+- **On-Demand Slicing Workflow**: GCODE is generated just-in-time when Gutenb3d assigns a job to a specific printer -- you never need to pre-slice files
+- **Profile Resolution Order**: The Cloud Slicer combines three profile layers: Machine profile (printer hardware), Process profile (quality/behavior), and Material profile (filament parameters), each with its own priority chain
+- **Intelligent Caching**: Identical parts with the same settings are cached so subsequent prints slice instantly; any change to the part, printer, or profile triggers a reslice
+- **Multiple Slicer Engines**: OrcaSlicer and Bambu Studio are supported today, with PrusaSlicer and SuperSlicer coming soon
+- **GCODE as 3MF**: Sliced output is packaged as a 3MF file containing GCODE, thumbnails, and slicing metadata
+
 ## How It Works
 
-The Cloud Slicer is triggered automatically by [Gutenb3d](../print-queue-management.md) when a queued job is matched and assigned to a specific printer. This just-in-time approach ensures optimal slicing settings for each printer while maintaining efficient queue processing.
+The Cloud Slicer is triggered automatically by [Gutenb3d](./print-queue-management.md) when a queued job is matched and assigned to a specific printer. This just-in-time approach ensures optimal slicing settings for each printer while maintaining efficient queue processing.
 
 ### Slicing Workflow
 
@@ -96,6 +104,8 @@ GCODE is packaged as a 3MF file containing:
 - Print thumbnails for printer display
 - Metadata about slicing settings used
 
+## Troubleshooting
+
 ### Slicing Failures
 If a job fails during slicing, it moves to the "Errored" tab in the Print Queue. Common causes:
 - Part too large for printer bed
@@ -119,5 +129,27 @@ If you can't resolve a slicing issue from the logs, share the logs in our [Disco
 
 ### Profile Issues
 Ensure your slicer profiles are current by either running the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow to refresh cloud-synced profiles, or [importing profiles manually](./import-profiles.md) from Bambu Studio or OrcaSlicer.
+
+### Unexpected Slicing Results
+- Verify the correct slicer version is selected on the profiles being used (Machine, Process, and Material) -- a slicer update may have changed inherited base values
+- Check that the Material profile matches the printer model and nozzle diameter in use
+- Confirm the Process profile priority: a part-specific override takes precedence over the printer's default process profile
+
+## FAQ
+
+**Q: Do I need to slice files before sending them to the queue?**
+A: No. The Cloud Slicer generates GCODE automatically when a job is assigned to a printer. You only need to upload your 3D model (STL, STEP, 3MF, or SCAD).
+
+**Q: When does the cache get invalidated?**
+A: Any change to the part geometry, printer configuration, material profile, process profile, or build plate settings will trigger a fresh reslice. If nothing has changed, the cached GCODE is reused instantly.
+
+**Q: Can I download the GCODE that was sent to the printer?**
+A: Yes. After slicing completes, click the job thumbnail in the Print Queue and use the "Download GCODE" button. The file is a 3MF containing the GCODE, thumbnails, and metadata.
+
+**Q: How do I switch between OrcaSlicer and Bambu Studio?**
+A: Set your preferred default slicer in [Account Settings](../settings/account-settings.md). You can also override the slicer on a per-part basis when adding parts to your library.
+
+**Q: What happens if slicing fails?**
+A: The job moves to the "Errored" tab in the Print Queue. Open the job details and click "View Slicer Logs" to see the specific error from the slicer engine.
 
 Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!

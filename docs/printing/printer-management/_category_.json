@@ -1,7 +1,8 @@
 {
   "label": "Printer Management",
-  "position": 2,
+  "position": 8,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "Configure printers, manage materials, tags, and control panels."
   }
 }

@@ -6,6 +6,15 @@ sidebar_position: 2
 
 This guide explains how to upload and use OpenSCAD parts in the Printago system.
 
+## Key Concepts
+
+- **Parameter types**: Printago auto-detects text fields, number fields, boolean toggles, and dropdown menus from your .scad file's variable declarations
+- **Parameter parsing rules**: Only variables declared above the first set of curly braces `{ }` are imported; variables below are treated as private
+- **File management**: OpenSCAD parts with multiple files (fonts, libraries, imported STLs) require all referenced files to be uploaded together during part creation
+- **Upload process**: The upload workflow guides you through naming, slicer/profile selection, material mapping, uploading referenced files, and reviewing parsed parameters
+- **Default values**: Initial values of each parameter in your code become the default parameter values in Printago
+- **Dropdown syntax**: Selection parameters use a comment-based syntax (e.g., `// [option1, option2]`) to define available options
+
 ## Adding OpenSCAD Parts to Printago
 
 1. Go to `Products -> Parts` and click `+ Add Part`
@@ -94,5 +103,58 @@ For OpenSCAD parts with multiple files:
 - Ensure all referenced files are uploaded when creating the part
 - Keep file paths consistent with your local development setup
 - Use relative paths for including library files
+
+---
+
+## Troubleshooting
+
+### Parameters Not Detected After Upload
+
+- Ensure all parameters are declared above the first set of curly braces `{ }` in your .scad file
+- Verify the variable syntax is correct (e.g., `variable_name = "value";` with a semicolon)
+- Dropdown parameters require the comment-based syntax: `variable = "default"; // [option1, option2]`
+
+### Referenced Files Missing or Not Found
+
+- All files referenced via `use` or `import` must be uploaded during part creation
+- Do not use variables as arguments to `import()` or `use` -- the Printago parser cannot resolve dynamic file paths
+- Ensure file names and paths match exactly (case-sensitive)
+
+### Rendering Fails or Times Out
+
+- Reduce `$fn` values to lower complexity during initial testing
+- Minimize boolean operations (`difference()`, `union()`) where possible
+- Break large designs into smaller modules to isolate the issue
+- Test the file locally in OpenSCAD (Development Snapshot) to confirm it renders without errors
+
+### Thumbnail Not Generating Correctly
+
+- The thumbnail is generated using default parameter values; ensure defaults produce valid geometry
+- If the default model is very small or has unusual proportions, the thumbnail may appear blank or cropped
+
+:::tip
+Always test your .scad file locally in OpenSCAD across the full range of parameter values before uploading to Printago.
+:::
+
+---
+
+## FAQ
+
+**Q: Can I update an OpenSCAD part's parameters after it has been created?**
+A: Parameters are parsed from the .scad file at upload time. To change available parameters, update the .scad file and re-upload the part.
+
+**Q: How many files can I include with a single OpenSCAD part?**
+A: There is no strict limit. You can upload the main .scad file along with any fonts, libraries, STLs, SVGs, or DXFs it references. All files are uploaded during part creation.
+
+**Q: What happens if my OpenSCAD file uses a library that is pre-installed on Printago?**
+A: Pre-installed libraries (such as BOSL2, MCAD, Gridfinity, etc.) are automatically available. You do not need to upload them -- just use the correct `include` or `use` statement. See [OpenSCAD Libraries](/docs/products/openscad/libraries.md) for the full list.
+
+**Q: Can customers change parameters when ordering?**
+A: Yes. When OpenSCAD parts are used in products, the exposed parameters become customization options that customers can modify before ordering.
+
+**Q: Why does my dropdown parameter show as a text field instead?**
+A: The dropdown syntax requires a comment directly after the variable declaration: `variable = "default"; // [option1, option2]`. If the comment is missing or malformed, Printago falls back to a text or number field.
+
+---
 
 Need help with your OpenSCAD parts? Join our [Discord community](https://discord.gg/RCFA2u99De) for support and tips!

@@ -1,10 +1,19 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 # Printing Parts
 
 This page covers how to print parts from your library.  To learn more about how to add and manage parts, check out [Parts Management](/docs/products/part-management.md)
+
+## Key Concepts
+
+- **Assignment Methods**: Choose how jobs are routed to printers -- Next Available, Specific Printer, or Tagged Printers
+- **Supported Part Types**: STL, 3MF (with build plate selection), OpenSCAD (.scad with parameters), STEP, and pre-sliced G-code
+- **Queue Priority**: Jobs can be Normal (default) or Low priority; low priority jobs only process when the normal queue is empty
+- **Material Override**: A part's default material can be overridden at print time for flexibility
+- **Bulk Printing**: Select multiple parts and configure them together in a single dialog
+- **Smart Matching**: Gutenb3d automatically matches queued jobs to compatible printers based on material, color, tags, and availability
 
 ## Starting a Print
 
@@ -22,7 +31,7 @@ This page covers how to print parts from your library.  To learn more about how 
 - **Normal Priority** (default): Jobs process immediately when printers are available
 - **Low Priority**: Jobs only process when no normal priority jobs are waiting
 
-After queuing, job priority can be adjusted from the [Print Queue Management](/docs/print-queue-management.md) interface.
+After queuing, job priority can be adjusted from the [Print Queue Management](/docs/printing/print-queue-management) interface.
 
 
 ### STL Parts
@@ -155,6 +164,43 @@ sequenceDiagram
    end
 ```
 
+## Troubleshooting
+
+**Job stays in Queued and never starts printing:**
+- Verify at least one printer has the required material loaded and assigned
+- Check that the target printer is marked "Clear & Ready" -- jobs will not start on printers that haven't been confirmed ready
+- If using Tagged Printers, ensure at least one ready printer has **all** the selected tags
+- Open the job's `Printer Matching` dialog in the Print Queue to see exactly why each printer was skipped
+
+**Wrong material or color used:**
+- Confirm the correct material variant is assigned to the printer's AMS slot or external spool
+- When using "Any Color" matching with multi-color 3MF files, all slots may resolve to the same spool -- assign specific variants instead
+
+**OpenSCAD part fails to generate:**
+- Double-check parameter values for typos or out-of-range numbers
+- Ensure the .scad file renders successfully in OpenSCAD locally before uploading
+
+:::tip Quick Diagnosis
+Every queued job has a **Printer Matching** dialog that lists each printer and the specific reason it did or did not match. This is the fastest way to diagnose assignment issues.
+:::
+
+## FAQ
+
+**Q: Can I change a job's priority after it has been queued?**
+A: Yes. Open the [Print Queue Management](./print-queue-management.md) interface, select the job, and use the multi-action dropdown to switch between Normal and Low priority.
+
+**Q: What happens if I print a 3MF with multiple build plates?**
+A: Each selected build plate becomes a separate queue item. You can toggle between "editing each" and "editing all" modes to set quantities individually or proportionally.
+
+**Q: Can I override the material for a single part inside a bulk print?**
+A: Yes. The bulk printing dialog shows each part in an accordion format where you can configure quantity, parameters, and material independently.
+
+**Q: Does "Next Available" consider printer wear or usage history?**
+A: Gutenb3d processes printers on a "last-used" basis to distribute wear evenly across your fleet, so less recently used printers are preferred.
+
+**Q: Is there a limit to how many parts I can bulk-print at once?**
+A: There is no hard limit on the number of parts you can select for bulk printing, but each part creates a separate queue item that consumes a production slot when it starts.
+
 ## Next Steps
 
-After printing parts, they are added to the print queue where they are matched with available printers. For more information about how parts are matched with printers and queue management, see [Print Queue Management](../print-queue-management.md).
+After printing parts, they are added to the print queue where they are matched with available printers. For more information about how parts are matched with printers and queue management, see [Print Queue Management](./print-queue-management.md).

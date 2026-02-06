@@ -1,10 +1,18 @@
 ---
-sidebar_position: 10
+sidebar_position: 8
 ---
 
 # Installing Printago
 
 Printago can be installed as a Progressive Web App (PWA) on your device, giving you a native app-like experience. This guide explains how to install Printago on different platforms.
+
+## Key Concepts
+
+- **Progressive Web App (PWA)** -- A web application that can be installed directly from the browser to your device, providing a native app-like experience without an app store.
+- **Platform Support** -- Printago can be installed as a PWA on Windows (Chrome/Edge), macOS (Chrome/Safari), iOS/iPadOS (Safari only), and Android (Chrome).
+- **Automatic Updates** -- Once installed, Printago updates automatically when new versions are released. No manual update steps are required.
+- **No App Store Required** -- Installation happens directly from your browser. There is no listing in the Apple App Store, Google Play, or Microsoft Store.
+- **Browser Differences** -- Safari on macOS and iOS has limited PWA features compared to Chrome and Edge. Chrome or Edge are recommended for the best experience.
 
 ## What is a PWA?
 
@@ -155,3 +163,20 @@ Having trouble installing Printago? We're here to help:
 :::tip Keep Updated
 After installing as a PWA, Printago will automatically update when new versions are available. No manual updates required!
 :::
+
+## FAQ
+
+**Q: Is the Printago PWA the same as a native mobile app?**
+A: The PWA provides a native app-like experience (home screen icon, full-screen mode, fast loading), but it runs through your browser engine. There is no separate native app.
+
+**Q: Why can I only install the PWA through Safari on iOS?**
+A: Apple currently restricts PWA installation to Safari on iOS and iPadOS. Chrome and Firefox on iOS use Safari's engine but do not support the "Add to Home Screen" PWA installation flow.
+
+**Q: Will I receive push notifications through the PWA?**
+A: Push notification support depends on your platform and browser. Chrome on Windows, macOS, and Android supports push notifications. Safari on iOS has limited support. This feature is being expanded.
+
+**Q: How do I update the PWA after it is installed?**
+A: Printago updates automatically in the background. Simply close and reopen the app to load the latest version. No manual update is needed.
+
+**Q: Can I install Printago on multiple devices?**
+A: Yes. You can install the PWA on as many devices as you like and log into the same Printago account on all of them.

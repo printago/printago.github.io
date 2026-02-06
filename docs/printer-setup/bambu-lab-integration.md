@@ -6,6 +6,15 @@ sidebar_position: 1
 
 Printago offers seamless integration with Bambu Lab printers through Bambu's cloud infrastructure. This guide covers everything you need to know about connecting and managing your Bambu Lab printers with Printago.
 
+## Key Concepts
+
+- **Cloud Mode vs LAN Mode** -- Printago currently connects to Bambu Lab printers via Bambu's cloud infrastructure (Cloud Mode). LAN Mode support is coming via [Printago Fuse](./printago-fuse.md).
+- **Authentication** -- Printago uses encrypted access tokens from your Bambu Lab account. Your password is never stored.
+- **Token Expiry** -- Access tokens expire every 90 days and require re-authentication to maintain connectivity.
+- **Firmware Requirements** -- Specific firmware versions are required that do not include the Bambu authorization lockout. See [Firmware Requirements](#firmware-requirements) below.
+- **Compatible Printers** -- A1 Mini, A1, P1S, and X1C models are supported, with and without AMS configurations.
+- **Bambu Integration Flow** -- A guided setup wizard in Printago that handles authentication, printer selection, and profile syncing.
+
 ## Connection Mode Support
 
 Currently, Printago supports Bambu Lab printers operating in **Cloud Mode** only. Support for LAN Mode is under development and will be available in a future release.
@@ -168,3 +177,20 @@ If you encounter connection issues:
 3. Try disconnecting and reconnecting the printer in Printago
 
 If problems persist, contact Printago on [Discord](https://discord.gg/RCFA2u99De) or support@printago.io
+
+## FAQ
+
+**Q: Do I need to keep my Bambu Lab account credentials in Printago?**
+A: No. Printago only stores encrypted access tokens, never your Bambu Lab password. You authenticate through Bambu Lab directly, and Printago receives a time-limited token.
+
+**Q: What happens when my 90-day authentication expires?**
+A: Your printers will go offline in Printago. You will see a red banner 14 days before expiry reminding you to re-authenticate. Simply run the Bambu Integration Flow again to renew your tokens.
+
+**Q: Can I use Printago with printers on newer firmware?**
+A: Not with the current Cloud Mode integration. However, the upcoming [Printago Fuse](./printago-fuse.md) client supports newer firmware versions using Developer LAN mode.
+
+**Q: Will disconnecting a printer in Printago affect a print that is currently running?**
+A: No. Current print jobs will continue until completion on the printer. Disconnecting only stops Printago from sending new jobs or monitoring the printer.
+
+**Q: How do I sync my Bambu Studio cloud profiles to Printago?**
+A: Run the Bambu Integration Flow (**Settings** > **Integrations** > **Bambu Lab** > `Configure`). This is currently the only way to refresh cloud-synced slicing profiles.

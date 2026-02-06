@@ -11,6 +11,14 @@ title: "ColorSCAD 💎"
 
 ColorSCAD is a premium add-on for Printago that enables multi-colored 3D models in OpenSCAD. ColorSCAD extracts material/filament assignments from `color()` statements in your SCAD file. Each unique color becomes a material slot that can be mapped to specific filaments in Printago.
 
+## Key Concepts
+
+- **`color()` statements**: ColorSCAD scans your .scad file for `color()` calls and converts each unique color into a material slot that maps to a filament in Printago
+- **Material extraction**: Each unique color name or variable creates one material slot; reusing the same color/variable reuses the same slot
+- **Supported color formats**: Named web colors (e.g., `"red"`, `"cornflowerblue"`) and variable colors (unquoted identifiers) are supported; hex codes and RGB arrays are not
+- **Top-level colors only**: Only top-level `color()` statements render correctly; nesting a `color()` inside another `color()` will not produce the expected result
+- **Premium add-on**: ColorSCAD is available to Printago Commercial users via the Add-Ons menu
+
 ## How It Works
 
 1. Add `color()` statements to your OpenSCAD model
@@ -148,6 +156,61 @@ ColorSCAD seamlessly integrates with OpenSCAD's existing Material system and rep
 
 - **Customer Color Selection**: Let customers choose colors and automate for easy bespoke order fulfillment.
 - **Enhanced Customization**: Combine with other parameters for complete product personalizations
+
+---
+
+## Troubleshooting
+
+### Colors Not Detected After Upload
+
+- Ensure `color()` statements are at the top level of your model, not nested inside another `color()` block
+- Verify you are using supported formats: named web colors (`"red"`) or variable identifiers (`BaseColor`), not hex codes (`"#FF5733"`) or RGB arrays (`[0.2, 0.8, 0.4]`)
+- Check that the ColorSCAD add-on is enabled in your Printago Add-Ons menu
+
+### Fewer Material Slots Than Expected
+
+- ColorSCAD deduplicates colors: the same color name or variable used multiple times creates only one material slot
+- Confirm each intended material slot uses a distinct color name or variable identifier
+
+### Nested Colors Not Rendering Correctly
+
+- This is expected behavior. Only top-level `color()` statements are supported. Restructure your model so that each `color()` call is at the top level:
+  ```openscad
+  // Correct: separate top-level color statements
+  color("red") cube(10);
+  color("blue") translate([15,0,0]) sphere(5);
+  ```
+
+### Model Renders in OpenSCAD but Not in Printago
+
+- ColorSCAD replaces Printago's standard OpenSCAD processor; ensure your model does not rely on features incompatible with the ColorSCAD pipeline
+- Test locally using the OpenSCAD Development Snapshot before uploading
+- Check for syntax errors or unresolved `import`/`use` references
+
+:::warning
+Hex color codes (e.g., `"#FF5733"`) and RGB arrays (e.g., `[0.2, 0.8, 0.4]`) are not supported by ColorSCAD. Use named web colors or variable identifiers instead.
+:::
+
+---
+
+## FAQ
+
+**Q: Can customers choose colors when ordering a ColorSCAD product?**
+A: Yes. By defining colors as OpenSCAD parameters with dropdown selections, you can let customers pick their preferred colors, and Printago will map those to the appropriate filaments automatically.
+
+**Q: How many material slots can a ColorSCAD model have?**
+A: The number of material slots matches the number of unique colors in your model. The practical limit depends on the number of filament slots available on your printer (e.g., 4 for an AMS).
+
+**Q: Can I mix named colors and variable colors in the same model?**
+A: Yes. Each named color and each variable identifier creates its own material slot independently. For example, `color("red")` and `color(AccentColor)` are two separate slots even if `AccentColor` is set to `"red"`.
+
+**Q: Does ColorSCAD work with all printers?**
+A: ColorSCAD works with any multi-material printer supported by Printago. Single-extruder printers can still print ColorSCAD models but will only use one material.
+
+**Q: Is ColorSCAD compatible with OpenSCAD libraries like BOSL2?**
+A: Yes. ColorSCAD works with any OpenSCAD library. Just ensure your `color()` statements are at the top level and not buried inside library function calls.
+
+---
 
 For technical assistance implementing ColorSCAD in your models, contact our support team or join our [Discord community](https://discord.gg/RCFA2u99De).
 

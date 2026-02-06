@@ -6,6 +6,15 @@ sidebar_position: 1
 
 Configure your 3D printers for automatic job matching and slicing. Manage your day-to-day operations like changing materials and letting Printago know the printer is ready to accept jobs.
 
+## Key Concepts
+
+- **Printer States**: A printer must be online, connected, and marked "Clear & Ready" before Printago will assign it a job
+- **Material Assignment**: Each printer needs at least one material loaded and assigned (via AMS slot or external spool) for job matching to work
+- **AMS / RFID Auto-Detection**: Bambu Lab RFID-tagged filament is automatically detected and assigned; non-RFID filament requires manual assignment
+- **Ready State**: The "Confirm clear & ready for next print" button is the gate that tells Printago a printer may accept a new job -- it must be clicked after every print completion or recovery
+- **Slicer Configuration**: Each printer requires a Machine profile and a default Process profile; bed type and calibration options are also configured here
+- **Multi-Printer Operations**: Bulk actions, keyboard shortcuts (A, G, R, M, T, C, P), and "Save to All Similar Printers" streamline fleet management
+
 ### Required Configuration
 For jobs to match with printers from the queue, each printer must be properly configured:
 
@@ -67,7 +76,7 @@ Select multiple printers using checkboxes to access bulk operations via the Acti
 
 **Available Actions:**
 - **Availability**: Mark ready (`R`) or not-ready (`U`)
-- **FabMatic**: Enable/disable [continuous printing](/docs/features/fabmatic-continuous-printing.md)
+- **FabMatic**: Enable/disable [continuous printing](/docs/printing/fabmatic-continuous-printing)
 - **Control Panel**: Multi-printer control (`P`)
 - **Configure**: Bulk slicer configuration (`C`)
 - **Materials**: Bulk material assignment (`M`)
@@ -101,7 +110,7 @@ The `Confirm clear & ready for next print` button is critical for queue processi
 
 **Alternatives:**
 - Multi-action from Printers page
-- [FabMatic mode](/docs/features/fabmatic-continuous-printing.md) for continuous operation
+- [FabMatic mode](/docs/printing/fabmatic-continuous-printing) for continuous operation
 
 ---
 
@@ -202,12 +211,56 @@ The `Use AMS` checkbox in slicer configuration controls:
 
 ---
 
+## Troubleshooting
+
+**Printer shows "Not Ready" and won't accept jobs:**
+- Click "Confirm clear & ready for next print" on the printer page -- this is required after every print, recovery, or when a printer comes online
+- Alternatively, select the printer on the Printers list and press `R` or use Actions -> Availability -> Mark Ready
+
+**"Missing Profile (won't match)" warning on a material slot:**
+- The assigned material does not have a slicing profile for this printer model + nozzle combination
+- Go to `Printing -> Materials`, open the material, and add the missing profile
+- This commonly happens after switching nozzle sizes or adding a new printer model
+
+**RFID filament not detected or creates wrong material:**
+- Ensure the AMS has fully read the spool (wait a few seconds after inserting)
+- If hex color codes do not match your library, an unexpected variant may be created -- see [Materials: Fixing Mismatched Colors](/docs/printing/materials.md#dual-color-filaments)
+- Use "Assign a material manually" to override RFID detection when needed
+
+**Printer appears offline or disconnected:**
+- Check the printer's network connection (Wi-Fi or wired)
+- Verify the printer is powered on and not in sleep mode
+- Refresh the Printers page -- the realtime connection may need to reconnect
+
+:::info Configuration Warnings
+The Printers list shows configuration warnings (yellow alerts) for any issue that prevents a printer from accepting jobs. Address all warnings before expecting the printer to receive queue assignments.
+:::
+
+## FAQ
+
+**Q: Do I need to click "Clear & Ready" after every single print?**
+A: Yes, unless you are using [FabMatic](/docs/printing/fabmatic-continuous-printing) for continuous printing. The ready button is a safety gate that confirms the bed has been cleared and the printer is prepared for the next job.
+
+**Q: Can I configure multiple identical printers at once?**
+A: Yes. Open the Slicer Configuration dialog on one printer and click "Save to All Similar Printers" to apply the same Machine profile, Process profile, and settings to all printers with the same model and nozzle size. You can also press `G` to select all matching printers quickly.
+
+**Q: What is the difference between assigning a specific material vs. a generic type like "Any PLA"?**
+A: Assigning a specific material (e.g., "Bambu PLA Basic - Black") uses configured profiles and enables full material matching. Assigning "Any PLA" is a generic fallback that only matches parts also set to "Any PLA" and requires inline profile selection -- it is not recommended for production use.
+
+**Q: How do I handle a printer that has both AMS and an external spool?**
+A: Enable "Use AMS" in Slicer Configuration to show AMS slots. The external spool is always available. You can assign different materials to AMS slots and the external spool independently.
+
+**Q: What are HMS alerts and how should I handle them?**
+A: HMS (Health and Maintenance System) alerts are warnings or errors reported by Bambu Lab printers. Printago displays them on the printer page with direct links to the relevant Bambu Lab Wiki article. Resolve the underlying issue, then clear the alert and mark the printer ready.
+
+---
+
 ## Related Documentation
 
 - **[Printer Tags](/docs/printing/printer-management/printer-tags.md)**: Dynamic printer grouping and job routing
 - **[Printer Control Panel](/docs/printing/printer-management/printer-control-panel.md)**: Manual printer operation and calibration
 - **[Materials](/docs/printing/materials.md)**: Material library management and profiles
 - **[Cloud Slicer](/docs/printing/cloud-slicer.md)**: Understanding slicer profiles and settings
-- **[FabMatic](/docs/features/fabmatic-continuous-printing.md)**: Continuous printing automation
+- **[FabMatic](/docs/printing/fabmatic-continuous-printing)**: Continuous printing automation
 
 Need help with printer setup? Join our [Discord community](https://discord.gg/RCFA2u99De) for support and latest updates!

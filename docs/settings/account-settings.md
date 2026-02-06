@@ -8,6 +8,13 @@ Manage your account settings and preferences from the Settings page in Printago.
 
 ![Account Settings](/images/account-settings.png)
 
+## Key Concepts
+
+- **Multi-Factor Authentication (MFA)** -- Protect your account with time-based one-time passwords (TOTP) using an authenticator app. Highly recommended for all accounts.
+- **Notification Preferences** -- Configure Discord webhooks or custom HTTPS webhook endpoints to receive real-time alerts about print farm events.
+- **Slicer Settings** -- Choose your default cloud slicer (OrcaSlicer, Bambu Studio, or a specific version). This default can be overridden per printer.
+- **Affiliate Program** -- Earn commissions by referring new paying customers to Printago through your unique referral link.
+
 ## Multi-factor Authentication (MFA)
 
 **Highly recommended!** Protect your account with a time-based one time password (TOTP) using an authenticator app.
@@ -76,3 +83,36 @@ Earn money by referring new users to Printago! When someone signs up using your 
 5. No purchase nessessary - you don't need to be a commercial user of our software to participate - or any type of user!  (Though we'd prefer if you do!)
 
 **[Become an affiliate](https://printago.getrewardful.com/signup)** to access the full affiliate portal and start earning.
+
+## Troubleshooting
+
+### MFA Code Not Working
+
+1. Verify your authenticator app's time is synced correctly -- TOTP codes are time-sensitive
+2. Make sure you are entering the code for the correct account (if you have multiple TOTP entries)
+3. If locked out, use one of the backup codes you saved during MFA setup
+4. Contact support at support@printago.io if you have lost both your authenticator and backup codes
+
+### Slicer Setting Not Taking Effect
+
+1. The account-level slicer setting is a default. Individual printers may have their own slicer configuration that overrides the account default
+2. Check the printer's slicer settings via the gear icon on the printer card or in Printer Management
+
+### Notifications Not Being Delivered
+
+1. See the [Notifications](/docs/features/notifications) page for detailed troubleshooting steps
+2. Verify your webhook URL is correct and the endpoint is reachable
+
+## FAQ
+
+**Q: Can I change my slicer setting per printer instead of globally?**
+A: Yes. The account-level slicer setting is just the default. You can override it for individual printers in their configuration settings.
+
+**Q: What authenticator apps are supported for MFA?**
+A: Any TOTP-compatible authenticator app works, including Google Authenticator, Authy, 1Password, Microsoft Authenticator, and others.
+
+**Q: What happens if I lose access to my authenticator app?**
+A: Use one of the backup codes provided during MFA setup. If you have lost your backup codes as well, contact support at support@printago.io for account recovery.
+
+**Q: Do I need to be a paying customer to join the affiliate program?**
+A: No. Anyone can join the affiliate program -- you do not need to be a Commercial or even a registered user of Printago to participate.

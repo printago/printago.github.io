@@ -9,6 +9,14 @@ Connect your Etsy shop to Printago for automated order processing, SKU managemen
 
 ![Etsy Addon Info](./images/etsy-addon-info-page.png)
 
+## Key Concepts
+
+- **OAuth Connection** -- Printago uses industry-standard OAuth 2.0 to connect to your Etsy shop securely. Your Etsy password is never stored.
+- **Order Sync** -- Open orders sync automatically from Etsy every 5 minutes, with on-demand manual sync available.
+- **SKU Mapping** -- Etsy product variations are matched to Printago SKUs. Import your Etsy listing SKUs before your first order sync for best results.
+- **Draft Listings** -- You can create draft Etsy listings directly from Printago SKUs that do not yet exist in your Etsy shop.
+- **Shopify CSV Export** -- A built-in tool helps migrate Etsy products to Shopify by exporting a Shopify-compatible CSV file.
+
 ## Overview
 
 The Etsy addon automatically syncs your Etsy orders to Printago, enabling streamlined fulfillment for print-on-demand products. Orders sync every 5 minutes, keeping your queue up to date with incoming orders.
@@ -203,6 +211,23 @@ Printago uses industry-standard OAuth 2.0 to securely connect to your Etsy shop.
 
 ### Data Privacy
 Customer information is handled according to Etsy's API terms of service and Printago's privacy policy. You can hide the customer column in the Orders view for additional privacy.
+
+## FAQ
+
+**Q: Is the Etsy addon free?**
+A: Yes, the Etsy addon is currently free during the public beta period.
+
+**Q: How often do orders sync from Etsy?**
+A: Orders sync automatically every 5 minutes. You can also click "Fetch Orders Now" for an immediate sync.
+
+**Q: What types of Etsy orders are synced?**
+A: By default, only open orders (not yet shipped) are synced. Orders that have already been shipped or completed are excluded.
+
+**Q: Can I create Etsy listings from Printago?**
+A: Yes. The "Printago to Etsy" tab lets you select Printago SKUs and create draft listings on Etsy. Listings are created as drafts so you can review and customize them before publishing.
+
+**Q: How do I migrate my Etsy products to Shopify?**
+A: Use the "Etsy to Shopify CSV" tab to export your Etsy listings as a Shopify-compatible CSV file, then import that CSV into Shopify.
 
 ---
 

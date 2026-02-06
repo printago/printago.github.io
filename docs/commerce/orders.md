@@ -6,6 +6,15 @@ sidebar_position: 4
 
 Create and manage custom orders directly within Printago using your SKU library. Manual orders provide a streamlined way to track customer requests and queue multiple SKUs for production in an organized workflow.
 
+## Key Concepts
+
+- **Manual Orders**: Orders created directly in Printago (as opposed to orders imported from e-commerce integrations). They let you organize SKUs, quantities, and customer details into a trackable unit.
+- **Order Lifecycle**: Orders progress from creation through queuing, printing, and completion. Each stage is tracked with visual indicators.
+- **Print Job Creation**: Clicking "Print Jobs" on an order generates print jobs for every SKU line item and adds them to the print queue. Re-clicking reconciles changes without duplicating existing jobs.
+- **Order Reconciliation**: When you add or remove SKUs from an active order, the "Print Jobs" action intelligently adds new jobs and removes cancelled ones without affecting jobs already printing.
+- **Line Items**: Each SKU added to an order is a line item with its own quantity, parameter configuration, and print status.
+- **On-the-Fly SKU Creation**: If a needed SKU does not exist, you can create it directly from the order creation flow.
+
 ## Overview
 
 Manual orders allow you to:
@@ -186,5 +195,64 @@ Manual order jobs use all the same printer assignment features:
 - Conference giveaways or promotional items
 - Multiple SKUs for complete event package
 - Deadline-driven fulfillment date tracking
+
+## Troubleshooting
+
+### Print Jobs Button Not Creating All Jobs
+
+**Problem**: Clicking "Print Jobs" does not seem to queue jobs for every line item in the order.
+
+**Solutions**:
+1. Check if some jobs were already created from a previous "Print Jobs" click -- Printago reconciles and only creates new jobs
+2. Verify that all SKUs in the order have valid linked parts
+3. Refresh the page and try again to ensure the realtime service is connected
+
+### Order Shows Incomplete But All Parts Are Printed
+
+**Problem**: The order does not show the green completion check even though printing is done.
+
+**Solutions**:
+1. Ensure all print jobs associated with the order have been marked as completed (not just removed from the printer)
+2. Check for any failed or cancelled jobs -- these may prevent the order from being marked complete
+3. Refresh the page to sync the latest job statuses
+
+### Cannot Remove a Line Item from an Active Order
+
+**Problem**: Deleting a SKU line item from the order does not remove the corresponding print jobs from the queue.
+
+**Solutions**:
+1. After removing the line item, click "Print Jobs" again to trigger reconciliation
+2. Reconciliation only removes queued jobs -- jobs already in printing status are left undisturbed by design
+3. To cancel in-progress jobs, go to the print queue directly and cancel them manually
+
+### Order Number Search Not Finding Results
+
+**Problem**: Searching by order number in the orders list or print queue returns nothing.
+
+**Solutions**:
+1. Verify the exact order number including any special characters or prefixes
+2. Check that you are searching in the correct view (Orders list vs Print Queue)
+3. Closed orders may not appear in the default view -- check for a filter that hides closed orders
+
+:::warning
+Cancelling an order removes only queued jobs. Any jobs that are actively printing will continue to completion. Always check the print queue if you need to halt in-progress prints.
+:::
+
+## FAQ
+
+**Q: Can I reopen a closed order?**
+A: Closed orders are archived for reference. If you need to print additional items, create a new order referencing the same SKUs and customer information.
+
+**Q: Do manual orders integrate with Shopify or Etsy?**
+A: Manual orders are separate from e-commerce integrations. Orders from Shopify and Etsy are imported automatically through their respective integrations. Manual orders are for direct customer requests or internal production tracking.
+
+**Q: What happens if I edit an order after jobs are already printing?**
+A: You can add or remove line items at any time. Click "Print Jobs" to reconcile -- new items are queued and removed items are cancelled from the queue. Jobs already actively printing are not affected.
+
+**Q: Is there a limit to how many SKUs I can add to a single order?**
+A: There is no hard limit. You can add as many SKU line items as needed to represent the full customer order.
+
+**Q: Can multiple orders share the same order number?**
+A: Order numbers are custom identifiers you define. Printago does not enforce uniqueness, but using unique order numbers is strongly recommended to avoid confusion when tracking jobs in the print queue.
 
 Need help with manual orders? Join our [Discord community](https://discord.gg/RCFA2u99De) for support and tips from other users!

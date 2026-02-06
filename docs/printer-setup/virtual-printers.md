@@ -1,10 +1,18 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # Virtual Printers
 
 Virtual printers let you test your Printago workflow without needing physical hardware. They simulate real Bambu Lab printers, complete with temperature changes, print progress, and error states.
+
+## Key Concepts
+
+- **Testing Without Hardware** -- Virtual printers run entirely in software, allowing you to explore Printago features without connecting physical printers.
+- **Simulated Printing** -- Virtual printers replicate the full print lifecycle: file transfer, heating, printing with layer progress, and cooling.
+- **Error Simulation** -- You can trigger realistic printer errors (nozzle temperature, filament runout, AMS issues, etc.) to test alerting and recovery workflows.
+- **Realistic Timing** -- Temperature changes and print progress are simulated at realistic rates, though test prints complete in minutes rather than hours.
+- **Fuse-Based** -- Virtual printers are created and managed through the [Printago Fuse](./printago-fuse.md) client (up to 20 per Fuse instance).
 
 ## What You'll Learn
 
@@ -114,3 +122,39 @@ Test how your workflow handles printer errors:
 4. Click **Trigger Error**
 
 The printer will enter an error state, allowing you to verify your alerts and recovery procedures work correctly. Click **Clear All Errors** to return to normal operation.
+
+## Troubleshooting
+
+### Virtual Printer Not Appearing in Printago
+
+1. Check the Fuse Status page to confirm the Fuse client is connected to the Printago cloud gateway
+2. Click **Sync Printers to Cloud** in Fuse Settings to force a sync
+3. Refresh the Printago web interface
+
+### Virtual Printer Stuck in a State
+
+1. Use the **Reset Printer** button in Virtual Printer Controls to return to idle
+2. If reset does not work, try removing the virtual printer and recreating it
+
+### Test Print Not Starting
+
+1. Ensure the virtual printer is set to Online in the connection toggle
+2. Clear any active HMS errors before starting a test print
+3. Check that the Fuse client is running and connected
+
+## FAQ
+
+**Q: Do virtual printers count toward my production slot limit?**
+A: Yes. When a virtual printer is processing a job from your queue, it occupies a production slot just like a physical printer.
+
+**Q: Can I send real gcode files to a virtual printer?**
+A: Yes. You can queue print jobs to virtual printers through the normal Printago workflow. The virtual printer will simulate processing the file, and you can inspect the generated gcode output.
+
+**Q: How many virtual printers can I create?**
+A: You can create up to 20 virtual printers per Fuse client.
+
+**Q: Do virtual printers support AMS simulation?**
+A: Yes. When creating a virtual printer, you can configure AMS units with customizable slot counts, and the printer will simulate AMS behavior.
+
+**Q: Can I use virtual printers to test Discord or webhook notifications?**
+A: Yes. Virtual printers trigger the same events as physical printers, so job completions, errors, and status changes will fire your configured notifications.

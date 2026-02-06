@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Printago Fuse
@@ -11,6 +11,16 @@ Printago Fuse is currently in private beta and not yet publicly available. This 
 Printago Fuse is a local client that bridges your Bambu Lab 3D printers to Printago. It runs on your local network and handles all communication with your printers.
 
 ![Fuse with Configured Printers](../images/fuse-printers-configured.png)
+
+## Key Concepts
+
+- **LAN Mode** -- Fuse communicates with printers over your local network using LAN Mode and Developer Mode, rather than going through Bambu's cloud.
+- **Activation** -- Each Fuse client must be linked to your Printago account using a time-limited activation code (valid for 15 minutes).
+- **Printer Discovery** -- Fuse can find printers automatically via SSDP auto-scan, custom subnet scanning, or manual IP entry.
+- **MQTT** -- Printer control and status updates use the MQTT protocol over TLS (port 8883) for secure, real-time communication.
+- **Gateway Connection** -- Fuse connects to the Printago cloud gateway to sync printer data and receive print jobs from your queue.
+- **Virtual Printers** -- Fuse supports up to 20 simulated printers per client for testing workflows without physical hardware.
+- **Access Code** -- Each physical printer requires its 8-digit access code (found in printer settings) for Fuse to authenticate.
 
 ## Prerequisites
 
@@ -360,3 +370,20 @@ If the camera feed doesn't appear:
 ## Support
 
 For additional help, visit [docs.printago.io/fuse](https://docs.printago.io/fuse) or contact Printago support.
+
+## FAQ
+
+**Q: Do I still need Bambu Cloud Mode enabled on my printers to use Fuse?**
+A: No. Fuse connects directly over your local network using LAN Mode and Developer Mode. Cloud Mode is not required.
+
+**Q: Can I run Fuse on multiple computers?**
+A: Yes, you can run multiple Fuse clients linked to the same Printago account. Each client manages its own set of printers.
+
+**Q: What happens if Fuse loses its internet connection?**
+A: Fuse will continue communicating with your printers locally, but it will not be able to sync with Printago's cloud gateway. Print jobs already in progress will continue, but new jobs from your Printago queue will not be dispatched until the connection is restored.
+
+**Q: How do I find my printer's access code?**
+A: The access code is an 8-digit code found in your printer's settings menu under LAN Mode or Network settings. Refer to your printer's documentation for the exact location.
+
+**Q: Can I use Fuse with newer Bambu Lab firmware versions?**
+A: Yes. Unlike the Cloud Mode integration, Fuse supports newer firmware versions through Developer LAN mode.

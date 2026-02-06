@@ -5,6 +5,15 @@ sidebar_position: 1
 
 OpenSCAD support in Printago lets you create dynamic, customizable 3D models that respond to customer input without touching code. Let's explore how it works!
 
+## Key Concepts
+
+- **Parametric models**: OpenSCAD files define 3D models through code with variables (parameters) that can be changed to create different variations automatically
+- **Parameter types**: Printago supports text, number, boolean (checkbox), and selection (dropdown) parameters, all parsed from the top of your .scad file
+- **File imports**: OpenSCAD files can reference other files (fonts, libraries, STLs, SVGs, DXFs) using `use` and `import` statements; all referenced files must be uploaded to Printago
+- **Variable parsing boundary**: Only variables declared above the first set of curly braces `{ }` are imported as parameters by Printago
+- **ColorSCAD add-on**: A premium feature that enables multi-color models by extracting material assignments from `color()` statements in your SCAD file
+- **Development snapshots required**: Use the OpenSCAD Development Snapshot version for creating and testing your .scad files
+
 ## What is OpenSCAD?
 
 OpenSCAD is a programming language for creating parametric 3D models. Instead of manually sculpting models, you write code that generates them. With Printago's native OpenSCAD support, you can:
@@ -181,6 +190,27 @@ If your design is rendering slowly:
 - Consider breaking into smaller modules that can be rendered independently
 
 Need help! Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!
+
+---
+
+## FAQ
+
+**Q: Do I need to know how to code to use OpenSCAD parts in Printago?**
+A: No. As a Printago user (or customer), you only interact with the parameters exposed by the .scad file (text fields, dropdowns, checkboxes). The coding is done by the designer who creates the file.
+
+**Q: Why are some of my variables not showing up as parameters in Printago?**
+A: Printago only imports variables declared above the first set of curly braces `{ }` in your .scad file. Move any parameters you want exposed above that boundary.
+
+**Q: Can I use OpenSCAD with multi-material printers?**
+A: Yes, by using the [ColorSCAD](/docs/products/openscad/colorscad.md) add-on. Standard OpenSCAD parts are single-material; ColorSCAD lets you define color/material slots using `color()` statements.
+
+**Q: What version of OpenSCAD should I use for development?**
+A: Use a [Development Snapshot](https://openscad.org/downloads.html#snapshots) version. The stable release may lack features that Printago's processing engine relies on.
+
+**Q: Can OpenSCAD parts use external libraries?**
+A: Yes. Printago provides several [pre-installed libraries](/docs/products/openscad/libraries.md) (BOSL2, Gridfinity, MCAD, etc.) and also supports uploading custom library files alongside your .scad parts.
+
+---
 
 ## OpenSCAD Resources
 

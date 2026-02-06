@@ -1,7 +1,8 @@
 {
-  "label": "Additional Features",
-  "position": 6,
+  "label": "Features & Tools",
+  "position": 8,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "Dashboard, file uploads, bulk actions, search, notifications, and more."
   }
 }

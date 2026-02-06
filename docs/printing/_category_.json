@@ -1,7 +1,8 @@
 {
   "label": "Printing",
-  "position": 4,
+  "position": 5,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "Print jobs, manage your queue, materials, slicing profiles, and printer fleet."
   }
 }

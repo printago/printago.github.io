@@ -1,7 +1,8 @@
 {
-  "label": "Integrations 💎",
-  "position": 6,
+  "label": "Integrations",
+  "position": 7,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "Connect Printago to Shopify, Etsy, and other e-commerce platforms."
   }
 }

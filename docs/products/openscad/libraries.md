@@ -6,6 +6,14 @@ sidebar_position: 3
 
 Printago provides access to numerous OpenSCAD libraries to enhance your parametric design capabilities. These libraries are pre-installed and available for use in your OpenSCAD designs.
 
+## Key Concepts
+
+- **Pre-installed libraries**: Printago includes several popular OpenSCAD libraries (BOSL, BOSL2, dotSCAD, Gridfinity, KeyV2, MCAD, NopSCADlib, and more) ready to use without manual uploads
+- **Include syntax**: Use `include <LibraryName/file.scad>` or `use <LibraryName/file.scad>` to reference libraries; the exact path depends on each library's structure
+- **Version compatibility**: Libraries are regularly updated by the Printago team; some libraries may have specific OpenSCAD version requirements
+- **No upload needed**: Pre-installed libraries do not need to be uploaded alongside your .scad files -- Printago resolves them automatically
+- **Custom libraries**: If you need a library that is not pre-installed, you can upload it as part of your OpenSCAD part's file bundle, or request it from the Printago team
+
 ## General Purpose Libraries
 
 ### BOSL (Belfry OpenSCAD Library)
@@ -105,6 +113,57 @@ gridfinityBase();
 - Always refer to the official library documentation
 - Include comments explaining library usage in your designs
 - Test parameter ranges with library functions
+
+---
+
+## Troubleshooting
+
+### Library Not Found During Rendering
+
+- Verify the `include` or `use` path matches the library's directory structure exactly (case-sensitive)
+- Check the library name against the list of pre-installed libraries on this page; if it is not listed, you will need to upload it manually with your .scad file
+- Test the import locally in OpenSCAD (Development Snapshot) to confirm the path resolves correctly
+
+### Rendering Fails When Using a Library
+
+- Some library functions are computationally expensive; try reducing `$fn` or simplifying your design to isolate the issue
+- Ensure you are only loading the modules you need (e.g., `include <BOSL2/std.scad>` instead of including the entire library tree)
+- Verify your code is compatible with the library version installed on Printago; check the library's documentation for breaking changes
+
+### Library Works Locally but Not in Printago
+
+- Local OpenSCAD installations may have libraries in different paths; ensure you use the Printago-compatible include path shown in the examples above
+- If your local setup uses a newer library version with features not yet on Printago, contact support to request an update
+
+### Conflicts Between Libraries
+
+- Avoid including multiple libraries that define functions or modules with the same name
+- If you experience unexpected behavior, try isolating each library in a test file to identify the conflict
+
+:::tip
+Always test your designs locally before uploading. Load only the specific modules you need from a library to reduce compile time and avoid conflicts.
+:::
+
+---
+
+## FAQ
+
+**Q: Do I need to upload pre-installed libraries when creating an OpenSCAD part?**
+A: No. Pre-installed libraries are automatically available on Printago. Just use the correct `include` or `use` statement in your .scad file.
+
+**Q: Can I request a new library be added to Printago?**
+A: Yes. Contact the support team or post in the [Discord community](https://discord.gg/RCFA2u99De). The Printago team regularly evaluates and adds new libraries based on user needs.
+
+**Q: What if I need a specific version of a library?**
+A: Printago maintains current versions of all pre-installed libraries. If you need a specific version, you can upload it manually alongside your .scad file, or contact support to discuss the requirement.
+
+**Q: Can I use multiple libraries in the same OpenSCAD file?**
+A: Yes. You can include as many libraries as needed. Be mindful of compile time and potential naming conflicts between libraries.
+
+**Q: Are library updates automatic, or do I need to re-upload my parts?**
+A: Library updates on Printago are managed by the team and apply automatically. You do not need to re-upload parts unless the update introduces breaking changes (which would be communicated in advance).
+
+---
 
 ## Support
 

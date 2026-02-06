@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 7
 ---
 
 # FabMatic Continuous Printing
@@ -9,6 +9,15 @@ FabMatic enables automated continuous printing by running back-to-back jobs with
 :::warning Experimental Feature
 FabMatic is currently experimental and scheduled for major updates in **February 2025**, including temperature-based release scripts to replace timing-based clearing.
 :::
+
+## Key Concepts
+
+- **Bed Clearing**: Custom end G-code cools the bed and ejects the completed part so the next job can start automatically
+- **End G-code**: The clearing script is inserted into a Machine profile's "Machine end G-code" section in your slicer, then synced to Printago
+- **Clearing Profiles**: Dedicated slicer Machine profiles (e.g., "X1C - FabMatic Clearing") that contain the bed-clearing G-code -- one per printer model
+- **Material Considerations**: PLA is recommended for auto-ejection; PETG has too much bed adhesion and is better suited for manual clearing or plate-changer systems
+- **Safety Circuit Breaker**: FabMatic automatically disables on any interruption (HMS error, network loss, external printer use) to prevent unattended operation during problems
+- **Semi-Automatic Mode**: A PAUSE command alternative for materials or parts that don't auto-eject well -- the printer pauses between jobs for manual bed clearing
 
 ## How FabMatic Works
 
@@ -208,6 +217,23 @@ Bambu Studio has quirks with updating profiles. Always close the slicer after ma
 3. **Wait a moment**: Give Bambu's cloud sync 30 seconds to complete
 4. **Re-run integration**: Settings → Integrations → Bambu Lab → Configure
 5. **Check profile name**: Ensure you saved with a new name (not overwritten system profile)
+
+## FAQ
+
+**Q: Does FabMatic work with PETG?**
+A: PETG is not recommended for auto-ejection due to very high bed adhesion. For PETG, use either the semi-automatic PAUSE method (manual bed clearing between prints) or a plate-changer system like Jobox.
+
+**Q: What happens if FabMatic disables automatically mid-queue?**
+A: The current print finishes normally, but no new jobs will start. Resolve the underlying issue (HMS error, network loss, etc.), then re-enable FabMatic and accept the safety disclaimer to resume continuous operation.
+
+**Q: Can I use FabMatic on only some of my printers?**
+A: Yes. FabMatic is enabled per-printer. Select the specific printers you want and enable FabMatic from the Actions menu. Other printers continue operating normally.
+
+**Q: Do I need a different clearing profile for each printer model?**
+A: Yes. The end G-code for bed clearing is model-specific (e.g., A1 Mini vs. X1C have different motion commands). Create and name a clearing Machine profile for each model in your slicer.
+
+**Q: How long does the bed need to cool before parts eject reliably?**
+A: For PLA, cooling to approximately 28-30 degrees C typically allows reliable release. Time-based cooling (M190 commands) works but may wait longer than necessary on cool days or not long enough in warm environments.
 
 ## Community Resources
 

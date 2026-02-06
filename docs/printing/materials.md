@@ -6,6 +6,15 @@ sidebar_position: 3
 
 Printago's material system enables intelligent job matching and automated printer selection across your entire printer fleet. Materials are central to how Printago routes jobs to the right printers with the right settings.
 
+## Key Concepts
+
+- **Base Materials vs. Variants**: A base material defines the filament type, brand, and core slicing profile; variants represent specific colors or finishes of that base material
+- **Profile Assignment**: Each material needs a slicing profile configured for every printer model + nozzle combination it will be used with -- missing profiles prevent job matching
+- **Job Matching Levels**: Parts can require an exact variant ("Bambu PLA Basic Red"), any color of a base material ("Bambu PLA Basic"), or a generic type ("Any PLA")
+- **AMS / RFID Detection**: Bambu Lab RFID-tagged filament is auto-detected and assigned; mismatched hex codes may create unexpected variants
+- **Profile Resolution Priority**: When slicing, a variant-level profile override takes precedence over the base material profile
+- **Multi-Color Matching**: For multi-color 3MF files, assigning "Any Color" to multiple slots may cause all slots to resolve to the same spool -- use specific variants instead
+
 ![Materials Library](/images/materials.png)
 
 ## How Materials Work
@@ -140,7 +149,7 @@ When adding parts to the print queue, you can override the default material sele
 
 ## Job Matching System
 
-Materials enable Printago's intelligent job-to-printer matching. For detailed information about how the print queue processes jobs and matches them to printers, see [Print Queue Management](../print-queue-management.md).
+Materials enable Printago's intelligent job-to-printer matching. For detailed information about how the print queue processes jobs and matches them to printers, see [Print Queue Management](./print-queue-management.md).
 
 ### Material Matching Levels
 
@@ -201,13 +210,41 @@ For parts with multiple colors, always assign specific material variants rather 
 - **Generic Fallbacks**: Use "Any [Type]" for prototyping or non-critical prints
 - **Profile Completeness**: Ensure all materials have profiles for your printer fleet
 
-## Common Issues
+## Troubleshooting
 
-**Jobs Not Matching Printers**:
-- Verify material is loaded and assigned to printer
-- Check that material has slicing profiles configured
-- Ensure part material requirements match available materials
+**Jobs not matching printers:**
+- Verify material is loaded and assigned to the printer
+- Check that the material has slicing profiles configured for the printer's model and nozzle diameter
+- Ensure the part's material requirements match available materials (e.g., a part set to "Bambu PLA Basic" will not match a printer assigned "Any PLA")
 
+**RFID auto-detection creates an unexpected variant:**
+- The hex color codes read from the RFID tag did not match any existing variant in your library
+- Note the hex code on the new variant, update your intended variant's hex code to match, then delete the incorrectly created variant
+- Remove and re-insert the filament to re-trigger detection
 
+**"Missing Profile (won't match)" warning on printer material slot:**
+- The assigned material does not have a slicing profile for this printer model + nozzle combination
+- Go to `Printing -> Materials`, open the material, and add the missing profile configuration
+
+:::warning Profile Completeness
+A material without slicing profiles for a given printer model will silently prevent job matching on that printer. Always verify profiles after adding new materials or changing nozzle sizes.
+:::
+
+## FAQ
+
+**Q: What is the difference between a base material and a material variant?**
+A: A base material defines the filament type, brand, and core slicing profiles (e.g., "Bambu PLA Basic"). A variant is a specific color or finish of that base material (e.g., "Bambu PLA Basic Red") and can optionally carry its own slicing profile overrides.
+
+**Q: Can I use "Any PLA" on a part and still match a specific brand like "Bambu PLA Basic"?**
+A: Yes. "Any PLA" is a generic type that matches any PLA material from any brand. However, the reverse is not true -- a part requiring "Bambu PLA Basic" will not match a printer assigned only "Any PLA".
+
+**Q: How do I handle dual-color or gradient filaments?**
+A: Use semicolon-separated hex codes (e.g., `#FF9425FF;#C16784FF`). Printago uses these codes for RFID matching, so they must match exactly between your library and the filament's RFID data.
+
+**Q: Do I need to configure profiles for every nozzle size I use?**
+A: Yes. Each material needs a profile for every printer model + nozzle diameter combination. If you switch nozzle sizes, revisit your material profiles to add the new configurations.
+
+**Q: Can I bulk-import materials from my AMS units?**
+A: Yes. Use the "Import from AMS" feature on the Materials page to add all missing materials currently loaded and read by your AMS units in one step.
 
 Need help with materials? Join our [Discord community](https://discord.gg/RCFA2u99De) for support and tips from other users!
