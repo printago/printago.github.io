@@ -1,14 +1,63 @@
 ---
 sidebar_label: LAN Client (Fuse)
+title: LAN Client (Fuse)
 ---
 
-# Printago Fuse
+# LAN Client (Fuse)
 
-:::info Beta Software
-Printago Fuse is currently in private beta and not yet publicly available. This documentation is for beta testers and early access participants.
-:::
+Printago Fuse is a lightweight client that runs on your local network, bridging Printago to printers that aren't reachable via cloud connections. Fuse handles the local communication so you get full Printago functionality regardless of how your printer connects.
 
-Printago Fuse is a local client that bridges your Bambu Lab 3D printers to Printago. It runs on your local network and handles all communication with your printers.
+## Download
+
+### Desktop Applications
+
+| Platform | Download |
+|----------|----------|
+| **Windows** (10+, 64-bit) | [Download](https://storage.googleapis.com/printago-prod-releases/Printago-Fuse-win-x64.exe) |
+| **macOS Apple Silicon** | [Download](https://storage.googleapis.com/printago-prod-releases/Printago-Fuse-mac-arm64.dmg) |
+| **macOS Intel** | [Download](https://storage.googleapis.com/printago-prod-releases/Printago-Fuse-mac-x64.dmg) |
+
+### Docker
+
+Docker is a great option for headless servers, Raspberry Pi, or managed deployments.
+
+#### Quick Start
+
+```bash
+docker volume create fuse_config
+docker volume create fuse_data
+docker pull ghcr.io/printago/fuse:latest
+docker run -d \
+  --name printago-fuse \
+  --restart unless-stopped \
+  -p 8888:8888 \
+  -v fuse_config:/app/config \
+  -v fuse_data:/app/data \
+  ghcr.io/printago/fuse:latest
+```
+
+#### Docker Compose
+
+Add this service to your `docker-compose.yml`. Configuration and print data persist across container restarts and updates.
+
+```yaml
+services:
+  fuse:
+    image: ghcr.io/printago/fuse:latest
+    container_name: printago-fuse
+    restart: unless-stopped
+    ports:
+      - "8888:8888"
+    volumes:
+      - fuse_config:/app/config
+      - fuse_data:/app/data
+
+volumes:
+  fuse_config:
+  fuse_data:
+```
+
+After starting the container, access Fuse at **http://localhost:8888** to complete setup.
 
 ![Fuse with Configured Printers](../images/fuse-printers-configured.png)
 
