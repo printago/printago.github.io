@@ -3,12 +3,14 @@
 
 Understanding these fundamental concepts will help you make the most of Printago's features and capabilities.
 
-## Print Farm as a Service
+## Configure Once, Automate Forever
 
-Traditional 3D print farm management treats printers like individual computers that need constant manual configuration. Printago takes a cloud-first approach, treating your printers as elastic resources that can be dynamically allocated and managed—similar to how cloud providers handle computing resources. No local servers or Raspberry Pis are required; you access your entire farm from anywhere with real-time monitoring, automatic updates, and intelligent job distribution.
+Printago asks more of you upfront than a simple "drag and drop G-code" workflow. You'll set up materials, assign slicer profiles, define SKUs with their variants, and configure your printers with the right tags and hardware details. That initial investment is deliberate—every piece of configuration you provide becomes a decision Printago never asks you to make again.
+
+Once your materials are defined, the cloud slicer automatically picks the right filament profile. Once your process profiles are assigned, every future print uses the correct quality settings without manual selection. Once a SKU maps its variants to the right parts, colors, and parameters, every incoming order produces the correct jobs with zero intervention. The pattern holds across the entire platform: the more precisely you configure things once, the more completely Printago handles them from then on.
 
 :::tip Why This Matters
-This approach enables features like automatic printer matching, on-demand slicing, and remote management that wouldn't be possible with traditional printer management methods.
+The goal isn't to eliminate complexity—it's to front-load it. A few hours of thoughtful setup replaces thousands of repetitive decisions over the life of your print farm.
 :::
 
 ## Parts
