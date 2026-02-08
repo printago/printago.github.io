@@ -25,7 +25,7 @@ const sidebars = {
         'connecting-printers/bambu-lab-integration',
         'connecting-printers/printago-fuse',
         'connecting-printers/klipper-integration',
-        'connecting-printers/prusa-connect',
+        'connecting-printers/prusa-link',
         'connecting-printers/virtual-printers',
       ],
     },
