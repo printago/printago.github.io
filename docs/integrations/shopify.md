@@ -8,7 +8,9 @@ title: Shopify
 Integrations require a Commercial subscription. [Learn more](/docs/settings/subscription-management)
 :::
 
-Connect your Shopify store to Printago so orders flow directly into your production workflow.
+## Key Concepts
+
+The **Shopify integration** connects your Shopify storefront directly to Printago's production system so that incoming customer orders automatically generate print jobs. When a customer purchases a product, the integration syncs the order to Printago, matches the Shopify SKU identifier to your Printago SKU definitions, and optionally queues the resulting jobs for production immediately. Printago can also write progress tags back to your Shopify orders so you can track production status from your store's admin panel. This integration closes the loop between e-commerce and manufacturing—instead of manually checking orders and creating print jobs, the entire flow from sale to production is automated. It's especially powerful when combined with SKU Variants, allowing a single Shopify product listing with multiple options (color, size, personalization) to produce the correct parts automatically.
 
 ## What You Get
 

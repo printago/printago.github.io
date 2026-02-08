@@ -1,7 +1,9 @@
 
 # Part Management
 
-Parts are the foundation of your 3D printing workflow in Printago. A part represents any 3D model that you want to print, and can be used across multiple SKUs.
+## Key Concepts
+
+A **part** in Printago is an uploaded 3D model file—STL, STEP, 3MF, OpenSCAD, or GCODE—along with its associated printing configuration such as material requirements, slicer process profiles, and build plate settings. Parts are the atomic unit of your print library: every print job in Printago originates from a part, and parts can be reused across multiple SKUs to build complete products. Because Printago's cloud slicer generates printer-specific G-code on demand, a single part file works across every compatible printer in your fleet without needing separate exports for each machine model. Whether you're prototyping a one-off design or producing thousands of units across dozens of printers, parts give you a single source of truth for each model's geometry and print settings.
 
 ![Parts List](/images/parts-list.png)
 

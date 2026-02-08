@@ -4,7 +4,9 @@ title: Etsy
 
 # Etsy Integration
 
-Connect your Etsy shop to Printago for automated order processing, SKU management, and seamless print-on-demand fulfillment.
+## Key Concepts
+
+The **Etsy integration** connects your Etsy shop to Printago for automated order processing and print-on-demand fulfillment. Orders sync from Etsy every five minutes, and Printago matches each order's SKU to your product definitions to generate the correct print jobs automatically. Like the Shopify integration, this bridges e-commerce and production so you don't have to manually translate customer orders into print queue entries. The Etsy addon supports SKU variant mapping, so a single Etsy listing with multiple options (color, size, personalization) can automatically produce the right parts with the right materials and parameters.
 
 ![Etsy Addon Info](./images/etsy-addon-info-page.png)
 

@@ -1,7 +1,9 @@
 
 # Orders
 
-Create and manage custom orders directly within Printago using your SKU library. Manual orders provide a streamlined way to track customer requests and queue multiple SKUs for production in an organized workflow.
+## Key Concepts
+
+An **order** in Printago represents a customer request containing one or more SKUs with quantities, customer details, and a target fulfillment date. Orders bridge the gap between receiving a customer request and producing the physical parts—they translate "what the customer wants" into actionable print jobs in your queue. When you create an order (either manually or through an e-commerce integration like Shopify or Etsy), Printago calculates all the individual print jobs needed across every SKU and part, then lets you send them all to the queue at once. Orders also track production progress so you can see at a glance which customer requests are complete and which still have jobs in progress. This is especially useful for businesses fulfilling custom or made-to-order products, where each order may involve multiple parts with different materials and parameters.
 
 ## Overview
 

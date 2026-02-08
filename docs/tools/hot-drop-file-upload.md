@@ -1,7 +1,9 @@
 
 # Hot Drop File Upload
 
-The Hot Drop Zone provides a fast and convenient way to upload multiple 3D printing files at once. Simply drag and drop any number of parts, and they'll be automatically uploaded and organized for you.
+## Key Concepts
+
+**Hot Drop** is Printago's drag-and-drop upload zone for quickly getting files into your system and optionally into the print queue in a single action. Rather than going through the full part creation workflow for each file, you can drop one or many files at once and choose to upload only, open a print dialog, or auto-queue everything with default settings. Hot Drop is designed for speed-oriented workflows—when you receive a batch of files from a client, need to quickly prototype something, or want to run a set of parts without configuring each one individually, you can go from file on your desktop to printing in seconds. Uploaded files are automatically organized into date-based folders for easy retrieval later.
 
 ![Hot Drop Zone](/images/hot-drop.png)
 

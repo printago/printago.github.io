@@ -1,7 +1,9 @@
 
 # Materials
 
-Printago's material system enables intelligent job matching and automated printer selection across your entire printer fleet. Materials are central to how Printago routes jobs to the right printers with the right settings.
+## Key Concepts
+
+**Materials** in Printago represent the filaments loaded in your printers and are the primary factor in how jobs get routed to the right machine. Each material has two layers: a **base material** (like "Bambu PLA Basic") defining the filament type, brand, and slicing profiles, and **variants** (like "Red" or "Matte Black") representing specific colors or finishes. When you assign materials to a part and load matching filaments on your printers, Printago's queue automatically routes jobs only to printers with compatible materials. The system supports matching at different levels of specificity—you can require an exact color variant, any color of a particular brand, or any filament of a given type. For Bambu Lab printers with RFID-tagged filament, material detection and assignment happen automatically. The material system exists so you never accidentally print a part in the wrong filament and so that adding more printers with different materials loaded is seamless.
 
 ![Materials Library](/images/materials.png)
 

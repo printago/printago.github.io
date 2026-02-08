@@ -1,9 +1,11 @@
 
 # SKU Management
 
-SKUs (Stock Keeping Units) in Printago help you organize your products for production. In Printago, SKUs are synonymous with "Assemblies" can consist of one or more parts, with specific configurations for each part.  
+## Key Concepts
 
-SKUs are only available to Printago users on a [Commercial Account](/docs/settings/subscription-management.md)
+A **SKU** (Stock Keeping Unit) in Printago is synonymous with an **assembly**—a complete, shippable product composed of one or more parts with specific quantities, material configurations, and customization options. While a part represents a single 3D model, a SKU represents the finished product a customer receives. For example, a desk organizer SKU might bundle a base, two dividers, and a lid, each with their own material and quantity settings. SKUs also serve as the link between your production workflow and your e-commerce storefronts: when an order arrives from Shopify or Etsy, Printago matches the order's SKU identifier to your SKU definitions and automatically generates the correct print jobs. If you sell physical products made from 3D-printed parts, SKUs let you define "what to make" once and reuse that definition across manual orders, storefront integrations, and batch production runs.
+
+SKUs are only available to Printago users on a [Commercial Account](/docs/settings/subscription-management.md).
 
 ## Overview
 

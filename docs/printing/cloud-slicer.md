@@ -1,7 +1,9 @@
 
 # Cloud Slicer
 
-Printago's Cloud Slicer enables on-demand GCODE generation, automatically converting your 3D models into printer-specific instructions when jobs are assigned to printers. This eliminates the need to pre-slice files for every printer/material combination and enables universal slicing profiles across your entire printer fleet.
+## Key Concepts
+
+The **cloud slicer** is Printago's on-demand G-code generation system. Instead of pre-slicing your models for every possible printer and material combination, Printago slices each job just in time—only after a specific printer has been assigned by the queue. The slicer combines three profile sources (machine, process, and filament) to produce G-code optimized for the exact printer, nozzle, and material being used. Results are intelligently cached, so repeat jobs with the same configuration slice instantly on subsequent prints. This approach means a single uploaded part works on any compatible printer in your fleet without manual re-slicing, and changing a profile or material automatically produces fresh G-code on the next print. For print farms, cloud slicing eliminates the burden of maintaining separate G-code files for each printer model and dramatically simplifies profile management.
 
 ## How It Works
 
@@ -36,24 +38,27 @@ sequenceDiagram
 
 ## Profile Resolution
 
-When slicing a job, the Cloud Slicer combines multiple profile sources to generate optimal printer-specific GCODE:
+When slicing a job, the Cloud Slicer combines three profile sources to generate printer-specific GCODE. Importantly, these profiles are always resolved from Printago's configuration—not extracted from uploaded 3MF files (with one exception for process profiles noted below).
 
 ### 1. Machine Profile
-Defines printer-specific settings synchronized from your [Bambu Lab Integration](../connecting-printers/bambu-lab-integration.md):
+The machine (printer) profile **always** comes from what is configured on the printer itself in Printago, never from an uploaded 3MF file. This ensures the slicer uses the correct hardware settings for the actual printer receiving the job:
 - Printer model and capabilities
 - Bed size and type (Smooth PEI, Textured, etc.)
 - Nozzle diameter and configuration
 - AMS settings and filament handling
 
-### 2. Process Profile
-Determines print quality and behavior settings, resolved in this priority order:
-1. **Part-specific override** (if configured on the part)
-2. **Printer default process profile** (configured in [Printer Management](./printer-management/printer-management.md))
+Machine profiles are synchronized from your [Bambu Lab Integration](../connecting-printers/bambu-lab-integration.md) or configured in [Printer Management](./printer-management/printer-management.md).
 
-### 3. Material Profile
-Provides material-specific slicing parameters resolved in this priority order:
-1. **Material Variant's profile override** (if configured on the color variant)
-2. **Material's filament profile** (configured in [Materials](/docs/printing/materials.md))
+### 2. Process Profile
+The process (print quality) profile is resolved in this priority order:
+1. **Embedded 3MF Profile** — if you chose "Embedded 3MF Profile" when creating the part, the process settings saved inside the 3MF file are used
+2. **Part-specific override** — if you selected a specific process profile on the part
+3. **Printer default process profile** — if the part is set to "Printer Default," the default process profile configured on the assigned printer is used (configured in [Printer Management](./printer-management/printer-management.md))
+
+### 3. Filament Profile
+The filament profile **always** comes from the material that matched the job on the assigned printer—never from a 3MF file. When a job is matched to a printer, Printago looks up the slicing profile assigned to that material (or material variant) for the printer's model and nozzle size:
+1. **Material Variant's profile override** (color-specific adjustments, if configured)
+2. **Base Material's filament profile** (configured in [Materials](/docs/printing/materials.md))
 ## Intelligent Caching
 
 The Cloud Slicer implements smart caching to optimize performance and reduce slicing time. If anything on the part, printer, build plate, or related settings changes, it triggers a reslice of the file.

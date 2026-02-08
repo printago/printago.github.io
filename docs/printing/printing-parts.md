@@ -1,7 +1,11 @@
 
 # Printing Parts
 
-This page covers how to print parts from your library.  To learn more about how to add and manage parts, check out [Parts Management](/docs/parts/part-management.md)
+## Key Concepts
+
+**Printing** in Printago is the process of sending parts from your library to the print queue, where they are matched with compatible printers and produced automatically. Rather than manually exporting G-code and transferring files to each printer, you configure your print—setting quantities, materials, and printer assignment—and Printago handles slicing, routing, and job management behind the scenes. You can print a single part, bulk-print multiple parts at once, or print entire SKUs. Printago supports three assignment strategies: letting the system pick the next available compatible printer, targeting a specific machine, or routing to a group of printers by tag. This workflow is designed so that scaling from one printer to a hundred requires no change in how you initiate prints.
+
+To learn more about how to add and manage parts, check out [Parts Management](/docs/parts/part-management.md).
 
 ## Starting a Print
 

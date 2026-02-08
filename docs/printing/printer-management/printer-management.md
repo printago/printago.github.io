@@ -1,7 +1,9 @@
 
 # Printer Management
 
-Configure your 3D printers for automatic job matching and slicing. Manage your day-to-day operations like changing materials and letting Printago know the printer is ready to accept jobs.
+## Key Concepts
+
+**Printer management** is how you configure your physical printers so they can participate in Printago's automatic job matching and production system. Each printer needs three things to receive jobs: assigned materials (so the queue knows what filament is loaded), slicer profiles (so the cloud slicer can generate G-code for that machine), and printer-specific settings like bed type and AMS configuration. Once configured, a printer enters the queue's matching pool and can receive jobs automatically based on material compatibility and tag filters. Day-to-day operations center on marking printers as "clear and ready" after removing a completed print, swapping materials when needed, and monitoring status. The goal is to make each printer a self-sufficient worker in your production system—load filament, clear the bed, and let Printago handle job routing and slicing.
 
 ### Required Configuration
 For jobs to match with printers from the queue, each printer must be properly configured:

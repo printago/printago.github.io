@@ -1,7 +1,9 @@
 
 # Slicer Profiles
 
-Your slicer profiles page displays a comprehensive list of all your profiles, including those synced from your Bambu Lab account and any you've imported manually.
+## Key Concepts
+
+**Slicer profiles** are the collections of print settings—layer height, infill, speed, temperature, and hundreds of other parameters—that control how your 3D models are converted into G-code. Printago syncs profiles from your Bambu Lab account or lets you import them directly from Bambu Studio and OrcaSlicer, so the same profiles you've tuned locally become available across your entire fleet. Profiles fall into three categories: **machine profiles** (printer-specific hardware settings), **process profiles** (quality and behavior settings like "0.20mm Standard"), and **filament profiles** (material-specific temperatures and flow rates tied to each material in your library). Because Printago slices on demand using these profiles, updating a setting once automatically affects all future prints that use it—no need to re-export G-code for every printer and material combination. This is especially valuable for farms where a single profile tweak needs to roll out across dozens of machines instantly.
 
 ![Slicer Profiles](/images/slicer-profiles.png)
 

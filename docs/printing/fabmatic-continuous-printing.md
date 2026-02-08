@@ -1,11 +1,9 @@
 
 # FabMatic Continuous Printing
 
-FabMatic enables automated continuous printing by running back-to-back jobs with automatic bed clearing between prints. This maximizes printer efficiency and reduces manual intervention for production workflows.
+## Key Concepts
 
-:::warning Experimental Feature
-FabMatic is currently experimental and scheduled for major updates in **February 2025**, including temperature-based release scripts to replace timing-based clearing.
-:::
+**FabMatic** is Printago's continuous printing system that enables back-to-back production runs without manual intervention between prints. When enabled on a printer, FabMatic automatically sends the next queued job as soon as the current print completes and the bed is cleared via custom end G-code. This turns an individual printer into a production line that can work through a queue of jobs unattended—particularly useful for overnight production runs or high-volume manufacturing where maximizing uptime matters. FabMatic works alongside all of Printago's other features: jobs still match by material and tags, the queue continues to prioritize intelligently, and you retain full control over which printers run continuously and which wait for manual intervention.
 
 ## How FabMatic Works
 

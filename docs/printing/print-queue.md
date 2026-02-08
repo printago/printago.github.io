@@ -1,7 +1,9 @@
 
 # Print Queue
 
-The Print Queue is where Printago's intelligent job management system, Gutenb3d, automatically matches your print jobs with the best available printers. Think of it as your print farm's mission control—routing jobs efficiently while you focus on what matters most.
+## Key Concepts
+
+The **print queue** is Printago's central job management system, powered by an intelligent matching engine called **Gutenb3d**. Every print job—whether from a single part, a bulk operation, or an e-commerce order—enters the queue, where Gutenb3d automatically matches it to the best available printer based on material requirements, printer tags, and machine availability. The queue replaces the manual process of deciding which file goes to which printer: you define what you need printed and the system handles distribution across your fleet. Jobs progress through stages (queued, in-progress, completed, cancelled, or errored), and you can reorder priorities, retry failed jobs, and monitor progress in real time. For print farms of any size, the queue is what turns a collection of individual printers into a coordinated production system.
 
 ## Understanding the Queue Interface
 
