@@ -85,7 +85,7 @@ const sidebars = {
     // 6. Commerce
     {
       type: 'category',
-      label: 'Commerce 💎',
+      label: 'Commerce',
       items: [
         'commerce/sku-management',
         'commerce/sku-variants',
@@ -97,7 +97,7 @@ const sidebars = {
     // 7. Integrations
     {
       type: 'category',
-      label: 'Integrations 💎',
+      label: 'Integrations',
       items: [
         'integrations/shopify',
         'integrations/etsy',

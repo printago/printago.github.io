@@ -6,7 +6,7 @@ title: "API Documentation"
 Check out our new developer documentation website at [developers.printago.io](https://developers.printago.io) for the latest API guides, tutorials, and references.
 :::
 
-# API Documentation 💎
+# API Documentation
 
 Build powerful integrations with Printago! Our REST API lets you automate your Bambu Lab print farm operations programmatically. 🚀
 

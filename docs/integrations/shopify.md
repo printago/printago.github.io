@@ -4,7 +4,7 @@ title: Shopify
 
 # Shopify Integration
 
-:::tip Commercial Feature 💎
+:::tip Commercial Feature
 Integrations require a Commercial subscription. [Learn more](/docs/settings/subscription-management)
 :::
 

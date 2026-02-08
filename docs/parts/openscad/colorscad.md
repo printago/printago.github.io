@@ -1,5 +1,5 @@
 ---
-title: "ColorSCAD 💎"
+title: "ColorSCAD"
 ---
 
 # ColorSCAD

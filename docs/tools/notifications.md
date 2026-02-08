@@ -40,7 +40,7 @@ Keep your webhook URL private! Anyone with this URL can post messages to your ch
 *    Printer offline	
 *    Printer online
 </div>
-## Webhook Notifications 💎
+## Webhook Notifications
 
 For advanced integrations, Printago supports custom webhook notifications that can send events to any HTTPS endpoint. Since webhook notifications require an API key, this feature is restricted to commercial accounts.
 
