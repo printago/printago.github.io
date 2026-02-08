@@ -32,9 +32,113 @@ const config = {
             from: '/fuse',
             to: '/docs/connecting-printers/printago-fuse',
           },
+          // getting-started/ → overview/
           {
             from: '/docs/getting-started/intro',
             to: '/docs/overview/what-is-printago',
+          },
+          {
+            from: '/docs/getting-started/key-concepts',
+            to: '/docs/overview/key-concepts',
+          },
+          // dashboard-overview → overview/dashboard
+          {
+            from: '/docs/dashboard-overview',
+            to: '/docs/overview/dashboard',
+          },
+          // printer-setup/ → connecting-printers/
+          {
+            from: '/docs/printer-setup/bambu-lab-integration',
+            to: '/docs/connecting-printers/bambu-lab-integration',
+          },
+          {
+            from: '/docs/printer-setup/klipper-integration',
+            to: '/docs/connecting-printers/klipper-integration',
+          },
+          {
+            from: '/docs/printer-setup/printago-fuse',
+            to: '/docs/connecting-printers/printago-fuse',
+          },
+          // advanced-features/ → connecting-printers/
+          {
+            from: '/docs/advanced-features/virtual-printers',
+            to: '/docs/connecting-printers/virtual-printers',
+          },
+          // products/ → parts/
+          {
+            from: '/docs/products/part-management',
+            to: '/docs/parts/part-management',
+          },
+          {
+            from: '/docs/products/stl-step-parts',
+            to: '/docs/parts/stl-step-parts',
+          },
+          {
+            from: '/docs/products/3mf-project-files',
+            to: '/docs/parts/3mf-project-files',
+          },
+          {
+            from: '/docs/products/gcode-3mf-files',
+            to: '/docs/parts/gcode-3mf-files',
+          },
+          {
+            from: '/docs/products/openscad/openscad-intro',
+            to: '/docs/parts/openscad/openscad-intro',
+          },
+          {
+            from: '/docs/products/openscad/openscad-parts',
+            to: '/docs/parts/openscad/openscad-parts',
+          },
+          {
+            from: '/docs/products/openscad/colorscad',
+            to: '/docs/parts/openscad/colorscad',
+          },
+          {
+            from: '/docs/products/openscad/libraries',
+            to: '/docs/parts/openscad/libraries',
+          },
+          // print-queue-management → printing/print-queue
+          {
+            from: '/docs/print-queue-management',
+            to: '/docs/printing/print-queue',
+          },
+          // features/ → printing/ or tools/
+          {
+            from: '/docs/features/fabmatic-continuous-printing',
+            to: '/docs/printing/fabmatic-continuous-printing',
+          },
+          {
+            from: '/docs/features/bulk-actions',
+            to: '/docs/tools/bulk-actions',
+          },
+          {
+            from: '/docs/features/folders',
+            to: '/docs/tools/folders',
+          },
+          {
+            from: '/docs/features/global-search',
+            to: '/docs/tools/global-search',
+          },
+          {
+            from: '/docs/features/hot-drop-file-upload',
+            to: '/docs/tools/hot-drop-file-upload',
+          },
+          {
+            from: '/docs/features/keyboard-shortcuts',
+            to: '/docs/tools/keyboard-shortcuts',
+          },
+          {
+            from: '/docs/features/notifications',
+            to: '/docs/tools/notifications',
+          },
+          {
+            from: '/docs/features/pwa-install',
+            to: '/docs/tools/pwa-install',
+          },
+          // api-documentation → api/
+          {
+            from: '/docs/api-documentation',
+            to: '/docs/api/api-documentation',
           },
         ],
       },
