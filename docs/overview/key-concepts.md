@@ -5,122 +5,67 @@ Understanding these fundamental concepts will help you make the most of Printago
 
 ## Print Farm as a Service
 
-Traditional 3D print farm management treats printers like individual computers that need constant manual configuration. Printago takes a cloud-first approach, treating your printers as elastic resources that can be dynamically allocated and managed - similar to how cloud providers handle computing resources.
+Traditional 3D print farm management treats printers like individual computers that need constant manual configuration. Printago takes a cloud-first approach, treating your printers as elastic resources that can be dynamically allocated and managed—similar to how cloud providers handle computing resources. No local servers or Raspberry Pis are required; you access your entire farm from anywhere with real-time monitoring, automatic updates, and intelligent job distribution.
 
 :::tip Why This Matters
-This approach enables features like automatic printer matching, dynamic scaling, and remote management that wouldn't be possible with traditional printer management methods.
+This approach enables features like automatic printer matching, on-demand slicing, and remote management that wouldn't be possible with traditional printer management methods.
 :::
 
-## Parts vs SKUs
+## Parts
 
-In Printago, we make an important distinction between Parts and SKUs:
+A [**part**](/docs/parts/part-management) is an uploaded 3D model file—STL, STEP, 3MF, OpenSCAD, or GCODE—along with its associated printing configuration such as material requirements, slicer process profiles, and build plate settings. Parts are the atomic unit of your print library: every print job in Printago originates from a part. Because Printago slices on demand, a single part file works across every compatible printer in your fleet without needing separate exports for each machine model.
 
-- **Parts** are individual 3D models that can be printed
-- **SKUs** are products that can contain one or more parts, along with specific printing configurations and customization options.  Hobbyist users will only see "Parts" in their sidebar menu, while Commerical users will see both Parts and SKUs.
+## SKUs (Assemblies)
 
-For example, a custom chess set SKU might contain 16 individual chess piece parts, each with their own printing requirements.
+A [**SKU**](/docs/commerce/sku-management) (Stock Keeping Unit) is synonymous with an **assembly**—a complete, shippable product composed of one or more parts with specific quantities, material configurations, and customization options. While a part represents a single 3D model, a SKU represents the finished product a customer receives. SKUs also serve as the link between your production workflow and your e-commerce storefronts: when an order arrives from Shopify or Etsy, Printago matches the order's SKU identifier to your SKU definitions and automatically generates the correct print jobs. Hobbyist users work with Parts only, while Commercial users have access to both Parts and SKUs.
 
-## Gutenb3d Smart Queue
+## Orders
 
-The Smart Queue is Printago's intelligent job distribution system. While you can always manually assign jobs to specific printers, Printago can also automatically match prints to printers based on requirements you define:
+An [**order**](/docs/commerce/orders) represents a customer request containing one or more SKUs with quantities, customer details, and a target fulfillment date. Orders bridge the gap between receiving a customer request and producing the physical parts—they translate "what the customer wants" into actionable print jobs in your queue. Orders can be created manually or automatically through e-commerce integrations, and they track production progress so you can see which requests are complete and which still have jobs in progress.
 
-- Material Type requirements
-- Material Color requirements
-- Printer capability requirements (e.g. nozzle type/size)
-- Custom tags and groupings, such as "Rack A"
-- Bed Size (coming soon) 
+## Print Queue & Gutenb3d
 
-:::info Example
-If you have a part that requires Bambu Red PETG-HF, Printago will automatically match the job to printers that:
-1. Currently have Red PETG-HF loaded
-2. Match any tags you specify when adding the part to the global queue.  
-3. Are available to Printago, online, not busy, and set in Printago as "Clear and Ready" for a job.
+The [**print queue**](/docs/printing/print-queue) is Printago's central job management system, powered by an intelligent matching engine called **Gutenb3d**. Every print job enters the queue, where Gutenb3d automatically matches it to the best available printer based on material requirements, printer tags, and machine availability. Jobs are matched considering:
 
-If a part doesn't match any available printers, it will remain in the queue while Printago continues processing other jobs. The system processes jobs from top to bottom, but will skip over any jobs that don't have matching printers available at that moment.
+- Material type and color requirements
+- Printer tags and groupings
+- Printer availability (online, not busy, marked "Clear and Ready")
+- Nozzle size and printer capabilities
+
+:::info
+If a job doesn't match any available printers, it remains in the queue while Printago continues processing other jobs. The system processes jobs from top to bottom, skipping over any that don't have matching printers at that moment.
 :::
 
-## On-Demand Slicing
+## Materials
 
-Unlike traditional print farm software that requires pre-sliced GCODE files for every printer/material combination, Printago slices models on-demand:
+[**Materials**](/docs/printing/materials) represent the filaments loaded in your printers and are the primary factor in how jobs get routed to the right machine. Each material has two layers: a **base material** (like "Bambu PLA Basic") defining the filament type, brand, and slicing profiles, and **variants** (like "Red" or "Matte Black") representing specific colors or finishes. The system supports matching at different levels of specificity—you can require an exact color variant, any color of a particular brand, or any filament of a given type. For Bambu Lab printers with RFID-tagged filament, material detection and assignment happen automatically.
 
-1. Upload your 3D models in standard formats (STL, 3MF, etc.)
-2. Configure `Process` slicing profiles once at the part-level or the printer-level.  
-3. Configure which materials & color variants the part should be allowed to print in.
-3. Printago handles the rest - generating GCODE specific to each printer when needed
+## Slicer Profiles
 
-This dynamic approach offers several key advantages:
+[**Slicer profiles**](/docs/printing/slicer-profiles) are the collections of print settings—layer height, infill, speed, temperature, and more—that control how your 3D models are converted into G-code. Profiles fall into three categories: **machine profiles** (printer hardware settings), **process profiles** (quality settings like "0.20mm Standard"), and **filament profiles** (material-specific temperatures and flow rates). Printago syncs profiles from your Bambu Lab account or lets you import them from Bambu Studio and OrcaSlicer, so the same profiles you've tuned locally become available fleet-wide.
 
-- **Universal Profiles**: A single profile like "0.16mm with Ironing" works across your entire printer fleet - from Bambu P1 to X1 to A1 Mini (and future non-Bambu printers)
-- **Easy Updates**: Change a setting like infill percentage once, and it automatically applies to future prints with that profile applied - no need to re-slice and manage multiple files
-- **Less Profile Management**: Instead of creating and maintaining separate profiles for each printer model, define settings once and let Printago handle the printer-specific slicing.
+## Cloud Slicer (On-Demand Slicing)
+
+The [**cloud slicer**](/docs/printing/cloud-slicer) generates G-code on demand rather than requiring pre-sliced files for every printer and material combination. When a job is assigned to a printer, the slicer combines the machine profile from the printer, the filament profile from the matched material, and the process profile from the part (or the printer's default). Results are intelligently cached for instant repeat prints. This means a single uploaded part works on any compatible printer, and updating a profile once automatically affects all future prints that use it.
+
 <a id="printer-bed-size-requirements"></a>
-This eliminates the need to maintain large libraries of pre-sliced files and makes it easy to update printing parameters across your entire farm.
-
 
 :::note Printer Bed Size Requirements
-Currently, Printago doesn't automatically prevent jobs from being sent to printers with insufficient bed size. If a part is too large for a printer, the slicer will fail and the job will appear in the "Failed" tab. You can then retry the job on a larger printer. Common examples include:
-- Printing an X1/P1-sized part on an A1 Mini
-- Printing an A1-sized part that doesn't account for the X/P series' filament cutter exclusion zone
+Currently, Printago doesn't automatically prevent jobs from being sent to printers with insufficient bed size. If a part is too large, the slicer will fail and the job will appear in the "Errored" tab. You can then retry the job on a larger printer.
 :::
 
-## Dynamic Models
+## Printer Management
 
-In addition to traditional 3D model files (STL, STEP, 3MF, 3MF.GCODE) Printago supports dynamic OpenSCAD parts natively, which are rendered on-demand at the time they're queued.
+[**Printer management**](/docs/printing/printer-management) is how you configure your physical printers to participate in automatic job matching. Each printer needs assigned materials, slicer profiles, and hardware settings (bed type, AMS configuration). Day-to-day operations center on marking printers as "clear and ready" after removing a completed print, swapping materials, and monitoring status. Printers can be organized with **tags** to group them by location, purpose, or any other criteria, and jobs can be routed to specific tag groups.
 
-Models defined in OpenSCAD that can be modified programmatically based on parameters:
-- Text for engravings
-- Custom dimensions
-- Feature toggles
-- Material color
+## Dynamic Models (OpenSCAD)
 
-:::tip
-Dynamic models are key to automated customization, allowing you to offer personalized products without manual CAD work.
-:::
-
-## Material Management
-
-Printago provides powerful material management to ensure your parts are printed with the right materials:
-
-- **Material Library**: Define and manage all your filament types (PLA, PETG, TPU, etc.), brands, and variants (colors)
-- **Assign Profiles**: For each material, assign slicing profiles for each printer type in your farm.
-- **Smart Matching**: Automatically route jobs to printers with the correct material loaded
-- **Inventory Tracking**: Monitor material usage and remaining quantities (coming soon!)
-
-Each part can specify required material properties, and Printago will ensure it's only printed on compatible printers with the correct material loaded.
-
-## Printer Tags
-
-Tags are an additional way to organize and control your print farm:
-
-- Group printers by location ("Upper Rack", "Workshop B", "Office")
-- Organize by purpose ("Customer Orders", "Prototypes", "Personal")
-
-
-:::info Dynamic Organization
-Parts can be queued to any group of tagged printers (e.g., "Production"), and you can add or remove tags from printers even while jobs are queued. This gives you flexible control over your print farm's organization.
-:::
-
-Parts and SKUs can be configured to require specific tags, ensuring they're only printed on appropriate printers.
+In addition to traditional 3D model files, Printago supports [dynamic OpenSCAD parts](/docs/parts/openscad/openscad-parts) natively, which are rendered on-demand at the time they're queued. OpenSCAD models can be modified programmatically based on parameters like text for engravings, custom dimensions, feature toggles, and material color. Dynamic models are key to automated customization, allowing you to offer personalized products without manual CAD work.
 
 ## FabMatic Continuous Printing
 
-FabMatic is Printago's system for automated, continuous production. When properly configured with appropriate end GCODE, your printers can:
+[**FabMatic**](/docs/printing/fabmatic-continuous-printing) is Printago's continuous printing system that enables back-to-back production runs without manual intervention between prints. When enabled, FabMatic automatically sends the next queued job as soon as the current print completes and the bed is cleared via custom end G-code. This turns individual printers into production lines that can work through a queue of jobs unattended—particularly useful for overnight runs or high-volume manufacturing.
 
-1. Automatically start new jobs when previous prints complete
-2. Execute bed-clearing sequences between prints
-3. Manage print bed preparation between jobs
-4. Handle basic error recovery and retries
+## E-Commerce Integrations
 
-:::warning
-FabMatic requires specific printer configuration, including custom end GCODE for bed clearing. See our [FabMatic Setup Guide](/docs/printing/fabmatic-continuous-printing.md) for detailed configuration instructions.
-:::
-
-## Cloud Architecture
-
-Printago's cloud-first approach provides several advantages:
-
-- No local servers or Raspberry Pis required
-- Automatic updates and maintenance
-- Access your print farm from anywhere
-- Real-time monitoring and alerts
-- Automatic scaling and load balancing
+Printago connects to e-commerce platforms like [**Shopify**](/docs/integrations/shopify) and [**Etsy**](/docs/integrations/etsy) to automate the flow from customer purchase to production. When a customer buys a product, the integration syncs the order, matches SKU identifiers to your Printago SKU definitions, and optionally queues jobs for production immediately. Combined with SKU Variants, a single product listing with multiple options (color, size, personalization) can automatically produce the correct parts with the correct materials and parameters.
