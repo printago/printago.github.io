@@ -1,10 +1,7 @@
----
-sidebar_position: 4
----
 
 # Printing Parts
 
-This page covers how to print parts from your library.  To learn more about how to add and manage parts, check out [Parts Management](/docs/products/part-management.md)
+This page covers how to print parts from your library.  To learn more about how to add and manage parts, check out [Parts Management](/docs/parts/part-management.md)
 
 ## Starting a Print
 
@@ -22,7 +19,7 @@ This page covers how to print parts from your library.  To learn more about how 
 - **Normal Priority** (default): Jobs process immediately when printers are available
 - **Low Priority**: Jobs only process when no normal priority jobs are waiting
 
-After queuing, job priority can be adjusted from the [Print Queue Management](/docs/print-queue-management.md) interface.
+After queuing, job priority can be adjusted from the [Print Queue Management](/docs/printing/print-queue.md) interface.
 
 
 ### STL Parts
@@ -157,4 +154,4 @@ sequenceDiagram
 
 ## Next Steps
 
-After printing parts, they are added to the print queue where they are matched with available printers. For more information about how parts are matched with printers and queue management, see [Print Queue Management](../print-queue-management.md).
+After printing parts, they are added to the print queue where they are matched with available printers. For more information about how parts are matched with printers and queue management, see [Print Queue Management](./print-queue.md).

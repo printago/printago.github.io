@@ -1,13 +1,10 @@
----
-sidebar_position: 3
----
 
 # Printer Control Panel
 
 The printer control panel provides direct access to your printer's hardware controls and calibration tools. You can access it in several ways:
 
 - **Individual printer page** - Navigate to any printer's dedicated page
-- **Dashboard shortcut** - Click the "game controller" icon on a printer's [Dashboard](/docs/dashboard-overview.md) card
+- **Dashboard shortcut** - Click the "game controller" icon on a printer's [Dashboard](/docs/overview/dashboard.md) card
 - **Bulk control** - Select multiple printers on the Printers List page and choose Control Panel from the Bulk Actions menu
 
 ## Individual Printer Control

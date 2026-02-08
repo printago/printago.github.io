@@ -1,10 +1,7 @@
----
-sidebar_position: 6
----
 
 # Importing Profiles Manually
 
-In addition to syncing profiles via the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md), you can manually import slicer profiles directly from Bambu Studio or OrcaSlicer. This is useful when you want to:
+In addition to syncing profiles via the [Bambu Lab Integration](../connecting-printers/bambu-lab-integration.md), you can manually import slicer profiles directly from Bambu Studio or OrcaSlicer. This is useful when you want to:
 
 - Import custom profiles that aren't synced to the cloud
 - Keep specific profiles without enabling cloud sync

@@ -1,6 +1,3 @@
----
-sidebar_position: 1
----
 
 # SKU Management
 
@@ -22,13 +19,13 @@ SKUs are also part of Printago's e-commerce system: Orders are made of SKUs with
 
 ## Creating SKUs
 
-You'll need at least one part uploaded to Printago to start.  If you haven't added any parts yet, start with [Part Management](/docs/products/part-management.md).
+You'll need at least one part uploaded to Printago to start.  If you haven't added any parts yet, start with [Part Management](/docs/parts/part-management.md).
 
 ### Basic SKU Setup
 1. Navigate to `Products -> SKUs`.
 2. Click "Create New SKU"
 3. Enter a unique SKU value, a Title, and a Description.
-4. Parts are created in your current [folder location](/docs/features/folders.md) (click to change if needed).
+4. Parts are created in your current [folder location](/docs/tools/folders.md) (click to change if needed).
 5. Add one or more parts to your SKU by using the `Linked Parts` selector screen.
 <img src="/img/sku/sku_add_1.png" className="margin-left--lg" width="600" alt="Link Part to SKU" />
 6. Set quantity requirements for each part
@@ -44,4 +41,4 @@ When materials are overridden, those settings become fixed for that SKU - changi
 
 ### Mixing Part Types in SKUs
 
-SKUs may contain mixed file types supported by Printago. OpenSCAD parts that import and manipulate STL models do *not* need to be added here. They only are added at the [Part level](/docs/products/openscad/openscad-parts.md).
+SKUs may contain mixed file types supported by Printago. OpenSCAD parts that import and manipulate STL models do *not* need to be added here. They only are added at the [Part level](/docs/parts/openscad/openscad-parts.md).

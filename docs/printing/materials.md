@@ -1,6 +1,3 @@
----
-sidebar_position: 3
----
 
 # Materials
 
@@ -140,7 +137,7 @@ When adding parts to the print queue, you can override the default material sele
 
 ## Job Matching System
 
-Materials enable Printago's intelligent job-to-printer matching. For detailed information about how the print queue processes jobs and matches them to printers, see [Print Queue Management](../print-queue-management.md).
+Materials enable Printago's intelligent job-to-printer matching. For detailed information about how the print queue processes jobs and matches them to printers, see [Print Queue Management](./print-queue.md).
 
 ### Material Matching Levels
 

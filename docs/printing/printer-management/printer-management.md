@@ -1,6 +1,3 @@
----
-sidebar_position: 1
----
 
 # Printer Management
 
@@ -67,7 +64,7 @@ Select multiple printers using checkboxes to access bulk operations via the Acti
 
 **Available Actions:**
 - **Availability**: Mark ready (`R`) or not-ready (`U`)
-- **FabMatic**: Enable/disable [continuous printing](/docs/features/fabmatic-continuous-printing.md)
+- **FabMatic**: Enable/disable [continuous printing](/docs/printing/fabmatic-continuous-printing.md)
 - **Control Panel**: Multi-printer control (`P`)
 - **Configure**: Bulk slicer configuration (`C`)
 - **Materials**: Bulk material assignment (`M`)
@@ -101,7 +98,7 @@ The `Confirm clear & ready for next print` button is critical for queue processi
 
 **Alternatives:**
 - Multi-action from Printers page
-- [FabMatic mode](/docs/features/fabmatic-continuous-printing.md) for continuous operation
+- [FabMatic mode](/docs/printing/fabmatic-continuous-printing.md) for continuous operation
 
 ---
 
@@ -208,6 +205,6 @@ The `Use AMS` checkbox in slicer configuration controls:
 - **[Printer Control Panel](/docs/printing/printer-management/printer-control-panel.md)**: Manual printer operation and calibration
 - **[Materials](/docs/printing/materials.md)**: Material library management and profiles
 - **[Cloud Slicer](/docs/printing/cloud-slicer.md)**: Understanding slicer profiles and settings
-- **[FabMatic](/docs/features/fabmatic-continuous-printing.md)**: Continuous printing automation
+- **[FabMatic](/docs/printing/fabmatic-continuous-printing.md)**: Continuous printing automation
 
 Need help with printer setup? Join our [Discord community](https://discord.gg/RCFA2u99De) for support and latest updates!

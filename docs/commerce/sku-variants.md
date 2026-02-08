@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2
 title: "SKU Variants"
 ---
 
@@ -672,7 +671,7 @@ When a match fails, orders are flagged for manual review with details about what
 
 ## ColorSCAD Integration
 
-For SKUs using [ColorSCAD](/docs/products/openscad/colorscad.md) parts, Variants can map to programmatic colors:
+For SKUs using [ColorSCAD](/docs/parts/openscad/colorscad.md) parts, Variants can map to programmatic colors:
 
 1. Your OpenSCAD file defines colors: `color("primary") make_part1();`
 2. Printago detects the "primary" color identifier
@@ -832,8 +831,8 @@ Many of our most successful users started with a 1:1 setup call. Don't hesitate 
 
 - **[SKU Management](/docs/commerce/sku-management.md)** - Creating and organizing SKUs
 - **[Orders](/docs/commerce/orders.md)** - Processing e-commerce orders automatically
-- **[OpenSCAD Parts](/docs/products/openscad/openscad-parts.md)** - Creating parametric designs
-- **[ColorSCAD](/docs/products/openscad/colorscad.md)** - Multi-color OpenSCAD support
+- **[OpenSCAD Parts](/docs/parts/openscad/openscad-parts.md)** - Creating parametric designs
+- **[ColorSCAD](/docs/parts/openscad/colorscad.md)** - Multi-color OpenSCAD support
 - **[Materials](/docs/printing/materials.md)** - Managing your material library
 - **[Shopify Integration](/docs/integrations/shopify.md)** - Connecting your Shopify store
 - **[Etsy Integration](/docs/integrations/etsy.md)** - Connecting your Etsy shop

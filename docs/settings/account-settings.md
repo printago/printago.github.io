@@ -1,6 +1,3 @@
----
-sidebar_position: 1
----
 
 # Account Settings
 
@@ -33,7 +30,7 @@ Deliver printer and print job notifications to Discord or a webhook—and soon e
 
 Printago can send real-time notifications about your print farm operations, including job completions, printer errors, and other important events.
 
-**[Learn more about setting up Notifications](/docs/features/notifications)**
+**[Learn more about setting up Notifications](/docs/tools/notifications)**
 
 ## Slicer Settings
 

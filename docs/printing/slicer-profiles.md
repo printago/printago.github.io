@@ -1,6 +1,3 @@
----
-sidebar_position: 4
----
 
 # Slicer Profiles
 
@@ -14,7 +11,7 @@ There are two ways to add slicer profiles to Printago:
 
 ### Option 1: Bambu Lab Cloud Sync
 
-Run the [**Bambu Lab Integration Flow**](../printer-setup/bambu-lab-integration.md) to sync profiles from your Bambu Lab account. This requires **Cloud Sync** to be enabled in Bambu Studio or OrcaSlicer.
+Run the [**Bambu Lab Integration Flow**](../connecting-printers/bambu-lab-integration.md) to sync profiles from your Bambu Lab account. This requires **Cloud Sync** to be enabled in Bambu Studio or OrcaSlicer.
 
 ### Option 2: Manual Import
 

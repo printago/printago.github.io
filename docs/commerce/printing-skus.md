@@ -1,6 +1,3 @@
----
-sidebar_position: 3
----
 
 # Printing SKUs
 
@@ -64,4 +61,4 @@ Filter available printers using tags to dynamically group printers. For example:
 
 ## Next Steps
 
-After printing SKUs, jobs for their parts are added to the print queue where they are matched with available printers. For more information about how parts are matched with printers and queue management, see [Print Queue Management](../print-queue-management.md).
+After printing SKUs, jobs for their parts are added to the print queue where they are matched with available printers. For more information about how parts are matched with printers and queue management, see [Print Queue Management](../printing/print-queue.md).

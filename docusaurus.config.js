@@ -30,7 +30,7 @@ const config = {
         redirects: [
           {
             from: '/fuse',
-            to: '/docs/printer-setup/printago-fuse',
+            to: '/docs/connecting-printers/printago-fuse',
           },
         ],
       },

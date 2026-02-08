@@ -1,6 +1,3 @@
----
-sidebar_position: 5
----
 
 # Cloud Slicer
 
@@ -8,7 +5,7 @@ Printago's Cloud Slicer enables on-demand GCODE generation, automatically conver
 
 ## How It Works
 
-The Cloud Slicer is triggered automatically by [Gutenb3d](../print-queue-management.md) when a queued job is matched and assigned to a specific printer. This just-in-time approach ensures optimal slicing settings for each printer while maintaining efficient queue processing.
+The Cloud Slicer is triggered automatically by [Gutenb3d](./print-queue.md) when a queued job is matched and assigned to a specific printer. This just-in-time approach ensures optimal slicing settings for each printer while maintaining efficient queue processing.
 
 ### Slicing Workflow
 
@@ -42,7 +39,7 @@ sequenceDiagram
 When slicing a job, the Cloud Slicer combines multiple profile sources to generate optimal printer-specific GCODE:
 
 ### 1. Machine Profile
-Defines printer-specific settings synchronized from your [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md):
+Defines printer-specific settings synchronized from your [Bambu Lab Integration](../connecting-printers/bambu-lab-integration.md):
 - Printer model and capabilities
 - Bed size and type (Smooth PEI, Textured, etc.)
 - Nozzle diameter and configuration
@@ -78,7 +75,7 @@ Printago supports multiple slicer engines to accommodate different workflows and
 ### Slicer Configuration
 - **Default Slicer**: Set your preferred slicer in [Account Settings](../settings/account-settings.md)
 - **Per-Part Override**: Choose specific slicers when adding parts to your library
-- **Profile Synchronization**: Managed through the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow
+- **Profile Synchronization**: Managed through the [Bambu Lab Integration](../connecting-printers/bambu-lab-integration.md) flow
   - Syncs machine, process, and material profiles from your Bambu account
   - Requires "Cloud Sync" enabled in Bambu Studio or Orca Slicer
   - Profiles refresh when running the integration flow
@@ -118,6 +115,6 @@ If you can't resolve a slicing issue from the logs, share the logs in our [Disco
 :::
 
 ### Profile Issues
-Ensure your slicer profiles are current by either running the [Bambu Lab Integration](../printer-setup/bambu-lab-integration.md) flow to refresh cloud-synced profiles, or [importing profiles manually](./import-profiles.md) from Bambu Studio or OrcaSlicer.
+Ensure your slicer profiles are current by either running the [Bambu Lab Integration](../connecting-printers/bambu-lab-integration.md) flow to refresh cloud-synced profiles, or [importing profiles manually](./import-profiles.md) from Bambu Studio or OrcaSlicer.
 
 Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and support!
