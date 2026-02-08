@@ -32,6 +32,10 @@ const config = {
             from: '/fuse',
             to: '/docs/connecting-printers/printago-fuse',
           },
+          {
+            from: '/docs/getting-started/intro',
+            to: '/docs/overview/what-is-printago',
+          },
         ],
       },
     ],
