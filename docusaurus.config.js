@@ -140,6 +140,11 @@ const config = {
             from: '/docs/api-documentation',
             to: '/docs/api/api-documentation',
           },
+          // quick-start-guide moved to docs root via slug: /
+          {
+            from: '/docs/getting-started/quick-start-guide',
+            to: '/docs',
+          },
         ],
       },
     ],
