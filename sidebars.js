@@ -49,6 +49,13 @@ const sidebars = {
             'parts/openscad/libraries',
           ],
         },
+        {
+          type: 'category',
+          label: 'CadQuery & build123d',
+          items: [
+            'parts/cadquery/cadquery-intro',
+          ],
+        },
       ],
     },
 
@@ -129,6 +136,7 @@ const sidebars = {
       items: [
         'organization/user-management',
         'organization/permissions',
+        'organization/audit-log',
       ],
     },
 
