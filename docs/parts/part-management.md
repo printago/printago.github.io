@@ -18,6 +18,7 @@ Printago supports several types of parts, each with different capabilities:
 | **3MF Projects** | Complete projects with all modifiers | Preserves all modifiers, negative parts, support enforcers, and any type of painting. 3MFs are preserved and can easily be sliced and sent to any printer they fit on |
 | **OpenSCAD** | Parametric design files | Parametrically generate STL files with customizable parameters |
 | **ColorSCAD** | Enhanced OpenSCAD | Add-on feature allowing you to define colors in OpenSCAD models to paint them |
+| **CadQuery / build123d** | Python parametric design | Write Python scripts to generate parametric models with access to engineering libraries for threads, fasteners, gears, and more |
 | **GCODE 3MF** | Pre-sliced files | From Bambu Studio or Orca - tightly bound to the type of printer they were sliced for, however can still re-map materials as required |
 
 ## Cross-Printer Compatibility
@@ -59,5 +60,6 @@ Different file types have unique capabilities and configuration options:
 - **[3MF Project Files](./3mf-project-files.md)** - Complete projects with modifiers, supports, and multi-material painting  
 - **[GCODE 3MF Files](./gcode-3mf-files.md)** - Pre-sliced files with printer-specific limitations
 - **[Dynamic OpenSCAD Parts](./openscad/openscad-parts.md)** - Parametric parts with customizable parameters
+- **[CadQuery & build123d Parts](./cadquery/cadquery-intro.md)** - Python parametric parts with engineering libraries
 
 Need help with your parts? Contact our support team or check our troubleshooting guides, or join our [Discord community](https://discord.gg/RCFA2u99De) for latest info and help!

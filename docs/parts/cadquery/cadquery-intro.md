@@ -1,0 +1,275 @@
+
+# CadQuery & build123d Parts
+
+CadQuery and build123d support in Printago lets you create parametric 3D models using Python. Write real Python code to generate models, define customizable parameters, and leverage a rich ecosystem of engineering libraries -- all without leaving Printago.
+
+## What are CadQuery and build123d?
+
+**CadQuery** and **build123d** are Python libraries for creating precise, parametric 3D CAD models using code. Both are built on the OpenCASCADE (OCCT) geometry kernel -- the same kernel used by FreeCAD and other professional CAD tools -- giving you access to BREP (boundary representation) modeling with fillets, chamfers, lofts, sweeps, booleans, and more.
+
+| | CadQuery | build123d |
+|---|---|---|
+| **Style** | Fluent/chained API | Context managers (builder pattern) |
+| **Maturity** | Established, large community | Newer, rapidly growing |
+| **Best for** | Quick one-liners, chained operations | Complex assemblies, cleaner code structure |
+
+Printago supports both -- your script's imports determine which library is used.
+
+## How Scripts Work
+
+A Printago CadQuery/build123d script is a standard Python file with two conventions:
+
+1. Define a `params` dictionary at the top with default values
+2. Set `result` to your final geometry
+
+That's it. Your script works identically on your local machine and in Printago.
+
+### CadQuery Example
+
+```python
+import cadquery as cq
+
+params = {
+    "width": 30,
+    "depth": 20,
+    "height": 15,
+    "fillet": 3,
+}
+
+# Optional: UI hints for Printago (ignored when running locally)
+printago = {
+    "width":  {"min": 10, "max": 100, "label": "Width (mm)"},
+    "depth":  {"min": 10, "max": 100, "label": "Depth (mm)"},
+    "height": {"min": 5,  "max": 50,  "label": "Height (mm)"},
+    "fillet": {"min": 0,  "max": 10,  "label": "Corner Radius"},
+}
+
+box = cq.Workplane("XY").box(params["width"], params["depth"], params["height"])
+
+if params["fillet"] > 0:
+    box = box.edges("|Z").fillet(params["fillet"])
+
+result = box
+```
+
+### build123d Example
+
+```python
+from build123d import *
+
+params = {
+    "width": 30,
+    "depth": 20,
+    "height": 15,
+    "fillet": 3,
+}
+
+printago = {
+    "width":  {"min": 10, "max": 100, "label": "Width (mm)"},
+    "depth":  {"min": 10, "max": 100, "label": "Depth (mm)"},
+    "height": {"min": 5,  "max": 50,  "label": "Height (mm)"},
+    "fillet": {"min": 0,  "max": 10,  "label": "Corner Radius"},
+}
+
+box = Box(params["width"], params["depth"], params["height"])
+
+if params["fillet"] > 0:
+    box = fillet(box.edges().filter_by(Axis.Z), radius=params["fillet"])
+
+result = box
+```
+
+### Parameters
+
+When you upload a script, Printago automatically detects the `params` dictionary and creates editable fields in the UI. Users can override any parameter value without touching the code.
+
+- **Numbers** become numeric input fields
+- **Strings** become text fields
+- **Booleans** become toggles
+
+Place your `params` dictionary at the top of the file, before any geometry code.
+
+### Parameter UI Hints (`printago` dict)
+
+You can optionally add a `printago` dictionary to control how parameters appear in the Printago UI. This dict is parsed by Printago when you upload the script but is ignored when running locally, so your script stays fully portable.
+
+```python
+import cadquery as cq
+
+params = {
+    "width": 30,
+    "depth": 20,
+    "height": 15,
+    "fillet": 3,
+    "style": "rounded",
+}
+
+printago = {
+    "width":  {"min": 10, "max": 100, "description": "Box width in mm"},
+    "depth":  {"min": 10, "max": 100, "description": "Box depth in mm"},
+    "height": {"min": 5,  "max": 50,  "label": "Height (mm)"},
+    "fillet": {"min": 0,  "max": 10,  "label": "Corner Radius"},
+    "style":  {"options": ["rounded", "chamfered", "sharp"]},
+}
+```
+
+Each key in the `printago` dict matches a key in `params` and supports these fields:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `min` | number | Minimum allowed value (number parameters only) |
+| `max` | number | Maximum allowed value (number parameters only) |
+| `description` | string | Description shown in the UI for this parameter |
+| `label` | string | Short label for the parameter (used if `description` is not set) |
+| `options` | array | List of allowed values -- converts the field to a dropdown |
+
+:::tip
+The `printago` dict is completely optional. Without it, Printago still generates UI controls from `params` -- you just won't have min/max constraints, descriptions, or dropdowns.
+:::
+
+### Multi-Color Assemblies (CadQuery)
+
+CadQuery scripts can return an `Assembly` with color assignments. Printago walks the assembly tree, extracts the color from each part, and groups shapes by color -- each unique color becomes a separate STL file and material slot, just like ColorSCAD.
+
+To use multi-color output, build a `cq.Assembly` and assign colors with `cq.Color()`:
+
+```python
+import cadquery as cq
+
+params = {"size": 20}
+
+body = cq.Workplane("XY").box(params["size"], params["size"], params["size"])
+accent = cq.Workplane("XY").sphere(params["size"] * 0.3)
+
+assy = cq.Assembly()
+assy.add(body, color=cq.Color("blue"))
+assy.add(accent, color=cq.Color("red"))
+
+result = assy
+```
+
+#### Supported Color Formats
+
+`cq.Color()` accepts named colors or RGB float values:
+
+```python
+# Named colors (CSS/X11 color names)
+cq.Color("red")
+cq.Color("cornflowerblue")
+cq.Color("darkseagreen")
+
+# RGB floats (0.0 - 1.0)
+cq.Color(1.0, 0.0, 0.0)           # red
+cq.Color(0.39, 0.58, 0.93)        # cornflowerblue
+cq.Color(0.2, 0.8, 0.4, 0.5)     # with alpha (4th value)
+```
+
+#### How Colors Are Extracted
+
+- Printago recursively walks the assembly tree and reads the `color` property on each node
+- Child nodes inherit their parent's color if they don't specify one
+- Parts with the same color are merged into a single STL file
+- Parts with no color are grouped together as a single uncolored file
+- The resulting color map is stored alongside the part so you can assign filaments to each color slot in the Printago UI
+
+:::info
+Multi-color output requires returning a `cq.Assembly`. If your script returns a single `Workplane` or shape, it produces a single-color STL regardless of any color calls in your code.
+:::
+
+#### Nested Assemblies
+
+Colors cascade through nested assemblies. A top-level color applies to all children unless overridden:
+
+```python
+assy = cq.Assembly()
+
+# Sub-assembly inherits parent color
+sub = cq.Assembly()
+sub.add(part_a)  # inherits "blue" from parent
+sub.add(part_b, color=cq.Color("red"))  # overrides to red
+
+assy.add(sub, color=cq.Color("blue"))
+
+result = assy
+```
+
+## Execution Environment
+
+Scripts run in a secure sandboxed environment with:
+
+- **No network access** -- scripts cannot make HTTP requests or download files
+- **No disk access** -- scripts cannot read or write files outside the sandbox
+- **Resource limits** -- 2 GB memory, 5-minute time limit
+- **Python 3.11** with the full standard library available
+
+You can import any [pre-installed library](./libraries.md) using standard Python `import` statements. See the [Libraries](./libraries.md) page for the full list.
+
+## Local Development
+
+Since Printago scripts are standard Python, you can develop and test them on your local machine before uploading.
+
+### Setup
+
+```bash
+pip install cadquery build123d
+```
+
+To include all the same libraries available in Printago:
+
+```bash
+pip install cadquery build123d cq-warehouse bd-warehouse trimesh shapely scipy svgpathtools numpy-stl
+```
+
+### Viewing Models
+
+For real-time 3D preview while you code, we recommend one of:
+
+- **[OCP CAD Viewer](https://github.com/bernhard-42/vscode-ocp-cad-viewer)** -- VS Code extension with inline 3D preview for both CadQuery and build123d
+- **[CQ-editor](https://github.com/CadQuery/CQ-editor)** -- Standalone GUI editor for CadQuery
+
+### Exporting STL Locally
+
+To export your model to STL for local testing:
+
+```python
+# CadQuery
+import cadquery as cq
+# ... your model code ...
+cq.exporters.export(result, "model.stl")
+
+# build123d
+from build123d import export_stl
+# ... your model code ...
+export_stl(result, "model.stl")
+```
+
+:::tip
+Keep your `params` dictionary and `result` assignment in your script even during local development. This ensures your script works in both environments without modification.
+:::
+
+## Best Practices
+
+### Script Structure
+- Place `params` at the very top of your file, before any imports or geometry
+- Use descriptive parameter names (`wall_thickness` not `wt`)
+- Provide sensible defaults that produce a valid model
+- Always set `result` to your final geometry
+
+### Performance
+- CadQuery and build123d share the same OCCT kernel -- both produce identical geometry quality
+- Minimize the number of boolean operations (unions, cuts) where possible
+- For complex models, build up geometry incrementally rather than creating large compound operations
+- Test your script's full parameter range to ensure it produces valid geometry at all values
+
+### 3D Printing Considerations
+- Design with your printer's tolerances in mind (typically 0.1-0.2mm for FDM)
+- Use the pre-installed [cq_warehouse](./libraries.md#cq_warehouse) or [bd_warehouse](./libraries.md#bd_warehouse) libraries for standard threads, fasteners, and mechanical features instead of modeling them from scratch
+- Consider wall thickness and overhang angles when designing parametric ranges
+
+## Resources
+
+- [CadQuery Documentation](https://cadquery.readthedocs.io/)
+- [build123d Documentation](https://build123d.readthedocs.io/)
+- [Pre-installed Libraries](./libraries.md)
+
+Need help? Join our [Discord community](https://discord.gg/RCFA2u99De) for support and tips!

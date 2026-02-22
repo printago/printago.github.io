@@ -135,10 +135,10 @@ const config = {
             from: '/docs/features/pwa-install',
             to: '/docs/tools/pwa-install',
           },
-          // api-documentation → api/
+          // api-documentation → api/keys
           {
-            from: '/docs/api-documentation',
-            to: '/docs/api/api-documentation',
+            from: ['/docs/api-documentation', '/docs/api/api-documentation'],
+            to: '/docs/api/keys',
           },
           // quick-start-guide moved to docs root via slug: /
           {

@@ -122,16 +122,29 @@ const sidebars = {
       ],
     },
 
-    // 9. API
+    // 9. Organization
+    {
+      type: 'category',
+      label: 'Organization',
+      items: [
+        'organization/user-management',
+        'organization/permissions',
+      ],
+    },
+
+    // 10. API
     {
       type: 'category',
       label: 'API',
       items: [
-        'api/api-documentation',
+        'api/keys',
+        'api/authentication-and-quotas',
+        'api/examples',
+        'api/developers-site',
       ],
     },
 
-    // 10. Settings
+    // 11. Settings
     {
       type: 'category',
       label: 'Settings',
@@ -141,7 +154,7 @@ const sidebars = {
       ],
     },
 
-    // 11. Troubleshooting
+    // 12. Troubleshooting
     {
       type: 'category',
       label: 'Troubleshooting',
@@ -150,7 +163,7 @@ const sidebars = {
       ],
     },
 
-    // 12. Support
+    // 13. Support
     'support',
 
     // Inventory is hidden from sidebar for now (files exist at docs/inventory/)
