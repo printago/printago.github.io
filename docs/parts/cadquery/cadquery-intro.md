@@ -13,7 +13,7 @@ CadQuery and build123d support in Printago lets you create parametric 3D models 
 | **Maturity** | Established, large community | Newer, rapidly growing |
 | **Best for** | Quick one-liners, chained operations | Complex assemblies, cleaner code structure |
 
-Printago supports both -- your script's imports determine which library is used.
+Printago supports both -- your script's imports determine which library is used. If Printago detects a `build123d` import (`import build123d`, `from build123d import ...`, or `import build123d as ...`), it uses build123d. Otherwise, it defaults to CadQuery.
 
 ## How Scripts Work
 
@@ -87,7 +87,7 @@ When you upload a script, Printago automatically detects the `params` dictionary
 - **Strings** become text fields
 - **Booleans** become toggles
 
-Place your `params` dictionary at the top of the file, before any geometry code.
+Place your `params` dictionary near the top of the file, after any imports but before geometry code.
 
 ### Parameter UI Hints (`printago` dict)
 
@@ -250,7 +250,7 @@ Keep your `params` dictionary and `result` assignment in your script even during
 ## Best Practices
 
 ### Script Structure
-- Place `params` at the very top of your file, before any imports or geometry
+- Place `params` near the top of your file, after imports but before geometry code
 - Use descriptive parameter names (`wall_thickness` not `wt`)
 - Provide sensible defaults that produce a valid model
 - Always set `result` to your final geometry
@@ -266,9 +266,54 @@ Keep your `params` dictionary and `result` assignment in your script even during
 - Use the pre-installed [cq_warehouse](./libraries.md#cq_warehouse) or [bd_warehouse](./libraries.md#bd_warehouse) libraries for standard threads, fasteners, and mechanical features instead of modeling them from scratch
 - Consider wall thickness and overhang angles when designing parametric ranges
 
+## Using Existing CadQuery Scripts
+
+The [CadQuery examples gallery](https://cadquery.readthedocs.io/en/latest/examples.html) has dozens of ready-made scripts you can adapt for Printago. To make any existing CadQuery script work as a parametric Printago part:
+
+1. **Keep the imports** -- your `import cadquery as cq` (or any other imports) stay as-is
+2. **Add a `params` dict** -- extract any hardcoded values you want to be configurable into a `params` dictionary near the top, after imports
+3. **Optionally add a `printago` dict** -- add min/max constraints, labels, or dropdown options for a better UI experience
+4. **Read values from `params`** -- replace hardcoded values with `params["key"]` references
+5. **Set `result`** -- assign your final geometry to `result` at the end of the script
+
+For example, if an existing script has:
+
+```python
+import cadquery as cq
+
+width = 30
+height = 15
+
+box = cq.Workplane("XY").box(width, width, height)
+```
+
+You would adapt it by adding `params` and `printago` after the imports, setting the variables from `params`, and assigning `result` at the end -- the rest of the script stays unchanged:
+
+```diff
+ import cadquery as cq
+
++params = {
++    "width": 30,
++    "height": 15,
++}
++
++printago = {
++    "width":  {"min": 5, "max": 100, "label": "Width (mm)"},
++    "height": {"min": 5, "max": 50,  "label": "Height (mm)"},
++}
++
++width = params["width"]
++height = params["height"]
+
+ box = cq.Workplane("XY").box(width, width, height)
+
++result = box
+```
+
 ## Resources
 
 - [CadQuery Documentation](https://cadquery.readthedocs.io/)
+- [CadQuery Examples](https://cadquery.readthedocs.io/en/latest/examples.html) -- ready-made scripts to adapt for Printago
 - [build123d Documentation](https://build123d.readthedocs.io/)
 - [Pre-installed Libraries](./libraries.md)
 

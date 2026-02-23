@@ -54,6 +54,7 @@ const sidebars = {
           label: 'CadQuery & build123d',
           items: [
             'parts/cadquery/cadquery-intro',
+            'parts/cadquery/libraries',
           ],
         },
       ],
