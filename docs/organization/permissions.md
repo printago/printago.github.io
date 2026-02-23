@@ -80,6 +80,7 @@ The table below shows which permissions each role includes. **Store Owner** is o
 | analytics.view | x | x | x | |
 | reports.generate | x | | | |
 | audit.log.view | x | | | |
+| audit.logs.configure | x | | | |
 | apiKey.view | x | | | |
 | apiKey.create | x | | | |
 | apiKey.edit | x | | | |
@@ -220,6 +221,7 @@ Below is every permission in the system, organized by category, with a descripti
 | `analytics.view` | View dashboards showing printer utilization, job success rates, material usage, and production trends. |
 | `reports.generate` | Generate and export reports on production data, material consumption, and operational metrics. |
 | `audit.log.view` | View the audit log — a chronological record of all significant actions taken by users in the organization. |
+| `audit.logs.configure` | Enable or disable audit logging for the organization. |
 
 ### API Keys
 

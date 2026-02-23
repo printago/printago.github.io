@@ -7,10 +7,24 @@ The Audit Log provides a chronological record of all significant actions taken w
 Audit logging is currently in beta and available for free on all commercial accounts. It will become a paid feature in a future update.
 :::
 
+## Setup
+
+Audit logs require a commercial account and must be explicitly enabled:
+
+1. Go to **Addons** and find **Audit Logs** under Organization Management
+2. Click **Activate Free During Beta** to activate the addon
+3. Click **Enable Audit Logs** to start recording changes
+
+Once enabled, all create, update, and delete actions are automatically logged. You can disable logging at any time from the same page — this stops new logs from being written but does not delete existing logs.
+
+Enabling or disabling audit logs requires the `audit.logs.configure` permission (included in the Admin role by default).
+
 ## Availability
 
 - **Plan requirement** — Commercial accounts only
-- **Permission** — Requires the `audit.log.view` permission (included in the Admin role by default)
+- **Addon** — Requires the Audit Logs addon to be activated
+- **Permission to view** — Requires the `audit.log.view` permission (included in the Admin role by default)
+- **Permission to configure** — Requires the `audit.logs.configure` permission (included in the Admin role by default)
 - **Retention** — Logs are retained for **30 days** and automatically cleaned up after that
 
 ## What's Tracked
