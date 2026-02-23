@@ -33,21 +33,6 @@ Every auditable operation records:
 | `bulk_create` | Multiple entities created in one operation |
 | `bulk_update` | Multiple entities updated in one operation |
 | `bulk_delete` | Multiple entities deleted in one operation |
-| `login` | User logged in |
-| `logout` | User logged out |
-| `export` | Data exported |
-| `import` | Data imported |
-| `sensitive_access` | Sensitive data or operation accessed |
-
-### Actor Types
-
-| Actor Type | Description |
-|------------|-------------|
-| `user` | A human user in your organization |
-| `api_key` | An API key making requests |
-| `webhook` | A webhook integration |
-| `system` | An internal system operation (e.g. cascaded deletes) |
-| `scheduler` | A scheduled/cron job |
 
 ### Sources
 
@@ -114,9 +99,6 @@ Actions and sources are color-coded for quick scanning:
 | Green | create, bulk_create |
 | Blue | update, bulk_update |
 | Red | delete, bulk_delete |
-| Purple | login, logout |
-| Amber | export, import |
-| Orange | sensitive_access |
 
 ## Related Topics
 
