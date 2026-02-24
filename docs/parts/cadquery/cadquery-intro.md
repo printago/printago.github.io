@@ -289,27 +289,25 @@ box = cq.Workplane("XY").box(width, width, height)
 
 You would adapt it by adding `params` and `printago` after the imports, replacing the hardcoded values with `params` lookups, and assigning `result` at the end -- the rest of the script stays unchanged:
 
-```diff
- import cadquery as cq
+```python
+import cadquery as cq
 
--width = 30
--height = 15
-+params = {
-+    "width": 30,
-+    "height": 15,
-+}
-+
-+printago = {
-+    "width":  {"min": 5, "max": 100, "label": "Width (mm)"},
-+    "height": {"min": 5, "max": 50,  "label": "Height (mm)"},
-+}
-+
-+width = params["width"]
-+height = params["height"]
+params = {
+    "width": 30,
+    "height": 15,
+}
 
- box = cq.Workplane("XY").box(width, width, height)
+printago = {
+    "width":  {"min": 5, "max": 100, "label": "Width (mm)"},
+    "height": {"min": 5, "max": 50,  "label": "Height (mm)"},
+}
 
-+result = box
+width = params["width"]
+height = params["height"]
+
+box = cq.Workplane("XY").box(width, width, height)
+
+result = box
 ```
 
 ## Resources
