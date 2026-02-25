@@ -127,11 +127,13 @@ Each key in the `printago` dict matches a key in `params` and supports these fie
 The `printago` dict is completely optional. Without it, Printago still generates UI controls from `params` -- you just won't have min/max constraints, descriptions, or dropdowns.
 :::
 
-### Multi-Color Assemblies (CadQuery)
+### Multi-Color Assemblies
 
-CadQuery scripts can return an `Assembly` with color assignments. Printago walks the assembly tree, extracts the color from each part, and groups shapes by color -- each unique color becomes a separate STL file and material slot, just like ColorSCAD.
+Both CadQuery and build123d support multi-color output, just like [ColorSCAD](/docs/parts/openscad/colorscad). Each unique color in your script becomes a separate material slot, so you can assign different filaments to each color in the Printago UI.
 
-To use multi-color output, build a `cq.Assembly` and assign colors with `cq.Color()`:
+#### CadQuery
+
+Build a `cq.Assembly` and assign colors with `cq.Color()`:
 
 ```python
 import cadquery as cq
@@ -148,42 +150,11 @@ assy.add(accent, color=cq.Color("red"))
 result = assy
 ```
 
-#### Supported Color Formats
-
-`cq.Color()` accepts named colors or RGB float values:
-
-```python
-# Named colors (CSS/X11 color names)
-cq.Color("red")
-cq.Color("cornflowerblue")
-cq.Color("darkseagreen")
-
-# RGB floats (0.0 - 1.0)
-cq.Color(1.0, 0.0, 0.0)           # red
-cq.Color(0.39, 0.58, 0.93)        # cornflowerblue
-cq.Color(0.2, 0.8, 0.4, 0.5)     # with alpha (4th value)
-```
-
-#### How Colors Are Extracted
-
-- Printago recursively walks the assembly tree and reads the `color` property on each node
-- Child nodes inherit their parent's color if they don't specify one
-- Parts with the same color are merged into a single STL file
-- Parts with no color are grouped together as a single uncolored file
-- The resulting color map is stored alongside the part so you can assign filaments to each color slot in the Printago UI
-
-:::info
-Multi-color output requires returning a `cq.Assembly`. If your script returns a single `Workplane` or shape, it produces a single-color STL regardless of any color calls in your code.
-:::
-
-#### Nested Assemblies
-
-Colors cascade through nested assemblies. A top-level color applies to all children unless overridden:
+Colors cascade through nested assemblies -- a parent color applies to all children unless overridden:
 
 ```python
 assy = cq.Assembly()
 
-# Sub-assembly inherits parent color
 sub = cq.Assembly()
 sub.add(part_a)  # inherits "blue" from parent
 sub.add(part_b, color=cq.Color("red"))  # overrides to red
@@ -191,6 +162,57 @@ sub.add(part_b, color=cq.Color("red"))  # overrides to red
 assy.add(sub, color=cq.Color("blue"))
 
 result = assy
+```
+
+:::info
+Multi-color output requires returning a `cq.Assembly`. A single `Workplane` or shape produces single-color output.
+:::
+
+#### build123d
+
+Assign `.color` to individual shapes and combine them in a `Compound`:
+
+```python
+from build123d import *
+
+params = {"size": 20}
+
+body = Box(params["size"], params["size"], params["size"])
+body.color = Color("blue")
+
+accent = Sphere(params["size"] * 0.3)
+accent.color = Color("red")
+
+result = Compound(children=[body, accent])
+```
+
+:::info
+Multi-color output requires returning a `Compound` with colored children. A single shape produces single-color output.
+:::
+
+#### How Colors Are Processed
+
+- Parts with the same color are merged into a single STL file
+- Parts with no color are grouped together as a single uncolored file
+- Each unique color becomes a material slot in the Printago UI, where you can assign filaments to each slot
+- In CadQuery assemblies, child nodes inherit their parent's color unless they specify their own
+
+#### Supported Color Formats
+
+Both `cq.Color()` (CadQuery) and `Color()` (build123d) accept the same formats:
+
+```python
+# Named colors (CSS/X11 color names)
+cq.Color("red")         # CadQuery
+Color("red")             # build123d
+
+# RGB floats (0.0 - 1.0)
+cq.Color(1.0, 0.0, 0.0)           # CadQuery
+Color(0.39, 0.58, 0.93)           # build123d
+Color(0.2, 0.8, 0.4, 0.5)        # with alpha (4th value)
+
+# Hex integer (build123d only)
+Color(0x4683CE)
 ```
 
 ## Execution Environment
@@ -217,7 +239,7 @@ pip install cadquery build123d
 To include all the same libraries available in Printago:
 
 ```bash
-pip install cadquery build123d cq-warehouse bd-warehouse trimesh shapely scipy svgpathtools numpy-stl
+pip install cadquery build123d bd-warehouse trimesh shapely scipy svgpathtools numpy-stl
 ```
 
 ### Viewing Models
@@ -263,7 +285,7 @@ Keep your `params` dictionary and `result` assignment in your script even during
 
 ### 3D Printing Considerations
 - Design with your printer's tolerances in mind (typically 0.1-0.2mm for FDM)
-- Use the pre-installed [cq_warehouse](./libraries.md#cq_warehouse) or [bd_warehouse](./libraries.md#bd_warehouse) libraries for standard threads, fasteners, and mechanical features instead of modeling them from scratch
+- Use the pre-installed [bd_warehouse](./libraries.md#bd_warehouse) library for standard threads, fasteners, and mechanical features instead of modeling them from scratch
 - Consider wall thickness and overhang angles when designing parametric ranges
 
 ## Using Existing CadQuery Scripts

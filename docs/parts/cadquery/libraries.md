@@ -19,17 +19,6 @@ A newer Python CAD library with a context-manager-based API. Built by one of Cad
 
 ## Part Libraries
 
-### cq_warehouse
-The go-to companion library for CadQuery. Provides ready-made parametric parts for mechanical design and 3D printing.
-- **Import**: `from cq_warehouse.thread import IsoThread` (example)
-- **Repository**: [GitHub](https://github.com/gumyr/cq_warehouse)
-- **Included parts**:
-  - **Threads** -- ISO metric, Acme, trapezoidal, and plastic bottle threads
-  - **Fasteners** -- Nuts, screws, and washers with standard dimensions
-  - **Bearings** -- Single-row deep groove ball bearings with press-fit holes
-  - **Sprockets** -- Parametric sprockets with customizable tooth profiles
-  - **Chains** -- Parametric chain links
-
 ### bd_warehouse
 The build123d equivalent of cq_warehouse, from the same author.
 - **Import**: `from bd_warehouse.thread import IsoThread` (example)
@@ -102,27 +91,7 @@ The full **Python 3.11 standard library** is available, including commonly used 
 
 ## Example: Using Libraries Together
 
-Here's an example combining CadQuery with cq_warehouse to create a threaded bolt:
-
-```python
-import cadquery as cq
-from cq_warehouse.fastener import SocketHeadCapScrew
-
-params = {
-    "screw_size": "M6-1",
-    "screw_length": 20,
-}
-
-screw = SocketHeadCapScrew(
-    size=params["screw_size"],
-    length=params["screw_length"],
-    simple=False,
-)
-
-result = screw.cq_object
-```
-
-And a build123d example using bd_warehouse:
+Here's an example combining build123d with bd_warehouse to create a threaded bolt:
 
 ```python
 from build123d import *
