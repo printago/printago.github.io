@@ -131,6 +131,8 @@ The `printago` dict is completely optional. Without it, Printago still generates
 
 Both CadQuery and build123d support multi-color output, just like [ColorSCAD](/docs/parts/openscad/colorscad). Each unique color in your script becomes a separate material slot, so you can assign different filaments to each color in the Printago UI.
 
+If you use a local viewer like [OCP CAD Viewer](https://github.com/bernhard-42/vscode-ocp-cad-viewer) for model development, you can structure your script so it works both locally and in Printago. The `try/except` block for `ocp_vscode` is safely ignored in Printago's sandbox, so you can develop and preview with the same script you upload.
+
 #### CadQuery
 
 Build a `cq.Assembly` and assign colors with `cq.Color()`:
