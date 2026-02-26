@@ -170,10 +170,15 @@ Multi-color output requires returning a `cq.Assembly`. A single `Workplane` or s
 
 #### build123d
 
-Assign `.color` to individual shapes and combine them in a `Compound`:
+Assign `.color` to individual shapes and set `result` to a list:
 
 ```python
 from build123d import *
+
+try:
+    from ocp_vscode import show
+except ImportError:
+    show = None
 
 params = {"size": 20}
 
@@ -183,11 +188,16 @@ body.color = Color("blue")
 accent = Sphere(params["size"] * 0.3)
 accent.color = Color("red")
 
-result = Compound(children=[body, accent])
+result = [body, accent]
+
+if show:
+    show(*result)
 ```
 
+This pattern works identically in both environments -- `show(*result)` previews your colored model in [OCP CAD Viewer](https://github.com/bernhard-42/vscode-ocp-cad-viewer) during local development, and Printago reads the same `.color` attributes to split the model into separate material slots.
+
 :::info
-Multi-color output requires returning a `Compound` with colored children. A single shape produces single-color output.
+Multi-color output requires returning a list of shapes with `.color` set. A single shape (not in a list) produces single-color output.
 :::
 
 #### How Colors Are Processed
