@@ -204,9 +204,7 @@ if show:
     show(*result)
 ```
 
-This pattern works identically in both environments -- `show(*result)` previews your colored model in [OCP CAD Viewer](https://github.com/bernhard-42/vscode-ocp-cad-viewer) during local development, and Printago reads the same `.color` attributes to split the model into separate material slots.
-
-:::info
+:::warning
 Multi-color output requires setting `result` to a **list** of shapes with `.color` set. Do not use `Compound` -- wrapping shapes in a `Compound` loses the per-shape color information and produces single-color output. A single shape (not in a list) also produces single-color output.
 :::
 
