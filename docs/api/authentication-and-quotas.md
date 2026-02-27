@@ -50,7 +50,20 @@ For real-time printer updates, Printago provides MQTT access. This is the same d
 | **MQTT over WebSockets** | `wss://realtime.printago.io:9001` |
 | **Username** | Your store ID |
 | **Password** | Your API key |
-| **Client ID** | Must start with `apiclient_` (e.g. `apiclient_YOUR_STORE_ID_unique_suffix`) |
+| **Client ID** | `apiclient_{keyId}_{suffix}` — see below |
+
+### MQTT Client ID
+
+Your MQTT Client ID must follow the format `apiclient_{keyId}_{suffix}`, where:
+
+- **`keyId`** is the first 24 characters of your API key (this is the Key ID shown on the API Keys page).
+- **`suffix`** is any string you choose to make the connection unique (e.g. a timestamp or app name).
+
+For example, if your API key is `abc123def456ghi789jkl012secret...`, your Client ID would be something like `apiclient_abc123def456ghi789jkl012_myapp`.
+
+:::tip
+The Key ID is also available on the API Keys page — click the copy button next to any key to copy it.
+:::
 
 ### Subscription Topics
 
