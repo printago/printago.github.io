@@ -1,7 +1,7 @@
 
 # Audit Log
 
-The Audit Log provides a chronological record of all significant actions taken within your organization — who did what, when, from where, and what changed. Use it to investigate incidents, verify compliance, and understand how your team interacts with Printago.
+The Audit Log provides a chronological record of all significant actions taken within your organization — who did what, when, from where, and what changed. Use it to investigate incidents, verify compliance, and understand how your team and systems interact with Printago.
 
 :::info Beta
 Audit logging is currently in beta and available for free on all commercial accounts. It will become a paid feature in a future update.
@@ -15,7 +15,7 @@ Audit logs require a commercial account and must be explicitly enabled:
 2. Click **Activate Free During Beta** to activate the addon
 3. Click **Enable Audit Logs** to start recording changes
 
-Once enabled, all create, update, and delete actions are automatically logged. You can disable logging at any time from the same page — this stops new logs from being written but does not delete existing logs.
+Once enabled, all create, update, and delete actions are automatically logged — including system-level events like printer commands. You can disable logging at any time from the overflow menu (**⋮ → Settings**) on the Audit Logs page. Disabling stops new logs from being written but does not delete existing logs.
 
 Enabling or disabling audit logs requires the `audit.logs.configure` permission (included in the Admin role by default).
 
@@ -31,9 +31,8 @@ Enabling or disabling audit logs requires the `audit.logs.configure` permission 
 
 Every auditable operation records:
 
-- **What** happened (action type and field-level changes)
-- **Who** did it (user, API key, webhook, system process, or scheduler)
-- **Where** it came from (web UI, API, webhook, CLI, scheduler, or system)
+- **What** happened — action type, detailed action, and field-level changes
+- **Who** did it — the actor type and identity (see [Actor Types](#actor-types) below)
 - **When** it occurred
 - **Request context** — IP address, user agent, correlation ID, and optional reason
 
@@ -48,71 +47,98 @@ Every auditable operation records:
 | `bulk_update` | Multiple entities updated in one operation |
 | `bulk_delete` | Multiple entities deleted in one operation |
 
-### Sources
+### Actor Types
 
-| Source | Description |
-|--------|-------------|
-| `web` | Action taken from the Printago web UI |
-| `api` | Direct API call |
-| `webhook` | Triggered by a webhook integration |
-| `scheduler` | Triggered by a scheduled job |
-| `system` | Internal system operation |
-| `cli` | Command-line interface |
+Each log entry records who or what performed the action:
+
+| Actor Type | Description |
+|------------|-------------|
+| **User** | A team member acting through the web UI or other client |
+| **API** | A direct API call using an API key |
+| **Webhook** | An action triggered by a webhook integration |
+| **System** | An internal system operation (e.g. printer commands, state changes) |
+| **Scheduler** | An action triggered by a scheduled job |
+
+### Detailed Actions
+
+In addition to the general action type, each log entry includes a **detailed action** that describes the specific operation — for example, `printJob.retry`, `printerSlot.assign`, `build.v2.create`, or `order.create`. You can filter by detailed action to quickly find a specific type of change.
 
 ## Navigating the Audit Log
 
-Open the audit log from **Settings → Audit Log** in the sidebar.
+Open the audit log from **Audit Logs** in the sidebar.
 
-<img src="/img/organization/audit-log-overview.png" width="800" alt="Audit log page overview" />
+<img src="/img/audit-logs/overview.png" width="800" alt="Audit log page overview" />
 
-### Searching
+The page shows a table of log entries sorted newest-first, with columns for **Time**, **Actor**, **Action**, **Entity Type**, and **Entity ID**. Entries are paginated with **Newer** and **Older** buttons at the bottom.
 
-The search bar filters across actor email, actor ID, action, entity type, entity ID, source, correlation ID, and reason fields. Type any term to instantly narrow the results.
+### Toolbar
+
+The toolbar at the top of the page provides:
+
+- **Filters** — Toggle the filter bar (shows a badge with the number of active filters)
+- **Clear all** — Reset all active filters (appears when filters are applied)
+- **Refresh** — Re-fetch the current page of logs
+- **⋮ (overflow menu)** — Access **Export JSON** to download the current filtered results, or **Settings** to enable/disable audit logging
+
+<img src="/img/audit-logs/overflow-menu.png" width="800" alt="Overflow menu showing Export JSON and Settings options" />
 
 ### Filtering
 
-Click the filter icon to expand the filter panel with these options:
+Click **Filters** to expand the filter bar with these options:
 
-- **Action** — filter by action type (create, update, delete, etc.)
-- **Entity** — filter by entity type (part, printer, order, etc.)
-- **Source** — filter by where the action originated (web, API, webhook, etc.)
-- **Actor** — filter by email address or actor ID
-- **Date Range** — set a from/to date window
+<img src="/img/audit-logs/filters.png" width="800" alt="Audit log filter bar" />
 
-<img src="/img/organization/audit-log-filters.png" width="800" alt="Audit log filter panel" />
+| Filter | Description |
+|--------|-------------|
+| **Action** | Filter by action type — select from create, update, delete, bulk_create, bulk_update, or bulk_delete |
+| **Detailed Action** | Search for a specific detailed action (e.g. `order.create`, `printerCommand.stop`). Type to search or pick from suggestions |
+| **Actor Type** | Choose which actor types to include — User, API, Webhook, System, and Scheduler. By default, all except System are selected |
+| **Actor** | Search by actor email address or actor ID |
+| **Entity Type** | Filter to a specific entity type (e.g. Printers, PrintJobs, Orders) |
+| **Entity ID** | Search for a specific entity by its ID — works for both single and bulk operations |
+| **From / To** | Set a date range to narrow results to a specific time window |
 
-Active filters show a count badge on the filter button. Click **Clear all filters** to reset.
+Text filters (Detailed Action, Actor, Entity Type, Entity ID) apply when you press **Enter** or click away from the field. Active filters show a count badge on the Filters button. Click **Clear all** to reset.
+
+<img src="/img/audit-logs/actor-type-dropdown.png" width="800" alt="Actor Type multi-select dropdown" />
+
+### System Events
+
+By default, the Actor Type filter excludes **System** events to reduce noise. Check **System** in the Actor Type dropdown to see system-level activity such as:
+
+- Printer commands (`printerCommand.stop`, `printerCommand.refresh-slot`)
+- Printer state changes (`printer.online`, `printer.offline`)
+- Other automated internal operations
+
+This is useful for debugging printer connectivity issues or understanding automated behavior in your account.
+
+<img src="/img/audit-logs/system-events.png" width="800" alt="Audit log showing system events like printer commands" />
 
 ### Correlation Grouping
 
-When a single request triggers multiple changes (for example, deleting an entity that cascades to related records), those entries share a **correlation ID** and are grouped together. The primary entry appears in the table row, and you can expand it to see all related entries.
+When a single request triggers multiple changes (for example, assigning a printer slot that also updates the related print job), those entries share a **correlation ID** and are grouped together. The primary entry appears in the table row with a count indicator (e.g. "(2)"), and you can expand it to see all related entries.
 
 ### Viewing Details
 
 Click any row to expand it and see the full context:
 
-- **Request context** — IP address, user agent, API key ID (if applicable), impersonation info, reason, and correlation ID
+- **Request context** — IP address, user agent, API key ID (masked), impersonation info, reason, and correlation ID
 - **Field changes** — a table showing exactly which fields changed, with old and new values side by side
+- **Correlated entries** — for grouped operations, each related entry with its own action, timestamp, and field changes
 - **Entity IDs** — for bulk operations, the full list of affected entity IDs
 - **Metadata** — additional key-value pairs attached to the operation
 
-<img src="/img/organization/audit-log-detail.png" width="800" alt="Expanded audit log entry showing field changes" />
+<img src="/img/audit-logs/detail-expanded.png" width="800" alt="Expanded audit log entry showing field changes and request context" />
 
-For update actions, each changed field shows the **old value** in red and the **new value** in green. Create actions show only new values, and delete actions show only the removed values. Long values are truncated with an option to expand.
+For update actions, each changed field shows the **old value** in red and the **new value** in green. Create actions show only new values, and delete actions show only the removed values. Long values are truncated — click to expand.
 
 :::tip
 Sensitive fields like passwords, tokens, and secrets are automatically redacted and display as `[REDACTED]` in the change log.
 :::
 
-## Color Coding
+## Exporting Logs
 
-Actions and sources are color-coded for quick scanning:
-
-| Color | Actions |
-|-------|---------|
-| Green | create, bulk_create |
-| Blue | update, bulk_update |
-| Red | delete, bulk_delete |
+To export the current view as a JSON file, click the **⋮** overflow menu and select **Export JSON**. The export includes all entries matching your current filters.
 
 ## Related Topics
 
