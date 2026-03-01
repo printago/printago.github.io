@@ -80,8 +80,6 @@ The toolbar at the top of the page provides:
 - **Refresh** — Re-fetch the current page of logs
 - **⋮ (overflow menu)** — Access **Export JSON** to download the current filtered results, or **Settings** to enable/disable audit logging
 
-<img src="/img/audit-logs/overflow-menu.png" width="800" alt="Overflow menu showing Export JSON and Settings options" />
-
 ### Filtering
 
 Click **Filters** to expand the filter bar with these options:
