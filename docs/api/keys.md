@@ -55,12 +55,16 @@ Click the edit icon on any key row to change its name, permissions, roles, IP al
 
 ### IP Allowlists
 
-When an IP allowlist is configured on a key, only requests originating from those addresses are accepted. All other requests are rejected with a 403 error.
+When an IP allowlist is configured on a key, only REST API requests originating from those addresses are accepted. All other requests are rejected with a 403 error.
 
 - Supports IPv4 and IPv6 addresses
 - Supports CIDR notation for ranges (e.g. `10.0.0.0/8`, `2001:db8::/32`)
 - A single IP address is treated as a `/32` (IPv4) or `/128` (IPv6) range
 - Leave the allowlist empty to allow requests from any IP
+
+:::note MQTT connections
+IP allowlists apply to REST API requests only. MQTT connections authenticated with an API key currently **do not** enforce IP restrictions.
+:::
 
 This is recommended for production integrations where the calling server has a known, static IP address.
 
