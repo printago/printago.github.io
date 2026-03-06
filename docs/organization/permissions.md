@@ -49,6 +49,7 @@ The table below shows which permissions each role includes. **Store Owner** is o
 | printer.edit | x | x | | |
 | printer.delete | x | | | |
 | printer.control | x | x | | |
+| printer.ready | x | x | | |
 | printer.config | x | | | |
 | printer.stats | x | x | x | x |
 | profile.view | x | x | x | |
@@ -154,6 +155,7 @@ Below is every permission in the system, organized by category, with a descripti
 | `printer.edit` | Rename printers, update tags, change material assignments, and modify general printer settings. |
 | `printer.delete` | Remove a printer from the organization and disconnect it. |
 | `printer.control` | Start, pause, resume, and cancel prints. Required to operate printers from the control panel. |
+| `printer.ready` | Mark printers as ready or not ready to receive jobs after a print completes. |
 | `printer.config` | Access and modify advanced printer configuration such as Bambu Lab LAN mode settings, network credentials, and provider-specific options. |
 | `printer.stats` | View real-time printer telemetry (temperatures, progress, speed) streamed via MQTT on the printer control panel. |
 
