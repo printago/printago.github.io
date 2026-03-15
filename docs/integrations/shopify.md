@@ -134,7 +134,17 @@ Click **Disconnect from Printago** in the danger zone at the bottom of Settings 
 
 ## SKU Variant Support
 
-The Shopify integration supports **SKU suffix mapping** for variant resolution:
+The Shopify integration supports two methods for resolving product variants, and both can work simultaneously:
+
+### Option-based matching
+
+When a Shopify order comes in, Printago fetches the variant's selected options (e.g., Color=Red, Size=Large) directly from Shopify and matches them to your [SKU Variant](/docs/commerce/sku-variants) definitions in Printago.
+
+This is the simplest setup — just make sure your Shopify option names and values exactly match your Printago variant names and values. See [SKU Variant name matching](/docs/commerce/sku-variants#name-matching) for details.
+
+### SKU suffix matching
+
+If your Shopify variants use compound SKU codes (e.g., `WIDGET-001-RED-LG`), Printago can also resolve variants by parsing the SKU suffix:
 
 - Each variant option/value combination in Printago must have a **SKU suffix** defined
 - Each Shopify variant must have a **SKU value** defined in Shopify
@@ -146,7 +156,14 @@ The Shopify integration supports **SKU suffix mapping** for variant resolution:
 - Size option: Small (suffix: `-SM`), Large (suffix: `-LG`)
 - Shopify variant SKU: `WIDGET-001-RED-LG` resolves to WIDGET-001 with Color=Red, Size=Large
 
-If either side is missing (no suffix in Printago or no variant SKU in Shopify), mapping will fail and the order item will show an error.
+### How resolution works
+
+When a Shopify order arrives, Printago resolves each line item's SKU in this order:
+
+1. **Exact SKU match** — Printago looks for a SKU with a code that exactly matches the Shopify variant's SKU (e.g., `WIDGET-001`). If found, the variant's selected options (Color, Size, etc.) are passed through for validation.
+2. **Suffix match** — If no exact match is found, Printago tries to parse the SKU as a base code plus suffixes (e.g., `WIDGET-001-RED-LG` → base SKU `WIDGET-001` with Color=Red, Size=Large). The parsed options replace any options from Shopify.
+
+If you use a single SKU code across all variants (e.g., every variant uses `WIDGET-001`), option-based matching handles everything automatically. If each variant has its own compound SKU code (e.g., `WIDGET-001-RED-LG`), suffix matching kicks in.
 
 ## Troubleshooting
 
