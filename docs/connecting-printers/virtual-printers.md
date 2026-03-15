@@ -27,7 +27,7 @@ Virtual printers run entirely in software. You don't need any physical printers 
 1. Go to the **Printers** page in Fuse
 2. Click the **Add** dropdown and select **Virtual Printer**
 
-<img src="../images/virtual-printer-add-menu.png" width="600" alt="Add dropdown showing Virtual Printer option" />
+<img src="/img/virtual-printer-add-menu.png" width="600" alt="Add dropdown showing Virtual Printer option" />
 
 3. Configure your virtual printer:
    - **Printer Name** - Give it a descriptive name
@@ -35,7 +35,7 @@ Virtual printers run entirely in software. You don't need any physical printers 
    - **Nozzle Diameter** - Choose 0.2mm, 0.4mm, 0.6mm, or 0.8mm
    - **AMS Units** - Optionally add AMS units with configurable slot counts
 
-<img src="../images/virtual-printer-create-form.png" width="600" alt="Virtual printer creation form" />
+<img src="/img/virtual-printer-create-form.png" width="600" alt="Virtual printer creation form" />
 
 4. Click **Add Printer**
 
@@ -43,7 +43,7 @@ Virtual printers run entirely in software. You don't need any physical printers 
 
 Once created, your virtual printer appears in the printers list just like a physical printer:
 
-<img src="../images/virtual-printer-in-list.png" width="800" alt="Virtual printer in the printers list" />
+<img src="/img/virtual-printer-in-list.png" width="800" alt="Virtual printer in the printers list" />
 
 - Shows real-time status, temperatures, and AMS/spool slots
 - The **virtual** badge distinguishes it from physical printers
@@ -53,7 +53,7 @@ Once created, your virtual printer appears in the printers list just like a phys
 
 Click the **Virtual Printer Controls** button on the printer card to access simulation controls:
 
-<img src="../images/virtual-printer-controls.png" width="800" alt="Virtual Printer Controls panel" />
+<img src="/img/virtual-printer-controls.png" width="800" alt="Virtual Printer Controls panel" />
 
 ### Connection Status
 
@@ -87,7 +87,7 @@ Return the printer to its initial idle state, clearing any active print or error
    - **Printing** - Progress percentage and layer count update
    - **Cooling** - Temperatures return to ambient after completion
 
-<img src="../images/virtual-printer-running.png" width="800" alt="Virtual printer during a print job" />
+<img src="/img/virtual-printer-running.png" width="800" alt="Virtual printer during a print job" />
 
 :::info Realistic Timing
 Virtual printers simulate realistic heating rates and print progress. Test prints complete in a few minutes rather than hours.
