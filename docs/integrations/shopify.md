@@ -10,12 +10,16 @@ Integrations require a Commercial subscription. [Learn more](/docs/settings/subs
 
 ## Key Concepts
 
-The **Shopify integration** connects your Shopify storefront directly to Printago's production system so that incoming customer orders automatically generate print jobs. When a customer purchases a product, the integration syncs the order to Printago, matches the Shopify SKU identifier to your Printago SKU definitions, and optionally queues the resulting jobs for production immediately. Printago can also write progress tags back to your Shopify orders so you can track production status from your store's admin panel. This integration closes the loop between e-commerce and manufacturing—instead of manually checking orders and creating print jobs, the entire flow from sale to production is automated. It's especially powerful when combined with SKU Variants, allowing a single Shopify product listing with multiple options (color, size, personalization) to produce the correct parts automatically.
+The **Shopify integration** connects your Shopify storefront directly to Printago's production system so that incoming customer orders automatically generate print jobs. When a customer purchases a product, the integration syncs the order to Printago, matches the Shopify SKU to your Printago SKU definitions, and optionally queues the resulting jobs for production immediately.
+
+The Printago Shopify app runs directly inside your Shopify Admin panel, giving you a **Synced Orders dashboard** to monitor order and job status, a **Settings page** to configure automation behavior, and a **Production Status block** on each order detail page to track print progress — all without leaving Shopify.
 
 ## What You Get
 
 - Real-time order sync from Shopify to Printago
-- Manual backfill sync for historical orders
+- Manual backfill sync for historical orders with date range and fulfillment status filters
+- Synced Orders dashboard with job progress tracking inside Shopify Admin
+- Per-order Production Status block showing print completion
 - Automatic queueing (optional) for new valid order items
 - Progress tags written back to Shopify (optional)
 - Auto-close behavior for synced orders (optional)
@@ -24,118 +28,155 @@ The **Shopify integration** connects your Shopify storefront directly to Printag
 
 - You have access to a Printago account with Commercial features enabled
 - You have admin access to your Shopify store
-- Your Shopify SKUs are mapped to SKUs in Printago (exact SKU match)
+- Your Shopify SKUs are mapped to SKUs in Printago (exact SKU match or suffix match)
 
 ## Connect Shopify to Printago
 
 ### 1. Install the Printago app in Shopify
 
-In your Shopify Admin, install the **Printago** app from the Shopify App Store.
+In your Shopify Admin, install the **Printago** app from the [Shopify App Store](https://apps.shopify.com/printago).
 
-### 2. Connect from Shopify app
+### 2. Connect from the Shopify app
 
-In your Shopify Admin, open the **Printago** app and click **Connect to Printago**.
+Open the **Printago** app in your Shopify Admin. You'll see a welcome screen with a **Connect to Printago** button. Click it to begin the connection flow.
 
-![Shopify app not connected](../commerce/integrations/images/shopify-app-not-connected.png)
+A popup window will open where you confirm the account binding in Printago:
 
-Then confirm the account binding in Printago:
+![Shopify connect flow confirmation in Printago](../commerce/integrations/images/shopify-connect-flow.png)
 
-![Shopify connect flow confirmation in Printago](../commerce/integrations/images/shopify-printago-connect-flow.png)
+Select your Printago organization and click **Connect**. Once confirmed, the app stores your credentials and redirects you to the Synced Orders dashboard.
 
 ### 3. Verify connected status
 
-After connecting, you should see a connected state in both places:
+After connecting, the app automatically redirects to the **Orders** page. You can verify your connection details in **Settings**, which shows your Printago store name, store ID, and connection date.
 
-- Shopify app:
+## Synced Orders Dashboard
 
-![Shopify app connected](../commerce/integrations/images/shopify-app-connected.png)
+The **Orders** page is the main interface of the Printago Shopify app. It shows all orders synced between Shopify and Printago along with their print job status.
 
-- Printago > Shopify > **Connection** tab:
+![Synced Orders dashboard in Shopify Admin](../commerce/integrations/images/shopify-app-store-orders.png)
 
-![Printago Shopify connection tab](../commerce/integrations/images/shopify-printago-connection-tab.png)
+### Dashboard Features
 
-## Sync Orders
+- **Order count and job summary** at the top, including total orders and print jobs
+- **Date range filter** — view orders synced in the last 7, 14, 30, 60, or 90 days
+- **Hide completed** checkbox to focus on in-progress work
+- **Sortable columns** — Order number, Status, Created date, Synced date
 
-### Manual sync (recommended first sync)
+### Order Status
 
-1. In Printago, go to **Shopify > Connection**.
-2. Click **Sync orders**.
-3. Choose:
-   - **How many days back** (for example, 30 days)
-   - Fulfillment states to include (Not fulfilled / Partially fulfilled / Fully fulfilled)
-4. Click **Sync orders**.
+Each order row shows a progress bar and job count (e.g., "1/1 jobs") indicating how many print jobs are complete. Orders with no matching SKUs show "No jobs".
 
-![Shopify sync modal in Printago](../commerce/integrations/images/shopify-printago-sync-modal.png)
+### Actions
 
-### Real-time sync
+- **Print** — queue an individual order's items to the print queue
+- **View** — open the order in Printago for full details
+- **Print All Orders** — bulk-queue all visible orders to print
+- **Manually Sync Orders** — open a sync modal to import historical orders
 
-After connection, new Shopify orders sync automatically via webhooks (no manual action needed).
+### Manual Sync
 
-## Integration Settings
+Click **Manually Sync Orders** to import existing orders. You can configure:
+- **How many days back** — 7, 14, 30, 60, or 90 days
+- **Fulfillment status filter** — Unfulfilled, Partially fulfilled, Fully fulfilled
 
-In Printago, open **Shopify > Settings**:
+This is useful for your first sync or to catch up on orders placed before the integration was connected.
 
-![Shopify integration settings in Printago](../commerce/integrations/images/shopify-printago-settings-tab.png)
+### Real-time Sync
 
-- **Automatically print orders**: Adds valid new order items to the print queue automatically.
-- **Write progress tags**: Writes progress tags back to Shopify (`printago:in-progress` and `printago:printed`).
-- **Auto-close orders synced from Shopify**:
-  - When fully fulfilled
-  - When any fulfillment occurs
-  - Never
+After connection, new Shopify orders sync automatically via webhooks with no manual action needed.
 
-## Shopify Order Progress UI
+## Order Production Status
 
-When you open an order in Shopify, the Printago app block shows a **Printago Production Status** card.
+When you open an individual order in Shopify, the Printago app block displays a **Printago Production Status** card showing print completion progress for that order.
 
-![Shopify order page with Printago production status block](../commerce/integrations/images/shopify-order-block-progress.png)
+![Order detail page with Printago Production Status block](../commerce/integrations/images/shopify-app-store-job-status.png)
 
-If you click the progress badge (for example, `0% complete`), it opens Printago Queue filtered to that specific Shopify order.
+The status block shows:
+- **Completion percentage** (e.g., "100% complete")
+- **Job count** (e.g., "1 completed")
 
-![Printago queue filtered to a specific order](../commerce/integrations/images/printago-queue-filtered-by-order.png)
+Clicking the progress badge opens Printago's Queue filtered to that specific order.
 
-You can also see the written progress tags directly in the Shopify orders list.
+## Settings
 
-![Shopify orders list showing Printago progress tags](../commerce/integrations/images/shopify-orders-tags-row.png)
+Open **Settings** from the Printago app navigation to configure integration behavior.
+
+![Shopify app settings page](../commerce/integrations/images/shopify-app-settings.png)
+
+### Automatically Print Orders
+
+When enabled, new orders from Shopify are automatically added to the print queue. Order items with SKU errors are skipped.
+
+### Write Progress Tags
+
+When enabled, Printago automatically applies order status tags in Shopify to reflect production progress (e.g., `printago:in-progress`, `printago:printed`). These tags are visible in your Shopify orders list.
+
+![Shopify orders list with Printago tags](../commerce/integrations/images/shopify-orders-tags-row.png)
+
+### Auto-close Orders
+
+Controls when Printago orders are automatically closed based on Shopify fulfillment status:
+- **Never** — do not auto-close
+- **When fully fulfilled** — close when all items in the Shopify order are fulfilled
+- **When partially fulfilled** — close when any items are fulfilled
+
+### Connection Info
+
+The Settings page also shows your connection details:
+- Printago store name
+- Store ID
+- Connected date
+
+### Disconnect
+
+Click **Disconnect from Printago** in the danger zone at the bottom of Settings to remove the integration. This stops future syncs but does not remove historical orders already imported into Printago.
 
 ## SKU Variant Support
 
-For **SKU Variants**, Shopify integration supports **SKU suffix mapping only**.
+The Shopify integration supports **SKU suffix mapping** for variant resolution:
 
 - Each variant option/value combination in Printago must have a **SKU suffix** defined
 - Each Shopify variant must have a **SKU value** defined in Shopify
-- If either side is missing (no suffix in Printago or no variant SKU in Shopify), mapping will fail
+- Printago automatically resolves compound SKUs by matching the base SKU and suffix options
 
-## Disconnect
+**Example:**
+- Printago SKU: `WIDGET-001`
+- Color option: Red (suffix: `-RED`), Blue (suffix: `-BLUE`)
+- Size option: Small (suffix: `-SM`), Large (suffix: `-LG`)
+- Shopify variant SKU: `WIDGET-001-RED-LG` resolves to WIDGET-001 with Color=Red, Size=Large
 
-You can disconnect at any time:
-
-- In Shopify app: click **Disconnect**
-- In Printago **Shopify > Connection**: click **Disconnect**
-
-Disconnecting stops future syncs but does not remove historical orders already imported.
+If either side is missing (no suffix in Printago or no variant SKU in Shopify), mapping will fail and the order item will show an error.
 
 ## Troubleshooting
 
 ### Store shows as not connected
 
-- Re-run connect flow from Shopify app (**Connect to Printago**)
+- Re-run the connect flow from the Shopify app
 - Confirm you are logged into the intended Printago account
-- Make sure you approved the correct Shopify store during binding
+- Check Settings to verify connection status
 
 ### Orders are not syncing
 
-- Check connection status in Printago **Shopify > Connection**
+- Check connection status in Settings
 - Run a manual sync with a wider date range
-- Verify orders match selected fulfillment states in the sync modal
+- Verify orders match the selected fulfillment states
 
-### Items are red / not printable
+### Items show errors or "No jobs"
 
 - SKU mismatch between Shopify and Printago
-- Create or correct SKU mappings in Printago, then re-sync or refresh orders
+- Create or correct SKU mappings in Printago, then re-sync
+- Check that variant SKU suffixes are defined on both sides
+
+### Print action fails
+
+- Open the error details shown in the app banner
+- Click "Fix in Printago" to resolve SKU or configuration issues
+- Re-try printing after fixing errors
 
 ## Need Help?
 
 - [Support](/docs/support)
 - [SKU Management](/docs/commerce/sku-management)
+- [SKU Variants](/docs/commerce/sku-variants)
 - [Orders](/docs/commerce/orders)
